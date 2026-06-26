@@ -11,6 +11,11 @@
 - **状态文件**：`memory/quiz-state.json`
 - **规则依据**：`📋 知识管理规则.md` 规则2/3/4
 
+## 🛣️ 路径统一（2026.6.27）
+- `/root/obsidian_vault` → 软链接指向 `/root/.openclaw/workspace/obsidian_vault/`
+- 两个路径现在指向同一位置，GitHub 跟踪工作区里的副本
+- 备份放在 `/tmp/obsidian_vault_backup_20260627/`
+
 ## 🔴 铁律（2026.6.25 严重违纪后重申）
 - **凡涉及代码/HTML页面/文件的任何修改，一律交给 Claude Code 处理，自己绝不手动改一行。**
 - **今天（6.25）因为自己动手改HTML，导致第1~9课内容全部丢失，浪费了用户一整天。**
