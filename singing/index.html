@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>🎤 唱歌评测</title>
+<style>
+/* ── Reset & Base ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  background:#0a0a0f;color:#d0d0dd;overflow-x:hidden
+}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#12121a}
+::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:#555}
+
+/* ── Layout ── */
+.app{max-width:960px;margin:0 auto;padding:16px;padding-bottom:100px}
+header{display:flex;align-items:center;justify-content:space-between;padding:12px 0 20px}
+header h1{font-size:22px;font-weight:700;letter-spacing:.5px;background:linear-gradient(135deg,#e879f9,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+header .sub{font-size:12px;color:#686880}
+
+/* ── Card ── */
+.card{background:#12121c;border:1px solid #1e1e2e;border-radius:12px;padding:20px;margin-bottom:16px;transition:border-color .2s}
+.card:hover{border-color:#2a2a3e}
+.card-title{font-size:14px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
+
+/* ── Recorder ── */
+.recorder-controls{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 24px;border:0;border-radius:8px;
+  font-size:15px;font-weight:600;cursor:pointer;
+  transition:all .2s;white-space:nowrap
+}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn-record{background:#ef4444;color:#fff}
+.btn-record:hover:not(:disabled){background:#dc2626;box-shadow:0 0 20px rgba(239,68,68,.3)}
+.btn-record.recording{animation:pulse-record 1s infinite}
+@keyframes pulse-record{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.5)}50%{box-shadow:0 0 0 12px rgba(239,68,68,0)}}
+.btn-success{background:#22c55e;color:#fff}
+.btn-success:hover:not(:disabled){background:#16a34a}
+.btn-secondary{background:#27273a;color:#c0c0d0}
+.btn-secondary:hover:not(:disabled){background:#33334a}
+.btn-danger{background:#b91c1c;color:#fff}
+.btn-danger:hover:not(:disabled){background:#991b1b}
+.btn-sm{padding:6px 14px;font-size:13px}
+
+.recorder-bar{flex:1;min-width:120px;height:6px;background:#1e1e2e;border-radius:3px;overflow:hidden}
+.recorder-bar-inner{height:100%;width:0;background:linear-gradient(90deg,#ef4444,#f97316);border-radius:3px;transition:width .1s}
+.recorder-time{font-size:14px;color:#888;font-variant-numeric:tabular-nums;min-width:60px;text-align:right}
+.recorder-status{font-size:13px;color:#686880;margin-top:8px}
+
+/* ── Name Editor ── */
+.name-editor-wrap{margin-top:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.name-editor-wrap label{font-size:13px;color:#888}
+.name-editor-wrap input{
+  flex:1;min-width:150px;padding:8px 12px;
+  background:#1a1a2a;border:1px solid #2a2a3e;border-radius:6px;
+  color:#e0e0f0;font-size:14px;outline:none;transition:border-color .2s
+}
+.name-editor-wrap input:focus{border-color:#60a5fa}
+.name-editor-wrap input::placeholder{color:#555}
+.name-editor-wrap .btn{padding:8px 16px;font-size:13px}
+
+/* ── Waveform Canvas ── */
+.waveform-wrap{position:relative;border-radius:8px;overflow:hidden;margin-bottom:0}
+.waveform-wrap canvas{display:block;width:100%;height:140px;background:#0d0d15}
+.waveform-placeholder{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  color:#333;font-size:13px;letter-spacing:1px;pointer-events:none
+}
+
+/* ── Results Dashboard ── */
+.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:16px}
+.score-card{
+  background:#16162a;border-radius:10px;padding:14px;text-align:center;
+  border:1px solid #1e1e32;transition:transform .15s
+}
+.score-card:hover{transform:translateY(-2px)}
+.score-card .score-value{font-size:32px;font-weight:800;line-height:1.2}
+.score-card .score-value.grade-a{color:#22c55e}
+.score-card .score-value.grade-b{color:#60a5fa}
+.score-card .score-value.grade-c{color:#facc15}
+.score-card .score-value.grade-d{color:#f97316}
+.score-card .score-value.grade-f{color:#ef4444}
+.score-card .score-label{font-size:12px;color:#686880;margin-top:4px}
+
+.detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}
+.detail-item{padding:10px;background:#0f0f1a;border-radius:8px;border:1px solid #1a1a2a}
+.detail-item .label{font-size:11px;color:#686880}
+.detail-item .value{font-size:16px;font-weight:700;color:#e0e0f0;margin-top:2px}
+.detail-item .value.warn{color:#facc15}
+.detail-item .value.bad{color:#ef4444}
+
+/* ── Segment Table ── */
+.segment-table{width:100%;border-collapse:collapse;font-size:13px}
+.segment-table th{text-align:left;padding:8px 10px;color:#686880;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid #1e1e2e}
+.segment-table td{padding:8px 10px;border-bottom:1px solid #16161e;vertical-align:middle}
+.segment-table tr:hover td{background:#14141e}
+.segment-table .seg-bar{height:6px;border-radius:3px;display:inline-block}
+.segment-table .seg-bar-wrap{width:60px;display:inline-block;background:#1a1a2a;border-radius:3px;vertical-align:middle;margin-right:8px}
+.seg-highlight{background:#1a1a30 !important}
+.tag{display:inline-block;font-size:10px;padding:2px 6px;border-radius:4px;font-weight:600}
+.tag-problem{background:rgba(239,68,68,.2);color:#ef4444}
+.tag-good{background:rgba(34,197,94,.15);color:#22c55e}
+.tag-ok{background:rgba(250,204,21,.15);color:#facc15}
+
+/* ── Analysis Error ── */
+.analysis-error{
+  background:#1a0a0a;border:1px solid #3a1111;border-radius:8px;padding:16px;margin:12px 0
+}
+.analysis-error .err-title{color:#ef4444;font-weight:700;font-size:15px;margin-bottom:6px}
+.analysis-error .err-desc{color:#999;font-size:13px;line-height:1.5}
+.analysis-error .err-detail{color:#666;font-size:11px;margin-top:6px;font-family:monospace}
+
+.problem-item{background:#1a0f0f;border:1px solid #2a1515;border-radius:8px;padding:12px;margin-bottom:8px}
+.problem-item .time{color:#ef4444;font-weight:600;font-size:13px}
+.problem-item .desc{color:#a0a0b0;font-size:13px;margin-top:4px}
+
+.suggestion-list{list-style:none}
+.suggestion-list li{padding:8px 0;border-bottom:1px solid #1a1a2a;font-size:14px;color:#b0b0c0;display:flex;align-items:start;gap:8px}
+.suggestion-list li:last-child{border:0}
+.suggestion-list li::before{content:"💡";flex-shrink:0}
+
+/* ── History ── */
+.history-list{display:grid;gap:8px}
+.history-item{
+  display:flex;align-items:center;gap:12px;padding:10px 12px;
+  background:#0f0f1a;border:1px solid #1a1a2a;border-radius:8px;
+  transition:all .15s
+}
+.history-item:hover{background:#14141e;border-color:#2a2a3a}
+.history-item .h-icon{font-size:20px;width:32px;text-align:center;flex-shrink:0}
+.history-item .h-info{flex:1;min-width:0;cursor:pointer}
+.history-item .h-name{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.history-item .h-name-input{display:none;width:100%;padding:2px 6px;background:#1a1a2a;border:1px solid #60a5fa;border-radius:4px;color:#e0e0f0;font-size:13px;outline:none}
+.history-item .h-name-editing .h-name{display:none}
+.history-item .h-name-editing .h-name-input{display:block}
+.history-item .h-meta{font-size:11px;color:#686880;margin-top:2px}
+.history-item .h-actions{display:flex;gap:4px;flex-shrink:0}
+.history-item .h-actions .btn{padding:4px 8px;font-size:11px}
+.history-item .h-score{font-size:14px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0}
+.history-empty{text-align:center;padding:30px 0;color:#444;font-size:14px}
+
+/* ── Toast ── */
+.toast{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(100px);
+  background:#1c1c30;border:1px solid #2a2a3e;border-radius:10px;
+  padding:12px 20px;font-size:14px;color:#d0d0dd;
+  opacity:0;transition:all .3s;pointer-events:none;z-index:999;
+  max-width:90%;text-align:center
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.toast-error{background:#2a0f0f;border-color:#3a1515;color:#ef4444}
+
+/* ── Section Toggle ── */
+.section-hidden{display:none !important}
+
+/* ── Mobile ── */
+@media(max-width:600px){
+  .app{padding:12px;padding-bottom:80px}
+  header h1{font-size:18px}
+  .card{padding:14px}
+  .results-grid{grid-template-columns:repeat(2,1fr)}
+  .detail-grid{grid-template-columns:repeat(2,1fr)}
+  .score-card .score-value{font-size:26px}
+  .recorder-controls{gap:10px}
+  .btn{padding:8px 18px;font-size:14px}
+  .name-editor-wrap input{min-width:120px;font-size:13px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- Header -->
+  <header>
+    <div>
+      <h1>🎤 唱歌评测</h1>
+      <div class="sub">浏览器端实时音准分析</div>
+    </div>
+  </header>
+
+  <!-- Recorder Card -->
+  <div class="card" id="recorder-card">
+    <div class="card-title">🎙 录音</div>
+    <div class="recorder-controls">
+      <button class="btn btn-record" id="btnRecord" onclick="toggleRecord()">🔴 开始录音</button>
+      <button class="btn btn-success" id="btnStop" onclick="stopRecord()" disabled>⏹ 停止</button>
+      <div class="recorder-bar"><div class="recorder-bar-inner" id="recBar"></div></div>
+      <span class="recorder-time" id="recTime">00:00</span>
+    </div>
+    <div class="recorder-status" id="recStatus">点击「开始录音」并开始唱歌</div>
+    <!-- Name editor (shown after recording) -->
+    <div class="name-editor-wrap section-hidden" id="nameEditorWrap">
+      <label>📝 录音名称：</label>
+      <input type="text" id="nameInput" placeholder="输入自定义名称..." maxlength="50">
+      <button class="btn btn-secondary btn-sm" onclick="confirmName()">✓ 确认</button>
+      <button class="btn btn-secondary btn-sm" onclick="skipName()">跳过</button>
+    </div>
+  </div>
+
+  <!-- Waveform -->
+  <div class="card" style="padding-bottom:0">
+    <div class="waveform-wrap">
+      <canvas id="waveform"></canvas>
+      <div class="waveform-placeholder" id="wavePlaceholder">🎵 等待录音...</div>
+    </div>
+  </div>
+
+  <!-- Results Section -->
+  <div id="resultsSection" class="section-hidden">
+
+    <!-- Overall Scores -->
+    <div class="card">
+      <div class="card-title">📊 综合评分</div>
+      <div class="results-grid" id="scoresGrid"></div>
+    </div>
+
+    <!-- Detail Analysis -->
+    <div class="card">
+      <div class="card-title">📋 详细数据</div>
+      <div class="detail-grid" id="detailGrid"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+        <button class="btn btn-secondary btn-sm" onclick="playbackAnalysis()">▶ 回听</button>
+        <button class="btn btn-secondary btn-sm" onclick="downloadRecording()">⬇ 下载录音</button>
+      </div>
+    </div>
+
+    <!-- Segment Table -->
+    <div class="card" id="segmentCard">
+      <div class="card-title">📈 逐段分析</div>
+      <div style="overflow-x:auto">
+        <table class="segment-table" id="segmentTable">
+          <thead><tr><th>段落</th><th>时间</th><th>音准</th><th>稳定</th><th>气息</th><th>总分</th><th>标记</th></tr></thead>
+          <tbody id="segmentBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Problem Segments -->
+    <div class="card" id="problemCard">
+      <div class="card-title">⚠️ 问题段提醒</div>
+      <div id="problemList"></div>
+    </div>
+
+    <!-- Suggestions -->
+    <div class="card">
+      <div class="card-title">💡 练习建议</div>
+      <ul class="suggestion-list" id="suggestionList"></ul>
+    </div>
+
+    <!-- Analysis error display -->
+    <div id="analysisErrorWrap" class="section-hidden">
+      <div class="analysis-error">
+        <div class="err-title">❌ 分析失败</div>
+        <div class="err-desc" id="analysisErrorDesc">录音分析过程中出现错误。</div>
+        <div class="err-detail" id="analysisErrorDetail"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- History -->
+  <div class="card">
+    <div class="card-title" style="display:flex;justify-content:space-between;align-items:center">
+      <span>📜 历史记录</span>
+      <div style="display:flex;gap:6px">
+        <button class="btn btn-secondary btn-sm" onclick="exportRecordings()">📤 导出</button>
+        <button class="btn btn-danger btn-sm" onclick="clearHistory()">🗑 清空</button>
+      </div>
+    </div>
+    <div class="history-list" id="historyList">
+      <div class="history-empty">暂无录音记录</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════════════
+// State
+// ═══════════════════════════════════════════════════
+let mediaRecorder = null;
+let audioChunks = [];
+let isRecording = false;
+let stream = null;
+let recAnalyser = null;
+let recAudioCtx = null;
+let animationId = null;
+let recordingStartTime = 0;
+let recTimerInterval = null;
+let currentBlob = null;
+let currentAudioUrl = null;
+let pendingRecordData = null; // {blob, timestamp, duration} before name is confirmed
+const SAVE_ENDPOINT = '/api/save-recording';
+const SAVE_DIR = '/root/.openclaw/workspace/singing/recordings/';
+let recordings = loadHistory();
+
+// ─── DOM refs ───
+const $ = id => document.getElementById(id);
+const canvas = $('waveform');
+const cctx = canvas.getContext('2d');
+
+// ─── Init canvas size ───
+function resizeCanvas(){
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width * (window.devicePixelRatio||1);
+  canvas.height = 140 * (window.devicePixelRatio||1);
+  cctx.scale(window.devicePixelRatio||1, window.devicePixelRatio||1);
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+// ═══════════════════════════════════════════════════
+// Toast
+// ═══════════════════════════════════════════════════
+let toastTimer = null;
+function showToast(msg, isError){
+  const el = $('toast');
+  el.textContent = msg;
+  el.classList.toggle('toast-error', !!isError);
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>el.classList.remove('show'), isError ? 5000 : 3000);
+}
+
+// ═══════════════════════════════════════════════════
+// Recording
+// ═══════════════════════════════════════════════════
+async function toggleRecord(){
+  if(isRecording){ stopRecord(); return; }
+  try {
+    // Clean up any previous AudioContext
+    if(recAudioCtx && recAudioCtx.state !== 'closed'){
+      await recAudioCtx.close();
+    }
+    recAudioCtx = null;
+
+    stream = await navigator.mediaDevices.getUserMedia({
+      audio: {
+        echoCancellation: true,
+        noiseSuppression: true,
+        autoGainControl: true
+      }
+    });
+    recAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    // Resume if suspended (autoplay policy)
+    if(recAudioCtx.state === 'suspended') await recAudioCtx.resume();
+    const source = recAudioCtx.createMediaStreamSource(stream);
+    recAnalyser = recAudioCtx.createAnalyser();
+    recAnalyser.fftSize = 2048;
+    source.connect(recAnalyser);
+
+    const mimeTypes = ['audio/webm;codecs=opus','audio/webm','audio/ogg;codecs=opus','audio/mp4'];
+    let mime = '';
+    for(const t of mimeTypes){
+      if(MediaRecorder.isTypeSupported(t)){ mime = t; break; }
+    }
+    mediaRecorder = new MediaRecorder(stream, mime ? {mimeType:mime} : {});
+    audioChunks = [];
+
+    mediaRecorder.ondataavailable = e => {
+      if(e.data.size > 0) audioChunks.push(e.data);
+    };
+    mediaRecorder.onstop = onRecordingComplete;
+    mediaRecorder.onerror = (e) => {
+      console.error('MediaRecorder error:', e);
+      showToast('❌ 录音发生错误', true);
+      cleanupRecording();
+    };
+
+    mediaRecorder.start(50);
+    isRecording = true;
+    recordingStartTime = Date.now();
+
+    $('btnRecord').textContent = '🔴 录音中';
+    $('btnRecord').classList.add('recording');
+    $('btnStop').disabled = false;
+    $('recStatus').textContent = '🎤 正在录音...';
+    $('wavePlaceholder').classList.add('section-hidden');
+    $('resultsSection').classList.add('section-hidden');
+    $('nameEditorWrap').classList.add('section-hidden');
+    $('analysisErrorWrap').classList.add('section-hidden');
+
+    startWaveform();
+    startRecTimer();
+    showToast('🎙 录音已开始');
+  } catch(e){
+    console.error('Mic access error:', e);
+    showToast('❌ 无法访问麦克风: ' + e.message, true);
+    $('recStatus').textContent = '❌ 麦克风访问失败：' + e.message;
+    cleanupRecording();
+  }
+}
+
+function stopRecord(){
+  if(!mediaRecorder || mediaRecorder.state === 'inactive') return;
+  mediaRecorder.stop();
+  stopWaveform();
+  clearInterval(recTimerInterval);
+  $('btnRecord').textContent = '🔴 开始录音';
+  $('btnRecord').classList.remove('recording');
+  $('btnStop').disabled = true;
+  $('recStatus').textContent = '⏳ 处理中...';
+  isRecording = false;
+}
+
+function cleanupRecording(){
+  if(stream){
+    stream.getTracks().forEach(t => {
+      try { t.stop(); } catch(e){}
+    });
+    stream = null;
+  }
+  isRecording = false;
+  $('btnRecord').textContent = '🔴 开始录音';
+  $('btnRecord').classList.remove('recording');
+  $('btnStop').disabled = true;
+  stopWaveform();
+  clearInterval(recTimerInterval);
+}
+
+function onRecordingComplete(){
+  // Stop all tracks
+  if(stream){
+    stream.getTracks().forEach(t => {
+      try { t.stop(); } catch(e){}
+    });
+    stream = null;
+  }
+
+  const blob = new Blob(audioChunks, {type: mediaRecorder.mimeType || 'audio/webm'});
+  if(blob.size === 0){
+    $('recStatus').textContent = '❌ 录音为空，请重试';
+    showToast('❌ 录音数据为空', true);
+    return;
+  }
+
+  currentBlob = blob;
+  if(currentAudioUrl) URL.revokeObjectURL(currentAudioUrl);
+  currentAudioUrl = URL.createObjectURL(blob);
+
+  const timestamp = Date.now();
+  const durationSec = Math.floor((timestamp - recordingStartTime) / 1000);
+
+  // Show name editor before saving
+  const defaultName = '录音 #' + new Date(timestamp).toLocaleString('zh-CN',{hour12:false, hour:'2-digit', minute:'2-digit', second:'2-digit'});
+  $('nameInput').value = defaultName;
+  $('nameEditorWrap').classList.remove('section-hidden');
+  $('nameInput').focus();
+  $('nameInput').select();
+
+  $('recStatus').textContent = `⏹ 录音完成 (${formatTime(durationSec)}) — 输入名称后确认`;
+
+  pendingRecordData = { blob, timestamp, durationSec };
+
+  // Start analysis immediately while waiting for name
+  analyzeAudio(blob, timestamp, durationSec);
+}
+
+function confirmName(){
+  const name = $('nameInput').value.trim();
+  if(!pendingRecordData) return;
+  finalizeRecording(name || pendingRecordData.timestamp);
+}
+
+function skipName(){
+  if(!pendingRecordData) return;
+  finalizeRecording(pendingRecordData.timestamp);
+}
+
+function finalizeRecording(timestampOrName){
+  if(!pendingRecordData) return;
+  const { blob, timestamp, durationSec } = pendingRecordData;
+  const name = typeof timestampOrName === 'string' && timestampOrName.trim()
+    ? timestampOrName.trim()
+    : '录音 #' + new Date(timestamp).toLocaleString('zh-CN',{hour12:false, hour:'2-digit', minute:'2-digit', second:'2-digit'});
+
+  $('nameEditorWrap').classList.add('section-hidden');
+  pendingRecordData = null;
+
+  // Save recording metadata
+  const dateStr = new Date(timestamp).toLocaleString('zh-CN',{hour12:false});
+  const id = 'rec_' + timestamp;
+  const existingIdx = recordings.findIndex(r => r.id === id);
+  const recEntry = {id, timestamp, dateStr, name, duration: durationSec, score: null};
+
+  if(existingIdx >= 0){
+    recordings[existingIdx] = {...recordings[existingIdx], name};
+  } else {
+    recordings.unshift(recEntry);
+    if(recordings.length > 50) recordings.pop();
+  }
+
+  saveHistory();
+  updateHistoryUI();
+
+  // Try to save audio file
+  saveAudioFile(blob, id, timestamp);
+
+  showToast('✅ 录音已保存：' + name);
+}
+
+// ═══════════════════════════════════════════════════
+// File Save to Server
+// ═══════════════════════════════════════════════════
+async function saveAudioFile(blob, id, timestamp){
+  // 1) Try server endpoint
+  try {
+    const formData = new FormData();
+    formData.append('audio', blob, id + '.webm');
+    formData.append('id', id);
+    formData.append('timestamp', String(timestamp));
+
+    const resp = await fetch(SAVE_ENDPOINT, { method: 'POST', body: formData, timeout: 10000 });
+    if(resp.ok){
+      console.log('Audio saved to server:', id);
+      return;
+    }
+    console.warn('Server save failed:', resp.status);
+  } catch(e){
+    console.warn('Server save unavailable:', e.message);
+  }
+
+  // 2) Fallback: save to localStorage as data URL
+  try {
+    const reader = new FileReader();
+    reader.onload = e => {
+      try {
+        localStorage.setItem('audio_' + id, e.target.result);
+        console.log('Audio saved to localStorage');
+      } catch(qe){
+        console.warn('localStorage audio quota exceeded');
+      }
+    };
+    reader.readAsDataURL(blob);
+  } catch(e){
+    console.warn('Could not save audio data:', e.message);
+  }
+}
+
+async function getAudioDataUrl(id){
+  // Try server endpoint first (fetch saved file)
+  try {
+    const resp = await fetch(`${SAVE_ENDPOINT}/${id}`);
+    if(resp.ok){
+      const blob = await resp.blob();
+      return URL.createObjectURL(blob);
+    }
+  } catch(e){ /* fall through */ }
+
+  // Fallback to localStorage
+  try {
+    const data = localStorage.getItem('audio_' + id);
+    if(data) return data;
+  } catch(e){}
+
+  return null;
+}
+
+// ═══════════════════════════════════════════════════
+// Timer
+// ═══════════════════════════════════════════════════
+function startRecTimer(){
+  recTimerInterval = setInterval(()=>{
+    const sec = Math.floor((Date.now() - recordingStartTime)/1000);
+    $('recTime').textContent = formatTime(sec);
+  },200);
+}
+function formatTime(s){
+  const m = String(Math.floor(s/60)).padStart(2,'0');
+  const sec = String(s%60).padStart(2,'0');
+  return m+':'+sec;
+}
+
+// ═══════════════════════════════════════════════════
+// Waveform
+// ═══════════════════════════════════════════════════
+function startWaveform(){
+  if(!recAnalyser) return;
+  const bufferLength = recAnalyser.frequencyBinCount;
+  const dataArray = new Uint8Array(bufferLength);
+
+  function draw(){
+    animationId = requestAnimationFrame(draw);
+    recAnalyser.getByteTimeDomainData(dataArray);
+
+    // Volume bar
+    let sum = 0;
+    for(let i=0;i<bufferLength;i++){
+      const v = (dataArray[i]-128)/128;
+      sum += Math.abs(v);
+    }
+    const vol = Math.min(sum / bufferLength * 2.5, 1);
+    $('recBar').style.width = (vol*100)+'%';
+
+    // Waveform
+    const w = canvas.width / (window.devicePixelRatio||1);
+    const h = 140;
+    cctx.clearRect(0,0,w,h);
+    cctx.lineWidth = 2;
+    cctx.strokeStyle = '#60a5fa';
+    cctx.beginPath();
+    const sliceW = w / bufferLength;
+    let x = 0;
+    for(let i=0;i<bufferLength;i++){
+      const v = dataArray[i]/128;
+      const y = v * h/2;
+      i===0 ? cctx.moveTo(x,y) : cctx.lineTo(x,y);
+      x += sliceW;
+    }
+    cctx.stroke();
+
+    // Glow
+    cctx.shadowBlur = 8;
+    cctx.shadowColor = 'rgba(96,165,250,.3)';
+    cctx.stroke();
+    cctx.shadowBlur = 0;
+  }
+  draw();
+}
+
+function stopWaveform(){
+  if(animationId) { cancelAnimationFrame(animationId); animationId=null; }
+  $('recBar').style.width = '0';
+  cctx.clearRect(0,0,canvas.width,canvas.height);
+}
+
+// ═══════════════════════════════════════════════════
+// Server Audio Analysis (upload to server for librosa)
+// ═══════════════════════════════════════════════════
+const ANALYZE_ENDPOINT = '/api/analyze';
+
+async function serverAnalyzeAudio(blob, timestamp, durationSec) {
+  try {
+    console.log('[Analyze] Uploading to server for analysis...');
+
+    const formData = new FormData();
+    formData.append('audio', blob, 'rec_' + timestamp + '.webm');
+    formData.append('id', 'rec_' + timestamp);
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000);
+
+    const resp = await fetch(ANALYZE_ENDPOINT, {
+      method: 'POST',
+      body: formData,
+      signal: controller.signal
+    });
+    clearTimeout(timeoutId);
+
+    const result = await resp.json();
+
+    if (!resp.ok || result.error) {
+      console.warn('[Analyze] Server analysis failed:', result.error || 'HTTP ' + resp.status);
+      return null;
+    }
+
+    console.log('[Analyze] Server analysis complete, score:', result.overallScore);
+    return result;
+  } catch (e) {
+    console.warn('[Analyze] Server analysis unavailable:', e.message);
+    return null; // Fall back to frontend analysis
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// Audio Analysis (try server first, fall back to frontend)
+// ═══════════════════════════════════════════════════
+async function analyzeAudio(blob, timestamp, durationSec){
+  try {
+    // Try server-side analysis first (librosa-based, more accurate)
+    const serverResult = await serverAnalyzeAudio(blob, timestamp, durationSec);
+
+    if (serverResult) {
+      // Update history with score
+      const id = 'rec_' + timestamp;
+      const rec = recordings.find(r => r.id === id);
+      if(rec){
+        rec.score = serverResult.overallScore;
+        saveHistory();
+        updateHistoryUI();
+      }
+
+      // Render server results
+      renderResults(serverResult, durationSec, timestamp);
+
+      $('recStatus').textContent = '✅ 服务端分析完成 — ' + formatTime(Math.round(durationSec));
+      $('resultsSection').classList.remove('section-hidden');
+      $('analysisErrorWrap').classList.add('section-hidden');
+
+      showToast('🎯 服务端精准分析完成');
+      return;
+    }
+
+    // Fall back to frontend analysis (Web Audio API)
+    console.log('[Analyze] Falling back to frontend analysis...');
+
+    const arrayBuffer = await blob.arrayBuffer();
+    if(arrayBuffer.byteLength === 0){
+      throw new Error('录音数据为空（0 bytes）');
+    }
+
+    // Use OfflineAudioContext for decoding to avoid interference with live audio
+    let audioBuf;
+    try {
+      audioBuf = await new Promise((resolve, reject) => {
+        const ac = new (window.OfflineAudioContext || window.webkitOfflineAudioContext)(1, 1, 44100);
+        ac.decodeAudioData(arrayBuffer.slice(0), resolve, reject);
+      });
+    } catch(decodeErr) {
+      // Fallback: try audioCtx.decodeAudioData
+      console.warn('OfflineAudioContext decode failed, trying primary AudioContext:', decodeErr.message);
+      if(recAudioCtx && recAudioCtx.state !== 'closed'){
+        audioBuf = await new Promise((resolve, reject) => {
+          recAudioCtx.decodeAudioData(arrayBuffer.slice(0), resolve, reject);
+        });
+      } else {
+        // Create temporary AudioContext just for decoding
+        const tempCtx = new (window.AudioContext || window.webkitAudioContext)();
+        try {
+          audioBuf = await new Promise((resolve, reject) => {
+            tempCtx.decodeAudioData(arrayBuffer.slice(0), resolve, reject);
+          });
+        } finally {
+          await tempCtx.close();
+        }
+      }
+    }
+
+    const channelData = audioBuf.getChannelData(0);
+    const sampleRate = audioBuf.sampleRate;
+    const duration = audioBuf.duration;
+
+    if(duration < 0.5){
+      $('recStatus').textContent = '❌ 录音太短（' + duration.toFixed(1) + '秒），请重新录制';
+      showToast('❌ 录音时间过短', true);
+      showAnalysisError('录音太短', `录音时长仅 ${duration.toFixed(1)} 秒，无法分析。建议录制至少 1 秒以上。` + '\n编码: ' + blob.type);
+      return;
+    }
+
+    // Run analysis
+    const analysis = runFullAnalysis(channelData, sampleRate, duration);
+
+    // Update history with score
+    const id = 'rec_' + timestamp;
+    const rec = recordings.find(r => r.id === id);
+    if(rec){
+      rec.score = analysis.overallScore;
+      saveHistory();
+      updateHistoryUI();
+    }
+
+    // Render
+    renderResults(analysis, duration, timestamp);
+
+    $('recStatus').textContent = '✅ 分析完成 — ' + formatTime(Math.round(duration));
+    $('resultsSection').classList.remove('section-hidden');
+    $('analysisErrorWrap').classList.add('section-hidden');
+
+  } catch(e){
+    console.error('Analysis error:', e);
+    $('recStatus').textContent = '❌ 分析失败';
+    showToast('❌ 分析出错：' + e.message, true);
+    showAnalysisError('分析过程出错', e.message, e.stack);
+  }
+}
+
+function showAnalysisError(title, desc, detail){
+  $('analysisErrorDesc').textContent = title + '：' + desc;
+  $('analysisErrorDetail').textContent = detail || '';
+  $('analysisErrorWrap').classList.remove('section-hidden');
+  $('scoresGrid').innerHTML = '';
+  $('detailGrid').innerHTML = '';
+  $('segmentBody').innerHTML = '';
+  $('problemList').innerHTML = '';
+  $('suggestionList').innerHTML = '';
+}
+
+// ═══════════════════════════════════════════════════
+// Pitch Detection (Auto-correlation)
+// ═══════════════════════════════════════════════════
+function detectPitch(buffer, sampleRate){
+  const len = buffer.length;
+  const minPeriod = Math.floor(sampleRate/800);  // ~800Hz max
+  const maxPeriod = Math.floor(sampleRate/65);   // ~65Hz min
+
+  let bestPeriod = 0;
+  let bestCorr = -Infinity;
+
+  // Normalize / check RMS
+  let sumSq = 0;
+  for(let i=0;i<len;i++) sumSq += buffer[i]*buffer[i];
+  const rms = Math.sqrt(sumSq/len);
+  if(rms < 0.005) return {freq: 0, confidence: 0, rms}; // silence
+
+  // Auto-correlation (search from high freq to low freq for better accuracy)
+  for(let period = minPeriod; period <= maxPeriod; period++){
+    let corr = 0;
+    const end = len - period;
+    for(let i=0;i<end;i++){
+      corr += buffer[i] * buffer[i+period];
+    }
+    // Normalize by energy in the overlapping window
+    corr /= (end * rms * rms);
+    if(corr > bestCorr){ bestCorr = corr; bestPeriod = period; }
+  }
+
+  if(bestPeriod === 0 || bestCorr < 0.2) return {freq: 0, confidence: 0, rms};
+
+  // Parabolic interpolation for sub-sample accuracy
+  const p = bestPeriod;
+  let prev = 0, next = 0;
+  if(p > minPeriod && p < maxPeriod){
+    // Compute correlation at p-1, p, p+1
+    let cPrev = 0, cCurr = bestCorr, cNext = 0;
+    if(p > minPeriod){
+      const end = len - (p-1);
+      for(let i=0;i<end;i++) cPrev += buffer[i] * buffer[i+(p-1)];
+      cPrev /= (end * rms * rms);
+    }
+    if(p < maxPeriod){
+      const end = len - (p+1);
+      for(let i=0;i<end;i++) cNext += buffer[i] * buffer[i+(p+1)];
+      cNext /= (end * rms * rms);
+    }
+    // Parabolic interpolation: offset = (cPrev - cNext) / (2*(cPrev - 2*cCurr + cNext))
+    const denom = 2 * (cPrev - 2*cCurr + cNext);
+    if(Math.abs(denom) > 0.001){
+      const offset = (cPrev - cNext) / denom;
+      bestPeriod = p + offset;
+    }
+  }
+
+  const freq = sampleRate / bestPeriod;
+  return {freq: Math.max(65, Math.min(800, freq)), confidence: bestCorr, rms};
+}
+
+// ─── Note helpers ───
+const NOTE_NAMES = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+
+function freqToNote(freq){
+  if(freq <= 0) return '—';
+  const semitone = 12 * Math.log2(freq/440) + 69;
+  const midi = Math.round(semitone);
+  return NOTE_NAMES[midi % 12] + (Math.floor(midi/12)-1);
+}
+
+function freqToCents(freq){
+  if(freq <= 0) return 0;
+  return 1200 * Math.log2(freq/440) + 6900;
+}
+
+function centsBetween(f1, f2){
+  if(f1 <= 0 || f2 <= 0) return Infinity;
+  return Math.abs(1200 * Math.log2(f1/f2));
+}
+
+// ═══════════════════════════════════════════════════
+// Full Analysis Pipeline (REFACTORED)
+// ═══════════════════════════════════════════════════
+function runFullAnalysis(channelData, sampleRate, duration){
+  const hopSize = Math.floor(sampleRate * 0.03);    // 30ms hop
+  const windowSize = Math.floor(sampleRate * 0.06); // 60ms window
+  const voicedThreshold = 0.004; // min RMS for voice
+  const numFrames = Math.max(1, Math.floor((channelData.length - windowSize) / hopSize));
+
+  // ── Step 1: Frame-by-frame pitch detection ──
+  const frames = [];
+  for(let i=0; i<numFrames; i++){
+    const start = i * hopSize;
+    const frame = channelData.slice(start, start + windowSize);
+    const {freq, confidence, rms} = detectPitch(frame, sampleRate);
+    const startTime = start / sampleRate;
+    frames.push({freq, confidence, rms, startTime});
+  }
+
+  // ── Step 2: Classify voiced/unvoiced ──
+  const voicedFrames = frames.filter(f => f.freq > 0 && f.rms > voicedThreshold && f.confidence > 0.2);
+  const unvoicedFrames = frames.filter(f => f.freq === 0 || f.rms <= voicedThreshold || f.confidence <= 0.2);
+  const silenceFrames = frames.filter(f => f.rms <= voicedThreshold);
+
+  const voicedCount = voicedFrames.length;
+  const totalFrames = frames.length;
+  const voicedRatio = totalFrames > 0 ? voicedCount / totalFrames : 0;
+  const silenceRatio = totalFrames > 0 ? silenceFrames.length / totalFrames : 0;
+
+  // ── Step 3: Breath analysis ──
+  let breathCount = 0;
+  let inSilence = false;
+  let silenceDuration = 0;
+  for(let i=0; i<frames.length; i++){
+    const isSilent = frames[i].rms <= voicedThreshold;
+    if(isSilent && !inSilence){ inSilence = true; silenceDuration = 0; }
+    if(isSilent && inSilence) silenceDuration += hopSize/sampleRate;
+    if(!isSilent && inSilence){
+      if(silenceDuration > 0.15) breathCount++;
+      inSilence = false;
+    }
+  }
+
+  // ── Step 4: Compute overall stats from voiced frames ──
+  let avgFreq = 0, minFreq = 0, maxFreq = 0;
+  let pitchStabilityCents = 0;
+  let avgConfidence = 0;
+
+  if(voicedFrames.length > 0){
+    const freqs = voicedFrames.map(f => f.freq);
+    avgFreq = freqs.reduce((a,b)=>a+b,0) / freqs.length;
+    minFreq = Math.min(...freqs);
+    maxFreq = Math.max(...freqs);
+    avgConfidence = voicedFrames.reduce((a,b)=>a+b.confidence,0) / voicedFrames.length;
+
+    // Pitch stability: weighted standard deviation of cents
+    const cents = freqs.map(f => freqToCents(f));
+    const meanCents = cents.reduce((a,b)=>a+b,0)/cents.length;
+    const variance = cents.reduce((s,c)=>s+(c-meanCents)**2,0)/cents.length;
+    pitchStabilityCents = Math.sqrt(variance);
+  }
+
+  // ── Step 5: Detect note transitions (melodic movement) ──
+  const transitions = [];
+  let prevNote = '';
+  let noteHoldFrames = [];
+  for(const f of voicedFrames){
+    const note = freqToNote(f.freq);
+    if(note !== prevNote && prevNote !== ''){
+      if(noteHoldFrames.length >= 3){ // at least 3 frames for a valid note
+        transitions.push({from: prevNote, to: note, fromFreq: noteHoldFrames[0].freq, toFreq: f.freq});
+      }
+      noteHoldFrames = [];
+    }
+    noteHoldFrames.push(f);
+    prevNote = note;
+  }
+  const transitionCount = transitions.length;
+
+  // ── Step 6: Segment scoring (5-second segments) ──
+  const segDuration = 5;
+  const numSegs = Math.max(1, Math.ceil(duration/segDuration));
+  const segments = [];
+
+  for(let s=0; s<numSegs; s++){
+    const segStart = s * segDuration;
+    const segEnd = Math.min((s+1) * segDuration, duration);
+    const segFrames = frames.filter(f => f.startTime >= segStart && f.startTime < segEnd);
+    const segVoiced = segFrames.filter(f => f.freq > 0 && f.rms > voicedThreshold && f.confidence > 0.2);
+
+    // Pitch Score = stability within segment (low variance = high score)
+    // Also reward having pitch data (good vocalization)
+    let pitchScore = 0;
+    if(segVoiced.length >= 3){
+      const cents = segVoiced.map(f => freqToCents(f.freq));
+      const meanCents = cents.reduce((a,b)=>a+b,0)/cents.length;
+      const variance = Math.sqrt(cents.reduce((s,c)=>s+(c-meanCents)**2,0)/cents.length);
+      // Lower standard deviation = more stable pitch
+      // Map: 0¢ → 100, 100¢ → 50, 200¢ → 0
+      pitchScore = Math.max(0, Math.min(100, 100 - variance * 0.5));
+    } else if(segVoiced.length > 0){
+      pitchScore = 20 + segVoiced.length * 5; // some points for having data
+    }
+
+    // Stability score: how consistent the note holds
+    let stabScore = 0;
+    if(segVoiced.length >= 5){
+      const cents = segVoiced.map(f => freqToCents(f.freq));
+      // Use rolling variance (3-frame window) to measure jitter
+      let jitterSum = 0;
+      let jitterCount = 0;
+      for(let j=2; j<cents.length; j++){
+        const d1 = Math.abs(cents[j] - cents[j-1]);
+        const d2 = Math.abs(cents[j-1] - cents[j-2]);
+        jitterSum += (d1 + d2) / 2;
+        jitterCount++;
+      }
+      const avgJitter = jitterCount > 0 ? jitterSum / jitterCount : 0;
+      // <10¢ jitter = excellent, 30¢ = good, 60¢ = ok
+      stabScore = Math.max(0, Math.min(100, 100 - avgJitter * 1.5));
+    } else if(segVoiced.length > 0){
+      stabScore = 30;
+    }
+
+    // Breath score: vocalization percentage
+    const segSilenceRatio = segFrames.length > 0
+      ? segFrames.filter(f => f.rms <= voicedThreshold).length / segFrames.length
+      : 0;
+    const singRatio = segFrames.length > 0
+      ? segVoiced.length / segFrames.length
+      : 0;
+    // Reward singing ratio (more singing = better), penalize silence
+    const breathScore = Math.round(
+      Math.max(0, Math.min(100,
+        singRatio * 100 * 0.7 + (1 - segSilenceRatio) * 30
+      ))
+    );
+
+    // Overall segment score
+    const overall = Math.round(pitchScore * 0.35 + stabScore * 0.35 + breathScore * 0.30);
+
+    let tag = 'good';
+    if(overall < 40) tag = 'problem';
+    else if(overall < 65) tag = 'ok';
+
+    segments.push({
+      index: s+1, start: segStart, end: segEnd,
+      pitchScore: Math.round(pitchScore),
+      stabScore: Math.round(stabScore),
+      breathScore: Math.round(breathScore),
+      overall, tag,
+      voicedCount: segVoiced.length
+    });
+  }
+
+  // ── Step 7: Overall scores ──
+  const avgPitchScore = segments.length > 0 ? segments.reduce((s,seg)=>s+seg.pitchScore,0)/segments.length : 0;
+  const avgStabScore = segments.length > 0 ? segments.reduce((s,seg)=>s+seg.stabScore,0)/segments.length : 0;
+  const avgBreathScore = segments.length > 0 ? segments.reduce((s,seg)=>s+seg.breathScore,0)/segments.length : 0;
+
+  // Breath overall: based on silence ratio and breath count
+  const breathScoreOverall = Math.round(
+    Math.max(0, Math.min(100,
+      (1 - silenceRatio) * 60 + Math.max(0, 40 - breathCount * 2)
+    ))
+  );
+
+  const overallScore = Math.round(avgPitchScore * 0.30 + avgStabScore * 0.30 + breathScoreOverall * 0.40);
+
+  // ── Step 8: Dynamic range / expression ──
+  let dynamicRange = 0;
+  if(voicedFrames.length > 1){
+    const rmsValues = voicedFrames.map(f => f.rms);
+    const maxRms = Math.max(...rmsValues);
+    const minRms = Math.min(...rmsValues);
+    // Ratio in dB: 20*log10(max/min)
+    dynamicRange = minRms > 0 ? 20 * Math.log10(maxRms / minRms) : 0;
+  }
+
+  return {
+    avgFreq, minFreq, maxFreq,
+    avgNote: freqToNote(avgFreq),
+    pitchStabilityCents,
+    breathCount,
+    silenceRatio,
+    segments,
+    avgPitchScore: Math.round(avgPitchScore),
+    avgStabScore: Math.round(avgStabScore),
+    breathScore: breathScoreOverall,
+    overallScore,
+    voicedRatio,
+    duration,
+    transitionCount,
+    avgConfidence,
+    dynamicRange
+  };
+}
+
+// ═══════════════════════════════════════════════════
+// Render Results
+// ═══════════════════════════════════════════════════
+function renderResults(a, dur, timestamp){
+  const {
+    avgFreq, minFreq, maxFreq, avgNote,
+    pitchStabilityCents, breathCount, silenceRatio,
+    segments, avgPitchScore, avgStabScore, breathScore,
+    overallScore, voicedRatio, transitionCount, avgConfidence, dynamicRange
+  } = a;
+
+  function grade(value){
+    if(value >= 85) return 'grade-a';
+    if(value >= 70) return 'grade-b';
+    if(value >= 55) return 'grade-c';
+    if(value >= 40) return 'grade-d';
+    return 'grade-f';
+  }
+
+  $('scoresGrid').innerHTML = `
+    <div class="score-card"><div class="score-value ${grade(overallScore)}">${overallScore}</div><div class="score-label">综合评分</div></div>
+    <div class="score-card"><div class="score-value ${grade(avgPitchScore)}">${avgPitchScore}</div><div class="score-label">音准稳定</div></div>
+    <div class="score-card"><div class="score-value ${grade(avgStabScore)}">${avgStabScore}</div><div class="score-label">声音稳定</div></div>
+    <div class="score-card"><div class="score-value ${grade(breathScore)}">${breathScore}</div><div class="score-label">气息</div></div>
+  `;
+
+  // Detail grid
+  const noteStr = avgFreq > 0 ? `${avgNote} (${avgFreq.toFixed(1)}Hz)` : '—';
+  const rangeStr = (minFreq>0&&maxFreq>0&&minFreq<maxFreq)
+    ? `${freqToNote(minFreq)}(${minFreq.toFixed(0)}Hz) ~ ${freqToNote(maxFreq)}(${maxFreq.toFixed(0)}Hz)`
+    : '—';
+  const stabStr = pitchStabilityCents > 0
+    ? (pitchStabilityCents < 20 ? `优秀 (${pitchStabilityCents.toFixed(0)}¢)` :
+       pitchStabilityCents < 40 ? `良好 (${pitchStabilityCents.toFixed(0)}¢)` :
+       pitchStabilityCents < 60 ? `一般 (${pitchStabilityCents.toFixed(0)}¢)` :
+       `需改善 (${pitchStabilityCents.toFixed(0)}¢)`)
+    : '—';
+  const breathStr = `${breathCount} 次换气  · 静音 ${(silenceRatio*100).toFixed(0)}%`;
+  const voicedPct = (voicedRatio*100).toFixed(0)+'%';
+  const dynStr = dynamicRange > 8 ? `${dynamicRange.toFixed(1)} dB (表现力不错)` :
+    dynamicRange > 3 ? `${dynamicRange.toFixed(1)} dB (表现力一般)` :
+    dynamicRange > 0 ? `${dynamicRange.toFixed(1)} dB (需加强)` : '—';
+
+  $('detailGrid').innerHTML = `
+    <div class="detail-item"><div class="label">平均音高</div><div class="value">${noteStr}</div></div>
+    <div class="detail-item"><div class="label">音域</div><div class="value">${rangeStr}</div></div>
+    <div class="detail-item"><div class="label">音准稳定度</div><div class="value ${pitchStabilityCents>60?'bad':pitchStabilityCents>40?'warn':''}">${stabStr}</div></div>
+    <div class="detail-item"><div class="label">气息分析</div><div class="value">${breathStr}</div></div>
+    <div class="detail-item"><div class="label">发声占比</div><div class="value">${voicedPct}</div></div>
+    <div class="detail-item"><div class="label">表现力</div><div class="value">${dynStr}</div></div>
+  `;
+
+  // Segment table
+  const tbody = $('segmentBody');
+  tbody.innerHTML = segments.map(seg => {
+
+    const tagClass = seg.tag === 'problem' ? 'tag-problem' : seg.tag === 'ok' ? 'tag-ok' : 'tag-good';
+    const tagText = seg.tag === 'problem' ? '⚠️ 注意' : seg.tag === 'ok' ? '一般' : '✅ 良好';
+    return `<tr${seg.tag==='problem'?' class="seg-highlight"':''}>
+      <td>${seg.index}</td>
+      <td>${formatTime(seg.start)}~${formatTime(seg.end)}</td>
+      <td>${seg.pitchScore}</td>
+      <td>${seg.stabScore}</td>
+      <td>${seg.breathScore}</td>
+      <td><div class="seg-bar-wrap"><div class="seg-bar" style="width:${Math.round(seg.overall)}%;background:${seg.overall>70?'#22c55e':seg.overall>45?'#facc15':'#ef4444'}"></div></div>${seg.overall}</td>
+      <td><span class="tag ${tagClass}">${tagText}</span></td>
+    </tr>`;
+  }).join('');
+
+  // Problem segments
+  const problems = segments.filter(s => s.tag === 'problem');
+  const problemEl = $('problemList');
+  if(problems.length === 0){
+    problemEl.innerHTML = '<div style="color:#22c55e;font-size:14px;text-align:center;padding:10px">🎉 没有明显问题段！</div>';
+  } else {
+    problemEl.innerHTML = problems.map(p => `
+      <div class="problem-item">
+        <div class="time">第 ${p.index} 段 (${formatTime(p.start)} ~ ${formatTime(p.end)})</div>
+        <div class="desc">
+          ${p.pitchScore < 50 ? '🔊 音高不稳定；' : ''}
+          ${p.stabScore < 50 ? '📉 声音抖动偏大；' : ''}
+          ${p.breathScore < 50 ? '🌬 气息不足/停顿过多；' : ''}
+          建议针对性练习这段
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Suggestions
+  const suggestions = [];
+  if(overallScore < 50) suggestions.push('先练习简单音阶，用调音器辅助确认每个音');
+  if(avgPitchScore < 65) suggestions.push('练习长音保持（每个音保持5秒以上）来稳定音高');
+  if(pitchStabilityCents > 50) suggestions.push('减慢速度练习，用"拖长"的方式唱每个字');
+  if(breathCount > duration/2.5) suggestions.push('练习腹式呼吸（吸气时腹部鼓起），减少换气频率');
+  if(silenceRatio > 0.25) suggestions.push('注意歌曲连贯性，尽量减少不必要的停顿');
+  if(voicedRatio < 0.35) suggestions.push('发声时间偏少，尝试更自信地唱出声音');
+  if(dynamicRange < 5) suggestions.push('尝试加入强弱变化，让歌声更有表现力');
+  if(overallScore >= 80) suggestions.push('表现很棒！尝试加入情感表达和技巧变化');
+  if(overallScore >= 65 && overallScore < 80) suggestions.push('基础不错！注意细节音准和气息控制可更上一层楼');
+  if(suggestions.length === 0) suggestions.push('保持好状态，继续练习！');
+
+  $('suggestionList').innerHTML = suggestions.map(s => `<li>${s}</li>`).join('');
+}
+
+// ═══════════════════════════════════════════════════
+// Playback & Download
+// ═══════════════════════════════════════════════════
+function playbackAnalysis(){
+  if(!currentAudioUrl){ showToast('没有可回听的录音'); return; }
+  const audio = new Audio(currentAudioUrl);
+  audio.play().catch(e => showToast('❌ 播放失败：' + e.message, true));
+  showToast('▶ 正在播放录音');
+}
+
+function downloadRecording(){
+  if(!currentBlob){ showToast('没有可下载的录音'); return; }
+  try {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(currentBlob);
+    a.download = 'singing_recording_' + Date.now() + '.webm';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(a.href), 10000);
+    showToast('⬇ 录音已下载');
+  } catch(e){
+    showToast('❌ 下载失败', true);
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// Play history recording
+// ═══════════════════════════════════════════════════
+async function playHistory(id){
+  try {
+    const url = await getAudioDataUrl(id);
+    if(!url){
+      showToast('❌ 音频数据已丢失', true);
+      return;
+    }
+    const audio = new Audio(url);
+    await audio.play();
+    showToast('▶ 回放历史录音');
+  } catch(e){
+    showToast('❌ 回放失败：' + e.message, true);
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// Save & Load History
+// ═══════════════════════════════════════════════════
+function loadHistory(){
+  try {
+    const data = localStorage.getItem('recordings_meta');
+    return data ? JSON.parse(data) : [];
+  } catch(e){ return []; }
+}
+
+function saveHistory(){
+  try {
+    localStorage.setItem('recordings_meta', JSON.stringify(recordings));
+  } catch(e){
+    console.warn('Could not save history:', e.message);
+  }
+}
+
+function updateHistoryUI(){
+  const el = $('historyList');
+  if(recordings.length === 0){
+    el.innerHTML = '<div class="history-empty">暂无录音记录</div>';
+    return;
+  }
+
+  el.innerHTML = recordings.map((r, idx) => {
+    const durationStr = r.duration ? formatTime(Math.round(r.duration)) : '—';
+    const scoreHtml = r.score != null
+      ? `<div class="h-score" style="color:${r.score>=70?'#22c55e':r.score>=40?'#facc15':'#ef4444'}">${r.score}</div>`
+      : '';
+    return `
+    <div class="history-item" data-idx="${idx}">
+      <div class="h-icon">🎵</div>
+      <div class="h-info" onclick="startRename('${r.id}')" title="点击重命名">
+        <div class="h-name" id="hname_${r.id}">${escHtml(r.name)}</div>
+        <input class="h-name-input" id="hnameInput_${r.id}" type="text" maxlength="50"
+               value="${escHtml(r.name)}" onblur="finishRename('${r.id}')"
+               onkeydown="if(event.key==='Enter')finishRename('${r.id}');if(event.key==='Escape')cancelRename('${r.id}')">
+        <div class="h-meta">${r.dateStr} · ${durationStr}</div>
+      </div>
+      <div class="h-actions">
+        <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();playHistory('${r.id}')">▶</button>
+        <button class="btn btn-danger btn-sm" onclick="event.stopPropagation();deleteRecording('${r.id}')">✕</button>
+      </div>
+      ${scoreHtml}
+    </div>`;
+  }).join('');
+}
+
+// ─── HTML escape ───
+function escHtml(s){
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+// ─── Rename ───
+let renamingId = null;
+
+function startRename(id){
+  const hname = document.getElementById('hname_' + id);
+  const input = document.getElementById('hnameInput_' + id);
+  if(!hname || !input) return;
+  renamingId = id;
+  hname.style.display = 'none';
+  input.style.display = 'block';
+  input.focus();
+  input.select();
+}
+
+function finishRename(id){
+  const hname = document.getElementById('hname_' + id);
+  const input = document.getElementById('hnameInput_' + id);
+  if(!hname || !input) return;
+  const newName = input.value.trim() || '未命名';
+  hname.textContent = newName;
+  hname.style.display = '';
+  input.style.display = 'none';
+  renamingId = null;
+
+  // Update data
+  const rec = recordings.find(r => r.id === id);
+  if(rec){
+    rec.name = newName;
+    saveHistory();
+  }
+}
+
+function cancelRename(id){
+  const hname = document.getElementById('hname_' + id);
+  const input = document.getElementById('hnameInput_' + id);
+  if(!hname || !input) return;
+  hname.style.display = '';
+  input.style.display = 'none';
+  renamingId = null;
+}
+
+// ─── Delete recording ───
+function deleteRecording(id){
+  if(!confirm('确认删除这条录音？')) return;
+  recordings = recordings.filter(r => r.id !== id);
+  saveHistory();
+  // Remove audio data
+  try { localStorage.removeItem('audio_' + id); } catch(e){}
+  updateHistoryUI();
+  showToast('已删除录音');
+}
+
+// ─── Clear all ───
+function clearHistory(){
+  if(recordings.length === 0) return;
+  if(!confirm('确认清空所有历史录音？此操作不可恢复！')) return;
+  recordings.forEach(r => {
+    try { localStorage.removeItem('audio_' + r.id); } catch(e){}
+  });
+  recordings.length = 0;
+  saveHistory();
+  updateHistoryUI();
+  showToast('🗑 已清空所有历史记录');
+}
+
+// ─── Export recordings as JSON ───
+function exportRecordings(){
+  if(recordings.length === 0){
+    showToast('没有可导出的记录');
+    return;
+  }
+  const exportData = {
+    exportTime: new Date().toISOString(),
+    count: recordings.length,
+    recordings: recordings.map(r => ({
+      id: r.id,
+      name: r.name,
+      date: r.dateStr,
+      duration: r.duration,
+      score: r.score
+    }))
+  };
+  const blob = new Blob([JSON.stringify(exportData, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'singing_recordings_export.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(a.href), 10000);
+  showToast('📤 已导出 ' + recordings.length + ' 条记录');
+}
+
+// ═══════════════════════════════════════════════════
+// Init
+// ═══════════════════════════════════════════════════
+updateHistoryUI();
+</script>
+</body>
+</html>

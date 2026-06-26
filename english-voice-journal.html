@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>🎙️ 英语语音手账</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#1a73e8;--primary-light:#e3f2fd;--bg:#f8f6f2;--card:#fffcf7;--text:#2d2d2d;--gray:#888;--border:#f0e8de}
+
+body{
+  font-family:-apple-system,'Noto Sans SC','Noto Sans',sans-serif;
+  background:var(--bg);min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:20px 12px;
+}
+
+.app{
+  width:100%;max-width:420px;background:var(--card);border-radius:28px;
+  box-shadow:0 8px 40px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.04);
+  overflow:hidden;position:relative;min-height:90vh;
+}
+
+/* 头部 */
+.header{
+  padding:24px 20px 12px;display:flex;align-items:center;justify-content:space-between
+}
+.header h1{font-size:20px;font-weight:700;color:var(--text)}
+.header .stats{font-size:12px;color:var(--gray)}
+
+/* Tab */
+.tabs{
+  display:flex;gap:0;padding:0 20px;border-bottom:1px solid var(--border)
+}
+.tab{
+  padding:10px 0 10px;font-size:13px;font-weight:500;color:var(--gray);
+  cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;margin-right:20px;
+}
+.tab.active{color:var(--primary);border-bottom-color:var(--primary)}
+
+/* 内容区 */
+.content{padding:20px}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* 首页 - 录音 */
+.record-section{
+  display:flex;flex-direction:column;align-items:center;padding:20px 0 12px;
+}
+
+/* 录音按钮 */
+.record-btn{
+  width:96px;height:96px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--primary);color:white;font-size:40px;
+  box-shadow:0 8px 24px rgba(26,115,232,.3);
+  transition:all .3s;position:relative;display:flex;align-items:center;justify-content:center;
+  -webkit-tap-highlight-color:transparent;
+}
+.record-btn:active{transform:scale(.92)}
+.record-btn.recording{
+  background:#e53935;box-shadow:0 8px 24px rgba(229,57,53,.3);
+  animation:pulse 1s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{box-shadow:0 8px 24px rgba(229,57,53,.3)}
+  50%{box-shadow:0 8px 40px rgba(229,57,53,.5)}
+}
+
+.record-label{
+  margin-top:14px;font-size:13px;color:var(--gray);text-align:center;
+}
+
+/* 录音状态 */
+.status-bar{
+  display:none;align-items:center;justify-content:center;gap:8px;
+  padding:0 0 16px;font-size:13px;color:var(--gray);
+}
+.status-bar.show{display:flex}
+.status-dot{
+  width:8px;height:8px;border-radius:50%;background:#4caf50;
+  animation:blink 1s infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* 结果卡片 */
+.result-card{
+  background:#f5f7fa;border-radius:16px;padding:16px;
+  margin-top:12px;display:none;
+}
+.result-card.show{display:block}
+
+.result-card .label{
+  font-size:11px;color:var(--gray);margin-bottom:6px;text-transform:uppercase;letter-spacing:.3px;
+}
+.result-card .text{
+  font-size:17px;font-weight:600;color:var(--text);line-height:1.5;
+}
+.result-card .text.small{font-size:14px;color:#888}
+
+.result-actions{
+  display:flex;gap:12px;margin-top:14px;
+}
+.result-actions button{
+  flex:1;padding:10px;border-radius:12px;border:none;font-size:13px;
+  font-weight:500;cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn-hear{
+  background:var(--primary-light);color:var(--primary);
+}
+.btn-hear:active{background:#bbdefb}
+.btn-save{
+  background:var(--primary);color:white;
+}
+.btn-save:active{opacity:.8}
+.btn-retry{
+  background:#f0f0f0;color:var(--gray);
+}
+.btn-retry:active{background:#e0e0e0}
+
+/* 听模式 */
+.listen-section{
+  text-align:center;padding:20px 0;
+}
+.listen-header{
+  font-size:14px;color:var(--gray);margin-bottom:20px;
+}
+.listen-phrase{
+  font-size:24px;font-weight:700;color:var(--text);margin-bottom:24px;line-height:1.4;
+}
+.listen-phrase .zh{
+  display:block;font-size:14px;font-weight:400;color:var(--gray);margin-top:8px;
+}
+.listen-btn{
+  width:80px;height:80px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--primary);color:white;font-size:28px;
+  box-shadow:0 6px 20px rgba(26,115,232,.25);transition:all .2s;margin:0 auto;
+  display:flex;align-items:center;justify-content:center;
+  -webkit-tap-highlight-color:transparent;
+}
+.listen-btn:active{transform:scale(.9)}
+
+.listen-repeat-label{
+  margin-top:16px;font-size:13px;color:var(--gray);
+}
+
+.listen-nav{
+  display:flex;justify-content:space-between;margin-top:32px;gap:12px;
+}
+.listen-nav button{
+  flex:1;padding:10px;border-radius:12px;border:1px solid var(--border);
+  background:white;font-size:13px;color:var(--text);cursor:pointer;transition:all .2s;
+  -webkit-tap-highlight-color:transparent;
+}
+.listen-nav button:active{background:#f0f0f0}
+
+/* 学习记录 */
+.history-list{padding:0}
+.history-item{
+  padding:14px 0;border-bottom:1px solid var(--border);cursor:pointer;
+  transition:all .1s;
+}
+.history-item:last-child{border:none}
+.history-item:active{opacity:.7}
+
+.history-item .h-en{
+  font-size:15px;font-weight:600;color:var(--text);
+}
+.history-item .h-zh{
+  font-size:12px;color:var(--gray);margin-top:2px;
+}
+.history-item .h-meta{
+  font-size:11px;color:#aaa;margin-top:4px;display:flex;gap:8px;
+}
+.history-item .h-meta span{background:#f0f0f0;padding:2px 8px;border-radius:8px}
+
+/* 场景标签 */
+.scene-tags{
+  display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 8px;
+}
+.scene-tag{
+  font-size:11px;padding:4px 10px;border-radius:12px;
+  background:#f0f0f0;color:#666;cursor:pointer;transition:all .2s;
+}
+.scene-tag.active{background:var(--primary-light);color:var(--primary);font-weight:500}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- 头部 -->
+  <div class="header">
+    <h1>🎙️ 英语手账</h1>
+    <span class="stats" id="stats">0 条记录</span>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <span class="tab active" data-tab="record">🎤 说英语</span>
+    <span class="tab" data-tab="listen">👂 听英语</span>
+    <span class="tab" data-tab="history">📖 记录</span>
+  </div>
+
+  <div class="content">
+
+    <!-- ========== TAB 1: 说英语 ========== -->
+    <div class="tab-content active" id="tab-record">
+
+      <!-- 场景标签 -->
+      <div class="scene-tags" id="sceneTags">
+        <span class="scene-tag active" data-scene="点餐">📍点餐</span>
+        <span class="scene-tag" data-scene="咖啡店">☕咖啡店</span>
+        <span class="scene-tag" data-scene="酒店">🏨酒店</span>
+        <span class="scene-tag" data-scene="购物">🛍️购物</span>
+        <span class="scene-tag" data-scene="日常">🗣️日常</span>
+        <span class="scene-tag" data-scene="其他">📌其他</span>
+      </div>
+
+      <div class="record-section">
+        <button class="record-btn" id="recordBtn">🎤</button>
+        <span class="record-label" id="recordLabel">点击录音，说英语</span>
+      </div>
+
+      <div class="status-bar" id="statusBar">
+        <span class="status-dot"></span>
+        <span>正在听你说话…</span>
+      </div>
+
+      <!-- 识别结果 -->
+      <div class="result-card" id="resultCard">
+        <div class="label">🗣️ 你说的英语</div>
+        <div class="text" id="transcribedText"></div>
+
+        <div class="label" style="margin-top:14px">📝 中文意思</div>
+        <div class="text small" id="chineseText"></div>
+
+        <div class="result-actions">
+          <button class="btn-hear" id="hearBtn">🔊 听发音</button>
+          <button class="btn-save" id="saveBtn">✅ 保存</button>
+          <button class="btn-retry" id="retryBtn">🔄 重说</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== TAB 2: 听英语 ========== -->
+    <div class="tab-content" id="tab-listen">
+      <div class="listen-section">
+        <div class="listen-header">听一句，跟着念</div>
+        <div class="listen-phrase" id="listenPhrase">
+          Could I have a menu, please?
+          <span class="zh">能给我一份菜单吗？</span>
+        </div>
+        <button class="listen-btn" id="listenPlayBtn">🔊</button>
+        <div class="listen-repeat-label">听完后，点击下面的录音跟读</div>
+
+        <div class="listen-nav">
+          <button id="listenPrev">◀ 上一句</button>
+          <button id="listenNext">下一句 ▶</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== TAB 3: 记录 ========== -->
+    <div class="tab-content" id="tab-history">
+      <div class="history-list" id="historyList">
+        <div style="text-align:center;padding:40px 0;color:#bbb;font-size:14px;">
+          还没有学习记录<br>去「说英语」录下你的第一句吧 🎤
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ========== 数据 ==========
+const SCENES = ['点餐','咖啡店','酒店','购物','日常','其他'];
+let currentScene = '点餐';
+let entries = JSON.parse(localStorage.getItem('en_journal') || '[]');
+let currentTranscript = '';
+let currentChinese = '';
+
+// 听模式句子库
+const listenPhrases = [
+  { en: "Could I have a menu, please?", zh: "能给我一份菜单吗？" },
+  { en: "I'd like to order the Kung Pao Chicken.", zh: "我想点一份宫保鸡丁。" },
+  { en: "Can I get this to go?", zh: "这个可以打包吗？" },
+  { en: "Could I have some water, please?", zh: "能给我点水吗？" },
+  { en: "How much is this?", zh: "这个多少钱？" },
+  { en: "This dish is way too spicy!", zh: "这个菜太辣了！" },
+  { en: "Can I have the bill, please?", zh: "能给我账单吗？" },
+  { en: "I'll take this one.", zh: "我要这个。" },
+  { en: "Excuse me, where's the restroom?", zh: "不好意思，洗手间在哪？" },
+  { en: "Could you repeat that, please?", zh: "能再说一遍吗？" },
+];
+let listenIndex = 0;
+
+// ========== Tab 切换 ==========
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    this.classList.add('active');
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    document.getElementById('tab-' + this.dataset.tab).classList.add('active');
+    if (this.dataset.tab === 'history') renderHistory();
+  });
+});
+
+// ========== 场景标签 ==========
+document.querySelectorAll('.scene-tag').forEach(tag => {
+  tag.addEventListener('click', function() {
+    document.querySelectorAll('.scene-tag').forEach(t => t.classList.remove('active'));
+    this.classList.add('active');
+    currentScene = this.dataset.scene;
+  });
+});
+
+// ========== 语音识别 ==========
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+let recognition = null;
+
+if (SpeechRecognition) {
+  recognition = new SpeechRecognition();
+  recognition.lang = 'en-US';
+  recognition.continuous = false;
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+}
+
+const recordBtn = document.getElementById('recordBtn');
+const recordLabel = document.getElementById('recordLabel');
+const statusBar = document.getElementById('statusBar');
+const resultCard = document.getElementById('resultCard');
+const transcribedText = document.getElementById('transcribedText');
+const chineseText = document.getElementById('chineseText');
+const saveBtn = document.getElementById('saveBtn');
+const hearBtn = document.getElementById('hearBtn');
+const retryBtn = document.getElementById('retryBtn');
+
+let isRecording = false;
+let recognitionActive = false;
+
+if (!recognition) {
+  recordLabel.textContent = '⚠️ 当前浏览器不支持语音识别';
+  recordBtn.style.opacity = '.4';
+  recordBtn.style.pointerEvents = 'none';
+}
+
+recordBtn.addEventListener('click', function() {
+  if (!recognition) return;
+  if (recognitionActive) {
+    recognition.stop();
+    return;
+  }
+  startRecording();
+});
+
+function startRecording() {
+  recognitionActive = true;
+  isRecording = true;
+  recordBtn.classList.add('recording');
+  recordBtn.textContent = '⏹';
+  recordLabel.textContent = '正在听，请说英语…';
+  statusBar.classList.add('show');
+  resultCard.classList.remove('show');
+  recognition.start();
+}
+
+function stopRecording() {
+  recognitionActive = false;
+  isRecording = false;
+  recordBtn.classList.remove('recording');
+  recordBtn.textContent = '🎤';
+  recordLabel.textContent = '点击录音，说英语';
+  statusBar.classList.remove('show');
+}
+
+if (recognition) {
+  recognition.onresult = function(event) {
+    const transcript = event.results[0][0].transcript;
+    currentTranscript = transcript;
+    transcribedText.textContent = transcript;
+    
+    // 简单中文翻译映射（后续可以扩展）
+    currentChinese = translateToChinese(transcript);
+    chineseText.textContent = currentChinese;
+
+    resultCard.classList.add('show');
+    stopRecording();
+  };
+
+  recognition.onerror = function(event) {
+    console.error('Speech error:', event.error);
+    if (event.error === 'no-speech') {
+      recordLabel.textContent = '没听到声音，再试一次';
+    } else if (event.error === 'not-allowed') {
+      recordLabel.textContent = '⚠️ 需要麦克风权限';
+    } else {
+      recordLabel.textContent = '出错了，再点一次试试';
+    }
+    stopRecording();
+  };
+
+  recognition.onend = function() {
+    if (isRecording) stopRecording();
+  };
+}
+
+// 简易中文翻译（内置常见短语）
+function translateToChinese(text) {
+  const lower = text.toLowerCase();
+  const dict = [
+    { match: /menu/i, zh: '我能看一下菜单吗？' },
+    { match: /water/i, zh: '能给我点水吗？' },
+    { match: /bill|check/i, zh: '我要买单。' },
+    { match: /order/i, zh: '我想点餐。' },
+    { match: /thank|thanks/i, zh: '谢谢。' },
+    { match: /spicy|hot/i, zh: '这个太辣了。' },
+    { match: /fork/i, zh: '能给我一把叉子吗？' },
+    { match: /napkin/i, zh: '能给我一张餐巾纸吗？' },
+    { match: /to go|takeout|take.out/i, zh: '打包带走。' },
+    { match: /delicious|good|tasty|yummy/i, zh: '很好吃。' },
+    { match: /recommend/i, zh: '你有什么推荐吗？' },
+    { match: /price|cost|how much/i, zh: '这个多少钱？' },
+    { match: /restroom|bathroom|toilet/i, zh: '洗手间在哪里？' },
+    { match: /repeat|pardon|again/i, zh: '能再说一遍吗？' },
+    { match: /hello|hi|hey/i, zh: '你好。' },
+    { match: /sorry|excuse/i, zh: '不好意思/抱歉。' },
+    { match: /chicken/i, zh: '鸡肉。' },
+    { match: /beef/i, zh: '牛肉。' },
+    { match: /noodle/i, zh: '面条。' },
+    { match: /rice/i, zh: '米饭。' },
+    { match: /vegetable/i, zh: '蔬菜。' },
+    { match: /want/i, zh: '我想要…' },
+    { match: /have/i, zh: '我能不能来一份…' },
+  ];
+  
+  for (const d of dict) {
+    if (d.match.test(lower)) return d.zh;
+  }
+  return `你说的是："${text}"`;
+}
+
+// ========== 听发音 ==========
+let utterance = null;
+
+hearBtn.addEventListener('click', function() {
+  if (!currentTranscript) return;
+  if (window.speechSynthesis.speaking) {
+    window.speechSynthesis.cancel();
+    return;
+  }
+  utterance = new SpeechSynthesisUtterance(currentTranscript);
+  utterance.lang = 'en-US';
+  utterance.rate = 0.9;
+  utterance.pitch = 1;
+  
+  // 选择英语语音
+  const voices = window.speechSynthesis.getVoices();
+  const enVoice = voices.find(v => v.lang.startsWith('en'));
+  if (enVoice) utterance.voice = enVoice;
+  
+  window.speechSynthesis.speak(utterance);
+  hearBtn.textContent = '⏹ 播放中…';
+  utterance.onend = () => { hearBtn.textContent = '🔊 听发音'; };
+  utterance.onerror = () => { hearBtn.textContent = '🔊 听发音'; };
+});
+
+// ========== 保存 ==========
+saveBtn.addEventListener('click', function() {
+  if (!currentTranscript) return;
+  
+  const entry = {
+    id: Date.now(),
+    en: currentTranscript,
+    zh: currentChinese,
+    scene: currentScene,
+    date: new Date().toISOString(),
+    reviewCount: 0,
+    lastReview: null
+  };
+  
+  entries.unshift(entry);
+  localStorage.setItem('en_journal', JSON.stringify(entries));
+  
+  // 反馈
+  saveBtn.textContent = '✅ 已保存！';
+  setTimeout(() => { saveBtn.textContent = '✅ 保存'; }, 1500);
+  
+  updateStats();
+});
+
+// ========== 重说 ==========
+retryBtn.addEventListener('click', function() {
+  resultCard.classList.remove('show');
+  currentTranscript = '';
+  currentChinese = '';
+  setTimeout(() => startRecording(), 300);
+});
+
+// ========== 听模式 ==========
+function updateListenPhrase() {
+  const phrase = listenPhrases[listenIndex];
+  document.getElementById('listenPhrase').innerHTML = 
+    `${phrase.en}<span class="zh">${phrase.zh}</span>`;
+}
+function speakListenPhrase() {
+  const phrase = listenPhrases[listenIndex];
+  if (window.speechSynthesis.speaking) { window.speechSynthesis.cancel(); return; }
+  const u = new SpeechSynthesisUtterance(phrase.en);
+  u.lang = 'en-US';
+  u.rate = 0.85;
+  const voices = window.speechSynthesis.getVoices();
+  const enVoice = voices.find(v => v.lang.startsWith('en'));
+  if (enVoice) u.voice = enVoice;
+  window.speechSynthesis.speak(u);
+}
+document.getElementById('listenPlayBtn').addEventListener('click', speakListenPhrase);
+document.getElementById('listenNext').addEventListener('click', () => {
+  listenIndex = (listenIndex + 1) % listenPhrases.length;
+  updateListenPhrase();
+});
+document.getElementById('listenPrev').addEventListener('click', () => {
+  listenIndex = (listenIndex - 1 + listenPhrases.length) % listenPhrases.length;
+  updateListenPhrase();
+});
+
+// ========== 历史记录 ==========
+function renderHistory() {
+  const list = document.getElementById('historyList');
+  if (entries.length === 0) {
+    list.innerHTML = '<div style="text-align:center;padding:40px 0;color:#bbb;font-size:14px;">还没有学习记录<br>去「说英语」录下你的第一句吧 🎤</div>';
+    return;
+  }
+  
+  list.innerHTML = entries.map(entry => {
+    const date = new Date(entry.date);
+    const dateStr = `${date.getMonth()+1}月${date.getDate()}日`;
+    const timeStr = `${date.getHours().toString().padStart(2,'0')}:${date.getMinutes().toString().padStart(2,'0')}`;
+    return `
+      <div class="history-item" data-id="${entry.id}">
+        <div class="h-en">${entry.en}</div>
+        <div class="h-zh">${entry.zh}</div>
+        <div class="h-meta">
+          <span>📍${entry.scene}</span>
+          <span>${dateStr} ${timeStr}</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ========== 统计 ==========
+function updateStats() {
+  const total = entries.length;
+  const sceneCount = SCENES.reduce((acc, s) => {
+    acc[s] = entries.filter(e => e.scene === s).length;
+    return acc;
+  }, {});
+  const sceneStr = Object.entries(sceneCount).filter(([k,v]) => v > 0).map(([k,v]) => `${k}${v}`).join(' ');
+  document.getElementById('stats').textContent = `${total} 条 | ${sceneStr}`;
+}
+
+// ========== 预加载语音 ==========
+window.speechSynthesis.getVoices(); // 触发预加载
+if (window.speechSynthesis.onvoiceschanged !== undefined) {
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+}
+
+// ========== 初始化 ==========
+updateStats();
+updateListenPhrase();
+</script>
+</body>
+</html>

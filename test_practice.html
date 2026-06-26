@@ -1,0 +1,742 @@
+<!DOCTYPE html><html><body>
+<script>
+
+var TOTAL_LESSONS=144,UNLOCKED=[1,2,3,4,5,6,7,8,9,10,11,12];
+
+/* ---------- 课程数据 ----------
+   第1、2课正文写在页面里；第3~12课由下方模板自动生成。
+   想补充台词/单词，直接编辑对应课的 lines / vocab 即可。
+   lines: [韩语, 中文]   vocab: [韩语, 中文] */
+var LESSONS={
+ 1:{title:'第1课 · 拍摄现场',video:'videos/scene01_mobile.mp4',subtitle:'videos/scene01_kr.vtt',vocab:[['다리','腿'],['아프다','疼'],['액션캠','运动相机'],['똑바로','好好地'],['들다','拿/握'],['매니저','经纪人'],['구두','皮鞋'],['반납','归还'],['조심하다','小心'],['나아가다','进展/恶化']]},
+ 2:{title:'第2课 · 城堡对话',video:'videos/scene02_4K.mp4',vocab:[['통역사','翻译师'],['준비되다','准备好'],['네','是'],['저','我(谦称)'],['도','也'],['진짜','真的'],['높다','高'],['옛날','以前'],['성','城堡'],['살다','住'],['왕','王'],['땅','土地'],['내려다보다','俯瞰'],['얼마나','多么'],['몇','几/多少'],['평','坪'],['기대다','倚靠'],['안 되다','不可以'],['물러서다','后退'],['끼어들다','插嘴'],['걱정하다','担心'],['바람','风'],['날아가다','飞走'],['표지판','指示牌'],['쓰다','写'],['올라서다','踩踏'],['통역하다','翻译']]},
+ 3:{title:'第3课 · 感叹风景',video:'videos/scene03_4K.mp4',vocab:[['날씨','天气'],['좋다','好'],['마지막','最后'],['촬영','拍摄'],['장소','场所'],['추천하다','推荐'],['도와주다','帮忙'],['다행','幸好'],['저쪽','那边'],['경치','风景'],['근사하다','棒'],['찍다','拍'],['신인','新人'],['NG','NG/失误'],['너무','太'],['대사','台词'],['또렷하다','清楚'],['기억하다','记得'],['연기','演技'],['못하다','差/不擅长'],['진짜','真的'],['궁금하다','好奇'],['유튜브','YouTube'],['절대','绝对'],['찾아보다','找'],['돌이키다','挽回'],['흑역사','黑历史'],['대박','大发']]},
+ 4:{title:'第4课 · 标牌翻译',video:'videos/scene04_confession.mp4',lines:[],vocab:[],tip:'本课重点：① -아/어 있다 状态持续「…着」(쓰여 있다) ② -거나 选择连接「或者」(기대거나) ③ -지 마시오 正式书面禁止(올라서지 마시오) ④ -ㄴ/은 것이다 强调说明句式(통역한 겁니다) ⑤ 그건 ~입니다「那是…」。公共标牌+多语言识别词汇高频！'},
+ 5:{title:'第5课 · 告别问候',video:'videos/scene05_chaltteok.mp4',
+    lines:[['작별 인사','告别问候']],
+    vocab:[['작별','告别'],['인사','问候 / 打招呼']],tip:'（可在此补充语法点）'},
+ 6:{title:'第6课 · 聊天气·推荐风景',video:'videos/scene06_papago.mp4',
+    lines:[['날씨가 참 좋네요','天气真好啊']],
+    vocab:[['날씨','天气'],['참','真 / 非常'],['좋다','好']],tip:'（可在此补充语法点）'},
+ 7:{title:'第7课 · 真心告白',video:'videos/scene07_translate_my_love.mp4',
+    lines:[['진심으로 좋습니다','真心喜欢']],
+    vocab:[['진심','真心'],['좋다','喜欢 / 好']],tip:'（可在此补充语法点）'},
+ 8:{title:'第8课 · 拉面店点餐',video:'videos/scene08_dignity.mp4',
+    lines:[['어서 오세요','欢迎光临']],
+    vocab:[['어서','快 / 请']],tip:'（可在此补充语法点）'},
+ 9:{title:'第9课 · 急救求助',video:'videos/scene09_dinner_invite.mp4',
+    lines:[['구급차 불러 주세요','请叫救护车']],
+    vocab:[['구급차','救护车'],['부르다','叫 / 呼叫']],tip:'（可在此补充语法点）'},
+ 10:{title:'第10课 · 拍照·SNS',video:'videos/scene10_namegreeting.mp4',
+    lines:[['인스타 맞팔해요','互相关注一下吧（Instagram）']],
+    vocab:[['인스타','Instagram'],['맞팔','互相关注']],tip:'（可在此补充语法点）'},
+ 11:{title:'第11课 · 爱情·感情表达',video:'videos/scene11_island.mp4',
+    lines:[['내 것도 사랑이에요','我的也是爱啊']],
+    vocab:[['사랑','爱'],['것','东西 / 的']],tip:'（可在此补充语法点）'},
+ 12:{title:'第12课 · 庆典·烟花',video:'videos/scene12_awakening.mp4',
+    lines:[['불꽃 축제','烟花庆典']],
+    vocab:[['불꽃','烟花'],['축제','庆典 / 节日']],tip:'（可在此补充语法点）'}
+};
+;
+
+/* ---------- 生成第3~12课页面 ---------- */
+function esc(s){return String(s).replace(/'/g,"\\'")}
+function buildLessons(){
+  var box=document.getElementById('generatedLessons'),html='';
+  for(var n=5;n<=12;n++){
+    var d=LESSONS[n];if(!d)continue;
+    html+='<div class="pg" id="pageLesson'+n+'">';
+    html+='<div class="top"><span class="back" onclick="goHome()">← 返回</span><h2>'+d.title+'</h2><button class="quiz-btn" onclick="toggleQuiz('+n+')">测验模式</button></div>';
+    // 视频在openLesson时动态注入
+    html+='<div class="content" id="content'+n+'">';
+    html+='<div class="sec">📝 台词</div>';
+    d.lines.forEach(function(l,i){
+      html+='<div class="line"><p class="kr">'+(i+1)+'. '+l[0]+'</p><button class="speak" onclick="handleSpeak(event,'+esc(l[0])+'\')">🔊</button></div><p class="cn">→ '+l[1]+'</p>';
+    });
+    html+='<div class="sec">📌 单词</div><p class="vocab">'+d.vocab.map(function(v){return v[0]+' → '+v[1]}).join(' ｜ ')+'</p>';
+    html+='<div class="sec">💡 小贴士（点击展开）</div>'+'<div class="line" style="display:block;margin:6px 0">'+'<div class="line-hd" onclick="toggleExp(this)">'+'<span class="arr">▶</span> <b>📖 本课语法要点</b>'+'</div>'+'<div class="line-exp" style="display:none">'+'<p class="tip" style="margin:0">'+(d.tip||'（待补充）')+'</p>'+'</div>'+'</div>';
+    html+='<button class="done-toggle" data-lesson="'+n+'" onclick="toggleDone('+n+')">✓ 已完成学习</button>';
+    html+='<div class="sec">✏️ 笔记</div><textarea class="note-box" data-note="'+n+'" placeholder="在此输入笔记..."></textarea>';
+    html+='<button class="speak-practice-toggle" onclick="startPractice('+n+')">🎤 口语练习</button>';
+    html+='</div></div>';
+  }
+  box.innerHTML=html;
+}
+buildLessons();
+
+/* ---------- 页面导航 ---------- */
+function openLesson(n){
+  document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('show')});
+  var pg=document.getElementById('pageLesson'+n);
+  pg.classList.add('show');
+  // 动态注入视频（首次打开时才创建）
+  if(!pg.querySelector('video')){
+    var d=LESSONS[n];
+    if(d&&d.video){
+      var wrap=document.createElement('div');
+      wrap.className='video-wrap';
+      var v=document.createElement('video');
+      v.controls=true;
+      v.preload='metadata';
+      v.src=d.video;
+      // 添加字幕轨道
+      if(d.subtitle){
+        var tr=document.createElement('track');
+        tr.kind='subtitles';
+        tr.label='韩文';
+        tr.srclang='ko';
+        tr.src=d.subtitle;
+        tr.default=true;
+        v.appendChild(tr);
+      }
+      wrap.appendChild(v);
+
+      var top=pg.querySelector('.top');
+      top.parentNode.insertBefore(wrap,top.nextSibling);
+      // 确保字幕轨道默认显示
+      var tryShowSubs=function(){
+        if(v.textTracks&&v.textTracks.length&&v.textTracks[0].mode!=='showing'){
+          v.textTracks[0].mode='showing';
+        }
+      };
+      tryShowSubs();
+      // track加载完成后可能重置mode，再次设置
+      v.addEventListener('loadedmetadata',tryShowSubs);
+      v.addEventListener('loadeddata',tryShowSubs);
+    }
+  }else{
+    // 已有视频，确保字幕默认显示
+    var v=pg.querySelector('video');
+    if(v&&v.textTracks&&v.textTracks.length&&v.textTracks[0].mode!=='showing'){
+      v.textTracks[0].mode='showing';
+    }
+  }
+  setupSyncActiveLine(n);
+  window.scrollTo(0,0);
+}
+function toggleExp(el){var arr=el.querySelector('.arr'),exp=el.parentElement.querySelector('.line-exp');if(exp.style.display==='block'){exp.style.display='none';arr.classList.remove('open')}else{exp.style.display='block';arr.classList.add('open')}}
+function goHome(){document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('show')});document.getElementById('pageIndex').classList.add('show');refreshProgress()}
+
+/* ---------- 韩语朗读 (TTS) — 使用预生成音频 + 浏览器TTS降级 ---------- */
+var KO_AUDIO_MAP={"NG를 너무 많이 내서":"ko_984b4a0893fc.mp3","같이 적게 조심하세요":"ko_4af1abf5c9c0.mp3","궁금하네 유튜브에 있나?":"ko_146e16ed6107.mp3","그 앞의 표지판에 쓰여 있습니다":"ko_8255a15927c6.mp3","그건 반납이에요":"ko_c37c6eb42633.mp3","그건 정말 돌이키고 싶지 않은":"ko_9276ecec6985.mp3","그때 대사는 아주 또렷하게 기억하고 있어요":"ko_60dcd2b7ebad.mp3","그때는 정말 연기를 못했거든요":"ko_9bfa74214cf6.mp3","기대거나 올라서지 마시오":"ko_7de0f3346602.mp3","나 걱정해 주는 거예요?":"ko_0f24fe9cb259.mp3","날씨가 도와줘서 다행이에요":"ko_57fdcbb80019.mp3","날씨가 참 좋네요":"ko_880a4e3a5a57.mp3","네 누나 말씀하세요":"ko_3f63a5a935db.mp3","네, 저도 준비됐습니다":"ko_e1f00a2da9ea.mp3","됐나요?":"ko_7b14365f2010.mp3","마지막 촬영 장소로 내가 여길 추천했는데":"ko_1bdc0da5545a.mp3","맞아, 맞아! 흑역사?":"ko_2f8ac330f48d.mp3","바람에 날아갈까 봐?":"ko_92f9e3ce8bf2.mp3","아 다리 아파":"ko_78d3e3466a8f.mp3","아 참 더 차를 보라더니 이게 뭐야?":"ko_bb2b1a6e2355.mp3","아! 흑역사!":"ko_6aa5601d4fb4.mp3","아, 진짜 높다":"ko_fcc625734ae9.mp3","아, 진짜? 얼마나 못했길래?":"ko_a7c6cc08be3d.mp3","아구 더 나아가겠네":"ko_8e06b11bde09.mp3","아이씨":"ko_92bd1660a7bf.mp3","액션캠 똑바로 들어주세요":"ko_de0429bbc7b7.mp3","어 오케이":"ko_29e3290852f6.mp3","어, 거기 기대면 안 됩니다. 물러서세요":"ko_46a116072daf.mp3","어?":"ko_8f76e0a0ebbe.mp3","여기 와 본 적 있어요?":"ko_2a3c20f93145.mp3","여기서 이게 다 내 땅이다 내려다보면 얼마나 좋았을까?":"ko_a18d6afee466.mp3","영어로도 써 놨어야지":"ko_1cdb101795de.mp3","예전에 여기서 드라마를 찍은 적이 있어요":"ko_50711c507d8b.mp3","옛날에 이게 다 이 성에 살던 왕 땅이었다는 거네":"ko_389b7f988d0c.mp3","이거 구두 증정이야 반납이요?":"ko_56b66cac0b6d.mp3","이게 다 몇 평이야?":"ko_a6dd4a3ff999.mp3","이런 낸 줄 알았으면 운동을 해 지내라고 했어야지":"ko_d50a3d1c02f6.mp3","이야, 대박!":"ko_0f5e7de9ee12.mp3","이탈리아어 못하는 사람은 어떡하라고?":"ko_6baa7d6e097e.mp3","저기요 거기 우리 매니저 있죠":"ko_3b2a8b6e9fd7.mp3","저쪽에서 보이는 경치가 더 근사해요":"ko_ee5b14525123.mp3","저쪽으로 가 봐요":"ko_53c67997d638.mp3","절대 찾아보지 마요":"ko_00a5519b62d5.mp3","차모인 씨 오디오 들어갑니다":"ko_5f0688d6fa07.mp3","통역사님, 준비되셨어요?":"ko_8b0b1600ae81.mp3","통역사님이 웬일로 불쑥 끼어드시나?":"ko_595fcac26898.mp3","통역한 겁니다":"ko_6523f496f1e0.mp3","하격사?":"ko_f5b45e977bf0.mp3","허, 허격사?":"ko_79b85f7eb91d.mp3","허격사?":"ko_7a497e032320.mp3","흑역사":"ko_76ef24c1ff78.mp3","거기 기대면 안 됩니다":"ko_e7bb82cd007f.mp3","작별 인사":"ko_fffb2b91d515.mp3","진심으로 좋습니다":"ko_feb5bdb7d77b.mp3","어서 오세요":"ko_4f58a07c0e38.mp3","구급차 불러 주세요":"ko_e687c9ff78b9.mp3","인스타 맞팔해요":"ko_2969eb13c3d6.mp3","내 것도 사랑이에요":"ko_38252f19b48d.mp3","불꽃 축제":"ko_d3f38b7b47de.mp3"};
+function speak(text, btnEl){
+  var audioFile=KO_AUDIO_MAP[text];
+  if(audioFile){
+    var a=new Audio('audio/'+audioFile);
+    a.load();
+    a.play().catch(function(e){console.warn('音频播放失败:',e);if(btnEl){btnEl.textContent='🔇';setTimeout(function(){if(btnEl)btnEl.textContent='🔊'},2000)}});
+  }else{
+    if(btnEl){btnEl.textContent='🔇';setTimeout(function(){if(btnEl)btnEl.textContent='🔊'},2000)}
+  }
+}
+function handleSpeak(event, text){
+  var btn=event&&event.currentTarget?event.currentTarget:null;
+  speak(text, btn);
+}
+
+/* ---------- 测验模式 (遮住中文译文) ---------- */
+function toggleQuiz(n){
+  var c=document.getElementById('content'+n),btn=event.target;
+  var on=c.classList.toggle('quiz-on');btn.classList.toggle('active',on);
+  c.querySelectorAll('.cn').forEach(function(el){
+    el.classList.remove('revealed');
+    if(on)el.onclick=function(){el.classList.add('revealed')};else el.onclick=null;
+  });
+}
+
+/* ---------- 笔记自动保存 ---------- */
+document.querySelectorAll('.note-box').forEach(function(box){
+  var key='note_'+box.dataset.note;
+  box.value=localStorage.getItem(key)||'';
+  var timer;
+  var statusEl=document.getElementById('noteStatus'+box.dataset.note);
+  box.addEventListener('input',function(){
+    if(statusEl){statusEl.classList.remove('show');statusEl.textContent='⏳ 保存中...'}
+    clearTimeout(timer);
+    timer=setTimeout(function(){
+      localStorage.setItem(key,box.value);
+      if(statusEl){statusEl.textContent='✓ 已保存';statusEl.classList.add('show');setTimeout(function(){statusEl.classList.remove('show')},2000)}
+    },400);
+  });
+});
+
+/* ---------- 完成进度 ---------- */
+function getDone(){try{return JSON.parse(localStorage.getItem('doneLessons'))||[1,2]}catch(e){return[1,2]}}
+function setDone(arr){localStorage.setItem('doneLessons',JSON.stringify(arr))}
+function toggleDone(n){
+  var d=getDone(),i=d.indexOf(n);
+  if(i>=0)d.splice(i,1);else d.push(n);
+  setDone(d);syncDoneBtn(n);
+}
+function syncDoneBtn(n){
+  var done=getDone().indexOf(n)>=0,btn=document.querySelector('.done-toggle[data-lesson="'+n+'"]');
+  if(!btn)return;
+  btn.classList.toggle('undone',!done);
+  btn.textContent=done?'✓ 已完成学习':'标记为已完成';
+}
+function refreshProgress(){
+  var d=getDone(),doneCount=d.length;
+  document.getElementById('statDone').textContent=doneCount;
+  document.getElementById('statTodo').textContent=TOTAL_LESSONS-doneCount;
+  document.getElementById('progBar').style.width=(doneCount/TOTAL_LESSONS*100).toFixed(1)+'%';
+  UNLOCKED.forEach(function(n){
+    var row=document.querySelector('.lesson[data-lesson="'+n+'"]');if(!row)return;
+    var done=d.indexOf(n)>=0,tag=row.querySelector('.tag'),num=row.querySelector('.num');
+    tag.textContent=done?'已学':'待学';tag.className='tag '+(done?'green':'red');
+    num.className='num '+(done?'green':'red');
+  });
+}
+
+/* ---------- 单词随机抽查 ---------- */
+var quizState=null;
+function buildVocabPool(){
+  var done=getDone(),pool=[];
+  Object.keys(LESSONS).forEach(function(k){
+    if(done.indexOf(+k)<0)return;
+    (LESSONS[k].vocab||[]).forEach(function(v){pool.push({kr:v[0],cn:v[1]})});
+  });
+  return pool;
+}
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function startQuiz(){
+  var pool=buildVocabPool();
+  if(pool.length<4){alert('已学课程的单词太少啦，先去学几课或标记完成吧～');return}
+  quizState={pool:pool,order:shuffle(pool.slice()).slice(0,Math.min(10,pool.length)),idx:0,score:0};
+  document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('show')});
+  document.getElementById('pageQuiz').classList.add('show');window.scrollTo(0,0);
+  renderQuiz();
+}
+function renderQuiz(){
+  var q=quizState,body=document.getElementById('quizBody');
+  if(q.idx>=q.order.length){
+    var pct=Math.round(q.score/q.order.length*100);
+    body.innerHTML='<div class="quiz-done"><div class="big">'+(pct>=80?'🎉':pct>=60?'👍':'💪')+'</div>'
+      +'答对 '+q.score+' / '+q.order.length+' 题（'+pct+'%）'
+      +'<br><br><button class="quiz-next" onclick="startQuiz()">再来一组</button>'
+      +'<br><br><button class="quiz-opt" style="max-width:200px;margin:0 auto" onclick="goHome()">返回首页</button></div>';
+    return;
+  }
+  var cur=q.order[q.idx];
+  var opts=[cur];
+  var others=shuffle(q.pool.filter(function(x){return x.cn!==cur.cn}));
+  for(var i=0;i<others.length&&opts.length<4;i++){if(!opts.some(function(o){return o.cn===others[i].cn}))opts.push(others[i])}
+  opts=shuffle(opts);
+  var h='<div class="quiz-score">得分 '+q.score+'</div>';
+  h+='<div class="quiz-progress">第 '+(q.idx+1)+' / '+q.order.length+' 题</div>';
+  h+='<div class="quiz-question"><span>'+cur.kr+'</span><button class="speak" onclick="handleSpeak(event,'+esc(cur.kr)+'\')">🔊</button></div>';
+  h+='<div class="quiz-options">';
+  opts.forEach(function(o){h+='<button class="quiz-opt" onclick="answerQuiz(this,\''+esc(o.cn)+'\',\''+esc(cur.cn)+'\')">'+o.cn+'</button>'});
+  h+='</div>';
+  body.innerHTML=h;
+}
+function answerQuiz(btn,chosen,correct){
+  var btns=document.querySelectorAll('.quiz-opt');
+  btns.forEach(function(b){b.onclick=null});
+  if(chosen===correct){btn.classList.add('correct');quizState.score++}
+  else{btn.classList.add('wrong');btns.forEach(function(b){if(b.textContent===correct)b.classList.add('correct')})}
+  setTimeout(function(){quizState.idx++;renderQuiz()},900);
+}
+
+/* ---------- 深色模式 ---------- */
+function toggleTheme(){
+  var dark=document.body.classList.toggle('dark');
+  localStorage.setItem('theme',dark?'dark':'light');
+  document.getElementById('themeBtn').textContent=dark?'☀️':'🌙';
+}
+(function(){
+  if(localStorage.getItem('theme')==='dark'){document.body.classList.add('dark');document.getElementById('themeBtn').textContent='☀️'}
+  UNLOCKED.forEach(syncDoneBtn);
+  refreshProgress();
+})();
+
+function toggleEp(el){
+  el.classList.toggle('open');
+  var content=el.nextElementSibling;
+  if(content&&content.classList.contains('ep-content')){
+    content.style.display=content.style.display==='block'?'none':'block';
+  }
+}
+
+
+/* ---------- 口语练习（简化版） ---------- */
+var PRACTICE_STATE=null,PRACTICE_LESSON=null,isRecording=false,recognition=null;
+
+function getLessonPracticeData(n){
+  var d=LESSONS[n];
+  if(!d)return{lines:[],vocab:[],phrases:[],patterns:[],wordSentences:{}};
+  var lines=d.lines||[];
+  var vocab=d.vocab||[];
+  var phrases=d.phrases||[];
+  var patterns=d.patterns||[];
+  var wordSentences=d.wordSentences||{};
+  if(n<=2){
+    var el=document.getElementById('content'+n);
+    if(el){
+      var krEls=el.querySelectorAll('.line .kr');
+      if(krEls.length>0){
+        lines=[];
+        krEls.forEach(function(el2){var t=el2.textContent.trim().replace(/^\d+\.\s*/,'');lines.push([t,''])})
+        var cnEls=el.querySelectorAll('.cn');
+        cnEls.forEach(function(el2,i){if(lines[i])lines[i][1]=el2.textContent.replace(/^→\s*/,'')});
+      }
+    }
+  }
+  // Auto-extract phrases from lines for lessons without explicit phrases
+  if(phrases.length===0&&lines.length>0){
+    lines.forEach(function(l){var segs=l[0].split(/[,.!?;:·…\s]+/).filter(function(s){return s.length>1&&s.length<12});if(segs.length)phrases.push([segs[Math.floor(Math.random()*segs.length)],''])});
+  }
+  // Auto-generate wordSentences from lines if missing
+  if(Object.keys(wordSentences).length===0&&lines.length>0){
+    vocab.forEach(function(v){for(var i=0;i<lines.length;i++){if(lines[i][0].indexOf(v[0])>=0){wordSentences[v[0]]=lines[i][0];break}}})
+  }
+  return{lines:lines,vocab:vocab,phrases:phrases,patterns:patterns,wordSentences:wordSentences};
+}
+
+function openPracticeModal(){
+  document.getElementById('practiceModal').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function closePracticeModal(){
+  document.getElementById('practiceModal').classList.remove('active');
+  document.body.style.overflow='';
+  PRACTICE_STATE=null;
+  PRACTICE_LESSON=null;
+  if(recognition){try{recognition.abort()}catch(e){}}recognition=null;isRecording=false;
+}
+
+function startPractice(n){
+  var d=LESSONS[n];
+  if(!d)return;
+  PRACTICE_STATE=null;
+  PRACTICE_LESSON=n;
+  document.getElementById('practiceModalTitle').textContent='🎤 口语练习 · '+d.title;
+  openPracticeModal();
+  document.getElementById('practiceModalBody').innerHTML='<div style="text-align:center;padding:10px 0 16px 0;font-size:13px;color:#888">选择练习模式，每轮5题</div><div class="practice-mode-selector"><button class="practice-mode-btn" onclick="enterPracticeMode('+n+',\'dialogue\')"><span class="mode-icon">🎯</span>对话练习<br><span style="font-weight:400;font-size:12px;color:#999">看中文说韩语句子</span></button><button class="practice-mode-btn" onclick="enterPracticeMode('+n+',\'word\')"><span class="mode-icon">📝</span>单词抽测<br><span style="font-weight:400;font-size:12px;color:#999">翻译单词（中韩交替）</span></button></div><div class="practice-mode-selector" style="margin-top:8px"><button class="practice-mode-btn" onclick="enterPracticeMode('+n+',\'sentence-word\')"><span class="mode-icon">✏️</span>单词造句子<br><span style="font-weight:400;font-size:12px;color:#999">用给定单词造韩语句</span></button><button class="practice-mode-btn" onclick="enterPracticeMode('+n+',\'sentence-phrase\')"><span class="mode-icon">✏️</span>短语造句子<br><span style="font-weight:400;font-size:12px;color:#999">用短语造完整句子</span></button><button class="practice-mode-btn" onclick="enterPracticeMode('+n+',\'sentence-pattern\')"><span class="mode-icon">🔤</span>句型造句子<br><span style="font-weight:400;font-size:12px;color:#999">按句型框架造句</span></button></div>';
+}
+
+function enterPracticeMode(n,mode){
+  var data=getLessonPracticeData(n);
+  var lines=data.lines||[],vocab=data.vocab||[],phrases=data.phrases||[],patterns=data.patterns||[],wordSentences=data.wordSentences||{};
+  var questions=[];
+  
+  // 对话练习
+  if(mode==='dialogue'){
+    var pool=lines.slice();
+    if(pool.length===0&&vocab.length>0){
+      // 没有台词时，用单词凑成简单对话
+      var shuffledVocab=vocab.slice();shuffle(shuffledVocab);
+      shuffledVocab=shuffledVocab.slice(0,Math.min(5,shuffledVocab.length));
+      shuffledVocab.forEach(function(v){questions.push({display:v[1],expected:v[0],dir:'cn2kr',showAudio:true})});
+    }else{
+      shuffle(pool);pool=pool.slice(0,Math.min(5,pool.length));
+      pool.forEach(function(l){questions.push({display:l[1],expected:l[0],dir:'cn2kr',showAudio:true})});
+    }
+  // 单词抽测
+  }else if(mode==='word'){
+    var pool=vocab.slice();shuffle(pool);pool=pool.slice(0,Math.min(5,pool.length));
+    pool.forEach(function(v,i){questions.push({display:i%2===0?v[1]:v[0],expected:i%2===0?v[0]:v[1],dir:i%2===0?'cn2kr':'kr2cn',showAudio:true})});
+  // 单词造句子
+  }else if(mode==='sentence-word'){
+    var pool=vocab.slice();shuffle(pool);pool=pool.slice(0,Math.min(5,pool.length));
+    pool.forEach(function(v){
+      var ref=wordSentences[v[0]]||(lines[0]&&lines[0][0])||v[0]+'...';
+      var hints=['💡 韩语句子=主语+宾语+动词，谓语放句末','💡 注意加助词：은/는(主语) 을/를(宾语)','💡 试试先用这个词造简单句，再加细节'][Math.floor(Math.random()*3)];
+      questions.push({display:v[0]+' ('+v[1]+')',expected:'',dir:'sentence',word:v[0],ref:ref,
+        prompt:'请用这个词造一个韩语句子',hint:hints});
+    });
+  // 短语造句子
+  }else if(mode==='sentence-phrase'){
+    // 如果有短语数据直接用，否则从台词提取，再不行从单词造
+    if(phrases.length===0&&lines.length>0){
+      lines.forEach(function(l){var segs=l[0].split(/[,.!?;:·…\s]+/).filter(function(s){return s.length>2&&s.length<10});if(segs.length>1)phrases.push([segs[1],l[0]])});
+    }
+    if(phrases.length===0){
+      // 从单词生成简单短语
+      vocab.slice(0,Math.min(5,vocab.length)).forEach(function(v){phrases.push([v[0],v[0]+'...'])});
+    }
+    shuffle(phrases);phrases=phrases.slice(0,Math.min(5,phrases.length));
+    phrases.forEach(function(p){
+      var ref=p[1]||(lines[0]&&lines[0][0])||p[0];
+      var hints=['💡 把短语融入句中，注意位置和助词','💡 试试用这个短语做句子的开头或结尾','💡 可以先写简单句，再加修饰'][Math.floor(Math.random()*3)];
+      questions.push({display:p[0],expected:'',dir:'sentence',ref:ref,
+        prompt:'请用这个短语造一个完整的韩语句子',hint:hints});
+    });
+  // 句型造句子
+  }else if(mode==='sentence-pattern'){
+    // 尝试从tip中提取句型
+    var d=LESSONS[n];
+    if((patterns.length===0||!patterns)&&d&&d.tip){
+      var tipText=d.tip;
+      // 从tip里找常用句型标记
+      var tipMatch=tipText.match(/[①②③④⑤]\s*([^①②③④⑤]+)/g);
+      if(tipMatch){
+        tipMatch.slice(0,5).forEach(function(t){patterns.push([t.replace(/^[①②③④⑤]\s*/,'').trim().substring(0,20)+(t.length>20?'…':''),t])});
+      }else{
+        // 用tip里第一句话当句型
+        patterns.push([(tipText.length>20?tipText.substring(0,20)+'…':tipText),tipText]);
+      }
+    }
+    // 如果还是没有patterns，从词汇生成通用句型
+    if(patterns.length===0||!patterns){
+      patterns=[];
+      var sentenceWords=['…입니다 (是…)','…이/가 있어요 (有…)','…을/를 좋아해요 (喜欢…)','…하고 싶어요 (想做…)','…에 가요 (去…)'];
+      sentenceWords.slice(0,Math.min(5,sentenceWords.length)).forEach(function(p){patterns.push([p,'...'])});
+    }
+    shuffle(patterns);patterns=patterns.slice(0,Math.min(5,patterns.length));
+    patterns.forEach(function(p){
+      var ref=p[1]||'...';
+      var hints=['💡 句型框架是骨架，替换其中的关键词即可','💡 注意句型的固定搭配不要改动','💡 先模仿示例句子，再换词练习'][Math.floor(Math.random()*3)];
+      questions.push({display:p[0]+'（示例：'+p[1]+'）',expected:'',dir:'sentence',ref:p[1],patternDesc:p[0],prompt:'请按句型框架造一个韩语句子',hint:hints});
+    });
+  }
+  if(questions.length===0){alert('此课暂无可用数据，请先学完课程内容');return}
+  PRACTICE_STATE={lesson:n,mode:mode,questions:questions,idx:0,score:0,total:0};
+  PRACTICE_LESSON=n;
+  renderPracticeQuestion(n);
+}
+
+
+
+function backToPracticeMenu(){
+  var n=PRACTICE_LESSON;
+  if(!n)return;
+  PRACTICE_STATE=null;
+  startPractice(n);
+}
+
+function renderPracticeQuestion(n){
+  var s=PRACTICE_STATE;if(!s)return;
+  var body=document.getElementById('practiceModalBody');
+  if(!body)return;
+  var q=s.questions[s.idx];
+  if(!q){
+    var pct=s.total>0?Math.round(s.score/s.total*100):0;
+    body.innerHTML='<div class="practice-question-header" style="display:flex;align-items:center;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #e8ecf0"><button class="back-btn" onclick="backToPracticeMenu()" style="background:none;border:none;font-size:15px;cursor:pointer;color:#667eea;padding:6px 10px;border-radius:6px;display:flex;align-items:center;gap:4px">← 返回</button><span style="flex:1;text-align:center;font-size:16px;font-weight:600">🎤 口语练习</span><span style="width:60px"></span></div><div class="practice-summary"><div class="big-icon">'+(pct>=80?'🎉':pct>=60?'👍':'💪')+'</div><div class="score-display">'+s.score+' / '+s.total+'</div><div class="detail-text">正确率 '+pct+'%</div><div style="margin-top:14px;display:flex;gap:8px;justify-content:center"><button class="practice-next-btn" onclick="backToPracticeMenu()">再来一轮</button><button class="practice-next-btn" style="background:#888" onclick="closePracticeModal()">关闭</button></div></div>';
+    return;
+  }
+  var isSentenceMode=(q.dir==='sentence');
+  var modeLabels={'dialogue':'🎯 对话练习','word':'📝 单词抽测','sentence-word':'✏️ 单词造句子','sentence-phrase':'✏️ 短语造句子','sentence-pattern':'🔤 句型造句子'};
+  var modeLabel=modeLabels[s.mode]||'🎤 口语练习';
+  var promptText=q.prompt||(q.dir==='cn2kr'?'请用韩语说出：':'请说出中文翻译：');
+  var isWeChat=navigator.userAgent.indexOf('MicroMessenger')>=0;
+  var SR=!isWeChat&&(window.SpeechRecognition||window.webkitSpeechRecognition);
+  var html='<div class="practice-question-header" style="display:flex;align-items:center;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #e8ecf0"><button class="back-btn" onclick="backToPracticeMenu()" style="background:none;border:none;font-size:15px;cursor:pointer;color:#667eea;padding:6px 10px;border-radius:6px;display:flex;align-items:center;gap:4px">← 返回</button><span style="flex:1;text-align:center;font-size:16px;font-weight:600">'+modeLabel+'</span><span style="width:60px"></span></div><div class="practice-question">';
+  html+='<div class="practice-progress" style="font-size:14px;color:#888;margin-bottom:4px;text-align:center">第 '+(s.idx+1)+' / '+s.questions.length+' 题</div>';
+  html+='<div class="practice-score-display" style="font-size:14px;color:#666;margin:4px 0;text-align:center">得分 '+s.score+' / '+s.total+'</div>';
+  html+='<div class="practice-prompt" style="font-size:14px;color:#888;margin-top:10px;text-align:center">'+promptText+'</div>';
+  html+='<div class="practice-target" style="font-size:20px;font-weight:600;margin:10px 0;padding:14px;background:#f8f9fa;border-radius:8px;text-align:center;line-height:1.5">'+esc(q.display)+'</div>';
+  if(isSentenceMode&&q.hint){
+    html+='<div style="font-size:13px;color:#3498db;margin:4px 10px 8px 10px;padding:8px 12px;background:#f0f7ff;border-radius:8px;text-align:center;line-height:1.5">ⓘ '+esc(q.hint)+'</div>';
+  }
+  // 句子模式也加音频按钮（播放参考句）
+  if(isSentenceMode&&q.ref){
+    html+='<div style="text-align:center;margin:4px 0"><button class="speak" onclick="handleSpeak(event,\''+q.ref.replace(/'/g,"\'")+'\')">🔊 听参考例句</button></div>';
+  }
+  if(!isSentenceMode&&q.expected){
+    html+='<div style="text-align:center;margin:4px 0"><button class="speak" onclick="handleSpeak(event,\''+q.expected.replace(/'/g,"\\'")+'\')">🔊 听发音</button></div>';
+  }
+  html+='</div>';
+  if(!isSentenceMode){
+    if(SR){
+      html+='<div class="practice-record-area" style="text-align:center;margin:16px 0">';
+      html+='<button id="practice-rec-btn" class="practice-rec-btn" onclick="practiceRecord()">🎤 点击录音</button>';
+      html+='</div>';
+    }
+    html+='<div class="practice-type-area">';
+    html+='<input id="practice-type-input" class="practice-type-input" type="text" placeholder="'+(q.dir==='cn2kr'?'输入韩语...':'输入中文...')+'" onkeydown="if(event.key===\'Enter\')practiceSubmitType()">';
+    html+='<button class="practice-type-btn" onclick="practiceSubmitType()">提交</button>';
+    html+='</div>';
+    if(!SR){
+      html+='<div style="text-align:center;margin-top:10px"><button id="practice-skip-btn" class="practice-next-btn" onclick="practiceSkip()" style="background:#888">跳过，听发音</button></div>';
+    }
+  }else{
+    html+='<div class="practice-type-area">';
+    html+='<input id="practice-type-input" class="practice-type-input" type="text" placeholder="输入你造的韩语句子..." onkeydown="if(event.key===\'Enter\')practiceSentenceSubmit()">';
+    html+='<button class="practice-type-btn" onclick="practiceSentenceSubmit()">提交</button>';
+    html+='</div>';
+  }
+  html+='<div id="practice-status" class="practice-status" style="text-align:center;font-size:13px;color:#999;margin:8px 0"></div>';
+  html+='<div id="practice-result" class="practice-result"></div>';
+  body.innerHTML=html;
+  var inp=document.getElementById('practice-type-input');
+  if(inp)inp.focus();
+  var statusEl=document.getElementById('practice-status');
+  if(statusEl){
+    if(isSentenceMode)statusEl.textContent='✏️ 造个句子吧，提交后可见参考例句';
+    else if(SR)statusEl.textContent='点击🎤录音或直接打字提交';
+    else statusEl.textContent='💡 打字输入后点击提交或按回车键';
+  }
+}
+
+
+
+function normKo(t){return t.replace(/[\s.,!?;:'"()\[\]{}~\-—…·。，！？；：""''（）【】《》]/g,'').trim()}
+
+function compareWords(uText,eText,dir){
+  if(dir==='kr2cn'){
+    var m=normKo(uText)===normKo(eText);
+    return{accuracy:m?100:0,cmp:m?'correct':'wrong'};
+  }
+  var uW=uText.trim().split(/\s+/),eW=eText.trim().split(/\s+/);
+  var result=[],correct=0,total=Math.max(uW.length,eW.length);
+  for(var i=0;i<eW.length;i++){
+    var uw=i<uW.length?uW[i]:'',ew=eW[i];
+    if(normKo(uw)===''&&i>=uW.length)result.push({word:ew,status:'missing'});
+    else if(normKo(uw)===normKo(ew)){result.push({word:ew,status:'correct'});correct++}
+    else result.push({word:ew,status:'wrong',heard:uw||''});
+  }
+  return{accuracy:total>0?Math.round(correct/total*100):0,cmp:result};
+}
+
+function practiceRecord(){
+  if(isRecording)return;
+  var isWeChat=navigator.userAgent.indexOf('MicroMessenger')>=0;
+  var SR=!isWeChat&&(window.SpeechRecognition||window.webkitSpeechRecognition);
+  if(!SR){
+    document.getElementById('practice-status').textContent='⚠️ 当前浏览器不支持录音评测';
+    var body=document.getElementById('practiceModalBody');
+    var skipBtn=document.getElementById('practice-skip-btn');
+    if(!skipBtn&&body){
+      var div=document.createElement('div');
+      div.style.marginTop='12px';div.style.textAlign='center';
+      div.innerHTML='<button id="practice-skip-btn" class="practice-next-btn" onclick="practiceSkip()" style="background:#888">跳过录音，自评掌握度</button>';
+      body.appendChild(div);
+    }
+    return
+  }
+  var btn=document.getElementById('practice-rec-btn');if(!btn)return;
+  var s=PRACTICE_STATE;if(!s)return;
+  var q=s.questions[s.idx];if(!q)return;
+  var n=PRACTICE_LESSON;
+  isRecording=true;btn.classList.add('recording');btn.textContent='⏺';
+  var recogLang=q.dir==='kr2cn'?'zh-CN':'ko-KR';
+  document.getElementById('practice-status').textContent='🎤 正在听...';
+  recognition=new SR();recognition.lang=recogLang;recognition.continuous=false;recognition.interimResults=false;recognition.maxAlternatives=3;
+  recognition.onresult=function(e){practiceHandleResult(e.results[0][0].transcript.trim())};
+  recognition.onerror=function(e){
+    isRecording=false;if(btn){btn.classList.remove('recording');btn.textContent='🎤'}
+    var msg='⚠️ ';switch(e.error){case'no-speech':msg+='没有检测到语音，请再试一次';break;case'audio-capture':msg+='麦克风未找到或未授权';break;case'not-allowed':msg+='麦克风权限被拒绝';break;default:msg+='识别出错：'+e.error}
+    document.getElementById('practice-status').textContent=msg;
+  };
+  recognition.onend=function(){isRecording=false;if(btn){btn.classList.remove('recording');btn.textContent='🎤'}};
+  try{recognition.start()}catch(e2){isRecording=false;if(btn){btn.classList.remove('recording');btn.textContent='🎤'}document.getElementById('practice-status').textContent='⚠️ 启动识别失败'}
+}
+
+function practiceHandleResult(transcript){
+  var s=PRACTICE_STATE;if(!s)return;
+  var q=s.questions[s.idx];if(!q)return;
+  var n=PRACTICE_LESSON;
+  var resultDiv=document.getElementById('practice-result');
+  var cmp=compareWords(transcript,q.expected,q.dir);s.total++;
+  var isCorrect=cmp.accuracy>=70;if(isCorrect)s.score++;
+  var chipsHtml='';
+  if(typeof cmp.cmp==='string'){
+    chipsHtml='<span class="word-chip '+(cmp.cmp==='correct'?'correct':'wrong')+'">'+esc(transcript)+'</span>';
+  }else{
+    chipsHtml=cmp.cmp.map(function(w){return'<span class="word-chip '+w.status+'">'+(w.status==='correct'?'🟢 ':'🔴 ')+(w.status==='wrong'?w.word+'(→'+w.heard+')':w.word)+'</span>'}).join('');
+  }
+  resultDiv.innerHTML='<div class="practice-result"><div class="user-text">你说：'+esc(transcript)+'</div><div class="expected-text">正确：'+esc(q.expected)+'</div><div class="practice-word-analysis">'+chipsHtml+'</div><div class="accuracy-bar"><div class="accuracy-fill" style="width:'+cmp.accuracy+'%;background:'+(cmp.accuracy>=70?'#2ecc71':cmp.accuracy>=40?'#f39c12':'#e74c3c')+'"></div></div><div class="accuracy-label">正确率 '+cmp.accuracy+'% '+(isCorrect?'🟢 正确':'🔴 需改进')+'</div></div><button class="practice-next-btn" onclick="practiceNext()">下一题 →</button>';
+  savePracticeScore(n,s.score,s.total);
+}
+
+function practiceNext(){
+  var s=PRACTICE_STATE;if(!s)return;
+  var n=PRACTICE_LESSON;
+  s.idx++;renderPracticeQuestion(n);
+}
+
+function savePracticeScore(n,score,total){
+  try{var key='practice_score_'+n;var d=JSON.parse(localStorage.getItem(key))||{scores:[],best:0,totalPractice:0};d.scores.push({score:score,total:total,date:new Date().toISOString()});d.best=Math.max(d.best,Math.round(score/total*100));d.totalPractice++;localStorage.setItem(key,JSON.stringify(d))}catch(e){}
+}
+
+function practiceSubmitType(){
+  var input=document.getElementById('practice-type-input');
+  if(!input||!input.value.trim())return;
+  var transcript=input.value.trim();
+  var s=PRACTICE_STATE;if(!s)return;
+  var q=s.questions[s.idx];if(!q)return;
+  if(q.dir==='sentence'){
+    handleSentenceResult(transcript);
+  }else{
+    practiceHandleResult(transcript);
+  }
+  input.value='';
+}
+
+function practiceSkip(){
+  var s=PRACTICE_STATE;if(!s)return;
+  var q=s.questions[s.idx];if(!q)return;
+  var resultDiv=document.getElementById('practice-result');
+  if(!resultDiv)return;
+  resultDiv.innerHTML='<div style="text-align:center;padding:10px"><div style="font-size:40px;margin-bottom:8px">👂</div><div style="margin-bottom:8px">请听标准发音</div><div style="font-size:18px;margin:8px 0">'+esc(q.expected)+'</div><button class="speak" onclick="handleSpeak(event,'+q.expected.replace(/'/g,"\\'")+'\')">🔊 点击听发音</button></div>';
+  document.getElementById('practice-status').textContent='✅ 自评完成';
+  setTimeout(function(){practiceNext()},2000);
+}
+
+/* 句子模式提交处理 */
+function practiceSentenceSubmit(){
+  var input=document.getElementById('practice-type-input');
+  if(!input||!input.value.trim())return;
+  var s=PRACTICE_STATE;if(!s)return;
+  var q=s.questions[s.idx];if(!q||q.dir!=='sentence')return;
+  var transcript=input.value.trim();
+  input.value='';
+  handleSentenceResult(transcript);
+}
+
+/* 句子模式正误对比判断 */
+function handleSentenceResult(transcript){
+  var s=PRACTICE_STATE;if(!s)return;
+  var q=s.questions[s.idx];if(!q||q.dir!=='sentence')return;
+  var n=PRACTICE_LESSON;
+  var resultDiv=document.getElementById('practice-result');
+  if(!resultDiv)return;
+  var userNorm=normKo(transcript);
+  var refNorm=normKo(q.ref);
+  var isCorrect=(userNorm===refNorm);
+  s.total++;
+  if(isCorrect)s.score++;
+  var resultIcon=isCorrect?'🟢':'🔴';
+  var resultLabel=isCorrect?'正确 ✅':'需改进';
+  var resultBg=isCorrect?'#e8f8e8':'#fde8e8';
+  var resultBorder=isCorrect?'#2ecc71':'#e74c3c';
+  var audioBtn='';
+  if(KO_AUDIO_MAP[q.ref]){
+    audioBtn='<div style="text-align:center;margin-top:12px"><button class="speak" onclick="handleSpeak(event,'+esc(q.ref)+')">🔊 听参考发音</button></div>';
+  }
+  resultDiv.innerHTML='<div class="practice-result" style="padding:16px;background:'+resultBg+';border-radius:10px;border:1px solid '+resultBorder+'">'
+    +'<div style="text-align:center;font-size:20px;margin-bottom:8px">'+resultIcon+' '+resultLabel+'</div>'
+    +'<div style="font-size:12px;color:#888;margin-bottom:4px">你的造句：</div>'
+    +'<div style="font-size:15px;font-weight:500;padding:6px 10px;background:#fff;border-radius:6px;line-height:1.5;margin-bottom:10px">'+esc(transcript)+'</div>'
+    +'<div style="font-size:12px;color:#888;margin-bottom:4px">参考例句'+(isCorrect?'':'（↓ 请参考）')+'：</div>'
+    +'<div style="font-size:15px;font-weight:500;padding:6px 10px;background:#eef4fa;border-radius:6px;line-height:1.5;margin-bottom:8px">'+esc(q.ref)+'</div>'
+    +'<div style="text-align:center;font-size:14px;font-weight:600;margin:4px 0;color:'+(isCorrect?'#27ae60':'#e74c3c')+'">得分: '+s.score+' / '+s.total+'</div>'
+    +audioBtn
+    +'<button class="practice-next-btn" onclick="practiceSentenceNext()" style="margin-top:12px;display:block;margin-left:auto;margin-right:auto">下一题 →</button></div>';
+  document.getElementById('practice-status').textContent=isCorrect?'🎉 回答正确！':'💡 再想想，参考例句已展示';
+  savePracticeScore(n,s.score,s.total);
+}
+
+/* 句子模式下一题 */
+function practiceSentenceNext(){
+  var s=PRACTICE_STATE;if(!s)return;
+  var n=PRACTICE_LESSON;
+  s.idx++;renderPracticeQuestion(n);
+}
+
+/* ---------- 视频与台词联动（第1课） ---------- */
+var LESSON_TIMES={
+  1:[
+    {start:0,end:2.0},{start:2.2,end:5.2},{start:6.2,end:7.2},{start:8.2,end:9.2},
+    {start:9.96,end:12.4},{start:14.2,end:16.4},{start:21.6,end:23.0},{start:25.8,end:27.4},
+    {start:28.2,end:30.4},{start:30.8,end:32.2},{start:32.4,end:34.4},{start:34.6,end:35.8},
+    {start:35.8,end:37.0},{start:37.2,end:38.5}
+  ],
+  2:[
+    {start:0,end:2.0},{start:2.5,end:4.0},{start:13.0,end:15.0},{start:15.5,end:19.5},
+    {start:22.0,end:25.5},{start:27.5,end:29.5},{start:31.0,end:33.0},{start:33.5,end:34.5},
+    {start:35.0,end:37.5},{start:38.0,end:40.0},{start:40.0,end:41.0},{start:41.0,end:43.0},
+    {start:43.5,end:46.5},{start:49.5,end:51.0},
+    {start:53.0,end:55.0},{start:54.8,end:56.0}
+  ],
+  3:[
+    {start:0,end:1.5},{start:1.5,end:4.0},{start:4.0,end:7.0},{start:9.0,end:11.0},
+    {start:11.0,end:14.0},{start:14.0,end:16.0},{start:18.0,end:21.0},{start:21.0,end:23.0},
+    {start:23.0,end:25.0},{start:25.0,end:27.0},{start:27.0,end:30.0},{start:30.0,end:32.0},
+    {start:32.0,end:34.0},{start:34.0,end:36.0},{start:39.0,end:40.0},{start:40.0,end:41.0},
+    {start:41.0,end:42.0},{start:42.0,end:43.0},{start:43.0,end:44.0},{start:44.0,end:45.0},
+    {start:45.0,end:46.0}
+  ],
+  4:[
+    {start:0,end:2},{start:5.5,end:8},{start:8,end:10},{start:10,end:12},
+    {start:12,end:14},{start:14,end:16},{start:16,end:18},{start:18,end:19.5},
+    {start:19.5,end:21},{start:21,end:22.5},{start:22.5,end:24.5},
+    {start:24.5,end:26.5},{start:27,end:29},{start:29,end:31},{start:32,end:34}
+  ]
+};
+
+function setupSyncActiveLine(n){
+  var times=LESSON_TIMES[n];
+  if(!times)return;
+  var content=document.getElementById('content'+n);
+  if(!content)return;
+  var lines=content.querySelectorAll('.line');
+  if(lines.length===0)return;
+  var pg=document.getElementById('pageLesson'+n);
+  var video=pg?pg.querySelector('video'):null;
+  if(!video)return;
+  if(video._syncHandler){video.removeEventListener('timeupdate',video._syncHandler)}
+  video._syncHandler=function(){
+    var ct=video.currentTime,activeIdx=-1;
+    for(var i=0;i<times.length;i++){
+      if(ct>=times[i].start&&ct<times[i].end){activeIdx=i;break}
+    }
+    if(activeIdx===lines._activeIdx)return;
+    if(typeof lines._activeIdx==='number'&&lines._activeIdx>=0&&lines._activeIdx<lines.length){
+      lines[lines._activeIdx].classList.remove('active');
+    }
+    lines._activeIdx=activeIdx;
+    if(activeIdx>=0){
+      lines[activeIdx].classList.add('active');
+      lines[activeIdx].scrollIntoView({behavior:'smooth',block:'nearest'});
+    }
+  };
+  video.addEventListener('timeupdate',video._syncHandler);
+  for(var i=0;i<lines.length;i++){
+    (function(idx){
+      lines[idx].onclick=function(e){
+        if(e.target.closest&&e.target.closest('.line-hd,.speak'))return;
+        var t=times[idx];
+        if(t){video.currentTime=t.start;video.play()}
+      }
+    })(i)
+  }
+}
+
+
+
+</script>
+<script>
+// Override alert to capture messages
+var lastAlert = null;
+var origAlert = window.alert;
+window.alert = function(msg) { lastAlert = msg; console.log("ALERT:", msg); };
+
+// Mock practiceModalBody
+document.getElementById = (function(orig) {
+  return function(id) {
+    if (id === 'practiceModalBody') return { innerHTML: '', focus: function() {} };
+    if (id === 'practice-result') return { innerHTML: '' };
+    if (id === 'practice-status') return { textContent: '' };
+    if (id === 'practice-type-input') return { value: '테스트', focus: function() {} };
+    return orig.call(document, id);
+  };
+})(document.getElementById.bind(document));
+
+// Also mock openPracticeModal
+window.openPracticeModal = function() {};
+document.getElementById('generatedLessons').innerHTML = '';
+
+// Wait for page to load
+setTimeout(function() {
+  console.log("=== TESTING 5 MODES FOR LESSON 1 ===");
+  var modes = ['dialogue', 'word', 'sentence-word', 'sentence-phrase', 'sentence-pattern'];
+  modes.forEach(function(mode) {
+    lastAlert = null;
+    PRACTICE_STATE = null;
+    try {
+      enterPracticeMode(1, mode);
+      if (lastAlert) {
+        console.log('FAIL ' + mode + ': ' + lastAlert);
+      } else if (PRACTICE_STATE && PRACTICE_STATE.questions.length > 0) {
+        console.log('PASS ' + mode + ': ' + PRACTICE_STATE.questions.length + ' questions');
+      } else {
+        console.log('FAIL ' + mode + ': no state or no questions');
+      }
+    } catch(e) {
+      console.log('ERROR ' + mode + ': ' + e.message);
+    }
+  });
+  console.log("=== DONE ===");
+}, 500);
+</script></body></html>

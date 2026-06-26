@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EP1 파파고 사건·初次相遇</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, sans-serif; background: #fafafa; color: #333; line-height: 1.7; }
+.container { max-width: 700px; margin: 0 auto; padding: 12px; }
+h1 { font-size: 20px; text-align: center; margin: 10px 0 16px; }
+video { width: 100%; border-radius: 8px; background: #000; }
+.line { margin: 8px 0; padding: 10px 14px; background: #fff; border-radius: 8px; border: 1px solid #e8e8e8; cursor: pointer; transition: background 0.15s; position: relative; }
+.line:hover { background: #f5f5f5; }
+.line .kr { font-weight: bold; font-size: 15px; }
+.line .cn { color: #666; font-size: 13px; margin-top: 2px; }
+.line .tag { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; margin-right: 4px; margin-top: 4px; }
+.tag-w { background: #e8f5e9; color: #2e7d32; }
+.tag-p { background: #e3f2fd; color: #1565c0; }
+.tag-g { background: #fce4ec; color: #c62828; }
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 1000; }
+.modal-overlay.active { display: flex; justify-content: center; align-items: center; }
+.modal { background: #fff; width: 90%; max-width: 600px; max-height: 85vh; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+.modal-header { padding: 14px 16px 10px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: flex-start; }
+.modal-header .kr { font-weight: bold; font-size: 16px; flex: 1; }
+.modal-header .cn { color: #666; font-size: 13px; margin-top: 2px; }
+.modal-close { background: none; border: none; font-size: 22px; cursor: pointer; color: #999; padding: 0 4px; flex-shrink: 0; }
+.modal-body { padding: 14px 16px 20px; overflow-y: auto; max-height: calc(85vh - 80px); }
+.word { margin: 10px 0; }
+.word:first-child { margin-top: 0; }
+.word .head { font-weight: bold; font-size: 14px; }
+.word .head .tag { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; margin-right: 6px; }
+.word .mean { color: #555; font-size: 13px; margin: 2px 0; }
+.word .grammar { color: #888; font-size: 12px; margin: 2px 12px; padding-left: 8px; border-left: 2px solid #e0e0e0; }
+.word .example { font-size: 12px; margin: 3px 0 3px 12px; padding-left: 8px; border-left: 2px solid #eee; }
+.word .example .cn { color: #999; border: none; font-size: 12px; }
+.phonetics { margin: 14px 0 0; padding: 10px 12px; background: #f0f7ff; border-radius: 6px; font-size: 13px; }
+.phonetics .ph-title { color: #2980b9; font-weight: bold; margin-bottom: 6px; font-size: 13px; }
+.phonetics div { margin: 3px 0; }
+.phonetics .arrow { color: #e67e22; }
+.section { font-weight: bold; margin: 20px 0 10px; padding: 6px 10px; background: #eee; border-radius: 6px; font-size: 14px; }
+.nav { display: flex; justify-content: space-between; padding: 20px 0; }
+.nav a { text-decoration: none; color: #3498db; font-size: 14px; }
+.tip-box { margin: 14px 0 0; padding: 10px 12px; background: #fffde7; border-radius: 6px; font-size: 12px; color: #555; border-left: 3px solid #f1c40f; }
+.vocab { margin: 6px 0; padding: 8px 10px; background: #f9f9f9; border-radius: 6px; }
+.vocab p { margin: 3px 0; font-size: 13px; }
+.vocab .ex { color: #2c3e50; margin: 2px 0 6px 14px; font-size: 12px; border-left: 2px solid #ddd; padding-left: 8px; }
+.vocab .ex .cn { color: #888; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>EP1 ⑥ 파파고 사건 · 男女主初遇争吵</h1>
+
+<video controls preload="metadata" style="margin-bottom:12px;">
+  <source src="../videos/scene06_papago.mp4" type="video/mp4">
+</video>
+
+<div class="section">📺 点击台词查看讲解</div>
+
+<div class="line" onclick="openModal('m1')">
+  <p class="kr">다 알아들었어요?</p>
+  <p class="cn">→ 都听懂了？</p>
+  <span class="tag tag-w">단어</span><span class="tag tag-g">문법</span>
+</div>
+
+<div class="line" onclick="openModal('m2')">
+  <p class="kr">그냥 들린 겁니다, 몰래 들은 거죠</p>
+  <p class="cn">→ 只是听到了 / 是偷听的吧</p>
+  <span class="tag tag-w">단어</span><span class="tag tag-g">문법</span>
+</div>
+
+<div class="line" onclick="openModal('m3')">
+  <p class="kr">중국 사람인 척하면서</p>
+  <p class="cn">→ 装作中国人</p>
+  <span class="tag tag-g">문법</span>
+</div>
+
+<div class="line" onclick="openModal('m4')">
+  <p class="kr">아니, 본 척한 게 아니고 본 거고</p>
+  <p class="cn">→ 不是装作看，是真的看</p>
+  <span class="tag tag-g">문법</span>
+</div>
+
+<div class="line" onclick="openModal('m5')">
+  <p class="kr">말이 되는 소리를 해요</p>
+  <p class="cn">→ 说点像样的话好不好</p>
+  <span class="tag tag-p">관용</span>
+</div>
+
+<div class="line" onclick="openModal('m6')">
+  <p class="kr">자기가 무슨 파파고인가</p>
+  <p class="cn">→ 你以为自己是Papago翻译机吗</p>
+  <span class="tag tag-w">단어</span>
+</div>
+
+<div class="line" onclick="openModal('m7')">
+  <p class="kr">아이가 알레르기 때문에 호흡 곤란으로 쓰러졌다고</p>
+  <p class="cn">→ 孩子因过敏呼吸困难晕倒了</p>
+  <span class="tag tag-w">단어</span><span class="tag tag-g">문법</span>
+</div>
+
+<div class="modal-overlay" id="overlay" onclick="closeModal(event)">
+
+<div class="modal" id="m1">
+  <div class="modal-header">
+    <div>
+      <p class="kr">다 알아들었어요?</p>
+      <p class="cn">→ 都听懂了？</p>
+    </div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+  <div class="modal-body">
+    <div class="word">
+      <span class="head"><span class="tag tag-p">동사</span>알아듣다</span>
+      <div class="mean">→ 听懂、领会</div>
+      <div class="grammar">알다(知道) + 아 + 듣다(听) → 听明白。ㄷ→ㄹ 不规则: 알아들으면, 알아들었어요</div>
+      <div class="example">💬 한국어 잘 알아들어요. → 我能听懂韩语。</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-p">대조</span>듣다 vs 알아듣다 vs 들리다</span>
+      <div class="grammar">▸ 듣다 = 听 (主动) ／ 들리다 = 被听到 (被动)</div>
+      <div class="grammar">▸ 알아듣다 = 听明白 (理解到了)</div>
+    </div>
+    <div class="phonetics">
+      <div class="ph-title">🎵 音变说明</div>
+      <div><span class="arrow">›</span> <b>알아들었어요</b> → [아라드러써요] (连音化)</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m2">
+  <div class="modal-header">
+    <div>
+      <p class="kr">그냥 들린 겁니다, 몰래 들은 거죠</p>
+      <p class="cn">→ 只是听到了 / 是偷听的吧</p>
+    </div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+  <div class="modal-body">
+    <div class="word">
+      <span class="head"><span class="tag tag-p">동사</span>들리다</span>
+      <div class="mean">→ 被听到、能听见（피동사）</div>
+      <div class="grammar">듣다 → 들리다。"我听到了"= 들렸어요，"自动传到耳朵"</div>
+      <div class="example">💬 노래가 잘 들려요. → 歌很清楚。</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-p">부사</span>몰래</span>
+      <div class="mean">→ 偷偷地</div>
+      <div class="grammar">"모르게" 不让别人知道。반대 = 대놓고(公然地)</div>
+      <div class="example">💬 몰래 들어왔어. → 偷偷进来的。</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-g">문법</span>~ㄴ/은 거죠</span>
+      <div class="mean">→ 是……的吧（推测+确认）</div>
+      <div class="grammar">~ㄴ 것이지요 缩略，比 ~았/었지요 多了"行为本质"的味道</div>
+    </div>
+    <div class="phonetics">
+      <div class="ph-title">🎵 音变说明</div>
+      <div><span class="arrow">›</span> <b>들린 겁니다</b> → [들린검니다] (鼻音化)</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m3">
+  <div class="modal-header">
+    <div>
+      <p class="kr">중국 사람인 척하면서</p>
+      <p class="cn">→ 装作中国人</p>
+    </div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+  <div class="modal-body">
+    <div class="word">
+      <span class="head"><span class="tag tag-g">문법</span>~인 척하다 / ~는 척하다</span>
+      <div class="mean">→ 装作……、假装……</div>
+      <div class="grammar">名词 + 인 척 ／ 动词 + 는 척 ／ 形容词 + ~(으)ㄴ 척</div>
+      <div class="example">💬 자는 척했어요. → 装睡了。</div>
+      <div class="example">💬 모르는 척하지 마. → 别装不知道。</div>
+      <div class="example">💬 부자인 척했어. → 装富。</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-g">문법</span>~(으)면서</span>
+      <div class="mean">→ 一边……一边……</div>
+      <div class="grammar">同时进行的动作。批评语气："明明……还(同时)……"</div>
+      <div class="example">💬 노래 들으면서 공부해요. → 边听歌边学习。</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m4">
+  <div class="modal-header">
+    <div>
+      <p class="kr">아니, 본 척한 게 아니고 본 거고</p>
+      <p class="cn">→ 不是装作看，是真的看</p>
+    </div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+  <div class="modal-body">
+    <div class="word">
+      <span class="head"><span class="tag tag-g">문법</span>~ㄴ 게 아니고 ~ㄴ 거고</span>
+      <div class="mean">→ 不是……而是……</div>
+      <div class="grammar">"本척한 게 아니고 본 거" = 不是装看，是真看。强调否定+修正。</div>
+      <div class="example">💬 화난 게 아니고 피곤한 거예요. → 不是生气，是累了。</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-p">감탄사</span>아니</span>
+      <div class="mean">→ 不(是)、欸（口语反驳/惊讶）</div>
+      <div class="example">💬 아니, 그게 아니라… → 不是，我说的不是那个…</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m5">
+  <div class="modal-header">
+    <div>
+      <p class="kr">말이 되는 소리를 해요</p>
+      <p class="cn">→ 说点像样的话好不好</p>
+    </div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+  <div class="modal-body">
+    <div class="word">
+      <span class="head"><span class="tag tag-p">관용구</span>말이 되다 / 안 되다</span>
+      <div class="mean">→ 像话／不像话</div>
+      <div class="grammar">"말이 안 돼" = 不像话/没道理 ／ "말이 되는 소리" = 有道理的话</div>
+      <div class="example">💬 그게 말이 돼? → 那像话吗？</div>
+      <div class="example">💬 말도 안 돼! → 太离谱了！</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-p">관용</span>관련 표현</span>
+      <div class="grammar">▸ 말도 안 되는 소리 = 不像话的话</div>
+      <div class="grammar">▸ 말이 되는 소리를 하다 = 说点像话的</div>
+      <div class="grammar">▸ 말 같지도 않다 = 简直不像人话</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m6">
+  <div class="modal-header">
+    <div>
+      <p class="kr">자기가 무슨 파파고인가</p>
+      <p class="cn">→ 你以为自己是Papago翻译机吗</p>
+    </div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+  <div class="modal-body">
+    <div class="word">
+      <span class="head"><span class="tag tag-w">고유명사</span>파파고 (Papago)</span>
+      <div class="mean">→ 韩国 NAVER 公司开发的翻译App，韩国人最常用</div>
+      <div class="grammar">语源 = Papagaio（葡萄牙语"鹦鹉"）。剧中讽刺男主"什么语言都翻"。</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-p">호칭</span>자기</span>
+      <div class="mean">→ ① 自己 ② 你（口语年长者→年轻人，或情侣间）</div>
+      <div class="grammar">这里"자기" 表"你"，带轻微讽刺/不屑（무희 比 호진 大）</div>
+      <div class="example">💬 자기 일이나 잘하세요. → 管好你自己的事。</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-g">문법</span>무슨 ~인가</span>
+      <div class="mean">→ 难道是……吗（讽刺反问）</div>
+      <div class="example">💬 자기가 무슨 의사야? → 你以为你是医生啊？</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m7">
+  <div class="modal-header">
+    <div>
+      <p class="kr">아이가 알레르기 때문에 호흡 곤란으로 쓰러졌다고</p>
+      <p class="cn">→ 孩子因过敏呼吸困难晕倒了</p>
+    </div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+  <div class="modal-body">
+    <div class="word">
+      <span class="head"><span class="tag tag-w">명사</span>알레르기</span>
+      <div class="mean">→ 过敏 (Allergy)</div>
+      <div class="example">💬 견과 알레르기가 있어요. → 我对坚果过敏。</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-w">명사</span>호흡 곤란</span>
+      <div class="mean">→ 呼吸困难</div>
+      <div class="grammar">汉字 呼吸困难 = 호흡(呼吸) + 곤란(困难)</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-p">동사</span>쓰러지다</span>
+      <div class="mean">→ 倒下、晕倒</div>
+      <div class="example">💬 더위에 쓰러졌어요. → 中暑晕倒了。</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-g">문법</span>~ 때문에</span>
+      <div class="mean">→ 因为（名词原因）</div>
+      <div class="grammar">名词 + 때문에 ／ 形容词/动词 + 기 때문에</div>
+      <div class="example">💬 비 때문에 못 갔어요. → 因为下雨没去成。</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-g">문법</span>~다고 (전달)</span>
+      <div class="mean">→ ……(让对方传达)</div>
+      <div class="grammar">陈述间接引语 = ~다고 하다。这里 호진 让店员"告知救护车"，用 ~다고 알려 주세요</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /overlay -->
+
+<div class="section">📌 单词·语法 总览</div>
+<div class="vocab">
+<p><strong>📍 单词</strong></p>
+<p>▸ 알아듣다 — 听懂</p>
+<p>▸ 들리다 — 被听到</p>
+<p>▸ 몰래 — 偷偷</p>
+<p>▸ 알레르기 — 过敏</p>
+<p>▸ 쓰러지다 — 晕倒</p>
+<p>▸ 호흡 곤란 — 呼吸困难</p>
+<p>▸ 파파고 — Papago翻译App</p>
+
+<p style="margin-top:8px;"><strong>📍 核心语法</strong></p>
+<p>▸ <b>~인/는 척하다</b> — 假装……</p>
+<p class="ex">💬 안 듣는 <b>척했어요</b>. → 装作没听。</p>
+<p>▸ <b>~(으)면서</b> — 一边……一边……</p>
+<p class="ex">💬 웃으<b>면서</b> 말했어. → 笑着说的。</p>
+<p>▸ <b>~ 때문에</b> — 因为……</p>
+<p class="ex">💬 너 <b>때문에</b> 늦었어. → 因为你迟到了。</p>
+<p>▸ <b>~ㄴ 게 아니고 ~ㄴ 거</b> — 不是……而是……</p>
+<p class="ex">💬 화난 게 아니<b>고</b> 슬픈 거야. → 不是生气是难过。</p>
+<p>▸ <b>말이 되다</b> — 像话/合理</p>
+<p class="ex">💬 그게 <b>말이 안 돼</b>. → 那不像话。</p>
+</div>
+
+<div class="section">💡 小贴士</div>
+<div class="tip-box">
+  <p>① <b>파파고(Papago)</b> 是韩国 NAVER 出的翻译App，类似中国的"百度翻译"。剧名"翻译爱情"中处处有它。</p>
+  <p>② <b>들리다 vs 듣다</b>：들리다 强调"声音传来"(被动)，듣다 是"主动听"。"몰래 듣다"才是偷听。</p>
+  <p>③ <b>~인 척하다</b> 是高频生活用语，年轻人爱用 "~척" 单独使用："척하지 마!"(别装!)</p>
+  <p>④ <b>"자기"</b> 用法很微妙：情侣间是"亲爱的"，对下属/晚辈则是"你"，必须看场合判断。</p>
+</div>
+
+<div class="nav">
+  <a href="05_개떡찰떡.html">← 上一节</a>
+  <a href="../index.html">返回目录</a>
+  <a href="07_내사랑통역.html">下一节 →</a>
+</div>
+
+</div>
+
+<script>
+function openModal(id) {
+  document.getElementById('overlay').classList.add('active');
+  document.getElementById(id).style.display = 'block';
+}
+function closeModal(e) {
+  if (e && e.target !== document.getElementById('overlay') && e.target.closest('.modal')) return;
+  document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+  document.getElementById('overlay').classList.remove('active');
+}
+document.getElementById('overlay').addEventListener('click', function(e) {
+  if (e.target === this) {
+    document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+    this.classList.remove('active');
+  }
+});
+</script>
+</body>
+</html>

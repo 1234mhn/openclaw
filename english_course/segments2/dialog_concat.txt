@@ -1,0 +1,7 @@
+file '/root/.openclaw/workspace/english_course/segments/seg1.mp4'
+file '/root/.openclaw/workspace/english_course/segments/seg2.mp4'
+file '/root/.openclaw/workspace/english_course/segments/seg3.mp4'
+file '/root/.openclaw/workspace/english_course/segments/seg4.mp4'
+file '/root/.openclaw/workspace/english_course/segments/seg5.mp4'
+file '/root/.openclaw/workspace/english_course/segments/seg6.mp4'
+file '/root/.openclaw/workspace/english_course/segments/seg7.mp4'

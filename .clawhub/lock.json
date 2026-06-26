@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "skills": {
+    "openclaw-tavily-search": {
+      "version": "0.1.0",
+      "installedAt": 1778640485453
+    },
+    "memory-hygiene": {
+      "version": "1.0.0",
+      "installedAt": 1778640487780
+    },
+    "github": {
+      "version": "1.0.0",
+      "installedAt": 1778640489587
+    },
+    "agent-browser-clawdbot": {
+      "version": "0.1.0",
+      "installedAt": 1778640491863
+    },
+    "tencentcloud-lighthouse-skill": {
+      "version": "1.0.2",
+      "installedAt": 1778640495870
+    },
+    "tencent-docs": {
+      "version": "1.0.33",
+      "installedAt": 1779028027212
+    },
+    "tencent-cos-skill": {
+      "version": "1.1.7",
+      "installedAt": 1778640505371
+    },
+    "tencent-meeting-skill": {
+      "version": "1.0.7",
+      "installedAt": 1779028031437
+    },
+    "web-tools-guide": {
+      "version": "1.0.2",
+      "installedAt": 1778640512072
+    },
+    "wps-office-automation-skill": {
+      "version": "1.0.2",
+      "installedAt": 1779028023092
+    },
+    "text-to-video-animation-ai": {
+      "version": "1.0.0",
+      "installedAt": 1779031386824
+    },
+    "youtube-api": {
+      "version": "1.5.0",
+      "installedAt": 1779031757346
+    },
+    "baidu-drive": {
+      "version": "1.6.0",
+      "installedAt": 1780099091106
+    }
+  }
+}

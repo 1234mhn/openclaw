@@ -1,0 +1,2441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>☀️ 韩语主题学习 · 한국어 테마 학습</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  height: 100%; overflow: hidden;
+  font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Malgun Gothic', sans-serif;
+  background: #f0f4f8;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  touch-action: manipulation;
+}
+body { position: relative; }
+
+.page-container {
+  position: relative;
+  width: 100%; height: 100%;
+  overflow: hidden;
+}
+.page {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  display: none;
+  z-index: 1;
+}
+.page.active { display: flex; flex-direction: column; z-index: 2; }
+
+#page-main {
+  background: linear-gradient(180deg, #4A90D9 0%, #74B9FF 40%, #A8D8EA 70%, #D4E9F7 100%);
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+#page-main.active { display: flex; }
+
+.cloud {
+  position: absolute;
+  background: rgba(255,255,255,0.85);
+  border-radius: 50px;
+  animation: floatCloud linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.cloud::before, .cloud::after {
+  content: '';
+  position: absolute;
+  background: inherit;
+  border-radius: 50%;
+}
+.cloud-1 { width: 120px; height: 40px; top: 8%; left: -130px; animation-duration: 25s; }
+.cloud-1::before { width: 50px; height: 50px; top: -25px; left: 20px; }
+.cloud-1::after { width: 70px; height: 55px; top: -20px; left: 45px; }
+.cloud-2 { width: 160px; height: 50px; top: 18%; left: -170px; animation-duration: 35s; animation-delay: 5s; }
+.cloud-2::before { width: 60px; height: 60px; top: -30px; left: 25px; }
+.cloud-2::after { width: 85px; height: 65px; top: -25px; left: 55px; }
+.cloud-3 { width: 90px; height: 32px; top: 32%; left: -100px; animation-duration: 20s; animation-delay: 10s; }
+.cloud-3::before { width: 40px; height: 40px; top: -20px; left: 15px; }
+.cloud-3::after { width: 55px; height: 45px; top: -15px; left: 35px; }
+.cloud-4 { width: 140px; height: 44px; top: 50%; left: -150px; animation-duration: 30s; animation-delay: 3s; }
+.cloud-4::before { width: 55px; height: 55px; top: -28px; left: 22px; }
+.cloud-4::after { width: 75px; height: 60px; top: -22px; left: 50px; }
+
+@keyframes floatCloud {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(100vw + 200px)); }
+}
+
+.main-scrollable {
+  position: relative; z-index: 1;
+  width: 100%; height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.main-scrollable::-webkit-scrollbar { width: 4px; }
+.main-scrollable::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
+
+.main-content {
+  position: relative; z-index: 1;
+  width: 100%; max-width: 480px;
+  padding: 24px 16px 30px;
+  display: flex; flex-direction: column; align-items: center;
+  min-height: 100%; justify-content: center;
+}
+
+.main-header { text-align: center; margin-bottom: 28px; }
+.main-header h1 {
+  font-size: 28px; font-weight: 700; color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  margin-bottom: 6px;
+}
+.main-header .kr-title {
+  font-size: 20px; font-weight: 500; color: rgba(255,255,255,0.9);
+  font-family: 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.1);
+}
+.main-header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 8px; }
+
+.theme-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 14px; width: 100%; max-width: 400px;
+}
+
+.theme-card {
+  aspect-ratio: 1 / 1;
+  border-radius: 18px; padding: 16px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative; overflow: hidden;
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+  border: 2px solid rgba(255,255,255,0.3);
+}
+.theme-card .card-emoji { font-size: 44px; margin-bottom: 10px; line-height: 1; }
+.theme-card .card-label { font-size: 16px; font-weight: 600; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,0.15); }
+.theme-card .card-label-kr { font-size: 12px; color: rgba(255,255,255,0.7); font-family: 'Malgun Gothic', 'Noto Sans KR', sans-serif; margin-top: 2px; }
+
+.theme-card.weather-card {
+  background: linear-gradient(135deg, rgba(52,152,219,0.85), rgba(41,128,185,0.9));
+  border-color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(41,128,185,0.4);
+}
+.theme-card.weather-card:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 30px rgba(41,128,185,0.5); }
+.theme-card.weather-card:active { transform: scale(0.96); }
+
+.theme-card.disabled-card {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.15);
+  cursor: default;
+}
+.theme-card.disabled-card .card-emoji { opacity: 0.5; }
+.theme-card.disabled-card .card-label { opacity: 0.5; }
+.theme-card.disabled-card .card-label-kr { opacity: 0.4; }
+
+.coming-soon {
+  position: absolute; top: 8px; right: 8px;
+  background: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.6);
+  font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 500;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.main-header { animation: fadeInUp 0.8s ease-out; }
+.theme-card { animation: fadeInUp 0.6s ease-out both; }
+.theme-card:nth-child(1) { animation-delay: 0.1s; }
+.theme-card:nth-child(2) { animation-delay: 0.2s; }
+.theme-card:nth-child(3) { animation-delay: 0.3s; }
+.theme-card:nth-child(4) { animation-delay: 0.4s; }
+.theme-card:nth-child(5) { animation-delay: 0.5s; }
+.theme-card:nth-child(6) { animation-delay: 0.6s; }
+
+#page-modules {
+  background: linear-gradient(180deg, #4A90D9 0%, #74B9FF 40%, #A8D8EA 70%, #D4E9F7 100%);
+}
+#page-modules.active { display: flex; }
+
+.modules-scrollable {
+  position: relative; z-index: 1;
+  width: 100%; height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.modules-scrollable::-webkit-scrollbar { width: 4px; }
+.modules-scrollable::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
+
+.modules-top {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center;
+  padding: 12px 16px;
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  min-height: 52px;
+}
+.modules-top .back-btn {
+  background: none; border: none;
+  font-size: 20px; cursor: pointer;
+  padding: 4px 8px; color: #fff;
+  display: flex; align-items: center; gap: 4px;
+  white-space: nowrap;
+}
+.modules-top .back-btn span { font-size: 13px; }
+.modules-top .title-area { flex: 1; text-align: center; }
+.modules-top .title-area h2 { font-size: 18px; font-weight: 600; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,0.1); }
+
+.modules-list {
+  padding: 0 16px 40px;
+  display: flex; flex-direction: column;
+  gap: 12px;
+}
+
+.module-card {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 16px 18px;
+  display: flex; align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.module-card:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+.module-card:active { transform: scale(0.98); }
+
+.module-card .m-icon {
+  font-size: 36px; flex-shrink: 0;
+  width: 52px; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 12px;
+}
+.module-card .m-info { flex: 1; min-width: 0; }
+.module-card .m-title {
+  font-size: 16px; font-weight: 600; color: #2c3e50;
+  display: flex; align-items: center; gap: 6px;
+}
+.module-card .m-title .m-badge {
+  font-size: 11px; color: #fff;
+  padding: 1px 8px; border-radius: 8px;
+  font-weight: 500;
+}
+.module-card .m-desc {
+  font-size: 13px; color: #888;
+  margin-top: 2px;
+}
+.module-card .m-arrow {
+  font-size: 20px; color: #bbb;
+  flex-shrink: 0;
+}
+
+#page-card {
+  background: linear-gradient(180deg, #E8F0FE 0%, #D4E9F7 40%, #C8E6F5 70%, #BBDEFB 100%);
+}
+#page-card.active { display: flex; }
+
+.card-top {
+  display: flex; align-items: center;
+  padding: 10px 16px;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  min-height: 48px;
+}
+.card-top .back-btn {
+  background: none; border: none;
+  font-size: 18px; cursor: pointer;
+  padding: 4px 6px; color: #555;
+  display: flex; align-items: center; gap: 3px;
+}
+.card-top .back-btn span { font-size: 12px; }
+.card-top .card-title-area { flex: 1; text-align: center; }
+.card-top .card-title-area h3 { font-size: 15px; font-weight: 500; color: #444; }
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-wrapper {
+  position: relative;
+  width: 94%;
+  max-width: 420px;
+  height: 82vh;
+  min-height: 420px;
+  max-height: 600px;
+}
+
+@media (max-width: 400px) {
+  .card-wrapper { width: 95%; height: 78vh; min-height: 400px; }
+}
+@media (min-width: 768px) {
+  .card-wrapper { width: 420px; height: 500px; }
+}
+
+.big-flip-card {
+  width: 100%; height: 100%;
+  perspective: 1200px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  position: absolute;
+  top: 0; left: 0;
+}
+.big-flip-card-inner {
+  position: relative;
+  width: 100%; height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  border-radius: 16px;
+}
+.big-flip-card.flipped .big-flip-card-inner { transform: rotateY(180deg); }
+
+.big-card-front, .big-card-back {
+  position: absolute;
+  width: 100%; height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  overflow-y: auto;
+}
+.big-card-front {
+  justify-content: center;
+}
+.big-card-back {
+  justify-content: flex-start;
+  padding: 20px 16px 12px;
+  gap: 6px;
+}
+.big-card-front {
+  background: linear-gradient(160deg, #FFF8E1, #FFFDE7);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.big-card-back {
+  background: linear-gradient(160deg, #2C3E50, #1A252F);
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+.vocab-card-front .kr-large {
+  font-size: 38px;
+  font-weight: 900;
+  font-family: 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+  color: #2c3e50;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  word-break: keep-all;
+}
+@media (max-width: 400px) {
+  .vocab-card-front .kr-large { font-size: 32px; }
+}
+.vocab-card-front .pron-badge {
+  position: absolute;
+  top: 14px; right: 16px;
+  font-size: 14px;
+  color: #999;
+  font-family: 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+  background: rgba(0,0,0,0.04);
+  padding: 2px 10px;
+  border-radius: 8px;
+}
+.vocab-card-front .emoji-large {
+  position: absolute;
+  bottom: 16px; right: 18px;
+  font-size: 40px;
+  line-height: 1;
+}
+.audio-btn {
+  position: absolute;
+  top: 14px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  background: rgba(255,255,255,0.85);
+  border: none;
+  border-radius: 50%;
+  width: 42px; height: 42px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 5;
+  transition: transform 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.audio-btn:hover { transform: translateX(-50%) scale(1.1); }
+.audio-btn:active { transform: translateX(-50%) scale(0.9); }
+.audio-btn-sm {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  border-radius: 50%;
+  width: 28px; height: 28px;
+  cursor: pointer;
+  font-size: 14px;
+  vertical-align: middle;
+  margin-left: 4px;
+  transition: transform 0.2s;
+}
+.audio-btn-sm:hover { transform: scale(1.15); }
+.audio-btn-sm:active { transform: scale(0.9); }
+.vocab-card-front .tap-hint {
+  position: absolute;
+  bottom: 14px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: #bbb;
+  white-space: nowrap;
+}
+.vocab-card-front .icon-deco {
+  position: absolute;
+  top: 14px; left: 16px;
+  font-size: 28px;
+  opacity: 0.3;
+}
+
+.vocab-card-back .cn-big {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.vocab-card-back .phrase-text {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+  opacity: 0.95;
+  margin-bottom: 8px;
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 8px;
+}
+.vocab-card-back .example-text {
+  font-size: 15px;
+  opacity: 0.9;
+  line-height: 1.6;
+  font-family: 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+  padding: 6px 14px;
+  max-width: 92%;
+}
+.vocab-card-back .example-cn {
+  font-size: 13px;
+  opacity: 0.6;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  font-family: 'Noto Sans SC', sans-serif;
+}
+.vocab-card-back .sound-tag {
+  display: inline-block;
+  background: rgba(255,200,50,0.2);
+  color: #FFD54F;
+  padding: 4px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.ex-card-front .ex-icon-big {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+.ex-card-front .ex-label {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 8px;
+}
+.ex-card-front .ex-question {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+  line-height: 1.4;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
+  padding: 0 8px;
+}
+
+.ex-card-back .ex-answer-icon { font-size: 32px; margin-bottom: 8px; }
+.ex-card-back .ex-answer-label {
+  font-size: 13px;
+  opacity: 0.6;
+  margin-bottom: 6px;
+}
+.ex-card-back .ex-answer-text {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
+}
+.ex-card-back .ex-answer-detail {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 6px;
+}
+
+.complete-card .big-card-front {
+  background: linear-gradient(160deg, #E8F5E9, #C8E6C9);
+}
+.complete-card .complete-icon { font-size: 48px; margin-bottom: 12px; }
+.complete-card .complete-title {
+  font-size: 24px; font-weight: 700; color: #2E7D32;
+}
+.complete-card .complete-desc {
+  font-size: 14px; color: #666; margin-top: 6px;
+}
+.complete-card .complete-emoji-row {
+  font-size: 28px; margin-top: 10px;
+  letter-spacing: 6px;
+}
+
+.card-wrapper .big-flip-card {
+  transition: opacity 0.25s ease;
+}
+.card-wrapper .big-flip-card.slide-left-out {
+  animation: slideCardLeftOut 0.3s ease forwards;
+}
+.card-wrapper .big-flip-card.slide-right-out {
+  animation: slideCardRightOut 0.3s ease forwards;
+}
+.card-wrapper .big-flip-card.slide-left-in {
+  animation: slideCardLeftIn 0.3s ease forwards;
+}
+.card-wrapper .big-flip-card.slide-right-in {
+  animation: slideCardRightIn 0.3s ease forwards;
+}
+
+@keyframes slideCardLeftOut {
+  0% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(-120%); opacity: 0; }
+}
+@keyframes slideCardRightOut {
+  0% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(120%); opacity: 0; }
+}
+@keyframes slideCardLeftIn {
+  0% { transform: translateX(120%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideCardRightIn {
+  0% { transform: translateX(-120%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+.card-bottom {
+  flex-shrink: 0;
+  padding: 8px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+}
+
+.card-nav .nav-arrow {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(0,0,0,0.08);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  color: #555;
+  font-family: inherit;
+}
+.card-nav .nav-arrow:hover { transform: scale(1.1); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.card-nav .nav-arrow:active { transform: scale(0.92); }
+.card-nav .nav-arrow:disabled { opacity: 0.25; cursor: not-allowed; transform: none; }
+
+.card-nav .progress-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #888;
+  min-width: 50px;
+  text-align: center;
+}
+
+.card-nav .card-type-tag {
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 2px;
+  text-align: center;
+}
+
+.module-complete-btn {
+  background: #4A90D9;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 24px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  box-shadow: 0 4px 12px rgba(74,144,217,0.3);
+  margin-top: 4px;
+}
+.module-complete-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(74,144,217,0.4); }
+.module-complete-btn:active { transform: scale(0.96); }
+.module-complete-btn.secondary {
+  background: rgba(255,255,255,0.85);
+  color: #555;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  margin-top: 0;
+  font-size: 14px;
+  padding: 10px 20px;
+}
+.module-complete-btn.secondary:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
+.module-complete-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 0 16px 20px;
+}
+
+.page.slide-in-right {
+  animation: slideInRight 0.35s ease-out forwards;
+  z-index: 3;
+}
+.page.slide-out-left {
+  animation: slideOutLeft 0.35s ease-out forwards;
+  z-index: 3;
+}
+.page.slide-in-left {
+  animation: slideInLeft 0.35s ease-out forwards;
+  z-index: 3;
+}
+.page.slide-out-right {
+  animation: slideOutRight 0.35s ease-out forwards;
+  z-index: 3;
+}
+
+@keyframes slideInRight { from { transform: translate3d(100%,0,0); } to { transform: translate3d(0,0,0); } }
+@keyframes slideOutLeft { from { transform: translate3d(0,0,0); } to { transform: translate3d(-100%,0,0); } }
+@keyframes slideInLeft { from { transform: translate3d(-100%,0,0); } to { transform: translate3d(0,0,0); } }
+@keyframes slideOutRight { from { transform: translate3d(0,0,0); } to { transform: translate3d(100%,0,0); } }
+
+.module-color-1 .big-card-front { background: linear-gradient(160deg, #E3F2FD, #BBDEFB); }
+.module-color-2 .big-card-front { background: linear-gradient(160deg, #FFF3E0, #FFE0B2); }
+.module-color-3 .big-card-front { background: linear-gradient(160deg, #E1F5FE, #B3E5FC); }
+.module-color-4 .big-card-front { background: linear-gradient(160deg, #F5F5F5, #E0E0E0); }
+.module-color-5 .big-card-front { background: linear-gradient(160deg, #E8F5E9, #C8E6C9); }
+.module-color-6 .big-card-front { background: linear-gradient(160deg, #F3E5F5, #E1BEE7); }
+.module-color-7 .big-card-front { background: linear-gradient(160deg, #FFEBEE, #FFCDD2); }
+
+.module-color-1 .big-card-back { background: linear-gradient(160deg, #1565C0, #0D47A1); }
+.module-color-2 .big-card-back { background: linear-gradient(160deg, #E65100, #BF360C); }
+.module-color-3 .big-card-back { background: linear-gradient(160deg, #0277BD, #01579B); }
+.module-color-4 .big-card-back { background: linear-gradient(160deg, #546E7A, #37474F); }
+.module-color-5 .big-card-back { background: linear-gradient(160deg, #2E7D32, #1B5E20); }
+.module-color-6 .big-card-back { background: linear-gradient(160deg, #6A1B9A, #4A148C); }
+.module-color-7 .big-card-back { background: linear-gradient(160deg, #C62828, #B71C1C); }
+
+.complete-card .big-card-back { display: none; }
+.complete-card.flipped .big-flip-card-inner { transform: none; }
+
+.rule-display .big-card-front {
+  background: linear-gradient(160deg, #FFF8E1, #FFECB3);
+}
+.rule-display .big-card-back { display: none; }
+.rule-display.flipped .big-flip-card-inner { transform: none; }
+
+.rule-display .rule-big-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #E65100;
+  margin-bottom: 8px;
+}
+.rule-display .rule-big-example {
+  font-size: 32px;
+  font-weight: 900;
+  font-family: 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+.rule-display .rule-big-desc {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 8px;
+}
+.rule-display .rule-big-detail {
+  font-size: 13px;
+  font-family: 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+  color: #555;
+  background: rgba(0,0,0,0.04);
+  padding: 8px 14px;
+  border-radius: 10px;
+  line-height: 1.6;
+  text-align: left;
+  width: 100%;
+}
+
+.grammar-box, .more-box {
+  margin-top: 12px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 12px;
+  padding: 16px 18px;
+  text-align: left;
+  max-height: 250px;
+  overflow-y: auto;
+  width: 100%;
+}
+.grammar-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 6px;
+}
+.grammar-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.9);
+}
+
+.more-item {
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.more-item:last-child { border-bottom: none; }
+.more-kr {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  font-family: 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+  margin-bottom: 2px;
+}
+.more-cn {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 2px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="page-container" id="app">
+
+  <!-- ===== PAGE 1: MAIN THEME SELECTION ===== -->
+  <div class="page" id="page-main">
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+    <div class="cloud cloud-4"></div>
+    <div class="main-scrollable">
+      <div class="main-content">
+        <div class="main-header">
+          <h1>韩语主题学习</h1>
+          <div class="kr-title">한국어 테마 학습</div>
+          <div class="subtitle">选择一个主题开始学习 ✨</div>
+        </div>
+        <div class="theme-grid">
+          <div class="theme-card weather-card" onclick="showModulesPage()">
+            <div class="card-emoji">☀️</div>
+            <div class="card-label">天气</div>
+            <div class="card-label-kr">날씨</div>
+          </div>
+          <div class="theme-card disabled-card">
+            <div class="card-emoji">🍜</div>
+            <div class="card-label">美食</div>
+            <div class="card-label-kr">음식</div>
+            <div class="coming-soon">即将上线</div>
+          </div>
+          <div class="theme-card disabled-card">
+            <div class="card-emoji">🛍️</div>
+            <div class="card-label">购物</div>
+            <div class="card-label-kr">쇼핑</div>
+            <div class="coming-soon">即将上线</div>
+          </div>
+          <div class="theme-card disabled-card">
+            <div class="card-emoji">✈️</div>
+            <div class="card-label">旅行</div>
+            <div class="card-label-kr">여행</div>
+            <div class="coming-soon">即将上线</div>
+          </div>
+          <div class="theme-card disabled-card">
+            <div class="card-emoji">💬</div>
+            <div class="card-label">日常对话</div>
+            <div class="card-label-kr">일상 대화</div>
+            <div class="coming-soon">即将上线</div>
+          </div>
+          <div class="theme-card disabled-card">
+            <div class="card-emoji">🎬</div>
+            <div class="card-label">韩剧</div>
+            <div class="card-label-kr">한국 드라마</div>
+            <div class="coming-soon">即将上线</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PAGE 2: MODULE SELECTION ===== -->
+  <div class="page" id="page-modules">
+    <div class="modules-scrollable">
+      <div class="modules-top">
+        <button class="back-btn" onclick="goBackToMain()">← <span>返回</span></button>
+        <div class="title-area"><h2>☀️ 天气 · 날씨</h2></div>
+      </div>
+      <div class="modules-list" id="modules-list"></div>
+    </div>
+  </div>
+
+  <!-- ===== PAGE 3: CARD LEARNING ===== -->
+  <div class="page" id="page-card">
+    <div class="card-top">
+      <button class="back-btn" onclick="goBackToModules()">← <span>返回</span></button>
+      <div class="card-title-area"><h3 id="card-page-title">基础天气词</h3></div>
+    </div>
+    <div class="card-body" id="card-body">
+      <div class="card-wrapper" id="card-wrapper">
+      </div>
+    </div>
+    <div class="card-bottom" id="card-bottom">
+      <div class="card-nav" id="card-nav">
+        <button class="nav-arrow" id="prev-card-btn" onclick="prevCard()">◀</button>
+        <div>
+          <div class="progress-text" id="card-progress">1/15</div>
+          <div class="card-type-tag" id="card-type-tag">📖 词汇</div>
+        </div>
+        <button class="nav-arrow" id="next-card-btn" onclick="nextCard()">▶</button>
+      </div>
+    </div>
+    <div class="module-complete-actions" id="complete-actions" style="display:none;"></div>
+  </div>
+
+</div>
+
+<script>
+// ===== MODULE DATA (generated) =====
+const MODULE_DATA = [
+{
+"title": "☀️ 基础天气词",
+"icon": "☀️",
+"desc": "基础天气词汇 + 练习",
+"color": "#4A90D9",
+"colorClass": "module-color-1",
+"completeTitle": "🎉 모듈 완료!",
+"completeDesc": "你学会了15个基础天气词！",
+"completeEmoji": "☀️🌤️⛅",
+"cards": [
+{
+"type": "vocab",
+"kr": "날씨",
+"pron": "[날씨]",
+"emoji": "☀️",
+"cn": "天气",
+"phrase": "날씨가 좋다",
+"example": "오늘 날씨가 좋아요.",
+"exampleCn": "今天天气好。",
+"sound": "",
+"grammar": "~아/어요 — 基本陈述式终结词尾。좋다(好)词干元音为ㅗ，加아요→좋아요。以ㅏ/ㅗ结尾的词干加아요，其他加어요。韩语最基础的敬语终结词尾。",
+"more": [
+"어제 날씨도 좋았어요.|昨天天气也很好。",
+"날씨가 좋으면 기분이 좋아요.|天气好的话心情就会好。",
+"여기 날씨가 정말 좋아요.|这里天气真的很好。"
+]
+},
+{
+"type": "vocab",
+"kr": "맑다",
+"pron": "[막따]",
+"emoji": "☀️",
+"cn": "晴朗",
+"phrase": "맑은 날",
+"example": "오늘 하늘이 맑아서 기분이 좋아요.",
+"exampleCn": "今天天空晴朗心情好。",
+"sound": "紧音化 ㄱ→ㄲ",
+"grammar": "~아/어서 — 原因连接词尾。맑다(晴朗)+아서→맑아서。前后主语可以不同，后面不能接命令句。相当于中文的'因为……所以……'。ㅂㄷㄱㄴ等词干和아/어相遇时收音会连带到下一音节。",
+"more": [
+"비가 와서 집에 있어요.|因为下雨在家。",
+"바람이 불어서 추워요.|因为刮风很冷。",
+"눈이 와서 길이 미끄러워요.|因为下雪路很滑。"
+]
+},
+{
+"type": "vocab",
+"kr": "흐리다",
+"pron": "[흐리다]",
+"emoji": "⛅",
+"cn": "阴天",
+"phrase": "흐린 날씨",
+"example": "내일도 계속 흐릴 거예요.",
+"exampleCn": "明天也会一直阴天。",
+"sound": "",
+"grammar": "~(으)ㄹ 거예요 — 将来时推测/'会'。흐리다(阴)+ㄹ 거예요→흐릴 거예요。有收音加'을 거예요'，无收音加'ㄹ 거예요'。非过去时推测用法，如내일 비가 올 거예요(明天会下雨)。",
+"more": [
+"내일 비가 올 거예요.|明天会下雨。",
+"주말에 날씨가 맑을 거예요.|周末天气会晴朗。",
+"다음 주에 더 추워질 거예요.|下周会更冷。"
+]
+},
+{
+"type": "vocab",
+"kr": "해",
+"pron": "[해]",
+"emoji": "☀️",
+"cn": "太阳",
+"phrase": "해가 뜨다",
+"example": "해가 떴어요.",
+"exampleCn": "太阳升起来了。",
+"sound": "",
+"grammar": "~았/었다 — 过去时。뜨다(升)词干为뜨，加었다→떴다。자르다(剪)、모르다(不知道)也属르不规则。~이/가主格助词标志主语身份。",
+"more": [
+"해가 벌써 중천에 떴어요.|太阳已经升到半空了。",
+"해가 늦게 떴어요.|今天太阳升得晚。",
+"해가 지고 있어요.|太阳正在落山。"
+]
+},
+{
+"type": "vocab",
+"kr": "구름",
+"pron": "[구름]",
+"emoji": "☁️",
+"cn": "云",
+"phrase": "구름이 많다",
+"example": "하늘에 구름이 많아요.",
+"exampleCn": "天上云很多。",
+"sound": "ㅎ脱落 많→마",
+"grammar": "~이/가 主格助词 — 标志句子的主语。~에 处所助词'在……'。많다(多)→많아요(ㅎ不规则：ㅎ遇到元音脱落，많+아→많아→[마나]的发音是마나)。",
+"more": [
+"오늘 구름이 하나도 없어요.|今天一朵云也没有。",
+"저쪽에 먹구름이 꼈어요.|那边乌云密布。",
+"구름이 끼면 비가 올 수 있어요.|云层厚可能会下雨。"
+]
+},
+{
+"type": "vocab",
+"kr": "비",
+"pron": "[비]",
+"emoji": "🌧️",
+"cn": "雨",
+"phrase": "비가 오다",
+"example": "갑자기 비가 오기 시작했어요.",
+"exampleCn": "突然开始下雨了。",
+"sound": "",
+"grammar": "~기 시작하다 — '开始做某事'。오다(来/下)+기 시작하다→오기 시작하다。开始做某事=动词词干+기+시작하다。过去时=시작했다。갑자기(突然)常用口语副词。",
+"more": [
+"눈이 내리기 시작했어요.|开始下雪了。",
+"날씨가 더워지기 시작했어요.|天气开始热了。",
+"바람이 불기 시작했어요.|开始刮风了。"
+]
+},
+{
+"type": "vocab",
+"kr": "눈",
+"pron": "[눈]",
+"emoji": "❄️",
+"cn": "雪",
+"phrase": "눈이 오다",
+"example": "올겨울에 첫눈이 왔어요!",
+"exampleCn": "今年冬天下了初雪！",
+"sound": "",
+"grammar": "~에 时间助词 — 接在时间名词后。올겨울(今年冬天)+에。첫눈(初雪)是合成词(첫+눈)。感叹句自然表达惊喜或感慨。",
+"more": [
+"작년 첫눈은 11월에 왔어요.|去年初雪是11月下的。",
+"올해 첫눈이 정말 예뻤어요.|今年的初雪真的很美。",
+"첫눈 오는 날은 특별해요.|下初雪的日子很特别。"
+]
+},
+{
+"type": "vocab",
+"kr": "바람",
+"pron": "[바람]",
+"emoji": "🌬️",
+"cn": "风",
+"phrase": "바람이 불다",
+"example": "바람이 많이 불어서 추워요.",
+"exampleCn": "风很大所以很冷。",
+"sound": "ㅂ不规则 불→불어",
+"grammar": "ㅂ不规则 — 词干以ㅂ结尾的部分动词：ㅂ→우+어요。불다(吹)→불+어서→불어서。춥다(冷)→추+어요→추워요。많이(多地)是副词形式。~아/어서表原因。",
+"more": [
+"바람이 세게 불어요.|风很大。",
+"바람 불면 머리 흐트러져요.|刮风头发会乱。",
+"오늘은 바람이 안 불어요.|今天没风。"
+]
+},
+{
+"type": "vocab",
+"kr": "안개",
+"pron": "[안개]",
+"emoji": "🌫️",
+"cn": "雾",
+"phrase": "안개가 끼다",
+"example": "오늘 아침에 안개가 많이 꼈어요.",
+"exampleCn": "今天早上雾很大。",
+"sound": "",
+"grammar": "안개가 끼다 固定搭配 — '起雾了'。끼다(罩上/夹)→꼈다+어요→꼈어요(过去时)。많이(多地)修饰动词。~에 时间助词。",
+"more": [
+"내일 아침에도 안개가 낄 거예요.|明天早上也会起雾。",
+"안개가 걷히기 시작했어요.|雾开始散了。",
+"안개가 짙어서 앞이 안 보여요.|雾太浓看不见前面。"
+]
+},
+{
+"type": "vocab",
+"kr": "기온",
+"pron": "[기온]",
+"emoji": "🌡️",
+"cn": "气温",
+"phrase": "기온이 높다/낮다",
+"example": "오늘 최고 기온이 35도예요.",
+"exampleCn": "今天最高气温35度。",
+"sound": "",
+"grammar": "~예요 — 体词谓词形结尾(无收音名词+예요，有收音名词+이에요)。기온(气温)是汉字词'气温'。도(度)是单位词。최고(最高)是最常用的汉字词之一。~이/가主格助词。",
+"more": [
+"오늘 최저 기온이 20도예요.|今天最低气温20度。",
+"내일 기온이 더 높아져요.|明天气温会更高。",
+"지금 기온이 몇 도예요?|现在气温几度？"
+]
+},
+{
+"type": "vocab",
+"kr": "온도",
+"pron": "[온도]",
+"emoji": "🌡️",
+"cn": "温度",
+"phrase": "온도가 올라가다",
+"example": "온도가 많이 올랐어요.",
+"exampleCn": "温度升了很多。",
+"sound": "르不规则 올→올랐",
+"grammar": "르不规则 — 오르다(上升)→올랐다。르不规则变化：오르+아→올라→올랐어요(过去时)。规则：르词干+아/어时，르分裂为ㄹㄹ辅音，同时添加아/어的连音。",
+"more": [
+"온도가 갑자기 떨어졌어요.|温度突然降了。",
+"온도가 5도나 올랐어요.|温度升了5度。",
+"온도 변화가 심해요.|温度变化很大。"
+]
+},
+{
+"type": "vocab",
+"kr": "영상/영하",
+"pron": "[영상/영하]",
+"emoji": "🌡️",
+"cn": "零上/零下",
+"phrase": "영상 10도 / 영하 5도",
+"example": "겨울엔 영하 10도까지 내려가요.",
+"exampleCn": "冬天会降到零下10度。",
+"sound": "",
+"grammar": "~까지 — 范围/限度助词'到……为止'。영하(零下)是汉字词。겨울엔=겨울에는(冬天+话题助词+强调)。내려가다(下去/下降)。~까지后面常接动词表范围。",
+"more": [
+"영상 30도까지 올라가요.|升到零上30度。",
+"내일 영하 15도까지 내려가요.|明天降到零下15度。",
+"이 동네는 겨울에 영하 20도까지 내려가요.|这小区冬天降到零下20度。"
+]
+},
+{
+"type": "vocab",
+"kr": "습도",
+"pron": "[습또]",
+"emoji": "💧",
+"cn": "湿度",
+"phrase": "습도가 높다",
+"example": "오늘 습도가 높아서 꿉꿉해요.",
+"exampleCn": "今天湿度高很潮闷。",
+"sound": "紧音化 ㄷ→ㄸ",
+"grammar": "~아/어서 — 原因连接。습도가 높다(湿度高)+아서→높아서。꿉꿉하다(闷热潮湿)+해요。~(이/가)主格助词。습도是汉字词'湿度'。",
+"more": [
+"습도가 90%예요. 너무 꿉꿉해요.|湿度90%，太闷了。",
+"습도 낮을 때 빨래가 잘 말라요.|湿度低时衣服容易干。",
+"습도가 높으면 불쾌지수가 올라가요.|湿度高不舒适指数上升。"
+]
+},
+{
+"type": "vocab",
+"kr": "건조하다",
+"pron": "[건조하다]",
+"emoji": "💨",
+"cn": "干燥",
+"phrase": "건조한 날씨",
+"example": "겨울에는 건조해서 물 많이 마셔야 돼요.",
+"exampleCn": "冬天干燥要多喝水。",
+"sound": "",
+"grammar": "~아/어야 되다 — '必须/应该做某事'。건조하다(干燥)→건조해서。마시다(喝)→마셔야+되다→마셔야 돼요。~은/는话题助词表对比强调。물(水)+을(目的一些情况下省略)。",
+"more": [
+"건조할 때 로션 발라야 해요.|干燥时要涂润肤露。",
+"환기를 자주 시켜야 돼요.|要经常通风。",
+"가을에 보습에 신경 써야 해요.|秋天要注意保湿。"
+]
+},
+{
+"type": "vocab",
+"kr": "습하다",
+"pron": "[수파다]",
+"emoji": "💧",
+"cn": "潮湿",
+"phrase": "습한 여름",
+"example": "장마철에 빨래가 잘 안 말라요.",
+"exampleCn": "梅雨季衣服不容易干。",
+"sound": "送气音化 ㅂ+ㅎ→ㅍ",
+"grammar": "잘 안 ~다 — '不容易做/做不好'的否定表达。말라요(干)←마르다(干)+아요。빨래(要洗的衣服/洗好的衣服)。장마철(梅雨季)是장마(梅雨)+철(季节)合成。",
+"more": [
+"습한 날씨에 빨래 냄새나요.|潮湿天气衣服有味道。",
+"장마철엔 신발도 잘 안 말라요.|梅雨季鞋子也不容易干。",
+"제습기 없으면 생활하기 힘들어요.|没除湿机生活很难。"
+]
+},
+{
+"type": "ex",
+"question": "填空：하늘에 _____이 많아요。",
+"answer": "구름",
+"detail": "하늘에 구름이 많아요。（天上有好多云。）"
+},
+{
+"type": "ex",
+"question": "填空：오늘 _____이 불어서 추워요。",
+"answer": "바람",
+"detail": "오늘 바람이 불어서 추워요。（今天刮风所以冷。）"
+},
+{
+"type": "ex",
+"question": "翻译：今天天气很晴朗。",
+"answer": "오늘 날씨가 맑아요。",
+"detail": "맑다（晴朗）+ 아요 = 맑아요。"
+},
+{
+"type": "ex",
+"question": "습하다的发音是？选一个最接近的。",
+"answer": "[수파다]",
+"detail": "습(ㅂ)+하(ㅎ)→수파(送气音化 ㅂ+ㅎ→ㅍ)。"
+}
+]
+},
+{
+"title": "🌡️ 温度体感",
+"icon": "🌡️",
+"desc": "温度体感词汇 + 练习",
+"color": "#E67E22",
+"colorClass": "module-color-2",
+"completeTitle": "🎉 모듈 완료!",
+"completeDesc": "你学会了12个温度体感词！",
+"completeEmoji": "🔥🧊🌸🍂",
+"cards": [
+{
+"type": "vocab",
+"kr": "덥다",
+"pron": "[덥따]",
+"emoji": "🔥",
+"cn": "热",
+"phrase": "더운 여름",
+"example": "오늘 진짜 더워요. 에어컨 틀어야겠어요.",
+"exampleCn": "今天真的好热，得开空调了。",
+"sound": "紧音化 ㅂ→ㅃ",
+"grammar": "~아/어야겠다 — '应该做……了'表说话者的主观意志。틀다(开/转)→틀+어야겠다→틀어야겠어요。진짜(真的)是口语常用强调副词。에어컨是外来语(air conditioner)。",
+"more": [
+"추워요. 히터 틀어야겠어요.|好冷，得开暖气了。",
+"배고파요. 밥 먹어야겠어요.|饿了，得吃饭了。",
+"미세먼지 심해요. 마스크 써야겠어요.|雾霾重，得戴口罩了。"
+]
+},
+{
+"type": "vocab",
+"kr": "춥다",
+"pron": "[춥따]",
+"emoji": "🧊",
+"cn": "冷",
+"phrase": "추운 겨울",
+"example": "날씨가 추워졌어요. 감기 조심하세요.",
+"exampleCn": "天气变冷了，小心感冒。",
+"sound": "紧音化 + ㅂ不规则",
+"grammar": "~아/어지다 — '变得……'表示状态变化。춥다(冷)→추워+졌어요(ㅂ不规则：춥→추+어→추워)。~(으)세요命令句敬语'请……'。조심하다(小心)+세요→조심하세요。",
+"more": [
+"날씨가 따뜻해졌어요.|天气变暖了。",
+"요즘 감기가 유행이에요.|最近流感流行。",
+"건강 조심하세요.|请注意健康。"
+]
+},
+{
+"type": "vocab",
+"kr": "따뜻하다",
+"pron": "[따뜨타다]",
+"emoji": "🌸",
+"cn": "温暖",
+"phrase": "따뜻한 봄날",
+"example": "봄이 되어서 따뜻해졌어요.",
+"exampleCn": "到了春天变暖和了。",
+"sound": "送气音化 ㅅㅎ→ㅌ",
+"grammar": "~(이)되어서 — '成为……'。되다(成为)+어서→되어서(口语常缩为돼서)。따뜻하다(温暖)→따뜻해지다+었어요→따뜻해졌어요。~지다加在形容词后表变化。",
+"more": [
+"여름이 되어서 더워졌어요.|到了夏天变热了。",
+"가을이 되어서 선선해졌어요.|到了秋天变凉快了。",
+"겨울이 되어서 눈이 오기 시작했어요.|到了冬天开始下雪了。"
+]
+},
+{
+"type": "vocab",
+"kr": "시원하다",
+"pron": "[시원하다]",
+"emoji": "🍂",
+"cn": "凉爽",
+"phrase": "시원한 바람",
+"example": "가을 바람이 시원해서 산책하기 좋아요.",
+"exampleCn": "秋天的风很凉爽适合散步。",
+"sound": "",
+"grammar": "~기 좋다 — '适合做某事'。산책하다(散步)→산책하기(动词名词化)+좋다(好)→좋아요。~기把动词变为名词形式，相当于中文'……起来'。~아/어서表原因。",
+"more": [
+"운동하기 좋은 날씨예요.|适合运动的天气。",
+"이 공원은 산책하기 좋아요.|这个公园适合散步。",
+"비 오는 날 책 읽기 좋아요.|下雨天适合读书。"
+]
+},
+{
+"type": "vocab",
+"kr": "쌀쌀하다",
+"pron": "[쌀쌀하다]",
+"emoji": "🥶",
+"cn": "凉飕飕",
+"phrase": "쌀쌀한 아침",
+"example": "아침에는 쌀쌀하니까 옷 따뜻하게 입으세요.",
+"exampleCn": "早上凉飕飕的请穿暖和点。",
+"sound": "",
+"grammar": "~(으)니까 — 比~아/어서更主观的原因连接'因为……'，后面可接命令句/请求。입다(穿)+으세요→입으세요。~게副词形转：따뜻하다+게→따뜻하게(暖和地)。",
+"more": [
+"날씨가 추우니까 창문 닫으세요.|天冷请关窗。",
+"비가 오니까 우산 가져가세요.|下雨请带伞。",
+"눈이 오니까 운전 조심하세요.|下雪请小心开车。"
+]
+},
+{
+"type": "vocab",
+"kr": "꿉꿉하다",
+"pron": "[꿉꾸파다]",
+"emoji": "🫠",
+"cn": "潮闷",
+"phrase": "꿉꿉한 방",
+"example": "장마철이라 방 안이 꿉꿉해요.",
+"exampleCn": "因为是梅雨季房间很潮闷。",
+"sound": "送气音化 ㅂ+ㅎ→ㅍ",
+"grammar": "~(이)라서 — '因为是……'的缩略形。장마철(梅雨季)+이라서→장마철이라서(口语常缩为이라)。꿉꿉하다(闷热潮湿)→꿉꿉해요。表示原因时~(이)라서比~아/어서更强调'就是由于这个原因'。",
+"more": [
+"여름이라서 더워요.|因为是夏天所以热。",
+"겨울이라서 추워요.|因为是冬天所以冷。",
+"환절기라서 감기 조심해야 해요.|因为是换季期要注意感冒。"
+]
+},
+{
+"type": "vocab",
+"kr": "후텁지근하다",
+"pron": "[후텁찌근하다]",
+"emoji": "🌋",
+"cn": "闷热潮湿",
+"phrase": "후텁지근한 날씨",
+"example": "비 온 후 날씨가 후텁지근해요.",
+"exampleCn": "雨后天气闷热潮湿。",
+"sound": "紧音化 ㅈ→ㅉ",
+"grammar": "~ㄴ/은 후 — '……之后'。비 오다(下雨)→비 온 후(下雨后)。비 오다后에省略。후텁지근하다(闷热潮湿)→후텁지근해요。~ㄴ/은后+에可省略에。",
+"more": [
+"비 온 후 하늘이 맑아졌어요.|雨后天空放晴了。",
+"비 온 후 공기가 시원해요.|雨后空气很凉爽。",
+"비 온 후 날씨가 더 추워졌어요.|雨后天气更冷了。"
+]
+},
+{
+"type": "vocab",
+"kr": "쨍하다",
+"pron": "[쨍하다]",
+"emoji": "☀️",
+"cn": "阳光刺眼",
+"phrase": "쨍한 햇살",
+"example": "오늘 햇살이 쨍해서 선글라스 꼭 챙기세요.",
+"exampleCn": "今天阳光刺眼一定要带太阳镜。",
+"sound": "",
+"grammar": "~(으)세요 — 命令句敬语。챙기다(随身携带/准备)+세요→챙기세요。꼭(一定)是强调必须的副词。햇살(阳光)←해(太阳)+ㅅ(连音사이시옷)+살(光)。",
+"more": [
+"우산 꼭 챙기세요.|一定要带伞。",
+"겉옷 꼭 챙기세요.|一定要带外套。",
+"물을 많이 챙기세요.|请多带水。"
+]
+},
+{
+"type": "vocab",
+"kr": "무덥다",
+"pron": "[무덥따]",
+"emoji": "🔥",
+"cn": "酷热",
+"phrase": "무더운 날씨",
+"example": "무더운 여름엔 아이스커피가 최고예요.",
+"exampleCn": "酷热的夏天冰咖啡最棒。",
+"sound": "紧音化 ㄷ→ㄸ",
+"grammar": "~은/는 — 主题助词。여름(夏天)+엔(은的缩略)。~이/가主格助词标志主语。~예요体词终结。최고(最高/最好)是汉字词。口语中最地道表达喜好的方式就是'名词+이/가 최고예요'。",
+"more": [
+"여름에 아이스크림이 최고예요.|夏天冰淇淋最棒。",
+"추울 때 뜨거운 커피가 최고예요.|冷的时候热咖啡最棒。",
+"피곤할 때 커피가 최고예요.|累的时候咖啡最棒。"
+]
+},
+{
+"type": "vocab",
+"kr": "포근하다",
+"pron": "[포근하다]",
+"emoji": "🌤️",
+"cn": "温暖舒适",
+"phrase": "포근한 봄날",
+"example": "날씨가 포근해서 나가고 싶어요.",
+"exampleCn": "天气温暖舒适想出门。",
+"sound": "",
+"grammar": "~고 싶다 — '想做某事'。나가다(出去)+고 싶다+어요→나가고 싶어요。~고 싶다只能用于第一人称(陈述句)和第二人称(疑问句)。第三人称能用~고 싶어하다。~아/어서原因。",
+"more": [
+"집에 가고 싶어요.|想回家。",
+"밥 먹고 싶어요.|想吃饭。",
+"잠자고 싶어요.|想睡觉。"
+]
+},
+{
+"type": "vocab",
+"kr": "일교차",
+"pron": "[일교차]",
+"emoji": "🌡️",
+"cn": "日温差",
+"phrase": "일교차가 크다",
+"example": "가을엔 일교차가 커서 옷 여러 겹 입으세요.",
+"exampleCn": "秋天日温差大请穿多层衣服。",
+"sound": "",
+"grammar": "~아/어서 — 原因连接。크다(大)→커서。~(으)세요命令句。입다(穿)+으세요→입으세요。여러(多个的)冠词修饰名词。겹(层)量词。일교차(日温差)是汉字词'日較差'。",
+"more": [
+"옷 따뜻하게 입으세요.|穿暖和点。",
+"얇은 옷 여러 겹 입는 게 좋아요.|多穿几层薄衣服比较好。",
+"겉옷 하나 더 챙기세요.|多带一件外套。"
+]
+},
+{
+"type": "vocab",
+"kr": "한파",
+"pron": "[한파]",
+"emoji": "🧊",
+"cn": "寒潮",
+"phrase": "한파 주의보",
+"example": "내일 한파가 온대요. 따뜻하게 입으세요.",
+"exampleCn": "听说明天寒潮要来，请穿暖和。",
+"sound": "",
+"grammar": "~대요 — '听说'的缩略形(는다고 해요的缩略)。오다(来/袭)+ㄴ대요→온대요。한파(寒潮)是汉字词'寒波'。~(으)세요命令句。口语中縮略形~대요比完整形更自然。",
+"more": [
+"내일 태풍이 온대요.|听说明天台风要来。",
+"주말에 눈이 온대요.|听说周末下雪。",
+"다음 주에 더 추워진대요.|听说下周会更冷。"
+]
+},
+{
+"type": "ex",
+"question": "填空：오늘 _____ 더워요.",
+"answer": "진짜",
+"detail": "오늘 진짜 더워요。（今天真的好热。）진짜=真的/非常"
+},
+{
+"type": "ex",
+"question": "填空：날씨가 _____. 감기 조심하세요.",
+"answer": "추워졌어요",
+"detail": "날씨가 추워졌어요。（天气变冷了。）"
+},
+{
+"type": "ex",
+"question": "选词：가을 바람이 (쌀쌀 / 시원 / 꿉꿉)해서 산책하기 좋아요。",
+"answer": "시원",
+"detail": "시원하다（凉爽）才能和散步搭配！쌀촄하다是冷飕飕不舒服的。"
+},
+{
+"type": "ex",
+"question": "따뜻하다的发音是？",
+"answer": "[따뜨타다]",
+"detail": "ㅅ+ㅎ→ㅌ，送气音化。"
+}
+]
+},
+{
+"title": "🌧️ 降水词汇",
+"icon": "🌧️",
+"desc": "降水相关词汇 + 练习",
+"color": "#3498DB",
+"colorClass": "module-color-3",
+"completeTitle": "🎉 모듈 완료!",
+"completeDesc": "你学会了8个降水相关词！",
+"completeEmoji": "🌧️❄️⛈️🌊",
+"cards": [
+{
+"type": "vocab",
+"kr": "비가 오다",
+"pron": "[비가 오다]",
+"emoji": "🌧️",
+"cn": "下雨",
+"phrase": "비 오는 날",
+"example": "비가 오니까 우산을 가져가세요.",
+"exampleCn": "因为下雨请带伞去。",
+"sound": "",
+"grammar": "~(으)니까 — 原因连接(主观性)。오다+니까→오니까。~니까比~아/어서更主观，后面可以接命令句/请求。가져가세요(带走，가져가다的敬语命令)。가져가다=가지고 가다的缩略。",
+"more": [
+"추우니까 옷 따뜻하게 입으세요.|冷所以请穿暖和。",
+"미세먼지 심하니까 마스크 쓰세요.|雾霾重请戴口罩。",
+"눈이 오니까 운전 조심하세요.|下雪请小心开车。"
+]
+},
+{
+"type": "vocab",
+"kr": "비가 많이 오다",
+"pron": "[비가 마니 오다]",
+"emoji": "🌧️",
+"cn": "雨下得大",
+"phrase": "비 많이 오는 날",
+"example": "어젯밤에 비가 많이 와서 잠을 못 잤어요.",
+"exampleCn": "昨晚雨下得大没能睡着。",
+"sound": "",
+"grammar": "못 ~다 — '不能/没能做某事'的否定形式。자다(睡)→못 자다(没睡成)+았+어요→못 잤어요。~아/어서原因。많이(多地)修饰动词。어젯밤=어제(昨天)+밤(晚上)+ㅅ(连音)。",
+"more": [
+"어젯밤에 천둥이 쳐서 잠을 깼어요.|昨晚打雷被吵醒了。",
+"비가 많이 와서 학교에 못 갔어요.|雨太大没去成学校。",
+"너무 더워서 잠을 못 잤어요.|太热没睡好。"
+]
+},
+{
+"type": "vocab",
+"kr": "비가 그치다",
+"pron": "[비가 그치다]",
+"emoji": "☂️",
+"cn": "雨停",
+"phrase": "비 그친 후",
+"example": "드디어 비가 그쳤어요!",
+"exampleCn": "雨终于停了！",
+"sound": "",
+"grammar": "~았/었다 — 过去时。그치다(停)→그쳤다+어요→그쳤어요。드디어(终于)表期待已久的事情实现。感叹句表达如释重负或高兴的情绪。비가 그치다是固定搭配'雨停了'。",
+"more": [
+"드디어 장마가 끝났어요!|梅雨季终于结束了！",
+"드디어 눈이 그쳤어요!|雪终于停了！",
+"드디어 날씨가 맑아졌어요!|天气终于放晴了！"
+]
+},
+{
+"type": "vocab",
+"kr": "눈이 오다",
+"pron": "[누니 오다]",
+"emoji": "❄️",
+"cn": "下雪",
+"phrase": "눈 오는 밤",
+"example": "내일 눈이 온대요. 같이 눈사람 만들래요?",
+"exampleCn": "听说明天会下雪，一起堆雪人吗？",
+"sound": "连音 눈이→누니",
+"grammar": "~대요 — '听说'。온다+고 해요→온대요。~(으)ㄹ래요? — '要不要做……？'。만들다(做/堆)→만들래요? 눈사람(雪人)=눈(雪)+사람(人)合成词。같이(一起)是常用副词。",
+"more": [
+"내일 비 온대요. 우산 챙기세요.|明天下雨请带伞。",
+"주말에 날씨가 좋을 거래요.|听说周末天气好。",
+"같이 점심 먹을래요?|一起吃午饭吗？"
+]
+},
+{
+"type": "vocab",
+"kr": "장마",
+"pron": "[장마]",
+"emoji": "🌊",
+"cn": "梅雨季",
+"phrase": "장마 기간",
+"example": "장마가 시작됐는데 언제 끝날까요?",
+"exampleCn": "梅雨季开始了，什么时候会结束呢？",
+"sound": "",
+"grammar": "~는데 — 背景说明连接词尾'……而且……'。시작됐다(开始/被开始，被动态过去)+는데→시작됐는데。~(으)ㄹ까요? — 推测疑问句'会……呢？'。끝나다(结束)+ㄹ까요→끝날까요?",
+"more": [
+"비가 오는데 어디 갈까요?|下雨呢去哪儿好？",
+"날씨가 좋은데 산책할까요?|天气好散个步？",
+"이 비가 언제쯤 그칠까요?|这雨大概什么时候停呢？"
+]
+},
+{
+"type": "vocab",
+"kr": "폭우",
+"pron": "[포구]",
+"emoji": "⛈️",
+"cn": "暴雨",
+"phrase": "폭우 경보",
+"example": "오늘 폭우가 내려서 학교에 못 갔어요.",
+"exampleCn": "今天下了暴雨没能去学校。",
+"sound": "连音 폭우→포구",
+"grammar": "~에 — 方向助词'去……'。학교(学校)+에→학교에。못 가다(没能去)+았+어요→못 갔어요。~아/어서原因。내리다(下/降)→내려서。폭우(暴雨)是汉字词。",
+"more": [
+"어제 폭우로 길이 잠겼어요.|昨天暴雨路被淹了。",
+"폭우가 쏟아져서 밖에 못 나갔어요.|暴雨倾盆没能出门。",
+"폭우 경보가 발령됐어요.|暴雨警报发布了。"
+]
+},
+{
+"type": "vocab",
+"kr": "폭설",
+"pron": "[폭썰]",
+"emoji": "❄️",
+"cn": "暴雪",
+"phrase": "폭설이 내리다",
+"example": "폭설 때문에 비행기가 취소됐어요.",
+"exampleCn": "因为暴雪航班被取消了。",
+"sound": "紧音化 ㅂ+ㅅ→ㅆ",
+"grammar": "~ 때문에 — '因为……(原因)'。名词直接连接，不像~아/어서需要接在动词后。취소되다(被取消)→취소됐어요(过去)。되다是被动态标志。폭설(暴雪)是汉字词'暴雪'。",
+"more": [
+"날씨 때문에 여행을 취소했어요.|因为天气取消了旅行。",
+"비 때문에 경기가 연기됐어요.|因为雨比赛延期了。",
+"태풍 때문에 항공편이 취소됐어요.|因为台风航班被取消。"
+]
+},
+{
+"type": "vocab",
+"kr": "소나기",
+"pron": "[소나기]",
+"emoji": "🌧️",
+"cn": "阵雨",
+"phrase": "소나기가 오다",
+"example": "갑자기 소나기가 와서 비를 맞았어요.",
+"exampleCn": "突然下了阵雨被淋湿了。",
+"sound": "",
+"grammar": "~을/를 맞다 — '被……淋/中招'。비(雨)+를→비를。맞다(被击中/淋)+았+어요→맞았어요。소나기=突然下的阵雨(短暂而急)。갑자기(突然)常用副词。",
+"more": [
+"소나기가 올 거예요. 우산 챙기세요.|会有阵雨请带伞。",
+"갑자기 소나기가 쏟아졌어요.|突然下起了倾盆阵雨。",
+"소나기는 금방 그칠 거예요.|阵雨很快就会停。"
+]
+},
+{
+"type": "ex",
+"question": "\"비가 그쳤어요\"是什么意思？",
+"answer": "雨停了",
+"detail": "그치다='停'。드디어 비가 그쳤어요!（雨终于停了！）"
+},
+{
+"type": "ex",
+"question": "\"장마\"指的是什么？",
+"answer": "梅雨季",
+"detail": "韩国6-7月的梅雨季节，潮湿多雨。"
+},
+{
+"type": "ex",
+"question": "翻译：내일 비 올까요?",
+"answer": "明天会下雨吗？",
+"detail": "~(으)ㄹ까요?推测疑问。올까요←오다+ㄹ까요。"
+}
+]
+},
+{
+"title": "🌬️ 风雾词汇",
+"icon": "🌬️",
+"desc": "风雾相关词汇 + 练习",
+"color": "#7F8C8D",
+"colorClass": "module-color-4",
+"completeTitle": "🎉 모듈 완료!",
+"completeDesc": "你学会了5个风雾相关词！",
+"completeEmoji": "🌬️🌫️😷💨",
+"cards": [
+{
+"type": "vocab",
+"kr": "바람이 불다",
+"pron": "[바라미 부러요]",
+"emoji": "🌬️",
+"cn": "刮风",
+"phrase": "바람이 불어요",
+"example": "바람이 불어서 머리가 흐트러졌어요.",
+"exampleCn": "因为刮风头发乱了。",
+"sound": "连音 바람이→바라미",
+"grammar": "~아/어서 — 原因连接。불다(吹)+어서→불어서(ㅂ不规则→우)。흐트러지다(散乱/凌乱)→졌어요(过去)。머리(头/头发)。~이/가主格助词。被动态-어지다表示被动状态。",
+"more": [
+"바람이 세게 불어요.|风刮得很大。",
+"오늘은 바람이 안 불어요.|今天没风。",
+"바람이 불면 머리가 흐트러져요.|刮风的话头发会乱。"
+]
+},
+{
+"type": "vocab",
+"kr": "안개가 끼다",
+"pron": "[안개가 끼다]",
+"emoji": "🌫️",
+"cn": "起雾",
+"phrase": "안개 낀 아침",
+"example": "안개가 껴서 앞이 잘 안 보여요.",
+"exampleCn": "起了雾前面看不清。",
+"sound": "",
+"grammar": "~아/어서 — 原因连接。끼다(夹/笼)→껴서。잘 안 보이다(看不清)=잘(好)+안(不)+보이다(被看见)。보이다是보다(看)的被动态。안개가 끼다固定搭配'起雾了'。",
+"more": [
+"안개 때문에 비행기가 연착됐어요.|因雾航班延误了。",
+"안개가 걷히면 출발할 수 있어요.|雾散了可以出发。",
+"오늘 안개가 아주 짙어요.|今天雾很浓。"
+]
+},
+{
+"type": "vocab",
+"kr": "미세먼지",
+"pron": "[미세먼지]",
+"emoji": "😷",
+"cn": "细颗粒物/雾霾",
+"phrase": "미세먼지 심하다",
+"example": "미세먼지가 심해서 마스크 꼭 써야 돼요.",
+"exampleCn": "雾霾很重一定要戴口罩。",
+"sound": "",
+"grammar": "~아/어야 되다 — '必须做'。쓰다(戴)→써야 되다。꼭(一定)强调必须。심하다(严重)是汉字词'甚하다'。~(이/가)主格。미세먼지(微细粉尘)是韩国常见环境词。",
+"more": [
+"미세먼지가 심할 때 마스크를 꼭 써야 해요.|雾霾重一定要戴口罩。",
+"외출할 때 마스크를 쓰는 게 좋아요.|外出最好戴口罩。",
+"황사가 와서 마스크를 썼어요.|黄沙来了所以戴了口罩。"
+]
+},
+{
+"type": "vocab",
+"kr": "황사",
+"pron": "[황사]",
+"emoji": "💨",
+"cn": "黄沙/沙尘暴",
+"phrase": "황사 주의보",
+"example": "봄에 황사가 와서 밖에 나가기 싫어요.",
+"exampleCn": "春天来了沙尘暴不想出门。",
+"sound": "",
+"grammar": "~기 싫다 — '不想做某事'。나가다(出去)→나가기(名词化)+싫다(讨厌/不愿意)→나가기 싫어요。~에时间助词。밖(外)에(去/在)+나가다(出去)。황사(黄沙)指中国沙漠吹来的沙尘。",
+"more": [
+"미세먼지가 심해서 밖에 나가기 싫어요.|雾霾重不想出门。",
+"날씨가 더워서 운동하기 싫어요.|太热不想运动。",
+"비가 와서 쇼핑 가기 싫어요.|下雨不想去购物。"
+]
+},
+{
+"type": "vocab",
+"kr": "공기",
+"pron": "[공기]",
+"emoji": "🍃",
+"cn": "空气",
+"phrase": "공기가 좋다/나쁘다",
+"example": "미세먼지 때문에 창문을 닫았어요.",
+"exampleCn": "因为雾霾把窗户关了。",
+"sound": "",
+"grammar": "~ 때문에 — '因为……(原因)'，名词直接连接。닫다(关)→닫았어요(过去时)。~을/를目的格。공기(空气)汉字词。~(이/가)主格助词省略。~(으)니까原因连接词尾也可替换。",
+"more": [
+"추워서 창문을 닫았어요.|因为冷关了窗。",
+"소리 때문에 창문을 닫았어요.|因为噪音关了窗。",
+"바람이 들어와서 창문을 닫았어요.|因为风灌进来关了窗。"
+]
+},
+{
+"type": "ex",
+"question": "翻译：미세먼지가 많아요. 마스크 꼭 쓰세요.",
+"answer": "雾霾很重，一定要戴口罩。",
+"detail": "쓰다=戴（口罩/眼镜等）。"
+},
+{
+"type": "ex",
+"question": "\"황사\"主要在什么季节？",
+"answer": "春天（봄）",
+"detail": "春季中国沙漠沙尘吹到韩国。"
+},
+{
+"type": "ex",
+"question": "\"바람이 불다\"的正确发音是？",
+"answer": "[바라미 부러요]",
+"detail": "连音化：바람이→바라미，ㅂ不规则：불다→불어。"
+}
+]
+},
+{
+"title": "💬 实用句型",
+"icon": "💬",
+"desc": "实用天气句型 + 练习",
+"color": "#27AE60",
+"colorClass": "module-color-5",
+"completeTitle": "🎉 모듈 완료!",
+"completeDesc": "你学会了9个实用天气句型！",
+"completeEmoji": "💬😊🤧🧣",
+"cards": [
+{
+"type": "vocab",
+"kr": "오늘 날씨 어때요?",
+"pron": "[오늘 날씨 어때요]",
+"emoji": "❓",
+"cn": "今天天气怎么样？",
+"phrase": "— 오늘 날씨 어때요?",
+"example": "- 날씨가 좋아요!",
+"exampleCn": "- 天气好！",
+"sound": "",
+"grammar": "어때요? — 어떻다(怎么样)+아요→어때요(ㅎ不规则)。怎样问天气是韩语最基础的日常对话。破折号表示对话场景。~아/요陈述式终结词尾。좋다+아요→좋아요。",
+"more": [
+"오늘 날씨가 정말 좋아요.|今天天气真不错。",
+"여기 날씨가 항상 좋아요.|这里天气一直很好。",
+"오늘 날씨가 좋아서 기분이 좋아요.|今天天气好心情感好。"
+]
+},
+{
+"type": "vocab",
+"kr": "내일 비 올까요?",
+"pron": "[내일 비 올까요]",
+"emoji": "❓",
+"cn": "明天会下雨吗？",
+"phrase": "내일 비 올까요?",
+"example": "우산 챙겨야 돼요?",
+"exampleCn": "要带伞吗？",
+"sound": "",
+"grammar": "~아/어야 되다 — '必须做'。챙기다(带/准备)→챙겨+야 돼요。~(으)ㄹ까요?推测疑问'会不会……呢？'。오다(来)+ㄹ까요→올까요?'要吃午饭吗?'比'你要吃午饭吗?'更委婉自然。",
+"more": [
+"겉옷을 입어야 돼요?|要穿外套吗？",
+"마스크를 써야 돼요?|要戴口罩吗？",
+"우산을 가져가야 돼요?|要带伞去吗？"
+]
+},
+{
+"type": "vocab",
+"kr": "밖에 날씨 봤어요?",
+"pron": "[바께 날씨 봤써요]",
+"emoji": "👀",
+"cn": "看外面天气了吗？",
+"phrase": "밖에 날씨 봤어요?",
+"example": "- 네, 비 와요.",
+"exampleCn": "- 嗯，下雨了。",
+"sound": "紧音化 밖에→바께, 봤어요→봤써요",
+"grammar": "~았/었다 — 过去时疑问。보다(看)→봤+어요→봤어요?(紧音化后常读[봤써요])。~에方向助词'去/在'外面。밖(外)紧音화。네是口语'是'的回答。",
+"more": [
+"창밖에 날씨가 어때요?|窗外天气怎么样？",
+"밖에 비가 와요?|外面下雨吗？",
+"밖에 날씨를 확인해 봤어요?|确认过外面天气了吗？"
+]
+},
+{
+"type": "vocab",
+"kr": "날씨가 좋아요",
+"pron": "[날씨가 조아요]",
+"emoji": "😊",
+"cn": "天气好",
+"phrase": "오늘 날씨 좋아요!",
+"example": "나가서 놀고 싶어요.",
+"exampleCn": "想出去玩。",
+"sound": "ㅎ脱落 좋→조",
+"grammar": "~아/요陈述式终结词尾。좋다(好)+아요→좋아요(ㅎ不规则脱落：ㅎ→无，发音[조아요])。~고 싶다想(做)。나가서=나가다(出去)+서(连接)。놀다(玩)。",
+"more": [
+"날씨가 정말 좋아요.|天气真不错。",
+"여기 날씨가 좋아서 살고 싶어요.|这里天气好想住下来。",
+"오늘 날씨 좋아서 기분이 최고예요.|今天天气好心请最棒。"
+]
+},
+{
+"type": "vocab",
+"kr": "날씨가 좋네요",
+"pron": "[날씨가 존네요]",
+"emoji": "😊",
+"cn": "天气真好啊！",
+"phrase": "날씨 진짜 좋네요!",
+"example": "와, 날씨 진짜 좋네요!",
+"exampleCn": "哇，天气真好啊！",
+"sound": "鼻音化 ㄴ→ㄴ(좋+네→존네)",
+"grammar": "~네요 — 感叹句词尾'真……啊'/'……好呀'表第一手感叹。좋다(好)+네요→좋네요(发音[존네요]：ㅎ脱落+鼻音化)。와(哇)是感叹词。진짜(真的)是副词。",
+"more": [
+"와, 경치가 진짜 예쁘네요!|哇，景色真美啊！",
+"아, 배고프네요!|啊，好饿啊！",
+"우와, 맛있네요!|哇，真好吃！"
+]
+},
+{
+"type": "vocab",
+"kr": "오늘 진짜 덥네요!",
+"pron": "[오늘 진짜 덤네요]",
+"emoji": "🔥",
+"cn": "今天真的好热啊！",
+"phrase": "에어컨 좀 켜 주세요!",
+"example": "에어컨 좀 켜 주세요!",
+"exampleCn": "请开一下空调吧！",
+"sound": "鼻音化 덥네→[덤네]",
+"grammar": "~네요 — 感叹句词尾。덥다(热)+네요→덥네요(发音[덤네요]：ㅂ+ㄴ→ㅁ鼻音化)。좀(稍微/一下)缓和语气。켜다(开/打开)→켜+주세요(请给我做)。~아/어 주세요'请为我做'。",
+"more": [
+"오늘 진짜 추워요! 히터 좀 틀어 주세요.|今天真冷！请开一下暖气。",
+"배고파요! 밥 좀 줘요.|饿了！给我点饭。",
+"심심해요! 같이 놀아 주세요.|无聊！请陪我玩。"
+]
+},
+{
+"type": "vocab",
+"kr": "비가 많이 오네요",
+"pron": "[비가 마니 오네요]",
+"emoji": "🌧️",
+"cn": "雨下得真大啊",
+"phrase": "비가 많이 오네요",
+"example": "우산 없이 왔는데...",
+"exampleCn": "没带伞就来了……",
+"sound": "",
+"grammar": "~네요 — 感叹句词尾。오다+네요→오네요。~는데 — 背景说明或转折'……而且/但是……'。왔는데←오다(来)+았는데(过去背景)。없이(没有地)←없다的副词形。말줄임표(……)表示犹豫或话没说完。",
+"more": [
+"준비 없이 왔는데 어떡하죠?|没准备就来了怎么办？",
+"시간이 없이 왔는데 기다려 주세요.|没时间赶来请等一下。",
+"돈 없이 왔는데 괜찮아요?|没带钱来没事吧？"
+]
+},
+{
+"type": "vocab",
+"kr": "감기 조심하세요",
+"pron": "[감기 조시마세요]",
+"emoji": "⭐",
+"cn": "小心感冒",
+"phrase": "감기 조심하세요!",
+"example": "날씨가 추워요. 감기 조심하세요.",
+"exampleCn": "天气冷，小心感冒。",
+"sound": "ㅎ脱落 조심하→조시마",
+"grammar": "~(으)세요 — 命令句敬语'请……'。조심하다(小心)+세요→조심하세요。~아/요陈述式。춥다(冷)+어요→추워요(ㅂ不规则)。감기(感冒)汉字词'感氣'。한국에서 겨울에 가장 많이 하는 인사말。",
+"more": [
+"날씨가 추워요. 건강 조심하세요.|天气冷，注意健康。",
+"요즘 독감이 유행이에요. 감기 조심하세요.|最近流感流行，小心感冒。",
+"환절기에는 감기 조심해야 돼요.|换季期要注意感冒。"
+]
+},
+{
+"type": "vocab",
+"kr": "따뜻하게 입으세요",
+"pron": "[따뜨타게 이브세요]",
+"emoji": "🧣",
+"cn": "请穿暖和",
+"phrase": "따뜻하게 입으세요!",
+"example": "오늘 추우니까 따뜻하게 입으세요.",
+"exampleCn": "今天冷所以请穿暖和。",
+"sound": "送气音化 ㅅ+ㅎ→ㅌ",
+"grammar": "~(으)니까 — 原因连接(主观)可接命令。입다(穿)+으세요→입으세요。~게副詞形：따뜻하다(温暖)+게→따뜻하게(暖和地)。추우니까←춥다(冷)+으니까(ㄹ不规则→추우니까)。",
+"more": [
+"오늘 비가 오니까 우산을 가져가세요.|今天下雨请带伞去。",
+"내일 눈이 오니까 일찍 출발하세요.|明天下雪请早点出发。",
+"미세먼지가 심하니까 마스크를 꼭 쓰세요.|雾霾重请一定戴口罩。"
+]
+},
+{
+"type": "ex",
+"question": "\"좋아요\"为什么读作[조아요]？",
+"answer": "ㅎ脱落",
+"detail": "좋다(好)中ㅎ遇到아后脱落→좋아요→[조아요]。"
+},
+{
+"type": "ex",
+"question": "翻译：감기 조심하세요",
+"answer": "小心感冒",
+"detail": "조심하다=小心，감기=感冒。(으)세요=请。"
+},
+{
+"type": "ex",
+"question": "\"따뜻하게 입으세요\"是什么意思？",
+"answer": "请穿暖和",
+"detail": "따뜻하다=温暖，~게副词形，입다=穿，(으)세요=请。"
+}
+]
+},
+{
+"title": "🌪️ 进阶地道词",
+"icon": "🌪️",
+"desc": "超地道天气表达 + 练习",
+"color": "#8E44AD",
+"colorClass": "module-color-6",
+"completeTitle": "🎉 모듈 완료!",
+"completeDesc": "你学会了6个超地道天气表达！",
+"completeEmoji": "🌸🌋💧🌡️",
+"cards": [
+{
+"type": "vocab",
+"kr": "꽃샘추위",
+"pron": "[꼳쌤추위]",
+"emoji": "🌸",
+"cn": "倒春寒",
+"phrase": "꽃샘추위가 오다",
+"example": "3월인데 꽃샘추위가 왔어요.",
+"exampleCn": "都三月了倒春寒来了。",
+"sound": "紧音化 꽃→꼳, 샘→쌤",
+"grammar": "~인데 — '是……但是……'(转折)。3월(三月)+인데→3월인데。꽃샘추위是合成词：꽃(花)+샘(嫉妒)+추위(寒冷)='花嫉妒的寒冷'即倒春寒。非常地道。",
+"more": [
+"4월인데 눈이 왔어요.|都四月了下雪了。",
+"봄인데 날씨가 추워요.|都春天了天气还冷。",
+"여름인데 선선해요.|都夏天了还挺凉快。"
+]
+},
+{
+"type": "vocab",
+"kr": "후텁지근하다",
+"pron": "[후텁찌근하다]",
+"emoji": "🌋",
+"cn": "闷热潮湿",
+"phrase": "후텁지근한 날씨",
+"example": "비 온 후 날씨가 후텁지근해요.",
+"exampleCn": "雨后天气闷热潮湿。",
+"sound": "紧音化 ㅈ→ㅉ",
+"grammar": "~ㄴ/은 후 — '……之后'。비 오다(下雨)→비 온 후(下雨后)。후텁지근하다(闷热潮湿)→해요。~ㄴ/은+후+에可省略에。비 온 후=下雨后固定搭配。",
+"more": [
+"비 온 후 하늘이 맑아졌어요.|雨后天空放晴了。",
+"비 온 후 공기가 시원해요.|雨后空气凉爽。",
+"비 온 후 날씨가 더 추워졌어요.|雨后天气更冷了。"
+]
+},
+{
+"type": "vocab",
+"kr": "눅진하다",
+"pron": "[눅찐하다]",
+"emoji": "💧",
+"cn": "湿漉漉",
+"phrase": "눅진한 날씨",
+"example": "장마철에 눅진해서 불쾌해요.",
+"exampleCn": "梅雨季湿漉漉的不舒服。",
+"sound": "紧音化 ㅈ→ㅉ",
+"grammar": "~아/어서 — 原因连接。눅진하다(湿漉漉)→눅진해서。불쾌하다(不愉快/不舒服)汉字词'不快要'→불쾌해요。~(이)가主格省略。장마철(梅雨季)是季节相关常用词。",
+"more": [
+"날씨가 꿉꿉해서 불쾌해요.|天气潮闷不舒服。",
+"비가 와서 우울해요.|下雨心情郁闷。",
+"더워서 짜증나요.|热得烦躁。"
+]
+},
+{
+"type": "vocab",
+"kr": "일교차가 크다",
+"pron": "[일교차가 크다]",
+"emoji": "🌡️",
+"cn": "日温差大",
+"phrase": "일교차가 크다",
+"example": "요즘 일교차가 커서 옷 고르기 힘들어요.",
+"exampleCn": "最近日温差大挑衣服难。",
+"sound": "",
+"grammar": "~기 힘들다 — '做……很难'。고르다(挑选)+기(名词化)+힘들다(困难)→고르기 힘들어요。크다(大)→커서(~아/어서)。일교차(日温差)汉字词'日較差'。요즘(最近)口语常用。",
+"more": [
+"요즘 일교차가 10도나 돼요.|最近温差有10度。",
+"일교차가 클 때 옷차림이 어려워요.|温差大穿衣困难。",
+"환절기엔 일교차가 특히 커요.|换季期温差特别大。"
+]
+},
+{
+"type": "vocab",
+"kr": "하늘이 쨍해요",
+"pron": "[하느리 쨍해요]",
+"emoji": "☀️",
+"cn": "阳光刺眼",
+"phrase": "쨍한 하늘",
+"example": "선글라스 없으면 눈이 아파요.",
+"exampleCn": "没有太阳镜眼睛疼。",
+"sound": "连音 하늘이→하느리",
+"grammar": "~(으)면 — '如果……就……'(条件句)。없다(没有)+으면→없으면。아프다(疼)→아파요。선글라스(太阳镜)外来语。쨍하다(刺眼)是拟态词。하늘이 쨍하다=天空晴朗到刺眼。",
+"more": [
+"비가 오면 우산을 챙기세요.|下雨就请带伞。",
+"추우면 창문을 닫아요.|冷就关窗。",
+"피곤하면 쉬어요.|累就休息。"
+]
+},
+{
+"type": "vocab",
+"kr": "꿉꿉해 죽겠어요",
+"pron": "[꿉꾸패 죽께써요]",
+"emoji": "🫠",
+"cn": "闷热死了",
+"phrase": "꿉꿉해 죽겠다",
+"example": "에어컨 틀어야겠어요, 꿉꿉해 죽겠어요.",
+"exampleCn": "得开空调了，闷热死了。",
+"sound": "送气音化 ㅂ+ㅎ→ㅍ, 紧音化 ㅈ→ㅉ",
+"grammar": "~아/어 죽겠다 — '……死了'(极度夸张)。꿉꿉하다(潮闷)+해 죽겠다→꿉꿉해 죽겠어요。~아/어야겠다'应该做……了'。틀다(开/转)+어야겠다→틀어야겠어요。口语中表程度的强烈夸张说法。",
+"more": [
+"더워 죽겠어요. 에어컨 틀어요.|热死了开空调。",
+"배고파 죽겠어요. 밥 먹어요.|饿死了吃饭吧。",
+"심심해 죽겠어요. 같이 놀아요.|无聊死了一起玩吧。"
+]
+},
+{
+"type": "ex",
+"question": "\"꽃샘추위\"是什么意思？",
+"answer": "倒春寒",
+"detail": "꽃(花)+샘(嫉妒)+추위(寒冷)=花嫉妒的寒冷，即春天里突然变冷的天气。"
+},
+{
+"type": "ex",
+"question": "\"일교차가 커요\"怎么翻译？",
+"answer": "日温差大",
+"detail": "일교차(日温差)+크다(大)。"
+},
+{
+"type": "ex",
+"question": "\"하늘이 쨍해요\"描述什么？",
+"answer": "阳光刺眼/天空晴朗刺眼",
+"detail": "쨍하다=拟态词形容刺眼的阳光。"
+}
+]
+},
+{
+"title": "🔊 发音规则",
+"icon": "🔊",
+"desc": "三大核心音变 + 练习",
+"color": "#E74C3C",
+"colorClass": "module-color-7",
+"completeTitle": "🎉 모듈 완료!",
+"completeDesc": "你掌握了韩语三大核心音变规则！",
+"completeEmoji": "🔊🎵🎶",
+"cards": [
+{
+"type": "rule",
+"ruleTitle": "① ㅎ脱落 (ㅎ탈락)",
+"ruleExample": "좋아요 → [조아요]",
+"ruleDesc": "当ㅎ遇到元音(아/어/야/여等)时，ㅎ会脱落消失不发音。",
+"ruleDetail": "좋다 + 아요 → 좋아요 [조아요]\n많다 + 아요 → 많아요 [마나요]\n싫다 + 어요 → 싫어요 [시러요]\n괜찮다 + 아요 → 괜찮아요 [괜차나요]"
+},
+{
+"type": "rule",
+"ruleTitle": "② 紧音化 (된소리되기)",
+"ruleExample": "덥다 → [덥따]",
+"ruleDesc": "ㄱㄷㅂ等收音(7终声)遇到后续松音ㄱㄷㅂㅅㅈ时，松音变为紧音ㄲㄸㅃㅆㅉ。",
+"ruleDetail": "덥다[덥따] · 입구[입꾸]\n학교[학꾜] · 먹다[먹따]\n습도[습또] · 국수[국쑤]\n밖에[바께] · 있다[읻따]"
+},
+{
+"type": "rule",
+"ruleTitle": "③ 鼻音化 (비음화)",
+"ruleExample": "덥네요 → [덤네요]",
+"ruleDesc": "ㅂㄷㄱ等收音在ㄴ/ㅁ前变为对应的鼻音(ㅁㄴㅇ)。",
+"ruleDetail": "ㅂ→ㅁ: 덥네요[덤네요] · 없네요[엄네요]\nㄷ→ㄴ: 듣는[든는] · 걷는[건는]\nㄱ→ㅇ: 먹는[멍는] · 익는[잉는]\nㅂ+ㅁ: ㅂ→ㅁ: 있습니다[임씀니다]→更口语[일씀니다]"
+},
+{
+"type": "ex",
+"question": "\"좋아요\"的发音是？",
+"answer": "[조아요]",
+"detail": "ㅎ脱落规则：좋다(好)+아요→좋아요，其中ㅎ遇到元音脱落，发音[조아요]。"
+},
+{
+"type": "ex",
+"question": "\"덥네요\"的发音是？",
+"answer": "[덤네요]",
+"detail": "鼻音化规则：ㅂ收音+ㄴ→ㅁ。덥+네→[덤네]。"
+},
+{
+"type": "ex",
+"question": "\"덥다\"的发音是？",
+"answer": "[덥따]",
+"detail": "紧音化规则：ㅂ收音+ㄷ→ㄸ。所以덥다读作[덥따]。"
+}
+]
+}
+];
+
+// ===== STATE =====
+let currentPage = 'main';
+let currentModuleIdx = 0; // 0-based index in MODULE_DATA
+let currentCardIdx = 0;
+let isAnimating = false;
+let touchStartX = 0;
+
+// ===== INIT =====
+function init() {
+  renderModuleList();
+  showPage('page-main');
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+
+// ===== PAGE NAVIGATION =====
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => {
+    p.classList.remove('active');
+    p.style.display = '';
+  });
+  const page = document.getElementById(id);
+  if (page) page.classList.add('active');
+}
+
+function pageTransition(fromId, toId, direction) {
+  const from = document.getElementById(fromId);
+  const to = document.getElementById(toId);
+  if (!from || !to) return;
+
+  const outClass = direction === 'right' ? 'slide-out-left' : 'slide-out-right';
+  const inClass = direction === 'right' ? 'slide-in-right' : 'slide-in-left';
+
+  document.querySelectorAll('.page').forEach(p => p.style.display = '');
+
+  to.classList.add('active', inClass);
+  from.classList.add(outClass);
+
+  setTimeout(() => {
+    from.classList.remove('active', outClass);
+    to.classList.remove(inClass);
+  }, 380);
+}
+
+function showModulesPage() {
+  pageTransition('page-main', 'page-modules', 'right');
+  currentPage = 'modules';
+}
+
+function goBackToMain() {
+  pageTransition('page-modules', 'page-main', 'left');
+  currentPage = 'main';
+}
+
+function goBackToModules() {
+  showPage('page-modules');
+  currentPage = 'modules';
+}
+
+// ===== MODULE LIST =====
+function renderModuleList() {
+  const list = document.getElementById('modules-list');
+  list.innerHTML = '';
+  const icons = ['☀️', '🌡️', '🌧️', '🌬️', '💬', '🌪️', '🔊'];
+  for (let i = 0; i < MODULE_DATA.length; i++) {
+    const m = MODULE_DATA[i];
+    const card = document.createElement('div');
+    card.className = 'module-card';
+    card.innerHTML = `
+      <div class="m-icon" style="background:${m.color}22; color:${m.color}">${icons[i]}</div>
+      <div class="m-info">
+        <div class="m-title">
+          ${m.title}
+          <span class="m-badge" style="background:${m.color}">${i+1}/7</span>
+        </div>
+        <div class="m-desc">${m.desc}</div>
+      </div>
+      <div class="m-arrow">›</div>
+    `;
+    card.addEventListener('click', () => openCardLearning(i));
+    list.appendChild(card);
+  }
+}
+
+// ===== CARD LEARNING =====
+function openCardLearning(moduleIdx) {
+  currentModuleIdx = moduleIdx;
+  currentCardIdx = 0;
+  const m = MODULE_DATA[moduleIdx];
+  document.getElementById('card-page-title').textContent = m.title;
+  document.getElementById('card-page-title').style.color = m.color;
+
+  const wrapper = document.getElementById('card-wrapper');
+  wrapper.className = 'card-wrapper';
+  wrapper.classList.add(m.colorClass);
+
+  showPage('page-card');
+  currentPage = 'card';
+  renderCurrentCard();
+}
+
+function renderCurrentCard() {
+  const wrapper = document.getElementById('card-wrapper');
+  const m = MODULE_DATA[currentModuleIdx];
+  const cards = m.cards;
+  const total = cards.length;
+
+  if (currentCardIdx >= total) {
+    showCompletionPage(m);
+    return;
+  }
+
+  const card = cards[currentCardIdx];
+
+  document.getElementById('card-progress').textContent = `${currentCardIdx + 1}/${total}`;
+
+  if (card.type === 'vocab') {
+    document.getElementById('card-type-tag').textContent = '📖 词汇';
+    document.getElementById('card-type-tag').style.color = m.color;
+    wrapper.innerHTML = buildVocabCard(card);
+  } else if (card.type === 'ex') {
+    document.getElementById('card-type-tag').textContent = '📝 练习';
+    document.getElementById('card-type-tag').style.color = '#E74C3C';
+    wrapper.innerHTML = buildExCard(card);
+  } else if (card.type === 'rule') {
+    document.getElementById('card-type-tag').textContent = '📚 音变规则';
+    document.getElementById('card-type-tag').style.color = '#E65100';
+    wrapper.innerHTML = buildRuleCard(card);
+  }
+
+  // Add flip handler - skip if clicking audio button
+  const flipCard = wrapper.querySelector('.big-flip-card');
+  if (flipCard && card.type !== 'rule') {
+    flipCard.addEventListener('click', (e) => {
+      if (e.target.closest('.audio-btn') || e.target.closest('.audio-btn-sm')) return;
+      flipCard.classList.toggle('flipped');
+    });
+  }
+
+  // Wire up audio buttons
+  wrapper.querySelectorAll('.audio-btn, .audio-btn-sm').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const text = btn.dataset.text || '';
+      if (text) {
+        speakKorean(text);
+      }
+    });
+  });
+
+  // Update nav buttons
+  const prevBtn = document.getElementById('prev-card-btn');
+  const nextBtn = document.getElementById('next-card-btn');
+  prevBtn.disabled = currentCardIdx === 0;
+  nextBtn.disabled = false;
+
+  document.getElementById('complete-actions').style.display = 'none';
+  document.getElementById('card-nav').style.display = 'flex';
+
+  setupTouchSwipe(wrapper);
+
+  setTimeout(() => {
+    if (flipCard) flipCard.classList.remove('flipped');
+  }, 50);
+}
+
+function buildVocabCard(card) {
+  const krText = card.kr;
+  const exampleText = card.example || '';
+  const phraseText = card.phrase || '';
+  let grammarHtml = '';
+  let moreHtml = '';
+  if (card.grammar) {
+    grammarHtml = `<div class="grammar-box"><div class="grammar-title">📖 语法讲解</div><div class="grammar-text">${card.grammar}</div></div>`;
+  }
+  if (card.more && card.more.length) {
+    const items = card.more.map(s => {
+      const parts = s.split('|');
+      return `<div class="more-item"><div class="more-kr">${parts[0] || ''}</div><div class="more-cn">${parts[1] || ''}</div></div>`;
+    }).join('');
+    moreHtml = `<div class="more-box"><div class="grammar-title">✏️ 更多例句</div>${items}</div>`;
+  }
+  return `
+    <div class="big-flip-card vocab-card">
+      <div class="big-flip-card-inner">
+        <div class="big-card-front vocab-card-front">
+          <button class="audio-btn" data-text="${krText}">🔊</button>
+          <div class="pron-badge">${card.pron}</div>
+          <div class="icon-deco">${card.emoji}</div>
+          <div class="kr-large">${card.kr}</div>
+          <div class="tap-hint">👆 点击翻转</div>
+          <div class="emoji-large">${card.emoji}</div>
+        </div>
+        <div class="big-card-back vocab-card-back">
+          <div class="cn-big">${card.cn}</div>
+          <div class="phrase-text">${card.phrase} <button class="audio-btn-sm" data-text="${phraseText}">🔊</button></div>
+          <div class="example-text">${card.example} <button class="audio-btn-sm" data-text="${exampleText}">🔊</button></div>
+          <div class="example-cn">${card.exampleCn || ''}</div>
+          ${card.sound ? `<div class="sound-tag">🔊 ${card.sound}</div>` : ''}
+          ${grammarHtml}
+          ${moreHtml}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function buildExCard(card) {
+  return `
+    <div class="big-flip-card ex-card">
+      <div class="big-flip-card-inner">
+        <div class="big-card-front ex-card-front">
+          <div class="ex-icon-big">📝</div>
+          <div class="ex-label">尝试回答吧 ✨</div>
+          <div class="ex-question">${card.question}</div>
+          <div class="tap-hint" style="position:absolute; bottom:14px; left:50%; transform:translateX(-50%); font-size:11px; color:#bbb; white-space:nowrap;">👆 点击看答案</div>
+        </div>
+        <div class="big-card-back ex-card-back">
+          <div class="ex-answer-icon">✅</div>
+          <div class="ex-answer-label">参考答案</div>
+          <div class="ex-answer-text">${card.answer}</div>
+          ${card.detail ? `<div class="ex-answer-detail">${card.detail}</div>` : ''}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function buildRuleCard(card) {
+  return `
+    <div class="big-flip-card rule-display">
+      <div class="big-flip-card-inner">
+        <div class="big-card-front">
+          <div class="rule-big-title">${card.ruleTitle}</div>
+          <div class="rule-big-example">${card.ruleExample}</div>
+          <div class="rule-big-desc">${card.ruleDesc}</div>
+          <div class="rule-big-detail">${card.ruleDetail.replace(/\n/g, '<br>')}</div>
+        </div>
+        <div class="big-card-back"></div>
+      </div>
+    </div>
+  `;
+}
+
+function buildCompleteCard(module) {
+  return `
+    <div class="big-flip-card complete-card">
+      <div class="big-flip-card-inner">
+        <div class="big-card-front">
+          <div class="complete-icon">🎉</div>
+          <div class="complete-title">${module.completeTitle}</div>
+          <div class="complete-desc">${module.completeDesc}</div>
+          <div class="complete-emoji-row">${module.completeEmoji}</div>
+        </div>
+        <div class="big-card-back"></div>
+      </div>
+    </div>
+  `;
+}
+
+// ===== CARD NAVIGATION =====
+function nextCard() {
+  if (isAnimating) return;
+  const m = MODULE_DATA[currentModuleIdx];
+  const total = m.cards.length;
+  if (currentCardIdx >= total) return;
+
+  const wrapper = document.getElementById('card-wrapper');
+  const current = wrapper.querySelector('.big-flip-card');
+  if (current) {
+    current.classList.add('slide-left-out');
+    isAnimating = true;
+    setTimeout(() => {
+      currentCardIdx++;
+      renderCurrentCard();
+      const newCard = wrapper.querySelector('.big-flip-card');
+      if (newCard) newCard.classList.add('slide-right-in');
+      setTimeout(() => {
+        if (newCard) newCard.classList.remove('slide-right-in');
+        isAnimating = false;
+      }, 300);
+    }, 280);
+  }
+}
+
+function prevCard() {
+  if (isAnimating) return;
+  if (currentCardIdx <= 0) return;
+
+  const wrapper = document.getElementById('card-wrapper');
+  const current = wrapper.querySelector('.big-flip-card');
+  if (current) {
+    current.classList.add('slide-right-out');
+    isAnimating = true;
+    setTimeout(() => {
+      currentCardIdx--;
+      renderCurrentCard();
+      const newCard = wrapper.querySelector('.big-flip-card');
+      if (newCard) newCard.classList.add('slide-left-in');
+      setTimeout(() => {
+        if (newCard) newCard.classList.remove('slide-left-in');
+        isAnimating = false;
+      }, 300);
+    }, 280);
+  }
+}
+
+// ===== TOUCH SWIPE =====
+function setupTouchSwipe(wrapper) {
+  wrapper.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  wrapper.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      e.preventDefault();
+      if (diff > 0) {
+        nextCard();
+      } else {
+        prevCard();
+      }
+    }
+  }, { passive: false });
+}
+
+// ===== COMPLETION PAGE =====
+function showCompletionPage(module) {
+  const wrapper = document.getElementById('card-wrapper');
+  wrapper.innerHTML = buildCompleteCard(module);
+  document.getElementById('card-progress').textContent = '🎉 完成！';
+  document.getElementById('card-type-tag').textContent = '🎊 恭喜！';
+  document.getElementById('card-nav').style.display = 'flex';
+
+  const prevBtn = document.getElementById('prev-card-btn');
+  const nextBtn = document.getElementById('next-card-btn');
+  prevBtn.style.display = 'none';
+  nextBtn.style.display = 'none';
+
+  document.getElementById('complete-actions').style.display = 'flex';
+  const actions = document.getElementById('complete-actions');
+  actions.innerHTML = '';
+
+  const backBtn = document.createElement('button');
+  backBtn.className = 'module-complete-btn secondary';
+  backBtn.textContent = '返回模块列表';
+  backBtn.onclick = goBackToModules;
+  actions.appendChild(backBtn);
+
+  if (currentModuleIdx < MODULE_DATA.length - 1) {
+    const nextBtn2 = document.createElement('button');
+    nextBtn2.className = 'module-complete-btn';
+    nextBtn2.style.background = MODULE_DATA[currentModuleIdx + 1].color;
+    nextBtn2.textContent = '进入下一模块 →';
+    nextBtn2.onclick = () => openCardLearning(currentModuleIdx + 1);
+    actions.appendChild(nextBtn2);
+  } else {
+    const allDoneBtn = document.createElement('button');
+    allDoneBtn.className = 'module-complete-btn';
+    allDoneBtn.textContent = '🎉 全部完成！回到主界面';
+    allDoneBtn.onclick = () => {
+      showPage('page-main');
+      currentPage = 'main';
+    };
+    actions.appendChild(allDoneBtn);
+  }
+}
+
+// 🔊 韩语语音播放 — 使用预生成MP3
+let audioLookup = {};
+let audioLoaded = false;
+let currentAudio = null;
+
+// 加载音频查找表
+fetch('audio/lookup.json')
+  .then(r => r.json())
+  .then(data => { audioLookup = data; audioLoaded = true; })
+  .catch(() => console.warn('音频查找表加载失败，降级到TTS'));
+
+function speakKorean(text) {
+  if (!text || text.trim() === '') return;
+  const btn = document.activeElement;
+  if (btn) {
+    btn.style.transform = 'scale(0.85)';
+    setTimeout(() => { btn.style.transform = ''; }, 200);
+  }
+  
+  // 停止之前的播放
+  if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+  
+  // 尝试播放预生成MP3
+  const mp3Path = audioLookup[text];
+  if (mp3Path) {
+    currentAudio = new Audio(mp3Path);
+    currentAudio.play().catch(() => {
+      // 降级到浏览器TTS
+      playTTS(text);
+    });
+  } else {
+    playTTS(text);
+  }
+}
+
+function playTTS(text) {
+  try {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'ko-KR';
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  } catch(e) {
+    console.warn('TTS failed:', e);
+  }
+}
+
+</script>
+</body>
+</html>

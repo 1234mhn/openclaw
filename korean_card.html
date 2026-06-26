@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>韩语主题卡片 · 感叹风景 🌤️</title>
+<style>
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'Noto Sans SC', 'Nanum Gothic', sans-serif;
+    background: #f5f5f5;
+    padding: 20px;
+  }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .card { break-inside: avoid; page-break-inside: avoid; }
+    .no-print { display: none; }
+  }
+
+  /* Title */
+  .title-page {
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #1a73e8, #0d47a1);
+    color: #fff;
+    border-radius: 20px;
+  }
+  .title-page h1 { font-size: 36px; margin-bottom: 10px; }
+  .title-page .sub { font-size: 16px; opacity: 0.85; }
+  .title-page .info { font-size: 14px; opacity: 0.7; margin-top: 20px; }
+
+  /* Cards Grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  @media print {
+    .card-grid { gap: 12px; }
+  }
+
+  /* Card */
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border: 1px solid #e8ecf0;
+    position: relative;
+    min-height: 200px;
+  }
+  .card .number {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-size: 11px;
+    color: #bbb;
+    font-weight: 600;
+  }
+  .card .theme-tag {
+    display: inline-block;
+    font-size: 10px;
+    background: #e8f0fe;
+    color: #1a73e8;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .card .word-line {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .card .kr-word {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a73e8;
+  }
+  .card .cn-word {
+    font-size: 14px;
+    color: #666;
+  }
+  .card .kr-sentence {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 8px 0 4px 0;
+    line-height: 1.5;
+  }
+  .card .cn-sentence {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 6px;
+  }
+  .card .grammar {
+    font-size: 12px;
+    background: #f8f9fb;
+    padding: 6px 8px;
+    border-radius: 6px;
+    margin: 6px 0;
+    color: #555;
+    line-height: 1.6;
+  }
+  .card .grammar b {
+    color: #e67e22;
+  }
+  .card .freq {
+    position: absolute;
+    bottom: 10px;
+    right: 12px;
+    font-size: 11px;
+    color: #999;
+  }
+  .card .tip {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+  }
+
+  /* Print button */
+  .no-print {
+    text-align: center;
+    margin: 30px auto;
+    max-width: 800px;
+  }
+  .print-btn {
+    padding: 14px 40px;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .print-btn:hover { background: #1557b0; }
+
+  /* Back cover */
+  .back-cover {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<div class="title-page no-print" id="printTitle">
+  <h1>🌤️ 感叹风景</h1>
+  <div class="sub">韩语主题卡片 · 旅游口语系列</div>
+  <div class="info">共20张卡片 · 可打印裁剪 · 随身携带</div>
+</div>
+
+<div class="card-grid" id="cardGrid">
+
+  <!-- Card 1 -->
+  <div class="card">
+    <span class="number">#1</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">날씨</span>
+      <span class="cn-word">天气</span>
+    </div>
+    <div class="kr-sentence">날씨가 참 좋네요</div>
+    <div class="cn-sentence">天气真好啊</div>
+    <div class="grammar"><b>语法：</b>-네요 感叹句尾。看到/听到某事后自然的感叹。「좋네요」比「좋아요」更有感情色彩</div>
+    <div class="tip">💡 旅行中看到好天气，脱口而出的一句话</div>
+    <span class="freq">⭐ 超高频</span>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card">
+    <span class="number">#2</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">경치</span>
+      <span class="cn-word">风景</span>
+    </div>
+    <div class="kr-sentence">경치가 정말 예뻐요</div>
+    <div class="cn-sentence">风景真的好美</div>
+    <div class="grammar"><b>语法：</b>정말 = 真的/非常，在口语中比「아주」更自然。예쁘다 = 漂亮</div>
+    <div class="tip">💡 看到美景第一反应，适用所有漂亮的地方</div>
+    <span class="freq">⭐ 超高频</span>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card">
+    <span class="number">#3</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">근사하다</span>
+      <span class="cn-word">棒/帅气/了不起</span>
+    </div>
+    <div class="kr-sentence">경치가 근사해요!</div>
+    <div class="cn-sentence">风景太棒了！</div>
+    <div class="grammar"><b>语法：</b>근사하다 比「좋다」程度更强，带有"令人赞叹"的感觉。也用来夸人穿得帅</div>
+    <div class="tip">💡 看到震撼的景色时使用，比예쁘다更有力</div>
+    <span class="freq">⭐⭐⭐⭐</span>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="card">
+    <span class="number">#4</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">멋있다</span>
+      <span class="cn-word">帅气/棒</span>
+    </div>
+    <div class="kr-sentence">와, 진짜 멋있다!</div>
+    <div class="cn-sentence">哇，真的太帅了！</div>
+    <div class="grammar"><b>语法：</b>멋있다 可用于风景、人、事物。진짜 = 真的，加强语气。用基本阶「-다」更有真实感叹感</div>
+    <div class="tip">💡 看到让人惊叹的景色时，用「와, 진짜 멋있다!」最自然</div>
+    <span class="freq">⭐⭐⭐⭐⭐</span>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="card">
+    <span class="number">#5</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">하늘</span>
+      <span class="cn-word">天空</span>
+    </div>
+    <div class="kr-sentence">하늘이 정말 맑아요</div>
+    <div class="cn-sentence">天空真的很晴朗</div>
+    <div class="grammar"><b>语法：</b>맑다 → 맑아요 (ㄹ脱落不规则)。하늘이 맑다 = 天晴，搭配기분이 좋다(心情好)</div>
+    <div class="tip">💡 秋天蓝天白云时常用，适合拍照配文</div>
+    <span class="freq">⭐⭐⭐⭐</span>
+  </div>
+
+  <!-- Card 6 -->
+  <div class="card">
+    <span class="number">#6</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">구름</span>
+      <span class="cn-word">云</span>
+    </div>
+    <div class="kr-sentence">구름이 예쁘게 떠 있어요</div>
+    <div class="cn-sentence">云朵漂亮地飘着</div>
+    <div class="grammar"><b>语法：</b>-게 副词形（예쁘게=漂亮地）。-아/어 있다 状态持续（떠 있다=漂浮着）</div>
+    <div class="tip">💡 看到好看云彩时，比单纯说"구름 예뻐요"更生动</div>
+    <span class="freq">⭐⭐⭐</span>
+  </div>
+
+  <!-- Card 7 -->
+  <div class="card">
+    <span class="number">#7</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">노을</span>
+      <span class="cn-word">晚霞</span>
+    </div>
+    <div class="kr-sentence">노을이 정말 아름다워요</div>
+    <div class="cn-sentence">晚霞真的很美</div>
+    <div class="grammar"><b>语法：</b>아름답다 → 아름다워요 (ㅂ不规则)。아름답다 比예쁘da 更正式、更书面</div>
+    <div class="tip">💡 适合日落时发朋友圈，比예쁘다更有文艺感</div>
+    <span class="freq">⭐⭐⭐</span>
+  </div>
+
+  <!-- Card 8 -->
+  <div class="card">
+    <span class="number">#8</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">바다</span>
+      <span class="cn-word">大海</span>
+    </div>
+    <div class="kr-sentence">바다가 정말 푸르러요</div>
+    <div class="cn-sentence">大海真的很蓝</div>
+    <div class="grammar"><b>语法：</b>푸르다 → 푸르러요 (르不规则)。푸르다 = 湛蓝/翠绿，比单纯파랗다更生动</div>
+    <div class="tip">💡 看到海景时的专用感叹，济州岛旅行必备句</div>
+    <span class="freq">⭐⭐⭐⭐</span>
+  </div>
+
+  <!-- Card 9 -->
+  <div class="card">
+    <span class="number">#9</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">공기</span>
+      <span class="cn-word">空气</span>
+    </div>
+    <div class="kr-sentence">공기가 너무 좋아요</div>
+    <div class="cn-sentence">空气太好了</div>
+    <div class="grammar"><b>语法：</b>너무 本意"太/过于"，口语中常用来表示"非常/太…了"。좋다 = 好/清新</div>
+    <div class="tip">💡 去郊外/山上时，深呼吸后的第一句话</div>
+    <span class="freq">⭐⭐⭐⭐</span>
+  </div>
+
+  <!-- Card 10 -->
+  <div class="card">
+    <span class="number">#10</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">기분</span>
+      <span class="cn-word">心情</span>
+    </div>
+    <div class="kr-sentence">경치 보니까 기분이 좋아져요</div>
+    <div class="cn-sentence">看了风景心情变好了</div>
+    <div class="grammar"><b>语法：</b>-니까 表示"因为…所以"(发现原因)。-아/어지다 表示"变得…"(좋아지다=变好)</div>
+    <div class="tip">💡 两个语法连用，表达"因为做了某事而变得…"</div>
+    <span class="freq">⭐⭐⭐</span>
+  </div>
+
+  <!-- Card 11 -->
+  <div class="card">
+    <span class="number">#11</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">산</span>
+      <span class="cn-word">山</span>
+    </div>
+    <div class="kr-sentence">산에서 보는 풍경이 최고예요</div>
+    <div class="cn-sentence">山上看到的风景最棒</div>
+    <div class="grammar"><b>语法：</b>에서 表示动作发生的场所。풍경 = 风景(比경치更文学化)。최고 = 最高/最棒</div>
+    <div class="tip">💡 등산(登山)后山顶上俯瞰时用</div>
+    <span class="freq">⭐⭐⭐</span>
+  </div>
+
+  <!-- Card 12 -->
+  <div class="card">
+    <span class="number">#12</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">사진</span>
+      <span class="cn-word">照片</span>
+    </div>
+    <div class="kr-sentence">여기서 사진 찍어도 돼요?</div>
+    <div class="cn-sentence">这里可以拍照吗？</div>
+    <div class="grammar"><b>语法：</b>-아/어도 되다 表示"可以做…"(允许)。찍다 = 拍(照/戏)</div>
+    <div class="tip">💡 景点拍照前问一句，比直接拍有礼貌</div>
+    <span class="freq">⭐⭐⭐⭐⭐</span>
+  </div>
+
+  <!-- Card 13 -->
+  <div class="card">
+    <span class="number">#13</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">함께</span>
+      <span class="cn-word">一起</span>
+    </div>
+    <div class="kr-sentence">같이 사진 찍을래요?</div>
+    <div class="cn-sentence">要一起拍照吗？</div>
+    <div class="grammar"><b>语法：</b>같이 = 一起(口语常用)。-(으)ㄹ래요? 表示询问对方意图"要不要…？"</div>
+    <div class="tip">💡 旅行中向陌生人或朋友提议合影</div>
+    <span class="freq">⭐⭐⭐⭐⭐</span>
+  </div>
+
+  <!-- Card 14 -->
+  <div class="card">
+    <span class="number">#14</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">자연</span>
+      <span class="cn-word">自然</span>
+    </div>
+    <div class="kr-sentence">자연이 정말 아름다워요</div>
+    <div class="cn-sentence">大自然真的很美</div>
+    <div class="grammar"><b>语法：</b>자연 = 自然/大自然。아름답다 适合描述宏大、震撼的美景</div>
+    <div class="tip">💡 适合郊外/国家公园/森林等自然景观</div>
+    <span class="freq">⭐⭐⭐</span>
+  </div>
+
+  <!-- Card 15 -->
+  <div class="card">
+    <span class="number">#15</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">추천</span>
+      <span class="cn-word">推荐</span>
+    </div>
+    <div class="kr-sentence">여기 꼭 와 봐요! 진짜 좋아요</div>
+    <div class="cn-sentence">一定要来这里看看！真的很好</div>
+    <div class="grammar"><b>语法：</b>꼭 = 一定。-아/어 보다 = 尝试做。진짜 = 真的(口语强调)</div>
+    <div class="tip">💡 向朋友强烈推荐景点时的万能句</div>
+    <span class="freq">⭐⭐⭐⭐⭐</span>
+  </div>
+
+  <!-- Card 16 -->
+  <div class="card">
+    <span class="number">#16</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">조용하다</span>
+      <span class="cn-word">安静/宁静</span>
+    </div>
+    <div class="kr-sentence">여기 정말 조용하고 좋네요</div>
+    <div class="cn-sentence">这里真的很安静很舒服</div>
+    <div class="grammar"><b>语法：</b>-고 连接两个形容词（조용하고 좋다 = 安静且好）。-네요 感叹句尾</div>
+    <div class="tip">💡 去了人少景美的地方，感叹环境好</div>
+    <span class="freq">⭐⭐⭐</span>
+  </div>
+
+  <!-- Card 17 -->
+  <div class="card">
+    <span class="number">#17</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">일몰</span>
+      <span class="cn-word">日落</span>
+    </div>
+    <div class="kr-sentence">일몰 시간에 여기 오길 잘했어요</div>
+    <div class="cn-sentence">日落的时候来这里来对了</div>
+    <div class="grammar"><b>语法：</b>-길 잘하다 = 做对了某事。오길 잘했다 = 来对了</div>
+    <div class="tip">💡 日落时分看到美景，庆幸自己来对了</div>
+    <span class="freq">⭐⭐</span>
+  </div>
+
+  <!-- Card 18 -->
+  <div class="card">
+    <span class="number">#18</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">한적하다</span>
+      <span class="cn-word">幽静/人少</span>
+    </div>
+    <div class="kr-sentence">여기 사람도 없고 한적해요</div>
+    <div class="cn-sentence">这里人又少又幽静</div>
+    <div class="grammar"><b>语法：</b>-도 없고 = "也没有…而且"。한적하다 = 安静/幽静/人少</div>
+    <div class="tip">💡 发现小众景点，人少景美时用</div>
+    <span class="freq">⭐⭐⭐</span>
+  </div>
+
+  <!-- Card 19 -->
+  <div class="card">
+    <span class="number">#19</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">소리</span>
+      <span class="cn-word">声音</span>
+    </div>
+    <div class="kr-sentence">파도 소리가 듣기 좋아요</div>
+    <div class="cn-sentence">海浪声很好听</div>
+    <div class="grammar"><b>语法：</b>파도 = 波浪。-ㄴ/은 소리 = …的声音。듣기 좋다 = 听着好/好听</div>
+    <div class="tip">💡 海边闭眼听海浪声时的感受</div>
+    <span class="freq">⭐⭐</span>
+  </div>
+
+  <!-- Card 20 -->
+  <div class="card">
+    <span class="number">#20</span>
+    <span class="theme-tag">🌤️ 感叹风景</span>
+    <div class="word-line">
+      <span class="kr-word">행복</span>
+      <span class="cn-word">幸福</span>
+    </div>
+    <div class="kr-sentence">이런 풍경을 보니까 행복해요</div>
+    <div class="cn-sentence">看到这样的风景，好幸福</div>
+    <div class="grammar"><b>语法：</b>이런 = 这样的。-(으)니까 因果连接。행복하다 = 幸福</div>
+    <div class="tip">💡 总结句——看到好风景的终极感受</div>
+    <span class="freq">⭐⭐⭐⭐</span>
+  </div>
+
+</div>
+
+<div class="no-print" style="text-align:center;margin:30px auto;max-width:800px">
+  <button class="print-btn" onclick="document.getElementById('printTitle').style.display='none';window.print();setTimeout(function(){document.getElementById('printTitle').style.display='block'},1000)">🖨️ 打印 / 导出PDF</button>
+  <p style="margin-top:12px;color:#999;font-size:13px">打印时选择「另存为PDF」即可导出</p>
+</div>
+
+<div class="back-cover">
+  🌤️ 韩语主题卡片 · 感叹风景 · 共20张<br>
+  个人学习使用 · 请勿商业转载
+</div>
+
+</body>
+</html>

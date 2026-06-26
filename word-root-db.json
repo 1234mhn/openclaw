@@ -1,0 +1,104 @@
+{
+  "roots": [
+    {
+      "root": "spect",
+      "meaning": "看",
+      "origin": "拉丁语 specere = to see/look",
+      "words": [
+        {"word": "inspect", "meaning": "检查", "breakdown": "in(往里)+spect(看)", "explanation": "往里看→检查", "pos": "v.", "example": "The officer inspected the building."},
+        {"word": "respect", "meaning": "尊重", "breakdown": "re(反复)+spect(看)", "explanation": "反复看→尊重", "pos": "v./n.", "example": "I respect my teachers."},
+        {"word": "prospect", "meaning": "前景", "breakdown": "pro(向前)+spect(看)", "explanation": "向前看→前景", "pos": "n.", "example": "Job prospects look good."},
+        {"word": "retrospect", "meaning": "回顾", "breakdown": "retro(向后)+spect(看)", "explanation": "向后看→回顾", "pos": "n.", "example": "In retrospect, I should have studied harder."},
+        {"word": "spectacle", "meaning": "景象;奇观", "breakdown": "spect(看)+acle(东西)", "explanation": "看的东西→景象", "pos": "n.", "example": "The fireworks were a spectacle."},
+        {"word": "spectator", "meaning": "观众", "breakdown": "spect(看)+ator(人)", "explanation": "看的人→观众", "pos": "n.", "example": "The spectators cheered loudly."},
+        {"word": "expect", "meaning": "期望", "breakdown": "ex(向外)+spect(看)", "explanation": "向外看→期望", "pos": "v.", "example": "I expect good results."},
+        {"word": "conspicuous", "meaning": "引人注目的", "breakdown": "con(加强)+spic(看)+uous", "explanation": "非常容易被看到", "pos": "adj.", "example": "Her red dress was conspicuous."},
+        {"word": "despise", "meaning": "鄙视", "breakdown": "de(向下)+spise(看)", "explanation": "向下看→鄙视", "pos": "v.", "example": "I despise dishonesty."}
+      ]
+    },
+    {
+      "root": "dict",
+      "meaning": "说",
+      "origin": "拉丁语 dicere = to say",
+      "words": [
+        {"word": "dictionary", "meaning": "词典", "breakdown": "dict(说)+ion+ary", "explanation": "关于说的书→词典", "pos": "n.", "example": "Look it up in the dictionary."},
+        {"word": "predict", "meaning": "预测", "breakdown": "pre(提前)+dict(说)", "explanation": "提前说→预测", "pos": "v.", "example": "The weather predicts rain."},
+        {"word": "dictate", "meaning": "听写;口述", "breakdown": "dict(说)+ate", "explanation": "说→口述→听写", "pos": "v.", "example": "The teacher dictated the passage."},
+        {"word": "contradict", "meaning": "矛盾", "breakdown": "contra(相反)+dict(说)", "explanation": "说相反的话→矛盾", "pos": "v.", "example": "Don't contradict yourself."},
+        {"word": "addict", "meaning": "上瘾", "breakdown": "ad(加强)+dict(说)", "explanation": "不断说→上瘾", "pos": "v./n.", "example": "He's addicted to gaming."}
+      ]
+    },
+    {
+      "root": "port",
+      "meaning": "拿;运",
+      "origin": "拉丁语 portare = to carry",
+      "words": [
+        {"word": "transport", "meaning": "运输", "breakdown": "trans(转移)+port(运)", "explanation": "转移运送→运输", "pos": "v./n.", "example": "Trucks transport goods."},
+        {"word": "export", "meaning": "出口", "breakdown": "ex(出)+port(运)", "explanation": "运出去→出口", "pos": "v./n.", "example": "China exports many products."},
+        {"word": "import", "meaning": "进口", "breakdown": "im(进)+port(运)", "explanation": "运进来→进口", "pos": "v./n.", "example": "We import coffee from Brazil."},
+        {"word": "report", "meaning": "报告", "breakdown": "re(回)+port(拿)", "explanation": "拿回去汇报→报告", "pos": "v./n.", "example": "Please report the results."},
+        {"word": "support", "meaning": "支持", "breakdown": "sup(在下面)+port(拿)", "explanation": "在下面托着→支持", "pos": "v.", "example": "My parents support me."},
+        {"word": "airport", "meaning": "机场", "breakdown": "air(空中)+port(港口)", "explanation": "空中港口→机场", "pos": "n.", "example": "I'll meet you at the airport."}
+      ]
+    },
+    {
+      "root": "act",
+      "meaning": "做;行动",
+      "origin": "拉丁语 actum = to do",
+      "words": [
+        {"word": "action", "meaning": "行动", "breakdown": "act(做)+ion", "explanation": "做→行动", "pos": "n.", "example": "Actions speak louder than words."},
+        {"word": "activity", "meaning": "活动", "breakdown": "act(做)+ivity", "explanation": "做的事情→活动", "pos": "n.", "example": "We have many after-school activities."},
+        {"word": "react", "meaning": "反应", "breakdown": "re(回)+act(做)", "explanation": "做回去→反应", "pos": "v.", "example": "How did he react to the news?"},
+        {"word": "active", "meaning": "积极的", "breakdown": "act(做)+ive", "explanation": "爱做的→积极的", "pos": "adj.", "example": "She's an active learner."},
+        {"word": "interact", "meaning": "互动", "breakdown": "inter(相互)+act(做)", "explanation": "相互做→互动", "pos": "v.", "example": "Students interact with each other."}
+      ]
+    },
+    {
+      "root": "form",
+      "meaning": "形状;形成",
+      "origin": "拉丁语 forma = shape",
+      "words": [
+        {"word": "reform", "meaning": "改革", "breakdown": "re(重新)+form(形成)", "explanation": "重新形成→改革", "pos": "v./n.", "example": "The education system needs reform."},
+        {"word": "transform", "meaning": "转变", "breakdown": "trans(改变)+form(形状)", "explanation": "改变形状→转变", "pos": "v.", "example": "Caterpillars transform into butterflies."},
+        {"word": "uniform", "meaning": "校服", "breakdown": "uni(统一)+form(形状)", "explanation": "统一形状→制服", "pos": "n.", "example": "We wear uniforms to school."},
+        {"word": "inform", "meaning": "通知", "breakdown": "in(进入)+form(形成)", "explanation": "让信息成形→通知", "pos": "v.", "example": "Please inform us of any changes."},
+        {"word": "perform", "meaning": "表演", "breakdown": "per(完全)+form(形状)", "explanation": "呈现完整形态→表演", "pos": "v.", "example": "The band will perform tonight."}
+      ]
+    },
+    {
+      "root": "press",
+      "meaning": "压",
+      "origin": "拉丁语 pressare = to press",
+      "words": [
+        {"word": "express", "meaning": "表达", "breakdown": "ex(出)+press(压)", "explanation": "压出来→表达", "pos": "v.", "example": "Express your feelings through art."},
+        {"word": "impress", "meaning": "留下印象", "breakdown": "im(进)+press(压)", "explanation": "压进去→留下印象", "pos": "v.", "example": "Her speech impressed everyone."},
+        {"word": "compress", "meaning": "压缩", "breakdown": "com(一起)+press(压)", "explanation": "压在一起→压缩", "pos": "v.", "example": "Compress the file before sending."},
+        {"word": "pressure", "meaning": "压力", "breakdown": "press(压)+ure", "explanation": "压的状态→压力", "pos": "n.", "example": "Don't put too much pressure on yourself."}
+      ]
+    },
+    {
+      "root": "tract",
+      "meaning": "拉;引",
+      "origin": "拉丁语 trahere = to pull",
+      "words": [
+        {"word": "attract", "meaning": "吸引", "breakdown": "at(加强)+tract(拉)", "explanation": "拉过来→吸引", "pos": "v.", "example": "The museum attracts many visitors."},
+        {"word": "extract", "meaning": "提取", "breakdown": "ex(出)+tract(拉)", "explanation": "拉出来→提取", "pos": "v.", "example": "Extract the main idea from the text."},
+        {"word": "contract", "meaning": "合同", "breakdown": "con(一起)+tract(拉)", "explanation": "拉到一起→合同", "pos": "n.", "example": "Sign the contract before starting."},
+        {"word": "subtract", "meaning": "减去", "breakdown": "sub(向下)+tract(拉)", "explanation": "拉下去→减去", "pos": "v.", "example": "Subtract 5 from 10."},
+        {"word": "tractor", "meaning": "拖拉机", "breakdown": "tract(拉)+or(物)", "explanation": "用来拉的机器", "pos": "n.", "example": "The farmer drives a tractor."}
+      ]
+    },
+    {
+      "root": "struct",
+      "meaning": "建造",
+      "origin": "拉丁语 struere = to build",
+      "words": [
+        {"word": "construct", "meaning": "建设", "breakdown": "con(一起)+struct(建造)", "explanation": "建在一起→建设", "pos": "v.", "example": "They constructed a new bridge."},
+        {"word": "destruction", "meaning": "破坏", "breakdown": "de(去掉)+struct(建造)+ion", "explanation": "拆掉建造的东西→破坏", "pos": "n.", "example": "The storm caused destruction."},
+        {"word": "instruct", "meaning": "指导", "breakdown": "in(进入)+struct(建造)", "explanation": "帮助建造→指导", "pos": "v.", "example": "The coach instructed the team."},
+        {"word": "structure", "meaning": "结构", "breakdown": "struct(建造)+ure", "explanation": "建造的方式→结构", "pos": "n.", "example": "The essay has a clear structure."},
+        {"word": "instrument", "meaning": "工具;乐器", "breakdown": "in(内)+stru(=struct)+ment", "explanation": "建造用的工具", "pos": "n.", "example": "What instrument do you play?"}
+      ]
+    }
+  ]
+}

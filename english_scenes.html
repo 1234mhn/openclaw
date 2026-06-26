@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>英语口语 · 情景练习</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+  background: #f5f2eb;
+  color: #2c2c2c;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, #6f4e37 0%, #a0765a 100%);
+  color: #fff;
+  padding: 32px 20px 24px;
+  text-align: center;
+}
+
+.header h1 { font-size: 24px; font-weight: 700; letter-spacing: 0.5px; }
+.header .subtitle { font-size: 13px; opacity: 0.85; margin-top: 4px; letter-spacing: 2px; }
+
+/* Tabs */
+.tab-bar {
+  background: #fff;
+  padding: 12px 16px;
+  display: flex;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(111, 78, 55, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.tab-bar::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 2px solid #e8e0d8;
+  background: #faf8f5;
+  font-size: 14px;
+  font-weight: 600;
+  color: #888;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.tab-btn:active { opacity: 0.7; }
+.tab-btn.active {
+  background: #6f4e37;
+  border-color: #6f4e37;
+  color: #fff;
+}
+
+/* Container */
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* Scene (hidden by default) */
+.scene { display: none; }
+.scene.active { display: block; animation: fadeIn 0.25s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Section Title */
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #6f4e37;
+  padding: 12px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Dialog Card */
+.dialog-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(111, 78, 55, 0.08);
+  padding: 4px 16px;
+  margin-bottom: 20px;
+}
+
+.dialog-line {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0ece6;
+  cursor: pointer;
+  transition: background 0.15s;
+  border-radius: 8px;
+  margin: 0 -8px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.dialog-line:last-child { border-bottom: none; }
+.dialog-line:hover { background: #faf8f5; }
+.dialog-line:active { background: #f0ece6; }
+
+.dialog-line.speaking {
+  background: #fef6ef;
+  border-left: 3px solid #d35400;
+  padding-left: 5px;
+}
+
+.dialog-line .speaker {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.dialog-line .speaker.barista,
+.dialog-line .speaker.receptionist,
+.dialog-line .speaker.staff {
+  color: #6f4e37;
+}
+.dialog-line .speaker.you { color: #2c7a5c; }
+
+.dialog-line .english {
+  font-size: 15px;
+  color: #333;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.dialog-line .english .highlight { color: #d35400; font-weight: 700; }
+
+.dialog-line .chinese {
+  font-size: 13px;
+  color: #999;
+  margin-top: 2px;
+}
+
+.dialog-line .play-icon {
+  display: inline-block;
+  font-size: 11px;
+  color: #bbb;
+  margin-left: 6px;
+  transition: color 0.2s;
+}
+.dialog-line:hover .play-icon { color: #6f4e37; }
+.dialog-line.speaking .play-icon { color: #d35400; }
+
+/* Vocabulary Grid */
+.vocab-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.vocab-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(111, 78, 55, 0.06);
+  padding: 12px;
+}
+
+.vocab-card .icon { font-size: 22px; margin-bottom: 4px; }
+.vocab-card .word { font-size: 15px; font-weight: 700; color: #6f4e37; }
+.vocab-card .meaning { font-size: 13px; color: #555; margin-top: 1px; }
+.vocab-card .usage { font-size: 12px; color: #aaa; margin-top: 3px; line-height: 1.4; }
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: rgba(44,44,44,0.9);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 100;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px 16px 32px;
+  font-size: 12px;
+  color: #ccc;
+  letter-spacing: 1px;
+}
+.footer .tag {
+  display: inline-block;
+  background: #ede8e2;
+  color: #a0765a;
+  padding: 4px 12px;
+  border-radius: 14px;
+  margin: 0 4px;
+}
+
+/* Responsive */
+@media (min-width: 480px) {
+  .header h1 { font-size: 28px; }
+  .header { padding: 40px 20px 28px; }
+  .dialog-line .english { font-size: 16px; }
+  .vocab-card .word { font-size: 16px; }
+  .vocab-grid { gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🗣️ 英语口语 · 情景练习</h1>
+  <div class="subtitle">点击句子 · 跟读练习</div>
+</div>
+
+<div class="tab-bar" id="tabBar">
+  <button class="tab-btn active" data-scene="coffee">☕ Coffee Shop</button>
+  <button class="tab-btn" data-scene="hotel">🏨 Hotel Check-in</button>
+  <button class="tab-btn" data-scene="airport">✈️ Airport</button>
+</div>
+
+<div class="container">
+
+  <!-- ==================== SCENE: COFFEE ==================== -->
+  <div class="scene active" id="scene-coffee">
+    <div class="section-title">💬 对话练习 · 咖啡店点单</div>
+    <div class="dialog-card">
+      <div class="dialog-line" data-text="Hey there! Welcome. What can I get started for you?">
+        <div class="speaker barista">👩 Barista</div>
+        <div class="english">"Hey there! Welcome. What can I get <span class="highlight">started</span> for you?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">你好呀！欢迎光临，想喝点什么？</div>
+      </div>
+      <div class="dialog-line" data-text="I've never been here before. What would you recommend?">
+        <div class="speaker you">👤 You</div>
+        <div class="english">"I've never been here before. What would you <span class="highlight">recommend</span>?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">我第一次来，有什么推荐吗？</div>
+      </div>
+      <div class="dialog-line" data-text="The oat milk brown sugar latte is super popular!">
+        <div class="speaker barista">👩 Barista</div>
+        <div class="english">"The <span class="highlight">oat milk</span> brown sugar latte is super popular!" <span class="play-icon">🔊</span></div>
+        <div class="chinese">燕麦红糖拿铁最近超火！</div>
+      </div>
+      <div class="dialog-line" data-text="Sounds amazing! Can I get that to go?">
+        <div class="speaker you">👤 You</div>
+        <div class="english">"Sounds amazing! Can I get that <span class="highlight">to go</span>?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">听起来不错！可以打包带走吗？</div>
+      </div>
+      <div class="dialog-line" data-text="Regular or large?">
+        <div class="speaker barista">👩 Barista</div>
+        <div class="english">"<span class="highlight">Regular</span> or <span class="highlight">large</span>?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">普通还是大杯？</div>
+      </div>
+      <div class="dialog-line" data-text="Large. Can I sub the oat milk for soy milk?">
+        <div class="speaker you">👤 You</div>
+        <div class="english">"Large. Can I <span class="highlight">sub</span> the oat milk for <span class="highlight">soy milk</span>?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">大杯，能换成豆奶吗？</div>
+      </div>
+      <div class="dialog-line" data-text="No problem. Half sweet?">
+        <div class="speaker barista">👩 Barista</div>
+        <div class="english">"No problem. <span class="highlight">Half sweet</span>?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">没问题，半糖？</div>
+      </div>
+      <div class="dialog-line" data-text="Yes, that's perfect. What's the total?">
+        <div class="speaker you">👤 You</div>
+        <div class="english">"Yes, that's perfect. What's the <span class="highlight">total</span>?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">好的。一共多少钱？</div>
+      </div>
+      <div class="dialog-line" data-text="We have freshly baked croissants and blueberry muffins.">
+        <div class="speaker barista">👩 Barista</div>
+        <div class="english">"We have <span class="highlight">freshly baked croissants</span> and <span class="highlight">blueberry muffins</span>." <span class="play-icon">🔊</span></div>
+        <div class="chinese">我们有刚出炉的牛角包和蓝莓马芬。</div>
+      </div>
+      <div class="dialog-line" data-text="I'm tempted, but I'll pass this time.">
+        <div class="speaker you">👤 You</div>
+        <div class="english">"I'm <span class="highlight">tempted</span>, but I'll <span class="highlight">pass</span> this time." <span class="play-icon">🔊</span></div>
+        <div class="chinese">有点心动，但这次先不了。</div>
+      </div>
+      <div class="dialog-line" data-text="That comes to $7.20. Name for the order?">
+        <div class="speaker barista">👩 Barista</div>
+        <div class="english">"That <span class="highlight">comes to</span> $7.20. Name for the order?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">一共7.2美元。怎么称呼？</div>
+      </div>
+      <div class="dialog-line" data-text="It's Lily. You have a loyalty program?">
+        <div class="speaker you">👤 You</div>
+        <div class="english">"It's Lily. You have a <span class="highlight">loyalty program</span>?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">我叫Lily。有会员活动吗？</div>
+      </div>
+      <div class="dialog-line" data-text="Scan the QR code — buy 10, get 1 free!">
+        <div class="speaker barista">👩 Barista</div>
+        <div class="english">"Scan the QR code — buy 10, get 1 <span class="highlight">free</span>!" <span class="play-icon">🔊</span></div>
+        <div class="chinese">扫二维码，买10送1！</div>
+      </div>
+      <div class="dialog-line" data-text="I'm signing up right now!">
+        <div class="speaker you">👤 You</div>
+        <div class="english">"<span class="highlight">I'm signing up</span> right now!" <span class="play-icon">🔊</span></div>
+        <div class="chinese">我现在就注册！</div>
+      </div>
+    </div>
+
+    <div class="section-title">📖 重点词汇</div>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="icon">🥛</div><div class="word">oat milk</div><div class="meaning">燕麦奶</div><div class="usage">读音 /oʊt mɪlk/</div></div>
+      <div class="vocab-card"><div class="icon">🫘</div><div class="word">soy milk</div><div class="meaning">豆奶</div><div class="usage">读音 /sɔɪ mɪlk/</div></div>
+      <div class="vocab-card"><div class="icon">🔄</div><div class="word">sub</div><div class="meaning">替换</div><div class="usage">"sub A for B" 用B换A</div></div>
+      <div class="vocab-card"><div class="icon">📦</div><div class="word">to go</div><div class="meaning">打包带走</div><div class="usage">堂食=for here</div></div>
+      <div class="vocab-card"><div class="icon">💰</div><div class="word">comes to</div><div class="meaning">共计</div><div class="usage">买单常用语</div></div>
+      <div class="vocab-card"><div class="icon">🏆</div><div class="word">loyalty program</div><div class="meaning">会员积分活动</div><div class="usage">points card=积分卡</div></div>
+      <div class="vocab-card"><div class="icon">💊</div><div class="word">half sweet</div><div class="meaning">半糖</div><div class="usage">少糖=less sweet</div></div>
+      <div class="vocab-card"><div class="icon">👎</div><div class="word">I'll pass</div><div class="meaning">这次先不了</div><div class="usage">婉拒的礼貌说法</div></div>
+      <div class="vocab-card"><div class="icon">🥐</div><div class="word">croissant</div><div class="meaning">牛角包</div><div class="usage">读音 /krəˈsɑnt/</div></div>
+      <div class="vocab-card"><div class="icon">🫐</div><div class="word">blueberry muffin</div><div class="meaning">蓝莓马芬</div><div class="usage">美式常见糕点</div></div>
+      <div class="vocab-card"><div class="icon">💪</div><div class="word">I'm tempted</div><div class="meaning">有点心动</div><div class="usage">tempted=被诱惑</div></div>
+      <div class="vocab-card"><div class="icon">✍️</div><div class="word">sign up</div><div class="meaning">注册报名</div><div class="usage">sign up for = 报名参加</div></div>
+    </div>
+  </div>
+
+  <!-- ==================== SCENE: HOTEL ==================== -->
+  <div class="scene" id="scene-hotel">
+    <div class="section-title">💬 对话练习 · 酒店入住</div>
+    <div class="dialog-card">
+      <div class="dialog-line" data-text="Hi, I have a reservation under the name Lily.">
+        <div class="speaker you">👤 You</div>
+        <div class="english">"Hi, I have a <span class="highlight">reservation</span> under the name Lily." <span class="play-icon">🔊</span></div>
+        <div class="chinese">你好，我以Lily的名字预订了。</div>
+      </div>
+      <div class="dialog-line" data-text="Welcome! May I see your passport, please?">
+        <div class="speaker receptionist">👩 Receptionist</div>
+        <div class="english">"Welcome! May I see your <span class="highlight">passport</span>, please?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">欢迎！请出示您的护照。</div>
+      </div>
+      <div class="dialog-line" data-text="Sure. Is breakfast included?">
+        <div class="speaker you">👤 You</div>
+        <div class="english">"Sure. Is <span class="highlight">breakfast</span> <span class="highlight">included</span>?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">给。含早餐吗？</div>
+      </div>
+      <div class="dialog-line" data-text="Yes, 7 to 10 AM. How many nights will you be staying?">
+        <div class="speaker receptionist">👩 Receptionist</div>
+        <div class="english">"Yes, 7 to 10 AM. How many nights will you be <span class="highlight">staying</span>?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">有的，早7-10点。您住几晚？</div>
+      </div>
+      <div class="dialog-line" data-text="Three nights. What time is checkout?">
+        <div class="speaker you">👤 You</div>
+        <div class="english">"Three nights. What time is <span class="highlight">checkout</span>?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">三晚。退房是几点？</div>
+      </div>
+      <div class="dialog-line" data-text="11 AM. Could I get a deposit of $100?">
+        <div class="speaker receptionist">👩 Receptionist</div>
+        <div class="english">"11 AM. Could I get a <span class="highlight">deposit</span> of $100?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">上午11点。需要100美元押金。</div>
+      </div>
+      <div class="dialog-line" data-text="Sure, no problem. Can I get a receipt when I check out?">
+        <div class="speaker you">👤 You</div>
+        <div class="english">"Sure, no problem. Can I get a <span class="highlight">receipt</span> when I check out?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">好的，退房时能给我发票吗？</div>
+      </div>
+      <div class="dialog-line" data-text="Of course. Enjoy your stay!">
+        <div class="speaker receptionist">👩 Receptionist</div>
+        <div class="english">"Of course. Enjoy your <span class="highlight">stay</span>!" <span class="play-icon">🔊</span></div>
+        <div class="chinese">当然。祝您入住愉快！</div>
+      </div>
+    </div>
+
+    <div class="section-title">📖 重点词汇</div>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="icon">🏨</div><div class="word">reservation</div><div class="meaning">预订</div><div class="usage">make a reservation = 预订</div></div>
+      <div class="vocab-card"><div class="icon">🛂</div><div class="word">passport</div><div class="meaning">护照</div><div class="usage">读音 /ˈpæspɔːrt/</div></div>
+      <div class="vocab-card"><div class="icon">🌅</div><div class="word">breakfast included</div><div class="meaning">含早餐</div><div class="usage">included=包含在内</div></div>
+      <div class="vocab-card"><div class="icon">🛏️</div><div class="word">staying</div><div class="meaning">入住</div><div class="usage">stay=停留，住</div></div>
+      <div class="vocab-card"><div class="icon">⏰</div><div class="word">checkout</div><div class="meaning">退房</div><div class="usage">check-in=入住登记</div></div>
+      <div class="vocab-card"><div class="icon">💳</div><div class="word">deposit</div><div class="meaning">押金</div><div class="usage">读音 /dɪˈpɑzɪt/</div></div>
+      <div class="vocab-card"><div class="icon">🧾</div><div class="word">receipt</div><div class="meaning">发票/收据</div><div class="usage">读音 /rɪˈsiːt/</div></div>
+    </div>
+  </div>
+
+  <!-- ==================== SCENE: AIRPORT ==================== -->
+  <div class="scene" id="scene-airport">
+    <div class="section-title">💬 对话练习 · 机场出行</div>
+    <div class="dialog-card">
+      <div class="dialog-line" data-text="Excuse me, where is the check-in counter for Korean Air?">
+        <div class="speaker you">👤 You</div>
+        <div class="english">"Excuse me, where is the <span class="highlight">check-in</span> counter for Korean Air?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">请问，大韩航空的值机柜台在哪？</div>
+      </div>
+      <div class="dialog-line" data-text="Go straight, then turn left. You'll see it next to Gate 12.">
+        <div class="speaker staff">👩 Staff</div>
+        <div class="english">"Go straight, then turn left. You'll see it next to <span class="highlight">Gate</span> 12." <span class="play-icon">🔊</span></div>
+        <div class="chinese">直走左转，在12号登机口旁边。</div>
+      </div>
+      <div class="dialog-line" data-text="Thanks. Can I get a window seat, please?">
+        <div class="speaker you">👤 You</div>
+        <div class="english">"Thanks. Can I get a <span class="highlight">window seat</span>, please?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">谢谢。可以选靠窗座位吗？</div>
+      </div>
+      <div class="dialog-line" data-text="Sure. How many suitcases are you checking in?">
+        <div class="speaker staff">👩 Staff</div>
+        <div class="english">"Sure. How many <span class="highlight">suitcases</span> are you <span class="highlight">checking in</span>?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">好的。您要托运几件行李？</div>
+      </div>
+      <div class="dialog-line" data-text="Just one. Can I carry on this backpack?">
+        <div class="speaker you">👤 You</div>
+        <div class="english">"Just one. Can I <span class="highlight">carry on</span> this backpack?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">就一件。这背包能随身带吗？</div>
+      </div>
+      <div class="dialog-line" data-text="Yes, that's fine. Here's your boarding pass. Your gate will be announced later.">
+        <div class="speaker staff">👩 Staff</div>
+        <div class="english">"Yes, that's fine. Here's your <span class="highlight">boarding pass</span>. Your <span class="highlight">gate</span> will be announced later." <span class="play-icon">🔊</span></div>
+        <div class="chinese">可以。这是您的登机牌，登机口稍后通知。</div>
+      </div>
+      <div class="dialog-line" data-text="What time is boarding?">
+        <div class="speaker you">👤 You</div>
+        <div class="english">"What time is <span class="highlight">boarding</span>?" <span class="play-icon">🔊</span></div>
+        <div class="chinese">几点登机？</div>
+      </div>
+      <div class="dialog-line" data-text="Boarding starts at 3:30 PM. Please arrive at the gate 30 minutes early.">
+        <div class="speaker staff">👩 Staff</div>
+        <div class="english">"<span class="highlight">Boarding</span> starts at 3:30 PM. Please arrive at the gate 30 minutes early." <span class="play-icon">🔊</span></div>
+        <div class="chinese">下午3:30开始登机，请提前30分钟到登机口。</div>
+      </div>
+    </div>
+
+    <div class="section-title">📖 重点词汇</div>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="icon">🎫</div><div class="word">check-in</div><div class="meaning">值机</div><div class="usage">check-in counter=值机柜台</div></div>
+      <div class="vocab-card"><div class="icon">🪟</div><div class="word">window seat</div><div class="meaning">靠窗座位</div><div class="usage">aisle seat=过道座位</div></div>
+      <div class="vocab-card"><div class="icon">🧳</div><div class="word">suitcase</div><div class="meaning">行李箱</div><div class="usage">读音 /ˈsuːtkeɪs/</div></div>
+      <div class="vocab-card"><div class="icon">✈️</div><div class="word">checking in (luggage)</div><div class="meaning">托运行李</div><div class="usage">check-in luggage=托运</div></div>
+      <div class="vocab-card"><div class="icon">🎒</div><div class="word">carry on</div><div class="meaning">随身携带</div><div class="usage">carry-on bag=随身行李</div></div>
+      <div class="vocab-card"><div class="icon">🪪</div><div class="word">boarding pass</div><div class="meaning">登机牌</div><div class="usage">pass=通行证</div></div>
+      <div class="vocab-card"><div class="icon">🚪</div><div class="word">gate</div><div class="meaning">登机口</div><div class="usage">gate number=登机口号</div></div>
+      <div class="vocab-card"><div class="icon">🛫</div><div class="word">boarding</div><div class="meaning">登机</div><div class="usage">boarding time=登机时间</div></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <span class="tag">#咖啡店点单</span>
+  <span class="tag">#酒店入住</span>
+  <span class="tag">#机场出行</span>
+  <span class="tag">#英语口语</span>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function() {
+  'use strict';
+
+  // --- Toast ---
+  var toastEl = document.getElementById('toast');
+  var toastTimer;
+
+  function showToast(msg) {
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function() { toastEl.classList.remove('show'); }, 1800);
+  }
+
+  // --- Tab Switching ---
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  var scenes = {
+    coffee: document.getElementById('scene-coffee'),
+    hotel: document.getElementById('scene-hotel'),
+    airport: document.getElementById('scene-airport')
+  };
+
+  tabBtns.forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      var target = btn.getAttribute('data-scene');
+      // Update tabs
+      tabBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      // Update scenes
+      Object.keys(scenes).forEach(function(key) {
+        scenes[key].classList.toggle('active', key === target);
+      });
+      // Stop any ongoing speech
+      if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+      // Clear speaking state
+      document.querySelectorAll('.dialog-line.speaking').forEach(function(el) {
+        el.classList.remove('speaking');
+      });
+    });
+  });
+
+  // --- Speech Synthesis ---
+  if (!window.speechSynthesis) {
+    // Speech not supported, hide play icons
+    document.querySelectorAll('.play-icon').forEach(function(el) {
+      el.style.display = 'none';
+    });
+  }
+
+  var utterance = null;
+  var currentLine = null;
+
+  document.querySelectorAll('.dialog-line').forEach(function(line) {
+    line.addEventListener('click', function() {
+      var text = line.getAttribute('data-text');
+      if (!text) return;
+
+      // If clicking the same line that's speaking, stop
+      if (currentLine === line && window.speechSynthesis && window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+        line.classList.remove('speaking');
+        currentLine = null;
+        return;
+      }
+
+      // Cancel any previous speech
+      if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+      document.querySelectorAll('.dialog-line.speaking').forEach(function(el) {
+        el.classList.remove('speaking');
+      });
+
+      // Create and speak
+      utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US';
+      utterance.rate = 0.85;
+      utterance.pitch = 1.0;
+
+      // Try to pick a good English voice
+      var voices = window.speechSynthesis.getVoices();
+      var preferredVoice = voices.find(function(v) {
+        return v.lang.startsWith('en') && v.name.toLowerCase().indexOf('samantha') !== -1;
+      }) || voices.find(function(v) {
+        return v.lang.startsWith('en-US');
+      }) || voices.find(function(v) {
+        return v.lang.startsWith('en');
+      });
+      if (preferredVoice) {
+        utterance.voice = preferredVoice;
+      }
+
+      // Highlight
+      line.classList.add('speaking');
+      currentLine = line;
+      showToast('🔊 正在播放...');
+
+      utterance.onend = function() {
+        line.classList.remove('speaking');
+        currentLine = null;
+        showToast('✅ 播放完成');
+      };
+
+      utterance.onerror = function() {
+        line.classList.remove('speaking');
+        currentLine = null;
+      };
+
+      window.speechSynthesis.speak(utterance);
+    });
+  });
+
+  // Pre-load voices (some browsers load them async)
+  if (window.speechSynthesis) {
+    window.speechSynthesis.getVoices(); // trigger async load
+    // Some browsers (Chrome) need this
+    setTimeout(function() {
+      window.speechSynthesis.getVoices();
+    }, 200);
+  }
+
+})();
+</script>
+
+</body>
+</html>

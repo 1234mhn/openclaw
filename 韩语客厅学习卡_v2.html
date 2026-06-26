@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>🛋️ 거실 韩语客厅学习卡</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #2c1810;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', 'Noto Sans KR', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+    padding: 16px;
+  }
+
+  .card {
+    background: #f5f0e8;
+    border-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    max-width: 520px;
+    width: 100%;
+    position: relative;
+  }
+
+  .card-title {
+    text-align: center;
+    padding: 6px 0 14px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #3d2b1f;
+    letter-spacing: 2px;
+  }
+  .card-title small {
+    font-weight: 400;
+    font-size: 13px;
+    color: #8b7355;
+  }
+
+  .scene-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    background: #f0e8d8;
+  }
+
+  .scene-wrapper svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* ====== 交互覆盖层 ====== */
+  .click-zone {
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .click-zone:hover { opacity: 0.7; }
+  .click-zone:active { opacity: 0.5; }
+
+  .label-group { pointer-events: none; }
+  .label-bg { pointer-events: none; }
+  .label-text { pointer-events: none; }
+
+  .click-zone.played + .label-group .label-bg {
+    fill: #d4edda;
+    stroke: #27ae60;
+    stroke-width: 2;
+  }
+
+  /* ====== 发音弹窗 ====== */
+  .speech-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(0,0,0,0.85);
+    color: white;
+    padding: 24px 40px;
+    border-radius: 20px;
+    font-size: 32px;
+    font-weight: 700;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 100;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    border: 2px solid rgba(255,255,255,0.1);
+  }
+  .speech-popup.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .speech-popup small {
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    color: #ccc;
+    margin-top: 4px;
+  }
+
+  /* ====== 场景练习按钮 ====== */
+  .practice-btn {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(231,76,60,0.4);
+    transition: all 0.2s;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 1px;
+  }
+  .practice-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(231,76,60,0.5);
+  }
+  .practice-btn:active { transform: translateY(0); }
+
+  /* ====== 弹窗 ====== */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+  }
+  .modal-overlay.active { display: flex; }
+
+  .modal-box {
+    background: white;
+    border-radius: 24px;
+    padding: 36px 28px 28px;
+    max-width: 380px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: modalIn 0.3s ease;
+  }
+  @keyframes modalIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .modal-box .emoji-big { font-size: 48px; margin-bottom: 10px; }
+  .modal-box h2 { font-size: 20px; color: #3d2b1f; margin-bottom: 6px; }
+  .modal-box p { font-size: 13px; color: #666; margin-bottom: 6px; line-height: 1.6; }
+
+  .modal-actions { display: flex; gap: 12px; margin-top: 20px; justify-content: center; }
+  .modal-actions button {
+    padding: 10px 24px;
+    border-radius: 50px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, #2c5f2d, #1e6f20);
+    color: white;
+    box-shadow: 0 4px 15px rgba(44,95,45,0.4);
+  }
+  .btn-primary:hover { transform: translateY(-2px); }
+  .btn-secondary { background: #eee; color: #555; }
+  .btn-secondary:hover { background: #ddd; }
+
+  /* ====== 底部 ====== */
+  .bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+  }
+  .hint-text {
+    font-size: 12px;
+    color: #8b7355;
+  }
+  .hint-text span {
+    cursor: pointer;
+    text-decoration: underline dotted;
+  }
+  .play-all-btn {
+    background: #fff;
+    border: 1px solid #d4a574;
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12px;
+    color: #8b7355;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .play-all-btn:hover {
+    background: #fff8f0;
+    border-color: #c0392b;
+    color: #c0392b;
+  }
+
+  @media (max-width: 420px) {
+    .card { padding: 12px; border-radius: 16px; }
+    .card-title { font-size: 17px; }
+    .practice-btn { padding: 8px 14px; font-size: 12px; }
+    .speech-popup { font-size: 26px; padding: 18px 28px; }
+    .speech-popup small { font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="card-title">
+    🛋️ 거실 · 客厅 · Living Room
+    <small>— 点物品学韩语 —</small>
+  </div>
+
+  <div class="scene-wrapper" id="scene">
+    <!-- ====== SVG 卡通客厅 ====== -->
+    <svg viewBox="0 0 500 620" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+      <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+          <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+        </filter>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+          <feMerge>
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+        <linearGradient id="wallGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#f5efe6"/>
+          <stop offset="100%" stop-color="#ede3d4"/>
+        </linearGradient>
+        <linearGradient id="floorGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#c4a882"/>
+          <stop offset="100%" stop-color="#b8986e"/>
+        </linearGradient>
+        <linearGradient id="curtainGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#d4a574"/>
+          <stop offset="50%" stop-color="#e8c9a0"/>
+          <stop offset="100%" stop-color="#d4a574"/>
+        </linearGradient>
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#87CEEB"/>
+          <stop offset="100%" stop-color="#b0e0ff"/>
+        </linearGradient>
+      </defs>
+
+      <!-- === 墙壁 === -->
+      <rect x="0" y="0" width="500" height="410" fill="url(#wallGrad)" rx="0"/>
+
+      <!-- === 踢脚线 === -->
+      <rect x="0" y="405" width="500" height="10" fill="#d4c5a9"/>
+
+      <!-- === 地板 === -->
+      <rect x="0" y="410" width="500" height="210" fill="url(#floorGrad)"/>
+      <!-- 地板木纹 -->
+      <line x1="0" y1="440" x2="500" y2="440" stroke="#b8986e" stroke-width="0.5" opacity="0.4"/>
+      <line x1="0" y1="480" x2="500" y2="480" stroke="#b8986e" stroke-width="0.5" opacity="0.4"/>
+      <line x1="0" y1="520" x2="500" y2="520" stroke="#b8986e" stroke-width="0.5" opacity="0.4"/>
+      <line x1="0" y1="560" x2="500" y2="560" stroke="#b8986e" stroke-width="0.5" opacity="0.4"/>
+
+      <!-- ======================== -->
+      <!-- == 窗户 ====== -->
+      <!-- ======================== -->
+      <g id="win-group">
+        <!-- 窗洞 -->
+        <rect x="40" y="60" width="150" height="180" rx="4" fill="url(#skyGrad)" stroke="#b8986e" stroke-width="3"/>
+        <!-- 窗框十字 -->
+        <line x1="115" y1="60" x2="115" y2="240" stroke="#b8986e" stroke-width="2.5"/>
+        <line x1="40" y1="150" x2="190" y2="150" stroke="#b8986e" stroke-width="2.5"/>
+        <!-- 窗外云 -->
+        <ellipse cx="100" cy="130" rx="30" ry="14" fill="white" opacity="0.6"/>
+        <ellipse cx="120" cy="125" rx="22" ry="12" fill="white" opacity="0.5"/>
+
+        <!-- 窗帘左 -->
+        <path d="M35 50 Q32 150 38 240 L55 240 Q52 150 55 50 Z" fill="url(#curtainGrad)" opacity="0.85"/>
+        <!-- 窗帘右 -->
+        <path d="M175 50 Q172 150 178 240 L195 240 Q192 150 195 50 Z" fill="url(#curtainGrad)" opacity="0.85"/>
+        <!-- 窗帘杆 -->
+        <rect x="30" y="47" width="175" height="6" rx="3" fill="#8B6914"/>
+        <!-- 窗帘球 -->
+        <circle cx="35" cy="52" r="5" fill="#8B6914"/>
+        <circle cx="195" cy="52" r="5" fill="#8B6914"/>
+      </g>
+
+      <!-- ======================== -->
+      <!-- == 挂画 (时钟旁边) ===== -->
+      <!-- ======================== -->
+      <g id="pic-group">
+        <rect x="220" y="70" width="100" height="80" rx="6" fill="#fff" stroke="#d4a574" stroke-width="3"/>
+        <!-- 画框内 -->
+        <rect x="230" y="78" width="80" height="64" rx="3" fill="#fdf6ec"/>
+        <!-- 画中风景 -->
+        <circle cx="270" cy="120" r="10" fill="#f4a460"/>
+        <path d="M230 140 Q260 100 290 130 Q300 120 310 140 Z" fill="#228B22" opacity="0.5"/>
+        <rect x="235" y="130" width="70" height="12" fill="#228B22" opacity="0.3"/>
+      </g>
+
+      <!-- ======================== -->
+      <!-- == 时钟 ====== -->
+      <!-- ======================== -->
+      <g id="clock-group">
+        <circle cx="370" cy="100" r="35" fill="#fff" stroke="#8B6914" stroke-width="4" filter="url(#shadow)"/>
+        <circle cx="370" cy="100" r="30" fill="#fff8f0"/>
+        <!-- 刻度 -->
+        <line x1="370" y1="75" x2="370" y2="80" stroke="#333" stroke-width="2"/>
+        <line x1="370" y1="120" x2="370" y2="125" stroke="#333" stroke-width="2"/>
+        <line x1="345" y1="100" x2="350" y2="100" stroke="#333" stroke-width="2"/>
+        <line x1="390" y1="100" x2="395" y2="100" stroke="#333" stroke-width="2"/>
+        <!-- 指针 -->
+        <line x1="370" y1="100" x2="370" y2="80" stroke="#333" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="370" y1="100" x2="385" y2="95" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="370" cy="100" r="3" fill="#c0392b"/>
+      </g>
+
+      <!-- ======================== -->
+      <!-- == 空调 ====== -->
+      <!-- ======================== -->
+      <g id="ac-group">
+        <rect x="430" y="150" width="50" height="90" rx="6" fill="#e8e8e8" stroke="#ccc" stroke-width="2"/>
+        <rect x="435" y="160" width="40" height="70" rx="3" fill="#f5f5f5"/>
+        <line x1="455" y1="165" x2="455" y2="225" stroke="#ddd" stroke-width="1"/>
+        <rect x="440" y="170" width="30" height="8" rx="2" fill="#aaa"/>
+        <rect x="440" y="185" width="30" height="8" rx="2" fill="#aaa"/>
+        <rect x="440" y="200" width="30" height="8" rx="2" fill="#aaa"/>
+      </g>
+
+      <!-- ======================== -->
+      <!-- == 电视柜 ====== -->
+      <!-- ======================== -->
+      <g id="tvstand-group">
+        <rect x="275" y="280" width="200" height="130" rx="6" fill="#6B4226" stroke="#5a3720" stroke-width="2"/>
+        <!-- 柜门 -->
+        <rect x="285" y="320" width="85" height="80" rx="4" fill="#7a5030" stroke="#5a3720" stroke-width="1.5"/>
+        <rect x="380" y="320" width="85" height="80" rx="4" fill="#7a5030" stroke="#5a3720" stroke-width="1.5"/>
+        <circle cx="375" cy="360" r="4" fill="#d4a574"/>
+        <circle cx="380" cy="360" r="4" fill="#d4a574"/>
+        <!-- 柜腿 -->
+        <rect x="280" y="405" width="8" height="10" rx="2" fill="#5a3720"/>
+        <rect x="462" y="405" width="8" height="10" rx="2" fill="#5a3720"/>
+      </g>
+
+      <!-- ======================== -->
+      <!-- == 电视 ====== -->
+      <!-- ======================== -->
+      <g id="tv-group">
+        <!-- 屏幕 -->
+        <rect x="295" y="225" width="160" height="100" rx="8" fill="#1a1a2e" stroke="#333" stroke-width="3" filter="url(#shadow)"/>
+        <!-- 屏幕内容 - 浅色画面 -->
+        <rect x="300" y="230" width="150" height="90" rx="5" fill="#2a2a4e"/>
+        <circle cx="360" cy="270" r="12" fill="#4a7ac7" opacity="0.6"/>
+        <rect x="300" y="275" width="150" height="45" fill="#1a1a2e"/>
+        <!-- 字幕 -->
+        <rect x="310" y="280" width="130" height="12" rx="2" fill="#555" opacity="0.5"/>
+        <rect x="315" y="297" width="120" height="12" rx="2" fill="#555" opacity="0.3"/>
+        <!-- 底座 -->
+        <rect x="360" y="325" width="30" height="12" rx="3" fill="#555"/>
+        <rect x="345" y="337" width="60" height="6" rx="3" fill="#444"/>
+      </g>
+
+      <!-- ======================== -->
+      <!-- == 沙发 ====== -->
+      <!-- ======================== -->
+      <g id="sofa-group">
+        <!-- 沙发底座 -->
+        <rect x="30" y="370" width="240" height="100" rx="16" fill="#c0392b" stroke="#a93226" stroke-width="2" filter="url(#shadow)"/>
+        <!-- 沙发背 -->
+        <rect x="30" y="340" width="240" height="50" rx="14" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+        <!-- 沙发坐垫分割线 -->
+        <line x1="110" y1="370" x2="110" y2="470" stroke="#a93226" stroke-width="1.5" opacity="0.5"/>
+        <line x1="190" y1="370" x2="190" y2="470" stroke="#a93226" stroke-width="1.5" opacity="0.5"/>
+        <!-- 左扶手 -->
+        <rect x="20" y="355" width="25" height="115" rx="10" fill="#c0392b" stroke="#a93226" stroke-width="2"/>
+        <!-- 右扶手 -->
+        <rect x="255" y="355" width="25" height="115" rx="10" fill="#c0392b" stroke="#a93226" stroke-width="2"/>
+        <!-- 沙发腿 -->
+        <rect x="40" y="465" width="10" height="10" rx="3" fill="#8B4513"/>
+        <rect x="250" y="465" width="10" height="10" rx="3" fill="#8B4513"/>
+        <!-- 靠垫 -->
+        <ellipse cx="80" cy="415" rx="32" ry="22" fill="#e67e22" opacity="0.6"/>
+        <ellipse cx="150" cy="415" rx="32" ry="22" fill="#f39c12" opacity="0.6"/>
+        <ellipse cx="220" cy="415" rx="32" ry="22" fill="#e67e22" opacity="0.6"/>
+      </g>
+
+      <!-- ======================== -->
+      <!-- == 地毯 ====== -->
+      <!-- ======================== -->
+      <g id="rug-group">
+        <ellipse cx="300" cy="540" rx="130" ry="40" fill="#d4a574" opacity="0.4" stroke="#c9955e" stroke-width="1.5"/>
+        <ellipse cx="300" cy="540" rx="110" ry="32" fill="#e8c9a0" opacity="0.4" stroke="#c9955e" stroke-width="1"/>
+        <ellipse cx="300" cy="540" rx="80" ry="24" fill="#f0dcc0" opacity="0.3"/>
+        <!-- 花纹 -->
+        <ellipse cx="280" cy="535" rx="15" ry="8" fill="#d4a574" opacity="0.2"/>
+        <ellipse cx="320" cy="545" rx="15" ry="8" fill="#d4a574" opacity="0.2"/>
+      </g>
+
+      <!-- ======================== -->
+      <!-- == 茶几 ====== -->
+      <!-- ======================== -->
+      <g id="table-group">
+        <!-- 桌面 -->
+        <rect x="155" y="490" width="140" height="12" rx="4" fill="#8B6914" stroke="#7a5c10" stroke-width="1.5" filter="url(#shadow)"/>
+        <!-- 桌腿 -->
+        <rect x="162" y="500" width="6" height="35" rx="2" fill="#7a5c10"/>
+        <rect x="282" y="500" width="6" height="35" rx="2" fill="#7a5c10"/>
+        <!-- 桌腿横梁 -->
+        <rect x="162" y="525" width="126" height="4" rx="2" fill="#7a5c10" opacity="0.5"/>
+      </g>
+
+      <!-- ======================== -->
+      <!-- == 杯子 (茶几上) ===== -->
+      <!-- ======================== -->
+      <g id="cup-group">
+        <path d="M240 482 L240 496 Q240 500 244 500 L258 500 Q262 500 262 496 L262 482 Z" fill="#fff" stroke="#ccc" stroke-width="1.5"/>
+        <ellipse cx="251" cy="482" rx="11" ry="4" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+        <path d="M262 486 Q270 488 268 494 Q266 498 262 496" fill="none" stroke="#ccc" stroke-width="1.5"/>
+        <!-- 茶/咖啡 -->
+        <ellipse cx="251" cy="484" rx="8" ry="3" fill="#6B4226" opacity="0.6"/>
+        <!-- 热气 -->
+        <path d="M248 478 Q246 472 250 468" fill="none" stroke="#ccc" stroke-width="1" opacity="0.5"/>
+        <path d="M254 477 Q256 470 252 466" fill="none" stroke="#ccc" stroke-width="1" opacity="0.4"/>
+      </g>
+
+      <!-- ======================== -->
+      <!-- == 遥控器 (茶几上) ===== -->
+      <!-- ======================== -->
+      <g id="remote-group">
+        <rect x="170" y="488" width="40" height="18" rx="4" fill="#333" stroke="#222" stroke-width="1" transform="rotate(-20 190 497)"/>
+        <rect x="175" y="491" width="30" height="12" rx="2" fill="#444" transform="rotate(-20 190 497)"/>
+        <circle cx="182" cy="501" r="2" fill="#e74c3c" transform="rotate(-20 190 497)"/>
+        <circle cx="192" cy="501" r="2" fill="#e74c3c" transform="rotate(-20 190 497)"/>
+      </g>
+
+      <!-- ======================== -->
+      <!-- == 书 (茶几上) ===== -->
+      <!-- ======================== -->
+      <g id="book-group">
+        <rect x="220" y="495" width="30" height="22" rx="2" fill="#e74c3c" stroke="#c0392b" stroke-width="1" transform="rotate(10 235 506)"/>
+        <rect x="215" y="497" width="30" height="22" rx="2" fill="#3498db" stroke="#2980b9" stroke-width="1" transform="rotate(-5 230 508)"/>
+      </g>
+
+      <!-- ======================== -->
+      <!-- == 花瓶 (茶几上) ===== -->
+      <!-- ======================== -->
+      <g id="vase-group">
+        <path d="M176 475 Q170 480 172 488 L180 488 Q182 480 176 475 Z" fill="#27ae60" stroke="#1e8449" stroke-width="1.5"/>
+        <!-- 花 -->
+        <circle cx="173" cy="472" r="4" fill="#f1c40f"/>
+        <circle cx="179" cy="470" r="3" fill="#e74c3c"/>
+        <line x1="176" y1="474" x2="173" y2="469" stroke="#1e8449" stroke-width="1"/>
+        <line x1="176" y1="474" x2="179" y2="468" stroke="#1e8449" stroke-width="1"/>
+        <!-- 叶子 -->
+        <ellipse cx="176" cy="478" rx="6" ry="4" fill="#27ae60" opacity="0.6" transform="rotate(-15 176 478)"/>
+      </g>
+
+      <!-- ======================== -->
+      <!-- == 台灯 ====== -->
+      <!-- ======================== -->
+      <g id="lamp-group">
+        <!-- 灯杆 -->
+        <rect x="445" y="360" width="6" height="80" rx="3" fill="#8B6914"/>
+        <!-- 底座 -->
+        <ellipse cx="448" cy="442" rx="18" ry="6" fill="#8B6914" stroke="#7a5c10" stroke-width="1.5"/>
+        <!-- 灯罩 -->
+        <path d="M430 360 L466 360 L456 330 L440 330 Z" fill="#f5deb3" stroke="#d4a574" stroke-width="1.5"/>
+        <ellipse cx="448" cy="330" rx="8" ry="3" fill="#f5deb3" stroke="#d4a574" stroke-width="1"/>
+        <!-- 灯光 -->
+        <path d="M440 360 Q448 380 456 360" fill="none" stroke="#f5deb3" stroke-width="2" opacity="0.3"/>
+      </g>
+
+      <!-- ====== 交互点击区域 ====== -->
+      <!-- 沙发 -->
+      <rect x="30" y="340" width="250" height="135" rx="16" fill="transparent" class="click-zone" data-idx="0" data-ko="소파" data-rom="so-pa" data-cn="沙发"/>
+
+      <!-- 电视 -->
+      <rect x="295" y="225" width="160" height="118" rx="8" fill="transparent" class="click-zone" data-idx="1" data-ko="텔레비전" data-rom="tel-le-bi-jeon" data-cn="电视"/>
+
+      <!-- 茶几 -->
+      <rect x="155" y="490" width="140" height="45" rx="4" fill="transparent" class="click-zone" data-idx="2" data-ko="탁자" data-rom="tak-ja" data-cn="茶几"/>
+
+      <!-- 窗户 -->
+      <rect x="40" y="60" width="150" height="180" rx="4" fill="transparent" class="click-zone" data-idx="3" data-ko="창문" data-rom="chang-mun" data-cn="窗户"/>
+
+      <!-- 时钟 -->
+      <circle cx="370" cy="100" r="35" fill="transparent" class="click-zone" data-idx="4" data-ko="시계" data-rom="si-gye" data-cn="时钟"/>
+
+      <!-- 挂画 -->
+      <rect x="220" y="70" width="100" height="80" rx="6" fill="transparent" class="click-zone" data-idx="5" data-ko="그림" data-rom="geu-rim" data-cn="画"/>
+
+      <!-- 台灯 -->
+      <rect x="430" y="330" width="45" height="115" rx="8" fill="transparent" class="click-zone" data-idx="6" data-ko="스탠드" data-rom="seu-taen-deu" data-cn="台灯"/>
+
+      <!-- 空调 -->
+      <rect x="430" y="150" width="50" height="90" rx="6" fill="transparent" class="click-zone" data-idx="7" data-ko="에어컨" data-rom="e-eo-keon" data-cn="空调"/>
+
+      <!-- 杯子 -->
+      <rect x="238" y="478" width="30" height="25" rx="3" fill="transparent" class="click-zone" data-idx="8" data-ko="컵" data-rom="keop" data-cn="杯子"/>
+
+      <!-- 遥控器 -->
+      <rect x="165" y="482" width="50" height="25" rx="3" fill="transparent" class="click-zone" data-idx="9" data-ko="리모컨" data-rom="ri-mo-keon" data-cn="遥控器"/>
+
+      <!-- 书 -->
+      <rect x="212" y="493" width="38" height="28" rx="3" fill="transparent" class="click-zone" data-idx="10" data-ko="책" data-rom="chaek" data-cn="书"/>
+
+      <!-- 花瓶 -->
+      <rect x="168" y="468" width="18" height="28" rx="4" fill="transparent" class="click-zone" data-idx="11" data-ko="꽃병" data-rom="kkoch-byeong" data-cn="花瓶"/>
+
+      <!-- 地毯 -->
+      <ellipse cx="300" cy="540" rx="130" ry="40" fill="transparent" class="click-zone" data-idx="12" data-ko="러그" data-rom="reo-geu" data-cn="地毯"/>
+
+      <!-- 窗帘 -->
+      <rect x="35" y="47" width="160" height="196" rx="4" fill="transparent" class="click-zone" data-idx="13" data-ko="커튼" data-rom="keo-teun" data-cn="窗帘"/>
+
+      <!-- ====== 韩文标签 ====== -->
+      <!-- 沙发标签 -->
+      <g class="label-group" transform="translate(90, 345)">
+        <rect x="-8" y="-20" width="70" height="36" rx="8" fill="#fff" stroke="#c0392b" stroke-width="1.5" class="label-bg" opacity="0.92"/>
+        <text x="27" y="-4" text-anchor="middle" font-size="13" font-weight="700" fill="#2c5f2d" class="label-text">소파</text>
+        <text x="27" y="10" text-anchor="middle" font-size="9" fill="#8b7355" class="label-text">so-pa</text>
+      </g>
+
+      <!-- 电视标签 -->
+      <g class="label-group" transform="translate(340, 258)">
+        <rect x="-10" y="-20" width="98" height="36" rx="8" fill="#fff" stroke="#c0392b" stroke-width="1.5" class="label-bg" opacity="0.92"/>
+        <text x="39" y="-4" text-anchor="middle" font-size="12" font-weight="700" fill="#2c5f2d" class="label-text">텔레비전</text>
+        <text x="39" y="10" text-anchor="middle" font-size="8" fill="#8b7355" class="label-text">tel-le-bi-jeon</text>
+      </g>
+
+      <!-- 茶几标签 -->
+      <g class="label-group" transform="translate(195, 535)">
+        <rect x="-8" y="-20" width="70" height="36" rx="8" fill="#fff" stroke="#c0392b" stroke-width="1.5" class="label-bg" opacity="0.92"/>
+        <text x="27" y="-4" text-anchor="middle" font-size="13" font-weight="700" fill="#2c5f2d" class="label-text">탁자</text>
+        <text x="27" y="10" text-anchor="middle" font-size="9" fill="#8b7355" class="label-text">tak-ja</text>
+      </g>
+
+      <!-- 窗户标签 -->
+      <g class="label-group" transform="translate(70, 270)">
+        <rect x="-8" y="-20" width="72" height="36" rx="8" fill="#fff" stroke="#c0392b" stroke-width="1.5" class="label-bg" opacity="0.92"/>
+        <text x="28" y="-4" text-anchor="middle" font-size="13" font-weight="700" fill="#2c5f2d" class="label-text">창문</text>
+        <text x="28" y="10" text-anchor="middle" font-size="9" fill="#8b7355" class="label-text">chang-mun</text>
+      </g>
+
+      <!-- 时钟标签 -->
+      <g class="label-group" transform="translate(370, 40)">
+        <rect x="-8" y="-20" width="68" height="36" rx="8" fill="#fff" stroke="#c0392b" stroke-width="1.5" class="label-bg" opacity="0.92"/>
+        <text x="26" y="-4" text-anchor="middle" font-size="13" font-weight="700" fill="#2c5f2d" class="label-text">시계</text>
+        <text x="26" y="10" text-anchor="middle" font-size="9" fill="#8b7355" class="label-text">si-gye</text>
+      </g>
+
+      <!-- 挂画标签 -->
+      <g class="label-group" transform="translate(245, 165)">
+        <rect x="-8" y="-20" width="72" height="36" rx="8" fill="#fff" stroke="#c0392b" stroke-width="1.5" class="label-bg" opacity="0.92"/>
+        <text x="28" y="-4" text-anchor="middle" font-size="13" font-weight="700" fill="#2c5f2d" class="label-text">그림</text>
+        <text x="28" y="10" text-anchor="middle" font-size="9" fill="#8b7355" class="label-text">geu-rim</text>
+      </g>
+
+      <!-- 台灯标签 -->
+      <g class="label-group" transform="translate(438, 318)">
+        <rect x="-8" y="-20" width="78" height="36" rx="8" fill="#fff" stroke="#c0392b" stroke-width="1.5" class="label-bg" opacity="0.92"/>
+        <text x="31" y="-4" text-anchor="middle" font-size="12" font-weight="700" fill="#2c5f2d" class="label-text">스탠드</text>
+        <text x="31" y="10" text-anchor="middle" font-size="8" fill="#8b7355" class="label-text">seu-taen-deu</text>
+      </g>
+
+      <!-- 空调标签 -->
+      <g class="label-group" transform="translate(430, 130)">
+        <rect x="-8" y="-20" width="78" height="36" rx="8" fill="#fff" stroke="#c0392b" stroke-width="1.5" class="label-bg" opacity="0.92"/>
+        <text x="31" y="-4" text-anchor="middle" font-size="12" font-weight="700" fill="#2c5f2d" class="label-text">에어컨</text>
+        <text x="31" y="10" text-anchor="middle" font-size="8" fill="#8b7355" class="label-text">e-eo-keon</text>
+      </g>
+
+      <!-- 杯子标签 -->
+      <g class="label-group" transform="translate(248, 468)">
+        <rect x="-8" y="-20" width="62" height="36" rx="8" fill="#fff" stroke="#c0392b" stroke-width="1.5" class="label-bg" opacity="0.92"/>
+        <text x="23" y="-4" text-anchor="middle" font-size="13" font-weight="700" fill="#2c5f2d" class="label-text">컵</text>
+        <text x="23" y="10" text-anchor="middle" font-size="9" fill="#8b7355" class="label-text">keop</text>
+      </g>
+
+      <!-- 遥控器标签 -->
+      <g class="label-group" transform="translate(170, 472)">
+        <rect x="-8" y="-20" width="82" height="36" rx="8" fill="#fff" stroke="#c0392b" stroke-width="1.5" class="label-bg" opacity="0.92"/>
+        <text x="33" y="-4" text-anchor="middle" font-size="11" font-weight="700" fill="#2c5f2d" class="label-text">리모컨</text>
+        <text x="33" y="10" text-anchor="middle" font-size="8" fill="#8b7355" class="label-text">ri-mo-keon</text>
+      </g>
+
+      <!-- 书标签 -->
+      <g class="label-group" transform="translate(230, 520)">
+        <rect x="-8" y="-20" width="60" height="36" rx="8" fill="#fff" stroke="#c0392b" stroke-width="1.5" class="label-bg" opacity="0.92"/>
+        <text x="22" y="-4" text-anchor="middle" font-size="13" font-weight="700" fill="#2c5f2d" class="label-text">책</text>
+        <text x="22" y="10" text-anchor="middle" font-size="9" fill="#8b7355" class="label-text">chaek</text>
+      </g>
+
+      <!-- 花瓶标签 -->
+      <g class="label-group" transform="translate(162, 456)">
+        <rect x="-8" y="-20" width="72" height="36" rx="8" fill="#fff" stroke="#c0392b" stroke-width="1.5" class="label-bg" opacity="0.92"/>
+        <text x="28" y="-4" text-anchor="middle" font-size="12" font-weight="700" fill="#2c5f2d" class="label-text">꽃병</text>
+        <text x="28" y="10" text-anchor="middle" font-size="9" fill="#8b7355" class="label-text">kkoch-byeong</text>
+      </g>
+
+      <!-- 地毯标签 -->
+      <g class="label-group" transform="translate(300, 570)">
+        <rect x="-8" y="-20" width="64" height="36" rx="8" fill="#fff" stroke="#c0392b" stroke-width="1.5" class="label-bg" opacity="0.92"/>
+        <text x="24" y="-4" text-anchor="middle" font-size="13" font-weight="700" fill="#2c5f2d" class="label-text">러그</text>
+        <text x="24" y="10" text-anchor="middle" font-size="9" fill="#8b7355" class="label-text">reo-geu</text>
+      </g>
+
+      <!-- 窗帘标签 -->
+      <g class="label-group" transform="translate(90, 248)">
+        <rect x="-8" y="-20" width="72" height="36" rx="8" fill="#fff" stroke="#c0392b" stroke-width="1.5" class="label-bg" opacity="0.92"/>
+        <text x="28" y="-4" text-anchor="middle" font-size="13" font-weight="700" fill="#2c5f2d" class="label-text">커튼</text>
+        <text x="28" y="10" text-anchor="middle" font-size="9" fill="#8b7355" class="label-text">keo-teun</text>
+      </g>
+
+      <!-- ====== 场景练习按钮（SVG内占位，实际用HTML按钮） ====== -->
+    </svg>
+
+    <!-- HTML按钮覆盖在SVG上 -->
+    <button class="practice-btn" id="practiceBtn">
+      🎯 场景练习
+    </button>
+  </div>
+
+  <!-- 底部栏 -->
+  <div class="bottom-bar">
+    <div class="hint-text">👆 点击物品听韩语发音</div>
+    <button class="play-all-btn" id="playAllBtn">🔊 全部朗读</button>
+  </div>
+
+  <!-- 已学计数 -->
+  <div style="text-align:center;margin-top:10px;font-size:11px;color:#aaa;">
+    14个物品 · 点击播放 · Chrome / Safari 效果最佳
+  </div>
+</div>
+
+<!-- 发音弹窗 -->
+<div class="speech-popup" id="speechPopup">
+  <span id="popupKo">소파</span>
+  <small id="popupDetail">so-pa · 沙发</small>
+</div>
+
+<!-- 场景练习弹窗 -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <div class="emoji-big">🗣️</div>
+    <h2>场景练习</h2>
+    <p>在「客厅 🛋️」场景中，和 AI 进行韩语对话练习。</p>
+    <p style="font-size:12px; color:#999; margin-top:10px;">✨ 后续开发功能 · 敬请期待</p>
+    <div class="modal-actions">
+      <button class="btn-primary" onclick="closeModal()">知道了 👍</button>
+      <button class="btn-secondary" onclick="closeModal()">关闭</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ====== 韩语发音 ======
+function speakKorean(text, callback) {
+  if (!window.speechSynthesis) {
+    alert('您的浏览器不支持语音功能，请使用 Chrome 或 Safari');
+    if (callback) callback();
+    return;
+  }
+  window.speechSynthesis.cancel();
+
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = 'ko-KR';
+  utter.rate = 0.85;
+  utter.pitch = 1.0;
+
+  const voices = window.speechSynthesis.getVoices();
+  const koreanVoice = voices.find(v => v.lang.startsWith('ko'));
+  if (koreanVoice) utter.voice = koreanVoice;
+
+  if (callback) utter.onend = callback;
+  window.speechSynthesis.speak(utter);
+}
+
+// 预加载语音列表
+if (window.speechSynthesis) {
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.onvoiceschanged = () => {
+    window.speechSynthesis.getVoices();
+  };
+}
+
+// ====== 发音弹窗 ======
+const popup = document.getElementById('speechPopup');
+const popupKo = document.getElementById('popupKo');
+const popupDetail = document.getElementById('popupDetail');
+let popupTimer = null;
+
+function showSpeechPopup(ko, rom, cn) {
+  popupKo.textContent = ko;
+  popupDetail.textContent = rom + ' · ' + cn;
+  popup.classList.add('show');
+  clearTimeout(popupTimer);
+  popupTimer = setTimeout(() => {
+    popup.classList.remove('show');
+  }, 1200);
+}
+
+// ====== 绑定点击区域 ======
+document.querySelectorAll('.click-zone').forEach(el => {
+  el.addEventListener('click', function(e) {
+    e.stopPropagation();
+    const ko = this.dataset.ko;
+    const rom = this.dataset.rom;
+    const cn = this.dataset.cn;
+
+    document.querySelectorAll('.click-zone').forEach(i => i.classList.remove('played'));
+    this.classList.add('played');
+
+    showSpeechPopup(ko, rom, cn);
+    speakKorean(ko);
+  });
+});
+
+// ====== 全部朗读 ======
+document.getElementById('playAllBtn').addEventListener('click', function() {
+  const zones = document.querySelectorAll('.click-zone');
+  let i = 0;
+
+  function playNext() {
+    if (i >= zones.length) {
+      document.querySelectorAll('.click-zone').forEach(el => el.classList.remove('played'));
+      return;
+    }
+    const el = zones[i];
+    const ko = el.dataset.ko;
+    const rom = el.dataset.rom;
+    const cn = el.dataset.cn;
+
+    document.querySelectorAll('.click-zone').forEach(e => e.classList.remove('played'));
+    el.classList.add('played');
+    showSpeechPopup(ko, rom, cn);
+
+    // 滚动到元素
+    const svg = document.querySelector('svg');
+    const rect = el.getBoundingClientRect();
+    svg.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    speakKorean(ko, () => {
+      i++;
+      setTimeout(playNext, 600);
+    });
+  }
+
+  if (i < zones.length) playNext();
+});
+
+// ====== 场景练习弹窗 ======
+document.getElementById('practiceBtn').addEventListener('click', function() {
+  document.getElementById('modalOverlay').classList.add('active');
+});
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('active');
+}
+
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+</script>
+</body>
+</html>

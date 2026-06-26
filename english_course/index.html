@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>英语场景课 · 咖啡店点单</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,system-ui,sans-serif}
+body{background:#f5f5f5;color:#333}
+.pg{display:none;min-height:100vh;background:#fff}
+.pg video{position:sticky;top:0;z-index:10;width:100%;display:block;background:#000}
+.pg.show{display:block}
+.top{display:flex;align-items:center;padding:12px 16px;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:20}
+.top h2{flex:1;font-size:17px;font-weight:600}
+.back{font-size:14px;color:#1a73e8;cursor:pointer;padding:6px 8px;border-radius:6px}
+.content{padding:16px;max-width:700px;margin:0 auto}
+.sec{font-size:16px;font-weight:700;color:#1a73e8;margin:20px 0 10px;padding-bottom:6px;border-bottom:2px solid #1a73e8;display:flex;align-items:center;gap:8px}
+.sec .icon{font-size:20px}
+.speaker{display:inline-block;font-size:12px;padding:3px 10px;border-radius:12px;margin:8px 0 4px;font-weight:600}
+.speaker.barista{background:#e3f2fd;color:#1565c0}
+.speaker.customer{background:#fce4ec;color:#c62828}
+.line{padding:10px 0;border-bottom:1px solid #f0f0f0}
+.en{font-size:17px;margin-bottom:4px;line-height:1.6;font-weight:500}
+.cn{font-size:14px;color:#888;margin-bottom:4px}
+.vocab-card{background:#f8f9fa;border:1px solid #e8e8e8;border-radius:10px;padding:14px;margin:10px 0}
+.vocab-word{font-size:18px;font-weight:700;color:#1a73e8;margin-bottom:4px}
+.vocab-meaning{font-size:14px;color:#666;margin-bottom:8px}
+.vocab-example{font-size:14px;background:#fff;padding:10px;border-radius:6px;border-left:3px solid #1a73e8;margin:6px 0;line-height:1.6}
+.vocab-example .ex-en{font-weight:500}
+.vocab-example .ex-cn{color:#888;font-size:13px;margin-top:2px}
+.tip-box{background:#fff8e1;border:1px solid #ffe082;border-radius:10px;padding:14px;margin:10px 0;line-height:1.7;white-space:pre-line}
+.home-header{text-align:center;padding:40px 16px 20px}
+.home-header h1{font-size:26px;margin-bottom:8px}
+.home-header p{color:#888;font-size:14px}
+.lesson-card{display:flex;align-items:center;gap:14px;padding:16px;background:#fff;border:1px solid #eee;border-radius:12px;margin:0 16px 10px;cursor:pointer;transition:all .2s;max-width:700px}
+.lesson-card:hover{box-shadow:0 3px 12px rgba(0,0,0,.1);transform:translateY(-2px)}
+.lesson-card .num{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;flex-shrink:0;background:#e6f4ea;color:#1e8e3e}
+.lesson-card .info{flex:1}
+.lesson-card .info .title{font-size:16px;font-weight:600;margin-bottom:2px}
+.lesson-card .info .sub{font-size:13px;color:#888}
+.footer{text-align:center;padding:24px;color:#aaa;font-size:12px}
+.interact-box{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:12px;padding:20px;margin:20px 0;text-align:center}
+.interact-box h3{font-size:16px;margin-bottom:8px}
+.interact-box p{font-size:14px;margin-bottom:12px;opacity:.9}
+.interact-box .try-btn{display:inline-block;padding:10px 24px;background:#fff;color:#667eea;border-radius:20px;font-weight:600;font-size:14px;cursor:pointer;border:none}
+.coffee-types{background:#e8f5e9;border-radius:10px;padding:14px;margin:10px 0;line-height:1.8;white-space:pre-line}
+.sizes-box{background:#e3f2fd;border-radius:10px;padding:14px;margin:10px 0;line-height:1.8;white-space:pre-line}
+</style>
+</head>
+<body>
+<div class="pg show" id="pageIndex">
+  <div class="home-header">
+    <h1>☕ 英语场景课</h1>
+    <p>美国人真正说的英语 · 可理解性输入</p>
+  </div>
+  <div class="lesson-card" onclick="openLesson(1)">
+    <div class="num">1</div>
+    <div class="info">
+      <div class="title">☕ 咖啡店点单 · 真实美式</div>
+      <div class="sub">Can I get... / For here or to go? / Can I tap?</div>
+    </div>
+    <div style="color:#888;font-size:20px">→</div>
+  </div>
+  <div class="footer">楠楠大管家 · AI英语场景课</div>
+</div>
+
+<div class="pg" id="pageLesson1">
+<div class="top"><span class="back" onclick="goHome()">← 返回</span><h2>☕ 咖啡店点单 · 真实美式</h2></div>
+<div class="content" id="content1">
+  <video controls preload="metadata" crossorigin="anonymous" src="https://korean-video-bj-1433876150.cos.ap-beijing.myqcloud.com/english/scene01_coffee_real.mp4" style="width:100%"></video>
+  
+  <div class="sec"><span class="icon">💬</span> 真实对话</div>
+<div class="line"><div class="speaker barista">☕ 店员</div><div class="en">Hi, what can I get started for you?</div><div class="cn">→ 嗨，想喝点什么？</div></div>
+<div class="line"><div class="speaker customer">🧑 顾客</div><div class="en">Can I get a medium iced latte with oat milk?</div><div class="cn">→ 我要一杯中杯冰拿铁，加燕麦奶。</div></div>
+<div class="line"><div class="speaker barista">☕ 店员</div><div class="en">Sure. Any flavor syrup?</div><div class="cn">→ 好的，要加风味糖浆吗？</div></div>
+<div class="line"><div class="speaker customer">🧑 顾客</div><div class="en">Yeah, a pump of vanilla.</div><div class="cn">→ 加一泵香草糖浆。</div></div>
+<div class="line"><div class="speaker barista">☕ 店员</div><div class="en">Anything else?</div><div class="cn">→ 还要别的吗？</div></div>
+<div class="line"><div class="speaker customer">🧑 顾客</div><div class="en">Can I also get a blueberry muffin, warmed up?</div><div class="cn">→ 再要一个蓝莓马芬，加热一下。</div></div>
+<div class="line"><div class="speaker barista">☕ 店员</div><div class="en">You got it. That'll be $8.25. For here or to go?</div><div class="cn">→ 好的。一共8块2毛5。在这喝还是带走？</div></div>
+<div class="line"><div class="speaker customer">🧑 顾客</div><div class="en">To go, please. Can I tap?</div><div class="cn">→ 带走。能刷卡吗？</div></div>
+<div class="line"><div class="speaker barista">☕ 店员</div><div class="en">Yep, go ahead.</div><div class="cn">→ 可以，刷吧。</div></div>
+
+  <div class="sec"><span class="icon">📖</span> 重点单词 · 日常例句</div>
+<div class="vocab-card"><div class="vocab-word">Can I get a...?</div><div class="vocab-meaning">我要一个…（点单最常用）</div>
+<div class="vocab-example"><div class="ex-en">🗣️ Can I get a latte?</div><div class="ex-cn">我要一杯拿铁。</div></div>
+<div class="vocab-example"><div class="ex-en">🗣️ Can I get a bottle of water?</div><div class="ex-cn">我要一瓶水。</div></div>
+<div class="vocab-example"><div class="ex-en">🗣️ Can I get a blueberry muffin?</div><div class="ex-cn">我要一个蓝莓马芬。</div></div>
+</div>
+<div class="vocab-card"><div class="vocab-word">What can I get started for you?</div><div class="vocab-meaning">想喝点什么？（咖啡店标准问候）</div>
+<div class="vocab-example"><div class="ex-en">🗣️ Hi, what can I get started for you?</div><div class="ex-cn">嗨，想喝点什么？</div></div>
+<div class="vocab-example"><div class="ex-en">🗣️ Good morning! What can I get for you?</div><div class="ex-cn">早上好！想喝什么？</div></div>
+<div class="vocab-example"><div class="ex-en">🗣️ What can I get you today?</div><div class="ex-cn">今天想喝什么？</div></div>
+</div>
+<div class="vocab-card"><div class="vocab-word">a pump of...</div><div class="vocab-meaning">一泵…（糖浆的计量单位）</div>
+<div class="vocab-example"><div class="ex-en">🗣️ A pump of vanilla, please.</div><div class="ex-cn">加一泵香草糖浆。</div></div>
+<div class="vocab-example"><div class="ex-en">🗣️ Can I get two pumps of caramel?</div><div class="ex-cn">能加两泵焦糖糖浆吗？</div></div>
+<div class="vocab-example"><div class="ex-en">🗣️ How many pumps of syrup in a grande?</div><div class="ex-cn">大杯加几泵糖浆？</div></div>
+</div>
+<div class="vocab-card"><div class="vocab-word">warmed up</div><div class="vocab-meaning">加热（面包/糕点类）</div>
+<div class="vocab-example"><div class="ex-en">🗣️ Can you warm this up?</div><div class="ex-cn">能帮我加热一下吗？</div></div>
+<div class="vocab-example"><div class="ex-en">🗣️ I'd like the croissant warmed up.</div><div class="ex-cn">可颂帮我加热一下。</div></div>
+<div class="vocab-example"><div class="ex-en">🗣️ Do you want it warmed up?</div><div class="ex-cn">要加热吗？</div></div>
+</div>
+<div class="vocab-card"><div class="vocab-word">For here or to go?</div><div class="vocab-meaning">在这喝还是带走？（高频问句）</div>
+<div class="vocab-example"><div class="ex-en">🗣️ For here or to go?</div><div class="ex-cn">在这喝还是带走？</div></div>
+<div class="vocab-example"><div class="ex-en">🗣️ It's for here.</div><div class="ex-cn">在这喝。</div></div>
+<div class="vocab-example"><div class="ex-en">🗣️ To go, please.</div><div class="ex-cn">带走。</div></div>
+</div>
+<div class="vocab-card"><div class="vocab-word">Can I tap?</div><div class="vocab-meaning">能刷卡吗？（感应支付，美国超常用）</div>
+<div class="vocab-example"><div class="ex-en">🗣️ Can I tap?</div><div class="ex-cn">能刷卡吗？</div></div>
+<div class="vocab-example"><div class="ex-en">🗣️ Just tap your card here.</div><div class="ex-cn">在这儿刷一下卡。</div></div>
+<div class="vocab-example"><div class="ex-en">🗣️ You can tap your phone too.</div><div class="ex-cn">手机也能刷。</div></div>
+</div>
+<div class="vocab-card"><div class="vocab-word">That'll be...</div><div class="vocab-meaning">一共…钱（店员说价格）</div>
+<div class="vocab-example"><div class="ex-en">🗣️ That'll be $8.25.</div><div class="ex-cn">一共8块2毛5。</div></div>
+<div class="vocab-example"><div class="ex-en">🗣️ That'll be $5.50.</div><div class="ex-cn">一共5块5。</div></div>
+<div class="vocab-example"><div class="ex-en">🗣️ That'll be $12 even.</div><div class="ex-cn">一共12块整。</div></div>
+</div>
+<div class="vocab-card"><div class="vocab-word">iced / hot</div><div class="vocab-meaning">冰的 / 热的</div>
+<div class="vocab-example"><div class="ex-en">🗣️ Iced latte, please.</div><div class="ex-cn">冰拿铁。</div></div>
+<div class="vocab-example"><div class="ex-en">🗣️ Hot or iced?</div><div class="ex-cn">热的还是冰的？</div></div>
+<div class="vocab-example"><div class="ex-en">🗣️ Can I get a hot chocolate?</div><div class="ex-cn">我要一杯热巧克力。</div></div>
+</div>
+
+  <div class="sec"><span class="icon">☕</span> 咖啡种类</div>
+  <div class="coffee-types">☕ 常见咖啡种类：
+Latte 拿铁 · Cappuccino 卡布奇诺 · Americano 美式
+Cold Brew 冷萃 · Iced Coffee 冰咖啡 · Mocha 摩卡
+Flat White 澳白 · Macchiato 玛奇朵 · Espresso 浓缩</div>
+  
+  <div class="sec"><span class="icon">📏</span> 尺寸说法</div>
+  <div class="sizes-box">美国咖啡店尺寸：Small(小) / Medium(中) / Large(大)
+星巴克：Tall(中) / Grande(大) / Venti(超大)
+例句："A medium latte, please." / "Can I get a grande iced latte?"</div>
+  
+  <div class="sec"><span class="icon">💡</span> 美国咖啡店文化</div>
+  <div class="tip-box">💡 美国咖啡店实用tips：
+1. "What can I get started for you?" 是咖啡店特有的问候，不是 "Can I help you?"
+2. 糖浆按"泵(pump)"算：a pump of vanilla = 一泵香草
+3. 糕点说 "warmed up" 店员会帮你加热
+4. "Can I tap?" = 能用感应卡吗？现在美国大部分咖啡店都支持
+5. 小费(tip)：咖啡店结账时刷卡机上会问小费，15%-20%是标准</div>
+</div>
+</div>
+
+<script>
+function goHome(){document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('show')});document.getElementById('pageIndex').classList.add('show')}
+function openLesson(n){document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('show')});document.getElementById('pageLesson'+n).classList.add('show');window.scrollTo(0,0)}
+</script>
+</body>
+</html>

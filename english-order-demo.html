@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>📖 英语场景手账 · 扫码点餐</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:-apple-system,'Noto Sans SC','Noto Sans',sans-serif;
+  background:#f5efe6;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;padding:16px;
+}
+.notebook{
+  width:100%;max-width:420px;background:#fffcf7;
+  border-radius:24px;box-shadow:0 8px 40px rgba(0,0,0,.1),0 2px 8px rgba(0,0,0,.06);
+  overflow:hidden;position:relative;
+}
+.header{
+  padding:20px 20px 8px;display:flex;align-items:center;justify-content:space-between;
+}
+.header h1{font-size:18px;font-weight:700;color:#2d2d2d}
+.header .page-num{font-size:13px;color:#aaa}
+.scene-title{
+  padding:0 20px 12px;font-size:13px;color:#1a73e8;font-weight:500;
+}
+
+/* 画布 */
+.canvas-wrapper{
+  position:relative;margin:0 12px;border-radius:16px;overflow:hidden;
+  background:#faf3eb;aspect-ratio:4/3;box-shadow:inset 0 0 0 1px rgba(0,0,0,.04);
+}
+.scene{width:100%;height:100%;position:relative;overflow:hidden}
+
+/* 墙壁 */
+.wall{
+  position:absolute;top:0;left:0;right:0;height:55%;
+  background:linear-gradient(180deg,#fce4ec,#f8bbd0);border-radius:16px 16px 0 0;
+}
+.floor{
+  position:absolute;bottom:0;left:0;right:0;height:45%;
+  background:linear-gradient(180deg,#d4a574,#c4956a);
+}
+.trim{position:absolute;top:52%;left:0;right:0;height:6px;background:#d4a574;opacity:.3}
+.light{
+  position:absolute;top:-10px;left:50%;transform:translateX(-50%);
+  width:140px;height:80px;
+  background:radial-gradient(ellipse,rgba(255,200,100,.3),transparent 70%);
+  border-radius:50%;
+}
+
+/* 桌子 */
+.table{
+  position:absolute;bottom:24%;left:50%;transform:translateX(-50%);
+  width:76%;height:22%;
+  background:#d9b382;border-radius:10px;box-shadow:0 3px 0 #b8956a;
+}
+.table-top{
+  position:absolute;top:-3px;left:-2px;right:-2px;height:28%;
+  background:#e8c9a6;border-radius:12px 12px 4px 4px;
+}
+.table-cloth{
+  position:absolute;bottom:-4px;left:-8px;right:-8px;height:6px;
+  background:linear-gradient(90deg,#e53935,#e53935 33%,#ffeb3b 33%,#ffeb3b 66%,#e53935 66%);
+  border-radius:0 0 10px 10px;opacity:.6;
+}
+
+/* 通用热区 */
+.ht{
+  position:absolute;z-index:10;cursor:pointer;transition:transform .2s;border-radius:4px;
+}
+.ht:hover{transform:scale(1.1)}
+.ht:active{transform:scale(.95)}
+.ht-label{
+  position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);
+  font-size:9px;color:#666;white-space:nowrap;pointer-events:none;
+  opacity:0;transition:opacity .2s;
+}
+.ht:hover .ht-label{opacity:1}
+
+/* 人物 */
+.girl{
+  position:absolute;bottom:36%;left:3%;width:52px;height:82px;z-index:4;
+}
+.g-head{
+  width:32px;height:32px;background:#ffccbc;border-radius:50%;
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+}
+.g-hair{
+  width:36px;height:22px;background:#2d2d2d;
+  border-radius:50% 50% 0 0;position:absolute;top:-2px;left:50%;transform:translateX(-50%);
+}
+.g-body{
+  width:38px;height:42px;background:white;border-radius:6px 6px 10px 10px;
+  position:absolute;top:28px;left:50%;transform:translateX(-50%);
+}
+.g-arm-r{
+  width:22px;height:6px;background:#ffccbc;border-radius:3px;
+  position:absolute;top:36px;right:-10px;transform:rotate(-15deg);
+}
+.g-arm-l{
+  width:18px;height:5px;background:#ffccbc;border-radius:3px;
+  position:absolute;top:40px;left:-6px;transform:rotate(10deg);
+}
+
+/* 菜品容器 */
+.dish{
+  position:absolute;z-index:9;cursor:pointer;transition:transform .2s;
+}
+.dish:hover{transform:scale(1.08)}
+.dish:active{transform:scale(.95)}
+
+/* 凉菜碟 - 左侧 */
+.side-dish1{bottom:39%;left:18%;width:34px;height:24px;z-index:5}
+.sd1-bg{
+  width:34px;height:24px;background:#66bb6a;border-radius:50% 50% 45% 45%;
+  box-shadow:0 2px 0 #43a047;
+}
+.sd1-content{
+  position:absolute;top:4px;left:5px;
+  width:24px;height:10px;background:#81c784;border-radius:50%;
+}
+
+/* 凉菜碟2 */
+.side-dish2{bottom:39%;left:28%;width:30px;height:22px;z-index:5}
+.sd2-bg{
+  width:30px;height:22px;background:#fff8e1;border-radius:50% 50% 45% 45%;
+  box-shadow:0 2px 0 #e0d5c0;
+}
+
+/* 碗1：宫保鸡丁 - 大红碗 */
+.bowl-gongbao{bottom:35%;left:42%;width:50px;height:36px;z-index:8}
+.gb-bowl{
+  width:50px;height:30px;background:#c62828;border-radius:0 0 22px 22px;
+  position:absolute;bottom:0;
+}
+.gb-bowl::after{
+  content:'';position:absolute;top:-5px;left:4px;
+  width:42px;height:10px;background:#d32f2f;border-radius:50%;
+}
+.gb-food{
+  position:absolute;top:-4px;left:6px;
+  width:38px;height:10px;background:#e65100;border-radius:50%;
+}
+.gb-peanut{
+  position:absolute;top:-2px;left:12px;
+  width:6px;height:5px;background:#ffcc80;border-radius:50%;
+}
+.gb-peanut:nth-child(5){left:22px}
+.gb-peanut:nth-child(6){left:32px}
+.gb-steam{
+  position:absolute;top:-14px;left:20px;width:4px;height:10px;
+  background:rgba(255,255,255,.5);border-radius:2px;
+  animation:steam 2s ease-in-out infinite;
+}
+.gb-steam:nth-child(8){left:28px;animation-delay:.5s}
+.gb-steam:nth-child(9){left:36px;animation-delay:1s}
+@keyframes steam{
+  0%,100%{transform:translateY(0);opacity:.6}
+  50%{transform:translateY(-6px);opacity:.2}
+}
+
+/* 碗2：麻婆豆腐 - 白碗 */
+.bowl-mapo{bottom:36%;left:56%;width:46px;height:34px;z-index:8}
+.mp-bowl{
+  width:46px;height:28px;background:#f5f5f5;border-radius:0 0 20px 20px;
+  position:absolute;bottom:0;box-shadow:0 2px 0 #e0e0e0;
+}
+.mp-bowl::after{
+  content:'';position:absolute;top:-5px;left:4px;
+  width:38px;height:10px;background:#eee;border-radius:50%;
+}
+.mp-food{
+  position:absolute;top:-4px;left:5px;
+  width:36px;height:10px;background:#c62828;border-radius:50%;
+}
+.mp-tofu{
+  position:absolute;top:-2px;left:8px;
+  width:8px;height:6px;background:#ef5350;border-radius:2px;
+}
+.mp-tofu:nth-child(5){left:18px}
+.mp-tofu:nth-child(6){left:28px}
+
+/* 饺子盘 */
+.dish-jiaozi{bottom:40%;left:70%;width:44px;height:26px;z-index:8}
+.jz-plate{
+  width:44px;height:18px;background:#e8e8e8;border-radius:50%;
+  position:absolute;bottom:0;box-shadow:0 1px 0 #ccc;
+}
+.jz-item{
+  position:absolute;bottom:4px;
+  width:12px;height:14px;background:#fff3e0;border-radius:50% 50% 40% 40%;
+  border:1px solid #ffe0b2;
+}
+.jz-item:nth-child(2){left:4px}
+.jz-item:nth-child(3){left:16px}
+.jz-item:nth-child(4){left:28px}
+
+/* 蛋炒饭碗 */
+.bowl-rice{bottom:33%;left:68%;width:40px;height:30px;z-index:7}
+.rc-bowl{
+  width:40px;height:24px;background:#ffb74d;border-radius:0 0 16px 16px;
+  position:absolute;bottom:0;
+}
+.rc-bowl::after{
+  content:'';position:absolute;top:-4px;left:3px;
+  width:34px;height:9px;background:#ffa726;border-radius:50%;
+}
+.rc-food{
+  position:absolute;top:-3px;left:4px;
+  width:32px;height:9px;background:#ffe082;border-radius:50%;
+}
+.rc-egg{
+  position:absolute;top:-2px;left:6px;
+  width:5px;height:4px;background:#fff9c4;border-radius:50%;
+}
+.rc-egg:nth-child(5){left:14px}
+.rc-egg:nth-child(6){left:22px}
+
+/* 筷子 - 银色 */
+.chopsticks{
+  position:absolute;bottom:40%;right:20%;z-index:5;width:6px;height:40px;
+}
+.chop-bg{
+  width:6px;height:40px;
+  background:linear-gradient(180deg,#e0e0e0,#bdbdbd);
+  border-radius:3px;transform:rotate(-20deg);box-shadow:0 1px 2px rgba(0,0,0,.1);
+}
+.chop-bg::before{
+  content:'';position:absolute;left:10px;
+  width:6px;height:40px;
+  background:linear-gradient(180deg,#e0e0e0,#bdbdbd);
+  border-radius:3px;
+}
+
+/* 勺子 */
+.spoon{
+  position:absolute;bottom:40%;right:13%;width:30px;height:10px;z-index:5;
+}
+.spoon-bg{
+  width:30px;height:10px;background:#cfcfcf;
+  border-radius:50% 50% 4px 4px;transform:rotate(10deg);
+}
+
+/* 二维码立牌 */
+.qr-stand{bottom:44%;right:6%;width:28px;height:36px;z-index:6}
+.qr-base{
+  width:28px;height:6px;background:#b0b0b0;border-radius:0 0 3px 3px;
+  position:absolute;bottom:0;
+}
+.qr-card{
+  width:24px;height:28px;background:white;border:2px solid #666;
+  border-radius:3px;position:absolute;bottom:6px;left:2px;
+}
+.qr-code{
+  width:16px;height:16px;background:#2d2d2d;
+  position:absolute;top:3px;left:2px;
+  display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr 1fr;
+  gap:1.5px;padding:2px;
+}
+.qr-code span{background:white;border-radius:1px}
+.qr-label{position:absolute;top:-2px;left:-2px;font-size:5px;color:#333;font-weight:700}
+
+/* 手机 */
+.phone{
+  position:absolute;bottom:46%;left:6%;width:38px;height:56px;z-index:7;
+}
+.phone-bg{
+  width:38px;height:56px;background:#e3f2fd;border-radius:8px;
+  border:2px solid #42a5f5;box-shadow:0 3px 8px rgba(0,0,0,.15);
+}
+.phone-screen{
+  position:absolute;top:5px;left:4px;right:4px;height:34px;
+  background:#fff9c4;border-radius:3px;border:1px solid #fff176;
+}
+.phone-screen::after{
+  content:'扫码点餐';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);font-size:6px;color:#f57f17;font-weight:600;
+  white-space:nowrap;
+}
+.phone-home{
+  position:absolute;bottom:3px;left:50%;transform:translateX(-50%);
+  width:8px;height:8px;border-radius:50%;border:1.5px solid #42a5f5;
+}
+
+/* ===== 短语区域 ===== */
+.phrase-bar{
+  display:flex;gap:6px;flex-wrap:wrap;justify-content:center;
+  padding:10px 16px 0;min-height:28px;
+}
+.phrase-chip{
+  font-size:11px;background:#e3f2fd;padding:3px 8px;
+  border-radius:12px;color:#1565c0;cursor:pointer;transition:all .2s;
+}
+.phrase-chip:hover{background:#bbdefb;color:#0d47a1}
+
+/* 弹窗 */
+.word-popup{
+  position:absolute;background:white;border-radius:14px;padding:12px 16px;
+  box-shadow:0 6px 24px rgba(0,0,0,.15);z-index:100;
+  min-width:130px;pointer-events:none;opacity:0;
+  transform:translateY(8px);transition:all .25s cubic-bezier(.34,1.56,.64,1);
+}
+.word-popup.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.word-popup .en{font-size:18px;font-weight:700;color:#1a73e8;display:block}
+.word-popup .pr{font-size:12px;color:#888;margin-top:2px;display:block}
+.word-popup .zh{font-size:13px;color:#e67e22;margin-top:4px;display:block}
+.word-popup .close-popup{
+  position:absolute;top:-8px;right:-8px;width:22px;height:22px;
+  background:#ddd;border-radius:50%;border:none;cursor:pointer;
+  font-size:11px;color:white;line-height:22px;text-align:center;
+}
+
+/* 词汇栏 */
+.vocab-bar{
+  padding:10px 16px 0;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;min-height:28px;
+}
+.vocab-chip{
+  font-size:11px;background:#f5efe6;padding:3px 8px;
+  border-radius:12px;color:#666;cursor:pointer;transition:all .2s;
+}
+.vocab-chip:hover{background:#e8d5c0;color:#2d2d2d}
+
+/* 底部 */
+.hint{text-align:center;padding:0 20px 8px;font-size:11px;color:#bbb}
+.footer{
+  display:flex;justify-content:space-between;
+  padding:12px 20px 20px;border-top:1px solid #f0e8de;
+}
+.footer button{
+  background:none;border:none;font-size:13px;
+  color:#999;padding:6px 16px;border-radius:20px;cursor:pointer;transition:all .2s;
+}
+.footer .prev{color:#bbb}
+.footer .next{color:#1a73e8;font-weight:600}
+</style>
+</head>
+<body>
+
+<div class="notebook">
+
+  <!-- 标题 -->
+  <div class="header">
+    <h1>📖 英语手账</h1>
+    <span class="page-num">1 / 3</span>
+  </div>
+  <div class="scene-title">📍扫码点餐 · Chinese Restaurant</div>
+
+  <!-- 画布 -->
+  <div class="canvas-wrapper" id="canvasWrapper">
+
+    <!-- ======= 场景1：扫码点餐 ======= -->
+    <div class="scene" id="scene0">
+      <div class="wall"></div>
+      <div class="floor"></div>
+      <div class="trim"></div>
+      <div class="light"></div>
+
+      <div class="table">
+        <div class="table-top"></div>
+        <div class="table-cloth"></div>
+      </div>
+
+      <!-- 人物 -->
+      <div class="girl">
+        <div class="g-hair"></div>
+        <div class="g-head"></div>
+        <div class="g-body"></div>
+        <div class="g-arm-r"></div>
+        <div class="g-arm-l"></div>
+      </div>
+
+      <!-- 凉菜1：黄瓜 -->
+      <div class="side-dish1 ht" data-en="Cucumber Salad" data-pr="ˈkjuːkʌmbər ˈsæləd" data-zh="凉拌黄瓜">
+        <div class="sd1-bg"></div>
+        <div class="sd1-content"></div>
+      </div>
+
+      <!-- 凉菜2：花生 -->
+      <div class="side-dish2 ht" data-en="Peanuts" data-pr="ˈpiːnʌts" data-zh="花生米">
+        <div class="sd2-bg"></div>
+      </div>
+
+      <!-- 宫保鸡丁 -->
+      <div class="bowl-gongbao dish ht" data-en="Kung Pao Chicken" data-pr="kʌŋ paʊ ˈtʃɪkɪn" data-zh="宫保鸡丁">
+        <div class="gb-bowl"></div>
+        <div class="gb-food"></div>
+        <div class="gb-peanut"></div>
+        <div class="gb-peanut"></div>
+        <div class="gb-peanut"></div>
+        <div class="gb-steam"></div>
+        <div class="gb-steam"></div>
+        <div class="gb-steam"></div>
+      </div>
+
+      <!-- 麻婆豆腐 -->
+      <div class="bowl-mapo dish ht" data-en="Mapo Tofu" data-pr="ˈmɑːpoʊ ˈtoʊfuː" data-zh="麻婆豆腐">
+        <div class="mp-bowl"></div>
+        <div class="mp-food"></div>
+        <div class="mp-tofu"></div>
+        <div class="mp-tofu"></div>
+        <div class="mp-tofu"></div>
+      </div>
+
+      <!-- 饺子 -->
+      <div class="dish-jiaozi dish ht" data-en="Dumplings" data-pr="ˈdʌmplɪŋz" data-zh="饺子">
+        <div class="jz-plate"></div>
+        <div class="jz-item"></div>
+        <div class="jz-item"></div>
+        <div class="jz-item"></div>
+      </div>
+
+      <!-- 蛋炒饭 -->
+      <div class="bowl-rice dish ht" data-en="Egg Fried Rice" data-pr="eɡ fraɪd raɪs" data-zh="蛋炒饭">
+        <div class="rc-bowl"></div>
+        <div class="rc-food"></div>
+        <div class="rc-egg"></div>
+        <div class="rc-egg"></div>
+        <div class="rc-egg"></div>
+      </div>
+
+      <!-- 餐具 -->
+      <div class="chopsticks ht" data-en="Chopsticks" data-pr="ˈtʃɑːpstɪks" data-zh="筷子">
+        <div class="chop-bg"></div>
+      </div>
+      <div class="spoon ht" data-en="Spoon" data-pr="spuːn" data-zh="勺子">
+        <div class="spoon-bg"></div>
+      </div>
+
+      <!-- 二维码 -->
+      <div class="qr-stand ht" data-en="Order" data-pr="ˈɔːrdər" data-zh="点餐">
+        <div class="qr-card">
+          <div class="qr-code">
+            <span></span><span></span><span></span>
+            <span></span><span style="background:#2d2d2d"></span><span></span>
+            <span></span><span></span><span></span>
+          </div>
+          <div class="qr-label">扫码</div>
+        </div>
+        <div class="qr-base"></div>
+      </div>
+
+      <!-- 手机 -->
+      <div class="phone ht" data-en="Phone" data-pr="foʊn" data-zh="手机">
+        <div class="phone-bg"></div>
+        <div class="phone-screen"></div>
+        <div class="phone-home"></div>
+      </div>
+
+    </div>
+
+    <!-- 弹窗 -->
+    <div class="word-popup" id="wordPopup">
+      <button class="close-popup" id="closePopup">✕</button>
+      <span class="en" id="popupEn"></span>
+      <span class="pr" id="popupPr"></span>
+      <span class="zh" id="popupZh"></span>
+    </div>
+  </div>
+
+  <!-- 已学词汇 -->
+  <div class="vocab-bar" id="vocabBar"></div>
+
+  <!-- 短语区域 -->
+  <div class="phrase-bar" id="phraseBar">
+    <span class="phrase-chip" data-phrase="I'd like to order…" data-zh="我想点…">💬 I'd like to order…</span>
+    <span class="phrase-chip" data-phrase="Can I have…" data-zh="我能要一份…">💬 Can I have…</span>
+    <span class="phrase-chip" data-phrase="Could I get some water?" data-zh="能给我点水吗？">💬 Could I get some water?</span>
+    <span class="phrase-chip" data-phrase="How much is this?" data-zh="这个多少钱？">💬 How much is this?</span>
+  </div>
+
+  <!-- 提示 -->
+  <div class="hint">👆 点击菜点学单词  💬 点击短语学口语</div>
+
+  <!-- 底部 -->
+  <div class="footer">
+    <button class="prev">◀ 上一页</button>
+    <button class="next">下一页 ▶</button>
+  </div>
+</div>
+
+<script>
+// === 单词数据 ===
+const wordMap = new Map();
+
+// 弹窗
+const popup = document.getElementById('wordPopup');
+const popupEn = document.getElementById('popupEn');
+const popupPr = document.getElementById('popupPr');
+const popupZh = document.getElementById('popupZh');
+const closeBtn = document.getElementById('closePopup');
+
+function showPopup(el, en, pr, zh) {
+  popupEn.textContent = en;
+  popupPr.textContent = `[${pr}]`;
+  popupZh.textContent = zh;
+
+  const rect = el.getBoundingClientRect();
+  const wrapperRect = document.getElementById('canvasWrapper').getBoundingClientRect();
+  const cw = wrapperRect.width;
+
+  let left = rect.left - wrapperRect.left + rect.width / 2 - 65;
+  let top = rect.top - wrapperRect.top - 70;
+
+  if (top < 10) top = rect.bottom - wrapperRect.top + 8;
+  if (left < 8) left = 8;
+  if (left + 140 > cw) left = cw - 150;
+
+  popup.style.left = left + 'px';
+  popup.style.top = top + 'px';
+  popup.classList.add('show');
+}
+
+function hidePopup() {
+  popup.classList.remove('show');
+}
+
+closeBtn.addEventListener('click', e => { e.stopPropagation(); hidePopup(); });
+document.addEventListener('click', e => {
+  if (!e.target.closest('.ht') && !e.target.closest('.dish') && !e.target.closest('.word-popup') && !e.target.closest('.phrase-chip')) {
+    hidePopup();
+  }
+});
+
+// === 菜品点击 ===
+document.querySelectorAll('.ht[data-en], .dish[data-en]').forEach(el => {
+  const en = el.dataset.en;
+  wordMap.set(en, { en, pr: el.dataset.pr, zh: el.dataset.zh });
+  el.addEventListener('click', function(e) {
+    e.stopPropagation();
+    showPopup(this, this.dataset.en, this.dataset.pr, this.dataset.zh);
+    updateVocabList(this.dataset.en);
+  });
+});
+
+// === 短语点击 ===
+document.querySelectorAll('.phrase-chip').forEach(el => {
+  el.addEventListener('click', function(e) {
+    e.stopPropagation();
+    const phrase = this.dataset.phrase;
+    const zh = this.dataset.zh;
+    popupEn.textContent = phrase;
+    popupPr.textContent = '';
+    popupZh.textContent = zh;
+
+    const rect = this.getBoundingClientRect();
+    const wrapperRect = document.getElementById('canvasWrapper').getBoundingClientRect();
+    const cw = wrapperRect.width;
+
+    let left = rect.left - wrapperRect.left + rect.width / 2 - 80;
+    let top = wrapperRect.top - 8;
+    // 弹窗放在短语上方
+    top = rect.top - wrapperRect.top - 60;
+    if (top < 10) top = 10;
+    if (left < 8) left = 8;
+    if (left + 160 > cw) left = cw - 170;
+
+    popup.style.left = left + 'px';
+    popup.style.top = top + 'px';
+    popup.classList.add('show');
+  });
+});
+
+// === 已学词汇 ===
+const learnedWords = new Set();
+function updateVocabList(word) {
+  if (!learnedWords.has(word)) {
+    learnedWords.add(word);
+    renderVocabBar();
+  }
+}
+function renderVocabBar() {
+  const bar = document.getElementById('vocabBar');
+  bar.innerHTML = '';
+  learnedWords.forEach(word => {
+    const data = wordMap.get(word);
+    if (!data) return;
+    const chip = document.createElement('span');
+    chip.className = 'vocab-chip';
+    chip.textContent = `${data.zh} ${data.en}`;
+    chip.title = `[${data.pr}]`;
+    bar.appendChild(chip);
+  });
+}
+
+// === 初始化：默认弹宫保鸡丁 ===
+setTimeout(() => {
+  const first = document.querySelector('.bowl-gongbao');
+  if (first) {
+    showPopup(first, 'Kung Pao Chicken', 'kʌŋ paʊ ˈtʃɪkɪn', '宫保鸡丁');
+    updateVocabList('Kung Pao Chicken');
+  }
+}, 600);
+</script>
+
+</body>
+</html>

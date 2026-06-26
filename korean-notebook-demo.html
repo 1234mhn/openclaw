@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>📖 韩语场景手账</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, 'Noto Sans SC', sans-serif;
+  background: #f5efe6;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+/* 笔记本 */
+.notebook {
+  width: 100%;
+  max-width: 420px;
+  background: #fffcf7;
+  border-radius: 24px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.06);
+  overflow: hidden;
+  position: relative;
+}
+
+/* 标题 */
+.header {
+  padding: 20px 20px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header h1 { font-size: 18px; font-weight: 700; color: #2d2d2d; }
+.header .page-num { font-size: 13px; color: #aaa; }
+
+.scene-title {
+  padding: 0 20px 12px;
+  font-size: 13px;
+  color: #e67e22;
+  font-weight: 500;
+}
+
+/* 绘本画布 */
+.canvas-wrapper {
+  position: relative;
+  margin: 0 12px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #faf3eb;
+  aspect-ratio: 4 / 3;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.04);
+}
+
+.scene {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: none;
+}
+.scene.active { display: block; }
+
+/* ======== 场景 1：扫码点餐 ======== */
+.wall { position:absolute; top:0;left:0;right:0; height:55%; background:linear-gradient(180deg,#fdebd0,#fdf2e9); border-radius:16px 16px 0 0; }
+.floor { position:absolute; bottom:0;left:0;right:0; height:45%; background:linear-gradient(180deg,#d4a574,#c4956a); }
+.wall-trim { position:absolute; top:52%;left:0;right:0; height:6px; background:#d4a574; opacity:0.3; }
+.warm-light { position:absolute; top:-10px;left:50%; transform:translateX(-50%); width:120px;height:80px; background:radial-gradient(ellipse,rgba(255,200,100,0.35),transparent 70%); border-radius:50%; }
+
+.table1 { position:absolute; bottom:26%;left:50%; transform:translateX(-50%); width:74%;height:20%; background:#d9b382; border-radius:10px; box-shadow:0 3px 0 #b8956a; }
+.table1-top { position:absolute; top:-3px;left:-2px;right:-2px; height:30%; background:#e8c9a6; border-radius:12px 12px 4px 4px; }
+
+/* 通用热区样式 */
+.ht {
+  position: absolute;
+  z-index: 10;
+  cursor: pointer;
+  transition: transform 0.2s;
+  border-radius: 4px;
+}
+.ht:hover { transform: scale(1.08); }
+.ht:active { transform: scale(0.95); }
+
+/* 女孩通用 */
+.girl { position:absolute; bottom:38%;left:4%; width:50px;height:80px; z-index:4; }
+.g-head { width:30px;height:30px; background:#ffccbc; border-radius:50%; position:absolute; top:0;left:50%; transform:translateX(-50%); }
+.g-hair { width:34px;height:20px; background:#2d2d2d; border-radius:50% 50% 0 0; position:absolute; top:-2px;left:50%; transform:translateX(-50%); }
+.g-body { width:36px;height:40px; background:white; border-radius:6px 6px 10px 10px; position:absolute; top:28px;left:50%; transform:translateX(-50%); }
+
+/* 人物-场景1 */
+.s1-arm { width:22px;height:6px; background:#ffccbc; border-radius:3px; position:absolute; top:38px;right:-10px; transform:rotate(-15deg); }
+.s1-arm2 { width:18px;height:5px; background:#ffccbc; border-radius:3px; position:absolute; top:40px;left:-6px; transform:rotate(10deg); }
+
+/* 小菜 */
+.dish-kimchi { bottom:41%;left:20%; width:32px;height:24px; z-index:5; }
+.dk-bg { width:32px;height:24px; background:#d32f2f; border-radius:50% 50% 45% 45%; box-shadow:0 2px 0 #b71c1c; }
+.dk-bg::after { content:''; position:absolute; top:4px;left:6px; width:20px;height:10px; background:#ff5252; border-radius:50%; opacity:0.5; }
+
+.dish-radish { bottom:41%;left:32%; width:28px;height:22px; z-index:5; }
+.dr-bg { width:28px;height:22px; background:#fff8e1; border-radius:50% 50% 45% 45%; box-shadow:0 2px 0 #e0d5c0; }
+.dr-bg::after { content:''; position:absolute; top:5px;left:5px; width:18px;height:8px; background:#fffde7; border-radius:50%; }
+
+/* 筷子 */
+.s1-chop { bottom:42%;right:26%; width:6px;height:38px; z-index:5; }
+.sc-bg { width:6px;height:38px; background:linear-gradient(180deg,#e0e0e0,#bdbdbd); border-radius:3px; transform:rotate(-20deg); box-shadow:0 1px 2px rgba(0,0,0,0.1); }
+.sc-bg::before { content:''; position:absolute; left:10px; width:6px;height:38px; background:linear-gradient(180deg,#e0e0e0,#bdbdbd); border-radius:3px; }
+
+/* 勺子 */
+.s1-spoon { bottom:42%;right:16%; width:30px;height:10px; z-index:5; }
+.ss-bg { width:30px;height:10px; background:#cfcfcf; border-radius:50% 50% 4px 4px; transform:rotate(10deg); }
+
+/* 二维码立牌 */
+.qr-stand { bottom:44%;right:8%; width:28px;height:36px; z-index:6; }
+.qr-base { width:28px;height:6px; background:#b0b0b0; border-radius:0 0 3px 3px; position:absolute; bottom:0; }
+.qr-card { width:24px;height:28px; background:white; border:2px solid #666; border-radius:3px; position:absolute; bottom:6px;left:2px; }
+.qr-code { width:16px;height:16px; background:#2d2d2d; position:absolute; top:3px;left:2px; display:grid; grid-template-columns:1fr 1fr 1fr; grid-template-rows:1fr 1fr 1fr; gap:1.5px; padding:2px; }
+.qr-code span { background:white; border-radius:1px; }
+.qr-label { position:absolute; top:-2px;left:-2px; font-size:5px; color:#333; font-weight:700; }
+
+/* 手机 */
+.s1-phone { bottom:46%;left:8%; width:38px;height:56px; z-index:7; }
+.sp-bg { width:38px;height:56px; background:#ffcdd2; border-radius:8px; border:2px solid #e57373; box-shadow:0 3px 8px rgba(0,0,0,0.15); }
+.sp-screen { position:absolute; top:5px;left:4px;right:4px; height:34px; background:#e8f5e9; border-radius:3px; border:1px solid #a5d6a7; }
+.sp-screen::after { content:'주문'; position:absolute; top:50%;left:50%; transform:translate(-50%,-50%); font-size:7px; color:#2e7d32; font-weight:600; }
+.sp-home { position:absolute; bottom:3px;left:50%; transform:translateX(-50%); width:8px;height:8px; border-radius:50%; border:1.5px solid #e57373; }
+
+/* 食物通用 */
+.food-ramen { bottom:38%;left:44%; width:46px;height:34px; z-index:8; }
+.fr-bowl { width:46px;height:28px; background:#d84315; border-radius:0 0 20px 20px; position:absolute; bottom:0; }
+.fr-bowl::after { content:''; position:absolute; top:-6px;left:4px; width:38px;height:10px; background:#e64a19; border-radius:50%; }
+.fr-soup { position:absolute; top:-4px;left:6px; width:34px;height:10px; background:#ff6f00; border-radius:50%; opacity:0.8; }
+.fr-egg { position:absolute; top:-4px;left:14px; width:10px;height:8px; background:#ffe082; border-radius:50%; }
+.fr-steam { position:absolute; top:-14px;left:18px; width:3px;height:8px; background:rgba(255,255,255,0.6); border-radius:2px; animation:steam 2s ease-in-out infinite; }
+.fr-steam:nth-child(5) { left:24px; animation-delay:0.5s; }
+.fr-steam:nth-child(6) { left:32px; animation-delay:1s; }
+@keyframes steam { 0%,100%{transform:translateY(0);opacity:0.6} 50%{transform:translateY(-6px);opacity:0.2} }
+
+.food-gimbap { bottom:40%;left:57%; width:38px;height:28px; z-index:8; }
+.gp-piece { display:inline-block; width:10px;height:20px; background:#4e342e; border-radius:3px; margin-right:1px; position:relative; vertical-align:bottom; }
+.gp-piece::after { content:''; position:absolute; top:2px;left:2px; width:6px;height:16px; background:#8d6e63; border-radius:2px; }
+.gp-piece:nth-child(2)::after { background:#ffcc02; }
+.gp-piece:nth-child(3)::after { background:#81c784; }
+
+.food-tteok { bottom:40%;left:69%; width:38px;height:26px; z-index:8; }
+.tt-sauce { width:38px;height:20px; background:#c62828; border-radius:6px; position:absolute; bottom:0; }
+.tt-piece { width:10px;height:9px; background:#ffccbc; border-radius:5px; position:absolute; bottom:4px; box-shadow:2px -2px 0 #e53935,-2px -2px 0 #e53935; }
+.tt-piece:nth-child(2) { left:5px; }
+.tt-piece:nth-child(3) { left:18px; }
+
+/* ======== 场景 2：拍美食照片 ======== */
+.s2-wall { position:absolute; top:0;left:0;right:0; height:55%; background:linear-gradient(180deg,#e8f5e9,#f1f8e9); border-radius:16px 16px 0 0; }
+.s2-floor { position:absolute; bottom:0;left:0;right:0; height:45%; background:linear-gradient(180deg,#a5d6a7,#81c784); }
+.s2-trim { position:absolute; top:52%;left:0;right:0; height:6px; background:#81c784; opacity:0.3; }
+.s2-light { position:absolute; top:-10px;left:50%; transform:translateX(-50%); width:120px;height:80px; background:radial-gradient(ellipse,rgba(255,200,100,0.25),transparent 70%); border-radius:50%; }
+.s2-table { position:absolute; bottom:26%;left:50%; transform:translateX(-50%); width:74%;height:20%; background:#c8a87c; border-radius:10px; box-shadow:0 3px 0 #b8956a; }
+.s2-table-top { position:absolute; top:-3px;left:-2px;right:-2px; height:30%; background:#dbc3a0; border-radius:12px 12px 4px 4px; }
+
+/* 场景2人物：双手举着手机拍照 */
+.s2-girl-arm-l { width:18px;height:22px; background:#ffccbc; border-radius:6px; position:absolute; top:10px;left:4px; transform:rotate(25deg); z-index:9; }
+.s2-girl-arm-r { width:18px;height:22px; background:#ffccbc; border-radius:6px; position:absolute; top:10px;right:4px; transform:rotate(-25deg); z-index:9; }
+.s2-phone-up { position:absolute; top:14px;left:50%; transform:translateX(-50%); width:28px;height:40px; background:#ffcdd2; border-radius:6px; border:2px solid #e57373; z-index:11; box-shadow:0 3px 8px rgba(0,0,0,0.15); }
+.s2-phone-screen { position:absolute; top:4px;left:3px;right:3px; height:24px; background:#e3f2fd; border-radius:3px; }
+.s2-phone-cam { position:absolute; top:2px;left:50%; transform:translateX(-50%); width:6px;height:6px; background:#b0bec5; border-radius:50%; z-index:12; }
+
+/* 场景2食物 - 桌上摆满 */
+.s2-dish1 { bottom:41%;left:18%; width:30px;height:22px; z-index:5; }
+.s2-d1bg { width:30px;height:22px; background:#d32f2f; border-radius:50% 50% 45% 45%; box-shadow:0 2px 0 #b71c1c; }
+.s2-d1bg::after { content:''; position:absolute; top:4px;left:5px; width:20px;height:8px; background:#ff5252; border-radius:50%; opacity:0.5; }
+
+.s2-dish2 { bottom:41%;left:28%; width:26px;height:20px; z-index:5; }
+.s2-d2bg { width:26px;height:20px; background:#fff8e1; border-radius:50% 50% 45% 45%; box-shadow:0 2px 0 #e0d5c0; }
+.s2-d2bg::after { content:''; position:absolute; top:4px;left:4px; width:16px;height:7px; background:#fffde7; border-radius:50%; }
+
+.s2-ramen { bottom:37%;left:42%; width:44px;height:32px; z-index:8; }
+.s2-fr-bowl { width:44px;height:26px; background:#d84315; border-radius:0 0 18px 18px; position:absolute; bottom:0; }
+.s2-fr-bowl::after { content:''; position:absolute; top:-5px;left:3px; width:38px;height:10px; background:#e64a19; border-radius:50%; }
+.s2-fr-soup { position:absolute; top:-3px;left:5px; width:34px;height:8px; background:#ff6f00; border-radius:50%; opacity:0.8; }
+
+.s2-gimbap { bottom:39%;left:56%; width:36px;height:26px; z-index:8; }
+.s2-gp { display:inline-block; width:10px;height:18px; background:#4e342e; border-radius:3px; margin-right:1px; position:relative; vertical-align:bottom; }
+.s2-gp::after { content:''; position:absolute; top:2px;left:2px; width:6px;height:14px; background:#8d6e63; border-radius:2px; }
+
+.s2-tteok { bottom:39%;left:68%; width:36px;height:24px; z-index:8; }
+.s2-ttsauce { width:36px;height:18px; background:#c62828; border-radius:6px; position:absolute; bottom:0; }
+.s2-ttp { width:10px;height:8px; background:#ffccbc; border-radius:5px; position:absolute; bottom:3px; }
+.s2-ttp:nth-child(2) { left:4px; }
+.s2-ttp:nth-child(3) { left:16px; }
+
+.s2-chop { bottom:42%;right:26%; width:5px;height:36px; z-index:5; }
+.s2-chopbg { width:5px;height:36px; background:linear-gradient(180deg,#e0e0e0,#bdbdbd); border-radius:3px; transform:rotate(-20deg); }
+.s2-chopbg::before { content:''; position:absolute; left:8px; width:5px;height:36px; background:linear-gradient(180deg,#e0e0e0,#bdbdbd); border-radius:3px; }
+
+/* ======== 场景 3：吃饭 ======== */
+.s3-wall { position:absolute; top:0;left:0;right:0; height:55%; background:linear-gradient(180deg,#fff3e0,#fbe9e7); border-radius:16px 16px 0 0; }
+.s3-floor { position:absolute; bottom:0;left:0;right:0; height:45%; background:linear-gradient(180deg,#d4a574,#c4956a); }
+.s3-trim { position:absolute; top:52%;left:0;right:0; height:6px; background:#d4a574; opacity:0.3; }
+
+/* 人物：夹菜动作 */
+.s3-arm-r { width:28px;height:6px; background:#ffccbc; border-radius:3px; position:absolute; top:36px;right:-14px; transform:rotate(30deg); z-index:9; }
+.chopstick-pair { position:absolute; top:30px;right:-16px; width:4px;height:30px; background:#888; border-radius:2px; transform:rotate(30deg); z-index:10; }
+.chopstick-pair::after { content:''; position:absolute; left:6px; width:4px;height:30px; background:#888; border-radius:2px; }
+
+.s3-food-ramen { bottom:37%;left:40%; width:44px;height:32px; z-index:8; }
+.s3-fr-bowl { width:44px;height:26px; background:#d84315; border-radius:0 0 18px 18px; position:absolute; bottom:0; }
+.s3-fr-bowl::after { content:''; position:absolute; top:-5px;left:3px; width:38px;height:10px; background:#e64a19; border-radius:50%; }
+
+/* 弹窗 */
+.word-popup {
+  position: absolute;
+  background: white;
+  border-radius: 14px;
+  padding: 10px 14px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+  z-index: 100;
+  min-width: 110px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1);
+}
+.word-popup.show { opacity:1; transform:translateY(0); pointer-events:auto; }
+.word-popup .ko { font-size:20px; font-weight:700; color:#2d2d2d; display:block; }
+.word-popup .ro { font-size:12px; color:#888; margin-top:2px; display:block; }
+.word-popup .zh { font-size:12px; color:#e67e22; margin-top:4px; display:block; }
+.word-popup .close-popup { position:absolute; top:-8px;right:-8px; width:20px;height:20px; background:#ddd; border-radius:50%; border:none; cursor:pointer; font-size:11px; color:white; line-height:20px; text-align:center; }
+
+/* 词汇栏 */
+.vocab-bar {
+  padding: 10px 16px 0;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 28px;
+}
+.vocab-chip {
+  font-size: 11px;
+  background: #f5efe6;
+  padding: 3px 8px;
+  border-radius: 12px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.vocab-chip:hover { background:#e8d5c0; color:#2d2d2d; }
+
+/* 导航 */
+.scene-nav {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 20px 12px;
+}
+.scene-nav .dot {
+  width: 8px; height:8px;
+  border-radius: 50%;
+  background: #ddd;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.scene-nav .dot.active { background:#e67e22; width:24px; border-radius:4px; }
+
+.hint { text-align:center; padding:0 20px 8px; font-size:11px; color:#bbb; }
+
+/* 底部 */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px 20px;
+  border-top: 1px solid #f0e8de;
+}
+.toolbar button {
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: #999;
+  padding: 6px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.toolbar button.enabled { color:#e67e22; }
+.toolbar button.enabled:hover { background:#f5efe6; }
+.toolbar button.prev { color: #bbb; }
+.toolbar button.next { color: #e67e22; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="notebook">
+  <div class="header">
+    <h1>📖 韩语手账</h1>
+    <span class="page-num" id="pageNum">1 / 3</span>
+  </div>
+  <div class="scene-title" id="sceneTitle">📍扫码点餐 · 식당</div>
+
+  <!-- 画布 -->
+  <div class="canvas-wrapper" id="canvasWrapper">
+
+    <!-- ======= 场景1：扫码点餐 ======= -->
+    <div class="scene active" data-scene="0">
+      <div class="wall"></div><div class="floor"></div><div class="wall-trim"></div><div class="warm-light"></div>
+      <div class="table1"><div class="table1-top"></div></div>
+
+      <div class="girl">
+        <div class="g-hair"></div><div class="g-head"></div><div class="g-body"></div>
+        <div class="s1-arm"></div><div class="s1-arm2"></div>
+      </div>
+
+      <div class="dish-kimchi ht" data-word="김치" data-ro="kimchi" data-zh="泡菜"><div class="dk-bg"></div></div>
+      <div class="dish-radish ht" data-word="단무지" data-ro="danmuji" data-zh="腌萝卜"><div class="dr-bg"></div></div>
+      <div class="s1-chop ht" data-word="젓가락" data-ro="jeotgarak" data-zh="筷子"><div class="sc-bg"></div></div>
+      <div class="s1-spoon ht" data-word="숟가락" data-ro="sutgarak" data-zh="勺子"><div class="ss-bg"></div></div>
+
+      <div class="qr-stand ht" data-word="주문" data-ro="jumun" data-zh="点餐">
+        <div class="qr-card"><div class="qr-code"><span></span><span></span><span></span><span></span><span style="background:#2d2d2d"></span><span></span><span></span><span></span><span></span></div><div class="qr-label">주문</div></div>
+        <div class="qr-base"></div>
+      </div>
+
+      <div class="s1-phone ht" data-word="핸드폰" data-ro="haendeupon" data-zh="手机">
+        <div class="sp-bg"><div class="sp-screen"></div><div class="sp-home"></div></div>
+      </div>
+
+      <div class="food-ramen ht" data-word="라면" data-ro="ramyeon" data-zh="辛拉面">
+        <div class="fr-bowl"></div><div class="fr-soup"></div><div class="fr-egg"></div>
+        <div class="fr-steam"></div><div class="fr-steam"></div><div class="fr-steam"></div>
+      </div>
+      <div class="food-gimbap ht" data-word="김밥" data-ro="gimbap" data-zh="紫菜包饭"><span class="gp-piece"></span><span class="gp-piece"></span><span class="gp-piece"></span></div>
+      <div class="food-tteok ht" data-word="떡볶이" data-ro="tteokbokki" data-zh="炒年糕"><div class="tt-sauce"></div><div class="tt-piece"></div><div class="tt-piece"></div><div class="tt-piece"></div></div>
+    </div>
+
+    <!-- ======= 场景2：拍美食照片 ======= -->
+    <div class="scene" data-scene="1">
+      <div class="s2-wall"></div><div class="s2-floor"></div><div class="s2-trim"></div><div class="s2-light"></div>
+      <div class="s2-table"><div class="s2-table-top"></div></div>
+
+      <div class="girl">
+        <div class="g-hair"></div><div class="g-head"></div><div class="g-body"></div>
+        <div class="s2-girl-arm-l"></div><div class="s2-girl-arm-r"></div>
+        <div class="s2-phone-up"><div class="s2-phone-screen"></div></div>
+        <div class="s2-phone-cam"></div>
+      </div>
+
+      <div class="s2-dish1 ht" data-word="김치" data-ro="kimchi" data-zh="泡菜"><div class="s2-d1bg"></div></div>
+      <div class="s2-dish2 ht" data-word="단무지" data-ro="danmuji" data-zh="腌萝卜"><div class="s2-d2bg"></div></div>
+      <div class="s2-ramen ht" data-word="라면" data-ro="ramyeon" data-zh="辛拉面"><div class="s2-fr-bowl"></div><div class="s2-fr-soup"></div></div>
+      <div class="s2-gimbap ht" data-word="김밥" data-ro="gimbap" data-zh="紫菜包饭"><span class="s2-gp"></span><span class="s2-gp"></span><span class="s2-gp"></span></div>
+      <div class="s2-tteok ht" data-word="떡볶이" data-ro="tteokbokki" data-zh="炒年糕"><div class="s2-ttsauce"></div><div class="s2-ttp"></div><div class="s2-ttp"></div><div class="s2-ttp"></div></div>
+      <div class="s2-chop ht" data-word="젓가락" data-ro="jeotgarak" data-zh="筷子"><div class="s2-chopbg"></div></div>
+
+      <div class="s1-spoon" style="bottom:42%;right:22%;width:28px;height:10px;z-index:5;position:absolute;" data-word="숟가락" data-ro="sutgarak" data-zh="勺子"><div style="width:28px;height:10px;background:#cfcfcf;border-radius:50% 50% 4px 4px;transform:rotate(10deg);"></div></div>
+    </div>
+
+    <!-- ======= 场景3：吃饭 ======= -->
+    <div class="scene" data-scene="2">
+      <div class="s3-wall"></div><div class="s3-floor"></div><div class="s3-trim"></div><div class="warm-light"></div>
+      <div class="table1"><div class="table1-top"></div></div>
+
+      <div class="girl">
+        <div class="g-hair"></div><div class="g-head"></div><div class="g-body"></div>
+        <div class="s3-arm-r"></div>
+        <div class="chopstick-pair"></div>
+      </div>
+
+      <div class="dish-kimchi" style="bottom:41%;left:20%;width:32px;height:24px;z-index:5;position:absolute;" data-word="김치" data-ro="kimchi" data-zh="泡菜"><div style="width:32px;height:24px;background:#d32f2f;border-radius:50% 50% 45% 45%;box-shadow:0 2px 0 #b71c1c;"></div></div>
+      <div class="dish-radish" style="bottom:41%;left:32%;width:28px;height:22px;z-index:5;position:absolute;" data-word="단무지" data-ro="danmuji" data-zh="腌萝卜"><div style="width:28px;height:22px;background:#fff8e1;border-radius:50% 50% 45% 45%;box-shadow:0 2px 0 #e0d5c0;"></div></div>
+
+      <div class="s3-food-ramen ht" data-word="라면" data-ro="ramyeon" data-zh="辛拉面"><div class="s3-fr-bowl"></div></div>
+
+      <div style="position:absolute;bottom:40%;left:55%;width:36px;height:26px;z-index:8;" data-word="김밥" data-ro="gimbap" data-zh="紫菜包饭">
+        <span style="display:inline-block;width:10px;height:18px;background:#4e342e;border-radius:3px;margin-right:1px;position:relative;vertical-align:bottom;"></span>
+        <span style="display:inline-block;width:10px;height:18px;background:#4e342e;border-radius:3px;margin-right:1px;position:relative;vertical-align:bottom;"></span>
+        <span style="display:inline-block;width:10px;height:18px;background:#4e342e;border-radius:3px;margin-right:1px;position:relative;vertical-align:bottom;"></span>
+      </div>
+
+      <div style="position:absolute;bottom:40%;left:68%;width:36px;height:24px;z-index:8;" data-word="떡볶이" data-ro="tteokbokki" data-zh="炒年糕">
+        <div style="width:36px;height:18px;background:#c62828;border-radius:6px;position:absolute;bottom:0;"></div>
+        <div style="width:10px;height:8px;background:#ffccbc;border-radius:5px;position:absolute;bottom:3px;left:4px;"></div>
+        <div style="width:10px;height:8px;background:#ffccbc;border-radius:5px;position:absolute;bottom:3px;left:16px;"></div>
+      </div>
+
+      <div class="s1-chop" style="bottom:42%;right:24%;" data-word="젓가락" data-ro="jeotgarak" data-zh="筷子"><div class="sc-bg"></div></div>
+    </div>
+
+    <!-- 弹窗 -->
+    <div class="word-popup" id="wordPopup">
+      <button class="close-popup" id="closePopup">✕</button>
+      <span class="ko" id="popupKo"></span>
+      <span class="ro" id="popupRo"></span>
+      <span class="zh" id="popupZh"></span>
+    </div>
+  </div>
+
+  <div class="vocab-bar" id="vocabBar"></div>
+  <div class="scene-nav" id="sceneDots"></div>
+  <div class="hint">👆 点击桌上的物品学习韩语</div>
+  <div class="toolbar">
+    <button class="prev" id="prevBtn">◀ 上一页</button>
+    <button class="next" id="nextBtn">下一页 ▶</button>
+  </div>
+</div>
+
+<script>
+// === 场景数据 ===
+const scenes = [
+  { title: '📍扫码点餐 · 식당', num: 1 },
+  { title: '📸 拍美食照片 · 식사', num: 2 },
+  { title: '🥢 吃饭 · 맛있게', num: 3 }
+];
+
+let currentScene = 0;
+const totalScenes = scenes.length;
+const wordMap = new Map();
+
+// === 初始化场景导航点 ===
+function initDots() {
+  const container = document.getElementById('sceneDots');
+  container.innerHTML = '';
+  for (let i = 0; i < totalScenes; i++) {
+    const dot = document.createElement('span');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.dataset.index = i;
+    dot.addEventListener('click', () => goToScene(i));
+    container.appendChild(dot);
+  }
+}
+
+// === 切换场景 ===
+function goToScene(index) {
+  if (index < 0 || index >= totalScenes) return;
+  currentScene = index;
+
+  // 切换场景
+  document.querySelectorAll('.scene').forEach((el, i) => {
+    el.classList.toggle('active', i === index);
+  });
+
+  // 更新UI
+  document.getElementById('pageNum').textContent = `${index + 1} / ${totalScenes}`;
+  document.getElementById('sceneTitle').textContent = scenes[index].title;
+
+  // 更新dots
+  document.querySelectorAll('.dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+
+  // 更新按钮状态
+  document.getElementById('prevBtn').classList.toggle('next', index === 0);
+  document.getElementById('prevBtn').classList.toggle('enabled', index > 0);
+  document.getElementById('prevBtn').textContent = index === 0 ? '◀' : '◀ 上一页';
+  
+  document.getElementById('nextBtn').classList.toggle('enabled', index < totalScenes - 1);
+  document.getElementById('nextBtn').style.color = index < totalScenes - 1 ? '#e67e22' : '#bbb';
+
+  // 关弹窗
+  hidePopup();
+}
+
+// === 弹窗交互 ===
+const popup = document.getElementById('wordPopup');
+const popupKo = document.getElementById('popupKo');
+const popupRo = document.getElementById('popupRo');
+const popupZh = document.getElementById('popupZh');
+const closeBtn = document.getElementById('closePopup');
+
+function showPopup(el, word, ro, zh) {
+  popupKo.textContent = word;
+  popupRo.textContent = `[${ro}]`;
+  popupZh.textContent = zh;
+
+  const rect = el.getBoundingClientRect();
+  const wrapperRect = document.getElementById('canvasWrapper').getBoundingClientRect();
+  const canvasWidth = wrapperRect.width;
+
+  let left = rect.left - wrapperRect.left + rect.width / 2 - 55;
+  let top = rect.top - wrapperRect.top - 70;
+
+  if (top < 10) { top = rect.bottom - wrapperRect.top + 8; }
+  if (left < 8) left = 8;
+  if (left + 120 > canvasWidth) left = canvasWidth - 130;
+
+  popup.style.left = left + 'px';
+  popup.style.top = top + 'px';
+  popup.classList.add('show');
+}
+
+function hidePopup() {
+  popup.classList.remove('show');
+}
+
+closeBtn.addEventListener('click', (e) => { e.stopPropagation(); hidePopup(); });
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.ht') && !e.target.closest('.word-popup')) hidePopup();
+});
+
+// === 点击热区 ===
+document.querySelectorAll('.ht[data-word]').forEach(el => {
+  wordMap.set(el.dataset.word, {
+    word: el.dataset.word,
+    ro: el.dataset.ro,
+    zh: el.dataset.zh
+  });
+  el.addEventListener('click', function(e) {
+    e.stopPropagation();
+    showPopup(this, this.dataset.word, this.dataset.ro, this.dataset.zh);
+    updateVocabList(this.dataset.word);
+  });
+});
+
+// == 也支持旧的内联元素 ==
+document.querySelectorAll('[data-word]').forEach(el => {
+  if (!el.classList.contains('ht') && el.dataset.word) {
+    wordMap.set(el.dataset.word, {
+      word: el.dataset.word,
+      ro: el.dataset.ro || '',
+      zh: el.dataset.zh || ''
+    });
+    el.style.cursor = 'pointer';
+    el.addEventListener('click', function(e) {
+      e.stopPropagation();
+      showPopup(this, this.dataset.word, this.dataset.ro, this.dataset.zh);
+      updateVocabList(this.dataset.word);
+    });
+  }
+});
+
+// === 已学词汇 ===
+const learnedWords = new Set();
+function updateVocabList(word) {
+  if (!learnedWords.has(word)) {
+    learnedWords.add(word);
+    renderVocabBar();
+  }
+}
+function renderVocabBar() {
+  const bar = document.getElementById('vocabBar');
+  bar.innerHTML = '';
+  learnedWords.forEach(word => {
+    const data = wordMap.get(word);
+    if (!data) return;
+    const chip = document.createElement('span');
+    chip.className = 'vocab-chip';
+    chip.textContent = `${data.zh} ${data.word}`;
+    chip.title = `[${data.ro}]`;
+    bar.appendChild(chip);
+  });
+}
+
+// === 翻页按钮 ===
+document.getElementById('prevBtn').addEventListener('click', () => {
+  if (currentScene > 0) goToScene(currentScene - 1);
+});
+document.getElementById('nextBtn').addEventListener('click', () => {
+  if (currentScene < totalScenes - 1) goToScene(currentScene + 1);
+});
+
+// === 初始化 ===
+initDots();
+goToScene(0);
+
+// 默认弹泡菜
+setTimeout(() => {
+  const first = document.querySelector('.scene.active .ht[data-word="김치"]');
+  if (first) { showPopup(first, '김치', 'kimchi', '泡菜'); updateVocabList('김치'); }
+}, 800);
+</script>
+</body>
+</html>

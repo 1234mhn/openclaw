@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英语水平快速诊断</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: #f0f4f8;
+            min-height: 100vh;
+            padding: 20px;
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* ── Header ── */
+        .header {
+            text-align: center;
+            padding: 40px 20px 30px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+        }
+
+        .header h1 span {
+            color: #2e86ab;
+        }
+
+        .header p {
+            color: #6c757d;
+            font-size: 16px;
+        }
+
+        .badge-row {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #2e86ab;
+            border: 1px solid #d0e6f0;
+        }
+
+        /* ── Dimension Cards ── */
+        .dimension-grid {
+            display: grid;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .dimension-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border-left: 5px solid #2e86ab;
+            transition: transform 0.2s;
+        }
+
+        .dimension-card:hover {
+            transform: translateX(4px);
+        }
+
+        .dimension-card .d-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .dimension-card .d-icon {
+            font-size: 28px;
+        }
+
+        .dimension-card .d-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .dimension-card .d-desc {
+            color: #6c757d;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .dimension-card .d-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .dimension-card .d-methods span {
+            background: #eef2f7;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: #495057;
+        }
+
+        /* ── Quick Test Form ── */
+        .test-section {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            margin-bottom: 30px;
+        }
+
+        .test-section h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .question {
+            margin-bottom: 24px;
+        }
+
+        .question .q-label {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .question .q-label .q-tag {
+            font-size: 12px;
+            background: #2e86ab;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 8px;
+            margin-left: 8px;
+            font-weight: normal;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .options label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+
+        .options label:hover {
+            border-color: #2e86ab;
+            background: #f0f7fb;
+        }
+
+        .options input[type="radio"] {
+            accent-color: #2e86ab;
+            width: 16px;
+            height: 16px;
+        }
+
+        .options label.selected {
+            border-color: #2e86ab;
+            background: #e8f4fb;
+        }
+
+        .options label.correct {
+            border-color: #38a169;
+            background: #e8f5e9;
+        }
+
+        .options label.wrong {
+            border-color: #dc3545;
+            background: #fce4e4;
+        }
+
+        /* ── Results ── */
+        .result-section {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            display: none;
+            margin-bottom: 30px;
+        }
+
+        .result-section.show {
+            display: block;
+        }
+
+        .result-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .result-header .level-badge {
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 24px;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .result-header .level-desc {
+            color: #6c757d;
+            font-size: 15px;
+        }
+
+        .score-ring {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(#2e86ab var(--pct), #e9ecef 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            position: relative;
+        }
+
+        .score-ring .inner {
+            width: 92px;
+            height: 92px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .score-ring .inner .score-num {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .score-ring .inner .score-label {
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+        .dimension-breakdown {
+            display: grid;
+            gap: 12px;
+        }
+
+        .dimension-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .dimension-bar .db-label {
+            width: 60px;
+            font-size: 13px;
+            color: #495057;
+            flex-shrink: 0;
+        }
+
+        .dimension-bar .db-track {
+            flex: 1;
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .dimension-bar .db-track .db-fill {
+            height: 100%;
+            border-radius: 5px;
+            transition: width 0.6s ease;
+        }
+
+        .dimension-bar .db-score {
+            width: 40px;
+            text-align: right;
+            font-size: 13px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        /* ── Buttons ── */
+        .btn {
+            padding: 12px 32px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #2e86ab;
+            color: white;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background: #237594;
+        }
+
+        .btn-primary:disabled {
+            background: #a0c4d4;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: #e9ecef;
+            color: #495057;
+        }
+
+        .btn-secondary:hover {
+            background: #dee2e6;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        /* ── Level Reference ── */
+        .level-ref {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+
+        .level-ref h3 {
+            font-size: 16px;
+            margin-bottom: 16px;
+            color: #2c3e50;
+        }
+
+        .level-table {
+            display: grid;
+            gap: 8px;
+        }
+
+        .level-row {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            gap: 12px;
+        }
+
+        .level-row .lr-level {
+            width: 80px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .level-row .lr-desc {
+            flex: 1;
+            font-size: 13px;
+            color: #6c757d;
+        }
+
+        .level-row .lr-score {
+            font-size: 13px;
+            color: #2e86ab;
+            font-weight: 500;
+        }
+
+        .level-a { border-left: 4px solid #38a169; }
+        .level-b { border-left: 4px solid #2e86ab; }
+        .level-c { border-left: 4px solid #e8a83d; }
+        .level-d { border-left: 4px solid #dc3545; }
+        .level-e { border-left: 4px solid #6c757d; }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 24px; }
+            .test-section, .result-section, .level-ref { padding: 20px 16px; }
+            .dimension-card { padding: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ─── Header ─── -->
+    <div class="header">
+        <h1>📊 英语水平<span>快速诊断</span></h1>
+        <p>6 大维度 · 10 分钟出结果 · 附详细分析</p>
+        <div class="badge-row">
+            <span class="badge">🎯 词汇·语法·阅读</span>
+            <span class="badge">👂 听力·口语·写作</span>
+            <span class="badge">📈 对标 CEFR 等级</span>
+        </div>
+    </div>
+
+    <!-- ─── 6 大维度 ─── -->
+    <div class="dimension-grid">
+        <div class="dimension-card" style="border-left-color:#38a169;">
+            <div class="d-header">
+                <span class="d-icon">📖</span>
+                <span class="d-title">词汇量</span>
+            </div>
+            <div class="d-desc">词汇广度决定你能读懂什么级别的文章。核心词2000 → 高考；4000 → 四级；8000+ → 高阶。</div>
+            <div class="d-methods">
+                <span>词义匹配</span>
+                <span>选词填空</span>
+                <span>词根拆解</span>
+            </div>
+        </div>
+
+        <div class="dimension-card" style="border-left-color:#2e86ab;">
+            <div class="d-header">
+                <span class="d-icon">📝</span>
+                <span class="d-title">语法功底</span>
+            </div>
+            <div class="d-desc">时态、语态、从句、虚拟语气——句子结构的准确度决定表达是否地道。</div>
+            <div class="d-methods">
+                <span>时态选择</span>
+                <span>语法改错</span>
+                <span>连词成句</span>
+            </div>
+        </div>
+
+        <div class="dimension-card" style="border-left-color:#e8a83d;">
+            <div class="d-header">
+                <span class="d-icon">👂</span>
+                <span class="d-title">听力理解</span>
+            </div>
+            <div class="d-desc">能不能听懂正常语速的英语？抓关键词、推断态度、辨别连读弱读。</div>
+            <div class="d-methods">
+                <span>听句选答</span>
+                <span>听写填空</span>
+                <span>情景理解</span>
+            </div>
+        </div>
+
+        <div class="dimension-card" style="border-left-color:#17a2b8;">
+            <div class="d-header">
+                <span class="d-icon">📚</span>
+                <span class="d-title">阅读理解</span>
+            </div>
+            <div class="d-desc">主旨抓取、细节定位、推理判断——读得懂≠读得准。</div>
+            <div class="d-methods">
+                <span>短文理解</span>
+                <span>主旨归纳</span>
+                <span>推理判断</span>
+            </div>
+        </div>
+
+        <div class="dimension-card" style="border-left-color:#dc3545;">
+            <div class="d-header">
+                <span class="d-icon">🗣️</span>
+                <span class="d-title">口语表达</span>
+            </div>
+            <div class="d-desc">流利度 + 发音准确度 + 逻辑组织能力。能说 ≠ 能说清楚。</div>
+            <div class="d-methods">
+                <span>朗读评测</span>
+                <span>图片描述</span>
+                <span>话题演讲</span>
+            </div>
+        </div>
+
+        <div class="dimension-card" style="border-left-color:#9b59b6;">
+            <div class="d-header">
+                <span class="d-icon">✍️</span>
+                <span class="d-title">写作能力</span>
+            </div>
+            <div class="d-desc">文章结构、逻辑衔接、用词精准度。写得出 ≠ 写得好。</div>
+            <div class="d-methods">
+                <span>命题写作</span>
+                <span>续写段落</span>
+                <span>邮件写作</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── Quick Test ─── -->
+    <div class="test-section">
+        <h2>✏️ 快速自测（笔试版）</h2>
+        <p style="color:#6c757d; font-size:14px; margin-bottom:20px;">共 12 题 · 词汇 + 语法 + 阅读 各 4 题</p>
+
+        <!-- === 词汇 Section === -->
+        <div style="margin-bottom:8px; font-size:14px; color:#38a169; font-weight:600;">📖 词汇（4题）</div>
+
+        <div class="question" data-dimension="vocab">
+            <div class="q-label">1. "Abandon" 最接近的意思是？<span class="q-tag">词汇</span></div>
+            <div class="options">
+                <label><input type="radio" name="q1" value="a"> 放弃</label>
+                <label><input type="radio" name="q1" value="b"> 结合</label>
+                <label><input type="radio" name="q1" value="c"> 成功</label>
+                <label><input type="radio" name="q1" value="d"> 分离</label>
+            </div>
+        </div>
+
+        <div class="question" data-dimension="vocab">
+            <div class="q-label">2. "Consequence" 的含义是？<span class="q-tag">词汇</span></div>
+            <div class="options">
+                <label><input type="radio" name="q2" value="a"> 后果</label>
+                <label><input type="radio" name="q2" value="b"> 意识</label>
+                <label><input type="radio" name="q2" value="c"> 同意</label>
+                <label><input type="radio" name="q2" value="d"> 保护</label>
+            </div>
+        </div>
+
+        <div class="question" data-dimension="vocab">
+            <div class="q-label">3. "Persistent" 的意思是？<span class="q-tag">词汇</span></div>
+            <div class="options">
+                <label><input type="radio" name="q3" value="a"> 坚持的</label>
+                <label><input type="radio" name="q3" value="b"> 个人的</label>
+                <label><input type="radio" name="q3" value="c"> 劝说性的</label>
+                <label><input type="radio" name="q3" value="d"> 允许的</label>
+            </div>
+        </div>
+
+        <div class="question" data-dimension="vocab">
+            <div class="q-label">4. "Ambiguous" 的含义是？<span class="q-tag">词汇</span></div>
+            <div class="options">
+                <label><input type="radio" name="q4" value="a"> 雄心勃勃的</label>
+                <label><input type="radio" name="q4" value="b"> 模棱两可的</label>
+                <label><input type="radio" name="q4" value="c"> 暧昧的</label>
+                <label><input type="radio" name="q4" value="d"> 行走的</label>
+            </div>
+        </div>
+
+        <!-- === 语法 Section === -->
+        <div style="margin:16px 0 8px; font-size:14px; color:#2e86ab; font-weight:600;">📝 语法（4题）</div>
+
+        <div class="question" data-dimension="grammar">
+            <div class="q-label">5. She ______ English for five years before she moved to London.<span class="q-tag">语法</span></div>
+            <div class="options">
+                <label><input type="radio" name="q5" value="a"> studied</label>
+                <label><input type="radio" name="q5" value="b"> has studied</label>
+                <label><input type="radio" name="q5" value="c"> had studied</label>
+                <label><input type="radio" name="q5" value="d"> was studying</label>
+            </div>
+        </div>
+
+        <div class="question" data-dimension="grammar">
+            <div class="q-label">6. The book ______ I borrowed from the library is very interesting.<span class="q-tag">语法</span></div>
+            <div class="options">
+                <label><input type="radio" name="q6" value="a"> who</label>
+                <label><input type="radio" name="q6" value="b"> which</label>
+                <label><input type="radio" name="q6" value="c"> whom</label>
+                <label><input type="radio" name="q6" value="d"> what</label>
+            </div>
+        </div>
+
+        <div class="question" data-dimension="grammar">
+            <div class="q-label">7. If I ______ you, I would accept the offer.<span class="q-tag">语法</span></div>
+            <div class="options">
+                <label><input type="radio" name="q7" value="a"> am</label>
+                <label><input type="radio" name="q7" value="b"> was</label>
+                <label><input type="radio" name="q7" value="c"> were</label>
+                <label><input type="radio" name="q7" value="d"> be</label>
+            </div>
+        </div>
+
+        <div class="question" data-dimension="grammar">
+            <div class="q-label">8. Not only ______ the exam, but he also got the highest score.<span class="q-tag">语法</span></div>
+            <div class="options">
+                <label><input type="radio" name="q8" value="a"> he passed</label>
+                <label><input type="radio" name="q8" value="b"> did he pass</label>
+                <label><input type="radio" name="q8" value="c"> he pass</label>
+                <label><input type="radio" name="q8" value="d"> had he passed</label>
+            </div>
+        </div>
+
+        <!-- === 阅读 Section === -->
+        <div style="margin:16px 0 8px; font-size:14px; color:#e8a83d; font-weight:600;">📚 阅读（4题）</div>
+
+        <div class="question" data-dimension="reading">
+            <div class="q-label">
+                阅读以下短文，回答 9-10 题：<span class="q-tag">阅读</span>
+            </div>
+            <div style="background:#f8f9fa; padding:14px; border-radius:10px; margin-bottom:12px; font-size:14px; line-height:1.8; color:#495057;">
+                "Climate change is one of the most pressing issues of our time. Scientists warn that rising global temperatures could lead to severe consequences, including more frequent natural disasters and rising sea levels. However, many experts believe that with immediate action, we can still mitigate the worst effects."
+            </div>
+            <div style="font-size:14px; font-weight:500; margin-bottom:8px;">9. 这段文字的主旨是什么？</div>
+            <div class="options">
+                <label><input type="radio" name="q9" value="a"> 气候变化已经不可挽回</label>
+                <label><input type="radio" name="q9" value="b"> 气候变化紧迫但仍有希望缓解</label>
+                <label><input type="radio" name="q9" value="c"> 自然灾害越来越多</label>
+                <label><input type="radio" name="q9" value="d"> 科学家已经放弃</label>
+            </div>
+        </div>
+
+        <div class="question" data-dimension="reading">
+            <div class="q-label">10. "Mitigate" 在文中最接近的意思是？<span class="q-tag">阅读</span></div>
+            <div class="options">
+                <label><input type="radio" name="q10" value="a"> 加剧</label>
+                <label><input type="radio" name="q10" value="b"> 减缓</label>
+                <label><input type="radio" name="q10" value="c"> 忽视</label>
+                <label><input type="radio" name="q10" value="d"> 研究</label>
+            </div>
+        </div>
+
+        <div class="question" data-dimension="reading">
+            <div class="q-label">
+                阅读以下短文，回答 11-12 题：<span class="q-tag">阅读</span>
+            </div>
+            <div style="background:#f8f9fa; padding:14px; border-radius:10px; margin-bottom:12px; font-size:14px; line-height:1.8; color:#495057;">
+                "The term 'social media' refers to digital platforms that enable users to create and share content. While these platforms have revolutionized communication, research suggests that excessive use may negatively impact mental health, particularly among teenagers."
+            </div>
+            <div style="font-size:14px; font-weight:500; margin-bottom:8px;">11. 本文对社交媒体的态度是？</div>
+            <div class="options">
+                <label><input type="radio" name="q11" value="a"> 完全支持</label>
+                <label><input type="radio" name="q11" value="b"> 完全反对</label>
+                <label><input type="radio" name="q11" value="c"> 中立，同时指出利弊</label>
+                <label><input type="radio" name="q11" value="d"> 只谈了好处</label>
+            </div>
+        </div>
+
+        <div class="question" data-dimension="reading">
+            <div class="q-label">12. 文章提到谁受社交媒体影响最大？<span class="q-tag">阅读</span></div>
+            <div class="options">
+                <label><input type="radio" name="q12" value="a"> 成年人</label>
+                <label><input type="radio" name="q12" value="b"> 青少年</label>
+                <label><input type="radio" name="q12" value="c"> 老年人</label>
+                <label><input type="radio" name="q12" value="d"> 所有人</label>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" id="submitBtn" onclick="submitTest()">提交并查看结果</button>
+    </div>
+
+    <!-- ─── Results ─── -->
+    <div class="result-section" id="resultSection">
+        <div class="result-header">
+            <div class="score-ring" id="scoreRing">
+                <div class="inner">
+                    <div class="score-num" id="scoreNum">0</div>
+                    <div class="score-label">/ 12</div>
+                </div>
+            </div>
+            <div class="level-badge" id="levelBadge">—</div>
+            <div class="level-desc" id="levelDesc">完成测试后查看结果</div>
+        </div>
+
+        <div style="margin-bottom:20px;">
+            <h3 style="font-size:16px; margin-bottom:12px;">📊 维度分析</h3>
+            <div class="dimension-breakdown">
+                <div class="dimension-bar">
+                    <span class="db-label">📖 词汇</span>
+                    <div class="db-track"><div class="db-fill" id="fillVocab" style="width:0%; background:#38a169;"></div></div>
+                    <span class="db-score" id="scoreVocab">0/4</span>
+                </div>
+                <div class="dimension-bar">
+                    <span class="db-label">📝 语法</span>
+                    <div class="db-track"><div class="db-fill" id="fillGrammar" style="width:0%; background:#2e86ab;"></div></div>
+                    <span class="db-score" id="scoreGrammar">0/4</span>
+                </div>
+                <div class="dimension-bar">
+                    <span class="db-label">📚 阅读</span>
+                    <div class="db-track"><div class="db-fill" id="fillReading" style="width:0%; background:#e8a83d;"></div></div>
+                    <span class="db-score" id="scoreReading">0/4</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn btn-secondary" onclick="resetTest()">重新测试</button>
+            <button class="btn btn-secondary" onclick="showAllAnswers()">查看答案</button>
+        </div>
+    </div>
+
+    <!-- ─── 等级参考 ─── -->
+    <div class="level-ref">
+        <h3>📌 等级参考（对标 CEFR）</h3>
+        <div class="level-table">
+            <div class="level-row level-a">
+                <span class="lr-level">A1-A2</span>
+                <span class="lr-desc">基础入门：能进行简单的日常对话，理解基本表达</span>
+                <span class="lr-score">≤ 4 题</span>
+            </div>
+            <div class="level-row level-b">
+                <span class="lr-level">B1</span>
+                <span class="lr-desc">中级：能在旅行、工作等场景中应对大部分情况</span>
+                <span class="lr-score">5-7 题</span>
+            </div>
+            <div class="level-row level-c">
+                <span class="lr-level">B2</span>
+                <span class="lr-desc">中高级：能理解复杂文章，进行流利自然的交流</span>
+                <span class="lr-score">8-10 题</span>
+            </div>
+            <div class="level-row level-d">
+                <span class="lr-level">C1</span>
+                <span class="lr-desc">高级：能灵活有效地使用英语进行学术/专业交流</span>
+                <span class="lr-score">11 题</span>
+            </div>
+            <div class="level-row level-e">
+                <span class="lr-level">C2</span>
+                <span class="lr-desc">精通级：几乎母语水平，能理解和表达任何内容</span>
+                <span class="lr-score">12 题</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // 答案键
+    const ANSWERS = {
+        q1: 'a', q2: 'a', q3: 'a', q4: 'b',
+        q5: 'c', q6: 'b', q7: 'c', q8: 'b',
+        q9: 'b', q10: 'b', q11: 'c', q12: 'b'
+    };
+
+    const DIMENSIONS = {
+        q1:'vocab', q2:'vocab', q3:'vocab', q4:'vocab',
+        q5:'grammar', q6:'grammar', q7:'grammar', q8:'grammar',
+        q9:'reading', q10:'reading', q11:'reading', q12:'reading'
+    };
+
+    const LEVELS = [
+        { min:0, max:4, label: 'A1-A2 基础入门', desc: '能进行简单日常对话，理解基本表达。建议从核心词汇和基础语法开始提升。', color: '#6c757d' },
+        { min:5, max:7, label: 'B1 中级', desc: '在熟悉场景中能较好表达，但复杂句式和专业词汇仍需加强。', color: '#e8a83d' },
+        { min:8, max:10, label: 'B2 中高级', desc: '能理解复杂文章、进行较流利的交流。接近四级水平。', color: '#2e86ab' },
+        { min:11, max:11, label: 'C1 高级', desc: '能灵活有效地用英语进行学术或专业交流。仅错一题，实力强劲！', color: '#38a169' },
+        { min:12, max:12, label: 'C2 精通级', desc: '全对！接近母语水平。你对词汇、语法和阅读的理解已经非常扎实。', color: '#9b59b6' }
+    ];
+
+    function submitTest() {
+        // Check all answered
+        let allAnswered = true;
+        for (let i = 1; i <= 12; i++) {
+            const name = 'q' + i;
+            const selected = document.querySelector(`input[name="${name}"]:checked`);
+            if (!selected) {
+                allAnswered = false;
+                break;
+            }
+        }
+
+        if (!allAnswered) {
+            alert('还有题目没做完哦！请完成所有 12 道题再提交 😊');
+            return;
+        }
+
+        // Grade
+        let score = 0;
+        const dimScores = { vocab: 0, total_vocab: 4, grammar: 0, total_grammar: 4, reading: 0, total_reading: 4 };
+
+        for (let i = 1; i <= 12; i++) {
+            const name = 'q' + i;
+            const selected = document.querySelector(`input[name="${name}"]:checked`);
+            const value = selected ? selected.value : null;
+            const dim = DIMENSIONS[name];
+            const isCorrect = value === ANSWERS[name];
+
+            if (isCorrect) {
+                score++;
+                dimScores[dim]++;
+            }
+
+            // Show correct/wrong on labels
+            const labels = document.querySelectorAll(`input[name="${name}"]`);
+            labels.forEach(label => {
+                const parent = label.closest('label');
+                if (!parent) return;
+                parent.classList.remove('correct', 'wrong', 'selected');
+                if (label.value === ANSWERS[name]) {
+                    parent.classList.add('correct');
+                } else if (label.checked && label.value !== ANSWERS[name]) {
+                    parent.classList.add('wrong');
+                }
+            });
+        }
+
+        // Update score ring
+        const pct = (score / 12) * 100;
+        const ring = document.getElementById('scoreRing');
+        ring.style.setProperty('--pct', pct + '%');
+        document.getElementById('scoreNum').textContent = score;
+
+        // Determine level
+        let level = LEVELS[0];
+        for (const l of LEVELS) {
+            if (score >= l.min && score <= l.max) {
+                level = l;
+                break;
+            }
+        }
+
+        const badge = document.getElementById('levelBadge');
+        badge.textContent = level.label;
+        badge.style.background = level.color;
+        badge.style.color = 'white';
+        document.getElementById('levelDesc').textContent = level.desc;
+
+        // Update dimension bars
+        document.getElementById('fillVocab').style.width = (dimScores.vocab / 4 * 100) + '%';
+        document.getElementById('scoreVocab').textContent = dimScores.vocab + '/4';
+        document.getElementById('fillGrammar').style.width = (dimScores.grammar / 4 * 100) + '%';
+        document.getElementById('scoreGrammar').textContent = dimScores.grammar + '/4';
+        document.getElementById('fillReading').style.width = (dimScores.reading / 4 * 100) + '%';
+        document.getElementById('scoreReading').textContent = dimScores.reading + '/4';
+
+        // Show result section
+        document.getElementById('resultSection').classList.add('show');
+
+        // Disable submit button
+        document.getElementById('submitBtn').disabled = true;
+
+        // Scroll to result
+        document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function resetTest() {
+        // Clear all selections
+        document.querySelectorAll('input[type="radio"]').forEach(input => {
+            input.checked = false;
+        });
+        // Remove highlights
+        document.querySelectorAll('.options label').forEach(label => {
+            label.classList.remove('correct', 'wrong', 'selected');
+        });
+        // Hide result
+        document.getElementById('resultSection').classList.remove('show');
+        // Enable button
+        document.getElementById('submitBtn').disabled = false;
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showAllAnswers() {
+        for (let i = 1; i <= 12; i++) {
+            const name = 'q' + i;
+            const labels = document.querySelectorAll(`input[name="${name}"]`);
+            labels.forEach(label => {
+                const parent = label.closest('label');
+                if (!parent) return;
+                parent.classList.remove('correct', 'wrong');
+                if (label.value === ANSWERS[name]) {
+                    parent.classList.add('correct');
+                } else if (label.checked) {
+                    parent.classList.add('wrong');
+                }
+            });
+        }
+    }
+</script>
+
+</body>
+</html>

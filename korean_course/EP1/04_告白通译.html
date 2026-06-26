@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EP1 告白通译·真心話</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, sans-serif; background: #fafafa; color: #333; line-height: 1.7; }
+.container { max-width: 700px; margin: 0 auto; padding: 12px; }
+h1 { font-size: 20px; text-align: center; margin: 10px 0 16px; }
+video { width: 100%; border-radius: 8px; background: #000; }
+.line { margin: 8px 0; padding: 10px 14px; background: #fff; border-radius: 8px; border: 1px solid #e8e8e8; cursor: pointer; transition: background 0.15s; position: relative; }
+.line:hover { background: #f5f5f5; }
+.line .kr { font-weight: bold; font-size: 15px; }
+.line .cn { color: #666; font-size: 13px; margin-top: 2px; }
+.line .tag { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; margin-right: 4px; margin-top: 4px; }
+.tag-w { background: #e8f5e9; color: #2e7d32; }
+.tag-p { background: #e3f2fd; color: #1565c0; }
+.tag-g { background: #fce4ec; color: #c62828; }
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 1000; }
+.modal-overlay.active { display: flex; justify-content: center; align-items: center; }
+.modal { background: #fff; width: 90%; max-width: 600px; max-height: 85vh; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+.modal-header { padding: 14px 16px 10px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: flex-start; }
+.modal-header .kr { font-weight: bold; font-size: 16px; flex: 1; }
+.modal-header .cn { color: #666; font-size: 13px; margin-top: 2px; }
+.modal-close { background: none; border: none; font-size: 22px; cursor: pointer; color: #999; padding: 0 4px; flex-shrink: 0; }
+.modal-body { padding: 14px 16px 20px; overflow-y: auto; max-height: calc(85vh - 80px); }
+.word { margin: 10px 0; }
+.word:first-child { margin-top: 0; }
+.word .head { font-weight: bold; font-size: 14px; }
+.word .head .tag { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; margin-right: 6px; }
+.word .mean { color: #555; font-size: 13px; margin: 2px 0; }
+.word .grammar { color: #888; font-size: 12px; margin: 2px 12px; padding-left: 8px; border-left: 2px solid #e0e0e0; }
+.word .example { font-size: 12px; margin: 3px 0 3px 12px; padding-left: 8px; border-left: 2px solid #eee; }
+.word .example .cn { color: #999; border: none; font-size: 12px; }
+.phonetics { margin: 14px 0 0; padding: 10px 12px; background: #f0f7ff; border-radius: 6px; font-size: 13px; }
+.phonetics .ph-title { color: #2980b9; font-weight: bold; margin-bottom: 6px; font-size: 13px; }
+.phonetics div { margin: 3px 0; }
+.phonetics .arrow { color: #e67e22; }
+.section { font-weight: bold; margin: 20px 0 10px; padding: 6px 10px; background: #eee; border-radius: 6px; font-size: 14px; }
+.nav { display: flex; justify-content: space-between; padding: 20px 0; }
+.nav a { text-decoration: none; color: #3498db; font-size: 14px; }
+.tip-box { margin: 14px 0 0; padding: 10px 12px; background: #fffde7; border-radius: 6px; font-size: 12px; color: #555; border-left: 3px solid #f1c40f; }
+.vocab { margin: 6px 0; padding: 8px 10px; background: #f9f9f9; border-radius: 6px; }
+.vocab p { margin: 3px 0; font-size: 13px; }
+.vocab .ex { color: #2c3e50; margin: 2px 0 6px 14px; font-size: 12px; border-left: 2px solid #ddd; padding-left: 8px; }
+.vocab .ex .cn { color: #888; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>EP1 ④ 告白通译 · 진심을 전하다</h1>
+
+<video controls preload="metadata" style="margin-bottom:12px;">
+  <source src="../videos/scene04_confession.mp4" type="video/mp4">
+</video>
+
+<div class="section">📺 点击台词查看讲解</div>
+
+<div class="line" onclick="openModal('m1')">
+  <p class="kr">지금 뭐라고 한 거예요?</p>
+  <p class="cn">→ 刚才说什么了？</p>
+  <span class="tag tag-g">문법</span><span class="tag tag-p">회화</span>
+</div>
+
+<div class="line" onclick="openModal('m2')">
+  <p class="kr">지금 인사하는 거예요?</p>
+  <p class="cn">→ 现在是在打招呼吗？</p>
+  <span class="tag tag-g">문법</span>
+</div>
+
+<div class="line" onclick="openModal('m3')">
+  <p class="kr">주호진 씨 통역해요</p>
+  <p class="cn">→ 朱浩进先生，请翻译</p>
+  <span class="tag tag-w">단어</span>
+</div>
+
+<div class="line" onclick="openModal('m4')">
+  <p class="kr">당신이 말을 전해 줘야 내가 답을 하지</p>
+  <p class="cn">→ 你得把话传过来，我才能回答呀</p>
+  <span class="tag tag-g">문법</span>
+</div>
+
+<div class="line" onclick="openModal('m5')">
+  <p class="kr">준비한 작별 인사는 하지 않아도 되겠네요</p>
+  <p class="cn">→ 看来准备好的告别问候用不上了</p>
+  <span class="tag tag-g">문법</span>
+</div>
+
+<div class="line" onclick="openModal('m6')">
+  <p class="kr">통역해 드리겠습니다</p>
+  <p class="cn">→ 我来帮您翻译</p>
+  <span class="tag tag-g">문법</span><span class="tag tag-p">敬语</span>
+</div>
+
+<div class="line" onclick="openModal('m7')">
+  <p class="kr">나는 진심으로 차무희라는 사람이 좋습니다</p>
+  <p class="cn">→ 我真心喜欢车武熙这个人</p>
+  <span class="tag tag-w">단어</span><span class="tag tag-g">문법</span>
+</div>
+
+<div class="line" onclick="openModal('m8')">
+  <p class="kr">제대로 전달이 됐습니까?</p>
+  <p class="cn">→ 准确传达到了吗？</p>
+  <span class="tag tag-w">단어</span>
+</div>
+
+<div class="modal-overlay" id="overlay" onclick="closeModal(event)">
+
+<div class="modal" id="m1">
+  <div class="modal-header">
+    <div>
+      <p class="kr">지금 뭐라고 한 거예요?</p>
+      <p class="cn">→ 刚才说什么了？</p>
+    </div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+  <div class="modal-body">
+    <div class="word">
+      <span class="head"><span class="tag tag-g">문법</span>~라고 하다</span>
+      <div class="mean">→ 说……(间接引语)</div>
+      <div class="grammar">陈述句间接引语：动词어요/예요 → ~다고 하다 ／ 名词 → ~(이)라고 하다</div>
+      <div class="example">💬 학생이라고 했어요. → 说是学生。</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-g">문법</span>~ㄴ/은 거예요?</span>
+      <div class="mean">→ 是……的吗？（确认事实）</div>
+      <div class="grammar">~ㄴ 것이에요? 的口语形。比 ~었어요? 更带追问意味。</div>
+      <div class="example">💬 어디 간 거예요? → 你去哪儿了？</div>
+    </div>
+    <div class="phonetics">
+      <div class="ph-title">🎵 音变说明</div>
+      <div><span class="arrow">›</span> <b>뭐라고 한 거예요</b> → [뭐라고한거에요] (流畅连读)</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m2">
+  <div class="modal-header">
+    <div>
+      <p class="kr">지금 인사하는 거예요?</p>
+      <p class="cn">→ 现在是在打招呼吗？</p>
+    </div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+  <div class="modal-body">
+    <div class="word">
+      <span class="head"><span class="tag tag-w">명사</span>인사</span>
+      <div class="mean">→ 问候、招呼</div>
+      <div class="grammar">汉字词 人事。常见搭配：인사하다(打招呼) / 작별 인사(告别) / 첫인사(初次问候)</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-g">문법</span>~는 거예요?</span>
+      <div class="mean">→ 在做……吗？（询问当下行为意图）</div>
+      <div class="grammar">动词 ~는 것 + 이에요 = 做……这件事</div>
+      <div class="example">💬 뭘 보는 거예요? → 在看什么呢？</div>
+    </div>
+    <div class="phonetics">
+      <div class="ph-title">🎵 音变说明</div>
+      <div><span class="arrow">›</span> <b>인사하는</b> → [인사하는] (清晰)</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m3">
+  <div class="modal-header">
+    <div>
+      <p class="kr">주호진 씨 통역해요</p>
+      <p class="cn">→ 朱浩进先生，请翻译</p>
+    </div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+  <div class="modal-body">
+    <div class="word">
+      <span class="head"><span class="tag tag-w">명사</span>통역</span>
+      <div class="mean">→ 口译</div>
+      <div class="grammar">통역(口译) ↔ 번역(笔译)。동사: 통역하다, 통역해 주다</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-p">호칭</span>~씨</span>
+      <div class="mean">→ ……先生／女士（中性礼貌称呼）</div>
+      <div class="grammar">名字 + 씨。比 님(尊敬) 平和，比 야/아(亲昵) 礼貌。</div>
+      <div class="example">💬 김민수 씨, 안녕하세요. → 金敏洙先生您好。</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-g">문법</span>~해요</span>
+      <div class="mean">→ 既可陈述也可命令(口语命令)</div>
+      <div class="grammar">语调上扬=疑问 / 平=陈述 / 降调=命令(轻命令)</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m4">
+  <div class="modal-header">
+    <div>
+      <p class="kr">당신이 말을 전해 줘야 내가 답을 하지</p>
+      <p class="cn">→ 你得把话传过来，我才能回答呀</p>
+    </div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+  <div class="modal-body">
+    <div class="word">
+      <span class="head"><span class="tag tag-p">동사</span>전하다</span>
+      <div class="mean">→ 传达、转达</div>
+      <div class="example">💬 안부를 전해 주세요. → 请代我问好。</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-g">문법</span>~아/어야</span>
+      <div class="mean">→ 必须……才能……（条件）</div>
+      <div class="grammar">필요조건 = 必要条件。后续句意"才能/才会"。</div>
+      <div class="example">💬 일찍 자야 안 늦어요. → 早睡才不会迟到。</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-g">문법</span>~지</span>
+      <div class="mean">→ ……呀／嘛（自然结论语气）</div>
+      <div class="grammar">~지 결句尾，常表"理所当然""明显的事"</div>
+      <div class="example">💬 그렇게 해야 되지. → 当然得那样啊。</div>
+    </div>
+    <div class="phonetics">
+      <div class="ph-title">🎵 音变说明</div>
+      <div><span class="arrow">›</span> <b>줘야</b> → [줘야] (자연 발음)</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m5">
+  <div class="modal-header">
+    <div>
+      <p class="kr">준비한 작별 인사는 하지 않아도 되겠네요</p>
+      <p class="cn">→ 看来准备好的告别问候用不上了</p>
+    </div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+  <div class="modal-body">
+    <div class="word">
+      <span class="head"><span class="tag tag-w">명사</span>작별 인사</span>
+      <div class="mean">→ 告别、道别</div>
+      <div class="grammar">作别人事 = 분별 인사 / 마지막 인사</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-g">문법</span>~지 않아도 되다</span>
+      <div class="mean">→ 不用……也行</div>
+      <div class="grammar">~지 않다(不) + ~아/어도 되다(也行)</div>
+      <div class="example">💬 안 와도 돼요. → 不来也没关系。</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-g">문법</span>~겠네요</span>
+      <div class="mean">→ 看来……呢（推测＋感叹）</div>
+      <div class="grammar">겠 (推测) + 네요 (感叹)。表"看样子是这样"</div>
+      <div class="example">💬 비가 오겠네요. → 看来要下雨。</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m6">
+  <div class="modal-header">
+    <div>
+      <p class="kr">통역해 드리겠습니다</p>
+      <p class="cn">→ 我来帮您翻译</p>
+    </div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+  <div class="modal-body">
+    <div class="word">
+      <span class="head"><span class="tag tag-g">敬语</span>~아/어 드리다</span>
+      <div class="mean">→ ~아/어 주다 的尊敬形</div>
+      <div class="grammar">주다(给) → 드리다(奉献给)。对上位者的"为您做某事"</div>
+      <div class="example">💬 가르쳐 드릴게요. → 我来教您。</div>
+      <div class="example">💬 도와 드리겠습니다. → 我来帮您。</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-g">문법</span>~겠습니다</span>
+      <div class="mean">→ ……(将要)、(我会……)</div>
+      <div class="grammar">表意志 + 礼貌。공식적인 말투（正式场合）。</div>
+      <div class="example">💬 잘 부탁드리겠습니다. → 请多指教。</div>
+    </div>
+    <div class="phonetics">
+      <div class="ph-title">🎵 音变说明</div>
+      <div><span class="arrow">›</span> <b>드리겠습니다</b> → [드리겓씀니다] (紧音化+鼻音化)</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m7">
+  <div class="modal-header">
+    <div>
+      <p class="kr">나는 진심으로 차무희라는 사람이 좋습니다</p>
+      <p class="cn">→ 我真心喜欢车武熙这个人</p>
+    </div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+  <div class="modal-body">
+    <div class="word">
+      <span class="head"><span class="tag tag-w">명사</span>진심</span>
+      <div class="mean">→ 真心</div>
+      <div class="grammar">진심으로 = 真心地。반대 = 거짓(虚假)</div>
+      <div class="example">💬 진심이에요. → 是真心的。</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-g">문법</span>~(이)라는</span>
+      <div class="mean">→ 叫做……的；称为……的</div>
+      <div class="grammar">~(이)라고 하는 的缩略。后接名词，定义/介绍。</div>
+      <div class="example">💬 김치라는 음식 알아요? → 知道叫泡菜的食物吗？</div>
+      <div class="example">💬 사랑이라는 게 뭐예요? → 所谓爱情是什么？</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-g">문법</span>이 좋다 / 을 좋아하다</span>
+      <div class="mean">→ "喜欢"两种说法</div>
+      <div class="grammar">N이/가 좋다 = N(对我而言)是好的(感觉) ／ N을/를 좋아하다 = 喜欢N(动作)</div>
+      <div class="example">💬 너가 좋아. = 너를 좋아해. → 喜欢你。</div>
+    </div>
+    <div class="phonetics">
+      <div class="ph-title">🎵 音变说明</div>
+      <div><span class="arrow">›</span> <b>좋습니다</b> → [조씀니다] (ㅎ脱落+紧音化+鼻音化)</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m8">
+  <div class="modal-header">
+    <div>
+      <p class="kr">제대로 전달이 됐습니까?</p>
+      <p class="cn">→ 准确传达到了吗？</p>
+    </div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+  <div class="modal-body">
+    <div class="word">
+      <span class="head"><span class="tag tag-p">부사</span>제대로</span>
+      <div class="mean">→ 好好地、正确地</div>
+      <div class="example">💬 제대로 좀 해 봐. → 好好做。</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-w">명사</span>전달</span>
+      <div class="mean">→ 传达、传递</div>
+      <div class="grammar">汉字词 传达。동사: 전달하다 / 전달되다(被传达)</div>
+      <div class="example">💬 메시지를 전달했어요. → 传达了消息。</div>
+    </div>
+    <div class="word">
+      <span class="head"><span class="tag tag-g">문법</span>~이/가 되다</span>
+      <div class="mean">→ 成为……、变得……</div>
+      <div class="grammar">전달이 되다 = 被传达。被动 1 - 名词 + 이/가 되다</div>
+    </div>
+    <div class="phonetics">
+      <div class="ph-title">🎵 音变说明</div>
+      <div><span class="arrow">›</span> <b>됐습니까</b> → [됟씀니까] (紧音化+鼻音化)</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /overlay -->
+
+<div class="section">📌 单词·语法 总览</div>
+<div class="vocab">
+<p><strong>📍 单词</strong></p>
+<p>▸ 통역 — 口译</p>
+<p>▸ 진심 — 真心</p>
+<p>▸ 작별 인사 — 告别问候</p>
+<p>▸ 전하다 / 전달하다 — 传达</p>
+<p>▸ 제대로 — 好好地</p>
+
+<p style="margin-top:8px;"><strong>📍 核心语法</strong></p>
+<p>▸ <b>~(이)라는</b> — 叫做……的</p>
+<p class="ex">💬 차무희<b>라는</b> 사람 → 叫车武熙的人</p>
+<p>▸ <b>~아/어 드리다</b> — 为您……（敬语）</p>
+<p class="ex">💬 안내해 <b>드리겠습니다</b>. → 我来为您引导。</p>
+<p>▸ <b>~아/어야</b> — 必须……才能</p>
+<p class="ex">💬 먹<b>어야</b> 살죠. → 得吃才能活啊。</p>
+<p>▸ <b>~지 않아도 되다</b> — 不用……也行</p>
+<p class="ex">💬 가지 <b>않아도 돼요</b>. → 不去也行。</p>
+<p>▸ <b>~겠네요</b> — 看来……呢</p>
+<p class="ex">💬 늦<b>겠네요</b>. → 看来要迟到了。</p>
+</div>
+
+<div class="section">💡 小贴士</div>
+<div class="tip-box">
+  <p>① 韩语两种"喜欢": <b>좋다(主+이/가)</b> = (我)觉得好 ／ <b>좋아하다(목적어+을/를)</b> = 喜欢(动作)。</p>
+  <p>② <b>씨 vs 님</b>：씨 是中性礼貌(平辈/陌生)，님 是尊敬(长辈/上司/网络昵称)。</p>
+  <p>③ <b>~아/어 드리다</b> 是 <b>~아/어 주다</b> 的敬语，对长辈/客户必用。</p>
+  <p>④ 这场告白巧妙点：히로的日语→호진的韩语→무희听到。三层语言，男主把握着"传话权"。</p>
+</div>
+
+<div class="nav">
+  <a href="03_흑역사.html">← 上一节</a>
+  <a href="../index.html">返回目录</a>
+  <a href="05_개떡찰떡.html">下一节 →</a>
+</div>
+
+</div>
+
+<script>
+function openModal(id) {
+  document.getElementById('overlay').classList.add('active');
+  document.getElementById(id).style.display = 'block';
+}
+function closeModal(e) {
+  if (e && e.target !== document.getElementById('overlay') && e.target.closest('.modal')) return;
+  document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+  document.getElementById('overlay').classList.remove('active');
+}
+document.getElementById('overlay').addEventListener('click', function(e) {
+  if (e.target === this) {
+    document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+    this.classList.remove('active');
+  }
+});
+</script>
+</body>
+</html>

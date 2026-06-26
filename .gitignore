@@ -1,0 +1,52 @@
+# Dependencies
+node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Videos & large media
+*.mp4
+*.mkv
+*.webm
+*.mov
+*.avi
+*.mp3
+*.wav
+*.wma
+*.flac
+*.ogg
+videos/
+
+# Images (large)
+*.jpg
+*.jpeg
+*.png
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# HLS streaming
+hls/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Git
+.git-credentials
+*.log
+
+# Temp agent directories
+agent-*/
+
+# Large data
+output/
+spect-movie-clips/
+middle-school-clips/
+daily_clips/
+*.pptx
+*.wav
