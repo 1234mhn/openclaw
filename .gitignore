@@ -50,3 +50,4 @@ middle-school-clips/
 daily_clips/
 *.pptx
 *.wav
+.cos_credentials.json
