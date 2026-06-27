@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-26T23:04:49.019Z",
+  "updatedAt": "2026-06-27T00:37:14.937Z",
   "entries": {
     "memory:memory/2026-05-17.md:1:27": {
       "key": "memory:memory/2026-05-17.md:1:27",
@@ -157,17 +157,14 @@
       "endLine": 59,
       "source": "memory",
       "snippet": "① 📺 先发视频（原画，2-3分钟分2-3段） ② 📝 再发台词（转写确认过的）+ 翻译 + 单词 ``` ### 想法落地库 - 创建了 `skills/想法落地库/projects/韩语课程产品.md` - 记录了产品结构、定价建议、侵权风险分析 ### 装好的Skill 1. `extract-timestamp` — 视频/字幕时间戳提取 2. `video-cut-lossless` — 原画无损裁剪+淡入淡出 3. `baidu-drive` — 百度网盘文件操作 ### 定时任务状态 | 时间 | 任务 | 状态 | |:---:|:---|:---:| | 7:00 | 📺 韩剧日常用语推送 | ✅ 测试通过（已从B站改为百度网盘+字幕站） | | 8:00 | 🤖 AI早报 | ✅ 已修复，今早推送成功 | ### 待办 - [ ] 继续剪第1集剩余场景（城堡/告白/拉面店/急救等） - [ ] 每完成一课就添加到 index.html - [ ] 提取第2~12集的字幕（目前只有EP1有单独的docx字幕文件） - [ ] 考虑升级服务器内存（当前3.6G，跑whisper容易被OOM杀掉）",
-      "recallCount": 38,
+      "recallCount": 41,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 37.88632466753875,
+      "totalScore": 40.88632466753875,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-30T23:17:33.096Z",
-      "lastRecalledAt": "2026-06-26T06:23:02.797Z",
+      "lastRecalledAt": "2026-06-27T00:37:14.937Z",
       "queryHashes": [
-        "a7126db17002",
-        "5109c2ed2fb1",
-        "78d4e9b99a01",
         "e33d9aabd937",
         "8db65be0df9a",
         "7963ef34c802",
@@ -196,7 +193,10 @@
         "f4bf52c5fb64",
         "2b8a686b6f88",
         "4c56ea8a31f9",
-        "18cb1de7b556"
+        "18cb1de7b556",
+        "1f76e1d06c08",
+        "b55ecea06273",
+        "4eebe016108a"
       ],
       "recallDays": [
         "2026-05-31",
@@ -213,7 +213,8 @@
         "2026-06-21",
         "2026-06-24",
         "2026-06-25",
-        "2026-06-26"
+        "2026-06-26",
+        "2026-06-27"
       ],
       "conceptTags": [
         "2-3分钟分2-3段",
@@ -285,13 +286,13 @@
       "endLine": 26,
       "source": "memory",
       "snippet": "# 2026-06-10 日志 ## 🏠 家政小程序 - 需求：个人家政中介平台，客户扫码下单，你接单→派单赚差价 - 定价：日常保洁35、深度保洁50/60、开荒8元/平、家电清洗按时计费 - 设计方案已存：`/root/.openclaw/workspace/家政小程序设计方案.md` - 已交Claude Code搭目录结构，还没正式开写代码 - 需要先办个体户营业执照（沈阳/辽宁，辽事通APP或lnzwfw.gov.cn） ## 📖 英语学习 - 点餐场景 - 积累了很多句子（咖啡店点单+餐厅点餐+内容创作者口语） - 页面：english_scenes.html，通过Claude Code反复修改 - 最终功能：3场景切换、点击朗读、重点词详解、收藏/录音纠音、测验、角色扮演、深色模式、语速控制 - 音频：30个edge-tts音频 + 15男声15女声 - 隧道地址会用serveo，每次重启会变 - 韩语页面也在同时维护，视频总失效（COS过期） - 用户要求点句子弹讲解，点🔊才播放，全部播放按钮要工作 ## 🔧 技术方案确认 - 不依赖中转站视频模型（Seedance效果不行，Runway太贵） - 0成本路线：免费实拍图+edge-tts语音+HTML页面 - 代码一律交给Claude Code - 我就负责对话、分析需求、确认效果、存档知识库 ## 📋 营业执照 - 沈阳地区，还没办成",
-      "recallCount": 16,
+      "recallCount": 17,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 14.815198733341344,
+      "totalScore": 15.815198733341344,
       "maxScore": 1,
       "firstRecalledAt": "2026-06-11T01:44:53.010Z",
-      "lastRecalledAt": "2026-06-25T22:53:21.528Z",
+      "lastRecalledAt": "2026-06-27T00:37:14.937Z",
       "queryHashes": [
         "3fb3333b3f69",
         "191c2b71bd86",
@@ -308,7 +309,8 @@
         "6202f937df1a",
         "fb68ab758505",
         "d8ca970bc8af",
-        "7e1a011c0b89"
+        "7e1a011c0b89",
+        "4eebe016108a"
       ],
       "recallDays": [
         "2026-06-11",
@@ -318,7 +320,8 @@
         "2026-06-19",
         "2026-06-20",
         "2026-06-25",
-        "2026-06-26"
+        "2026-06-26",
+        "2026-06-27"
       ],
       "conceptTags": [
         "深度保洁50/60",
@@ -338,13 +341,13 @@
       "endLine": 40,
       "source": "memory",
       "snippet": "- 不依赖中转站视频模型（Seedance效果不行，Runway太贵） - 0成本路线：免费实拍图+edge-tts语音+HTML页面 - 代码一律交给Claude Code - 我就负责对话、分析需求、确认效果、存档知识库 ## 📋 营业执照 - 沈阳地区，还没办成 - 尝试过支付宝没找到入口 - 推荐辽事通APP或辽宁政务服务网 ## 🎬 视频方案 - 尝试了Seedance、可灵、Veo、Runway Gen-4 - 决定放弃，走0成本路线 - 定妆照已生成了中国人形象（男店员+女顾客） ## 📝 用户偏好 - 称呼：叫我\"楠楠大管家\" - 习惯：发句子→我存知识库，不喜欢我擅自生成卡片/视频 - 要求高，审美严，但被我做事方式打动过 - 喜欢简洁实用的东西",
-      "recallCount": 13,
+      "recallCount": 16,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 12.424775507335294,
+      "totalScore": 15.424775507335294,
       "maxScore": 1,
       "firstRecalledAt": "2026-06-14T05:21:35.558Z",
-      "lastRecalledAt": "2026-06-26T03:35:42.885Z",
+      "lastRecalledAt": "2026-06-27T00:37:14.937Z",
       "queryHashes": [
         "e33d9aabd937",
         "8db65be0df9a",
@@ -358,7 +361,10 @@
         "1e8aa6ac215a",
         "f4bf52c5fb64",
         "2b8a686b6f88",
-        "4c56ea8a31f9"
+        "4c56ea8a31f9",
+        "1f76e1d06c08",
+        "b55ecea06273",
+        "4eebe016108a"
       ],
       "recallDays": [
         "2026-06-14",
@@ -367,7 +373,8 @@
         "2026-06-20",
         "2026-06-24",
         "2026-06-25",
-        "2026-06-26"
+        "2026-06-26",
+        "2026-06-27"
       ],
       "conceptTags": [
         "edge-tts语音",
@@ -426,18 +433,20 @@
       "endLine": 18,
       "source": "memory",
       "snippet": "# 2026-06-20 日志 ## 🖌️ 书法练习 - **Day 5 主题：捺补课** – 原计划点（侧点/垂点/挑点），因用户昨天只练了斜捺，改为平捺攻坚 - 用户反馈：控笔圆形弧线间距不均、线条不流畅；斜捺没笔锋手紧；平捺笔锋出不来 - **核心问题：手紧** — 不是不会写，是手不放松 - Day 6 继续再练一天捺，重点解决\"放松\" - 社交媒体内容：为 Day 5 写了小红书 + 抖音文案（\"笔锋不是用力收，是放松拖出来的\"） ## 🌤️ 韩语天气主题学习 - 整理了韩语天气话题词汇（基础词 + 温度体感 + 降水 + 风雾空气 + 句型 + 进阶地道词） - 标注了所有词条的 [한글] 实际发音 + 音变类型（연/경/격/비/구/탈） - 制作了自学用的小册子（口语化 + 练习题） ## 🌐 天气学习页面开发（多次迭代） - 版本1：滚动式 → 版本2：主界面+场景 → 版本3：翻卡网格 → 版本4：每模块一页翻页 → 版本5：单张大卡片滑动切换 - **最终版：** 主界面 → 模块选择 → 单张大卡片翻转学习，55张词汇卡全部加了语法讲解 + 每个语法3个口语例句 - **音频：** 用 edge-tts 生成 150+ 韩语音频文件，通过 nginx 播放（解决微信不支持 Web Speech API 的问题）",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-06-25T03:39:28.003Z",
-      "lastRecalledAt": "2026-06-25T03:39:28.003Z",
+      "lastRecalledAt": "2026-06-27T00:31:08.157Z",
       "queryHashes": [
-        "1e8aa6ac215a"
+        "1e8aa6ac215a",
+        "1f76e1d06c08"
       ],
       "recallDays": [
-        "2026-06-25"
+        "2026-06-25",
+        "2026-06-27"
       ],
       "conceptTags": [
         "侧点/垂点/挑点",
@@ -543,6 +552,37 @@
         "image-vision",
         "image-vision-bridge",
         "7.4gb"
+      ]
+    },
+    "memory:memory/2026-06-20.md:17:25": {
+      "key": "memory:memory/2026-06-20.md:17:25",
+      "path": "memory/2026-06-20.md",
+      "startLine": 17,
+      "endLine": 25,
+      "source": "memory",
+      "snippet": "- **最终版：** 主界面 → 模块选择 → 单张大卡片翻转学习，55张词汇卡全部加了语法讲解 + 每个语法3个口语例句 - **音频：** 用 edge-tts 生成 150+ 韩语音频文件，通过 nginx 播放（解决微信不支持 Web Speech API 的问题） - **Claude Code：** 配置了灵眸AI API（sk-c59…242a），可以正常使用了 - **域名：** nannan2026.cn ## 页面访问地址 - https://nannan2026.cn/weather/ — 韩语天气学习页面 - https://nannan2026.cn/korean/ — 韩语课程页面",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-06-27T00:31:08.157Z",
+      "lastRecalledAt": "2026-06-27T00:31:08.157Z",
+      "queryHashes": [
+        "1f76e1d06c08"
+      ],
+      "recallDays": [
+        "2026-06-27"
+      ],
+      "conceptTags": [
+        "edge-tts",
+        "sk-c59",
+        "nannan2026.cn",
+        "nannan2026.cn/weather",
+        "nannan2026.cn/korean",
+        "最终",
+        "界面",
+        "选择"
       ]
     }
   }
