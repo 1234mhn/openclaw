@@ -190,6 +190,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
 <div class="pg show" id="pageIndex">
 <div class="banner">
 <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" title="切换深色模式">🌙</button>
+<h1>📺 这爱情怎么翻译</h1>
 <div class="sub">Can This Love Be Translated? · 11集 / 13课</div>
 <div class="stats">
 <div class="item"><div class="num" style="color:#2ecc71;" id="statDone">2</div><div class="lbl">已学</div></div>
@@ -2919,168 +2920,274 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
 </div>
 
 <div class="pg" id="pageLesson11">
-<div class="top"><span class="back" onclick="goHome()">← 返回</span><h2>出机场之后打车</h2><button class="quiz-btn" onclick="toggleQuiz(11)">测验模式</button></div>
+<div class="top"><span class="back" onclick="goHome()">← 返回</span><h2>第11课 · 出机场之后打车</h2><button class="quiz-btn" onclick="toggleQuiz(11)">测验模式</button></div>
 <!-- 视频由JS动态注入 -->
 <div class="content" id="content11">
 <div class="sec">📝 台词（点击展开讲解）</div>
 
-<div class="line" data-time-start="11.0" data-time-end="14.0">
+<div class="line" <div class="line" data-time-start="10.28" data-time-end="11.64">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">1. 준비됐나요?</p>
-    <button class="speak" onclick="event.stopPropagation();speak('준비됐나요?')">🔊</button>
+    <p class="kr" style="flex:1">1. 네, 네.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('네, 네.')">🔊</button>
   </div>
-  <p class="cn">→ 准备好了吗？</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Are you ready?</p>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">준비되다 — 准备好</span></div>
-    <div class="ex">💬 다 준비됐어요 <span class="c">→ 都准备好了</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">-나요? 委婉疑问语尾，比 -아/어요? 更柔和亲切</span></div>
-    <div class="ex">💬 지금 갈까요? <span class="c">→ 现在走吗？</span></div>
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
     <div class="phon"><b>🎵 音变</b>
-  ➜  됐나요 → [된나요]（鼻音化：收音ㅆ在ㄴ前变成ㄴ）</div>
+  ➜ [待补充]</div>
   </div>
 </div>
 
-<div class="line" data-time-start="14.0" data-time-end="17.0">
+<div class="line" data-time-start="11.64" data-time-end="12.92">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">2. 네, 준비됐습니다</p>
-    <button class="speak" onclick="event.stopPropagation();speak('네, 준비됐습니다')">🔊</button>
+    <p class="kr" style="flex:1">2. 기사님.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('기사님.')">🔊</button>
   </div>
-  <p class="cn">→ 是的，准备好了</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Yes, I am ready</p>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">네 — 是 ｜ 준비되다 — 准备好</span></div>
-    <div class="ex">💬 저도 준비됐습니다 <span class="c">→ 我也准备好了</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">-ㅂ니다/습니다 格式体尊敬阶终结语尾：有收音用-습니다</span></div>
-    <div class="ex">💬 네, 알겠습니다 <span class="c">→ 是，知道了</span></div>
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
     <div class="phon"><b>🎵 音变</b>
-  ➜  준비됐습니다 → [준비됐씀니다]（连音化：s结尾移到后面与습连读）</div>
+  ➜ [待补充]</div>
   </div>
 </div>
 
-<div class="line" data-time-start="17.0" data-time-end="20.0">
+<div class="line" data-time-start="12.92" data-time-end="15.32">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">3. 그럼 출발할까요?</p>
-    <button class="speak" onclick="event.stopPropagation();speak('그럼 출발할까요?')">🔊</button>
+    <p class="kr" style="flex:1">3. 아유, 예, 사장님이.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('아유, 예, 사장님이.')">🔊</button>
   </div>
-  <p class="cn">→ 那出发吧？</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Shall we depart?</p>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">그럼 — 那么 ｜ 출발하다 — 出发</span></div>
-    <div class="ex">💬 지금 출발합시다 <span class="c">→ 现在出发吧</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">-(으)ㄹ까요? 提议/询问意向「要…吗？」</span></div>
-    <div class="ex">💬 밥 먹을까요? <span class="c">→ 要吃饭吗？</span></div>
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
     <div class="phon"><b>🎵 音变</b>
-  ➜  출발할까요 → [출발할까요]（紧音化：ㄱ→ㄲ）</div>
+  ➜ [待补充]</div>
   </div>
 </div>
 
-<div class="line" data-time-start="20.0" data-time-end="24.0">
+<div class="line" data-time-start="15.32" data-time-end="16.56">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">4. 아, 잠깐만요</p>
-    <button class="speak" onclick="event.stopPropagation();speak('아, 잠깐만요')">🔊</button>
+    <p class="kr" style="flex:1">4. 아이고, 반갑습니다.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('아이고, 반갑습니다.')">🔊</button>
   </div>
-  <p class="cn">→ 啊，请稍等</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Ah, one moment please</p>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">아 — 啊(感叹) ｜ 잠깐만 — 稍等一下(잠깐만요缩略)</span></div>
-    <div class="ex">💬 잠깐만 기다려 주세요 <span class="c">→ 请稍等一下</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">잠깐만요 = 잠깐만 + 요，口语中表「等一下」，是日常高频短语</span></div>
-    <div class="ex">💬 잠깐만, 지금 갈게 <span class="c">→ 等一下，马上来</span></div>
-    
-  </div>
-</div>
-
-<div class="line" data-time-start="24.0" data-time-end="27.0">
-  <div class="line-hd" onclick="toggleExp(this)">
-    <span class="arr">▸</span>
-    <p class="kr" style="flex:1">5. 뭐 놓쳤어요?</p>
-    <button class="speak" onclick="event.stopPropagation();speak('뭐 놓쳤어요?')">🔊</button>
-  </div>
-  <p class="cn">→ 落了什么吗？</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Did you forget something?</p>
-  <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">뭐 — 什么 ｜ 놓치다 — 错过/落下/忘带</span></div>
-    <div class="ex">💬 지갑을 놓쳤어요 <span class="c">→ 钱包落下了</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">-았/었어요? 过去时疑问「…了吗？」</span></div>
-    <div class="ex">💬 다 챙겼어요? <span class="c">→ 都带齐了吗？</span></div>
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
     <div class="phon"><b>🎵 音变</b>
-  ➜  놓쳤어요 → [노처써요]（ㅎ弱化 + 连音化：놓의 ㅎ在元音前脱落 + 쳤的 ㅆ移到后面与어连读）</div>
+  ➜ [待补充]</div>
   </div>
 </div>
 
-<div class="line" data-time-start="27.0" data-time-end="30.0">
+<div class="line" data-time-start="16.56" data-time-end="18.92">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">6. 아니요, 괜찮아요</p>
-    <button class="speak" onclick="event.stopPropagation();speak('아니요, 괜찮아요')">🔊</button>
+    <p class="kr" style="flex:1">5. 아유, 제가 할게요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('아유, 제가 할게요.')">🔊</button>
   </div>
-  <p class="cn">→ 不，没关系</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ No, it is fine</p>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">아니요 — 不(否定应答) ｜ 괜찮다 — 没关系/可以</span></div>
-    <div class="ex">💬 괜찮아요, 걱정하지 마세요 <span class="c">→ 没关系，别担心</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">아니요 是韩语否定应答，与네(肯定)对应 ｜ 괜찮아요是日常高频语「可以的/没关系」</span></div>
-    <div class="ex">💬 괜찮습니다 <span class="c">→ 没关系(更正式)</span></div>
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
     <div class="phon"><b>🎵 音变</b>
-  ➜  괜찮아요 → [괜차나요]（ㅎ弱化：ㅎ在元音前脱落）</div>
+  ➜ [待补充]</div>
   </div>
 </div>
 
-<div class="line" data-time-start="30.0" data-time-end="33.0">
+<div class="line" data-time-start="18.92" data-time-end="20.12">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">7. 그럼 갑시다!</p>
-    <button class="speak" onclick="event.stopPropagation();speak('그럼 갑시다!')">🔊</button>
+    <p class="kr" style="flex:1">6. 오유, 지금 이렇게 많은 거 보니까</p>
+    <button class="speak" onclick="event.stopPropagation();speak('오유, 지금 이렇게 많은 거 보니까')">🔊</button>
   </div>
-  <p class="cn">→ 那走吧！</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Then let's go!</p>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">그럼 — 那么 ｜ 가다 — 去/走</span></div>
-    <div class="ex">💬 같이 갑시다 <span class="c">→ 一起走吧</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">-ㅂ시다/읍시다 格式体共动语尾「(我们)…吧」表提议/号召</span></div>
-    <div class="ex">💬 시작합시다 <span class="c">→ 开始吧</span></div>
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
     <div class="phon"><b>🎵 音变</b>
-  ➜  갑시다 → [갑씨다]（紧音化：시的ㅅ变成紧音ㅆ）</div>
+  ➜ [待补充]</div>
   </div>
 </div>
 
-<div class="line" data-time-start="33.0" data-time-end="36.0">
+<div class="line" data-time-start="20.12" data-time-end="21.32">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">8. 택시 잡을게요</p>
-    <button class="speak" onclick="event.stopPropagation();speak('택시 잡을게요')">🔊</button>
+    <p class="kr" style="flex:1">7. 오래 있다 오시나 봐요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('오래 있다 오시나 봐요.')">🔊</button>
   </div>
-  <p class="cn">→ 我来打车</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ I'll get a taxi</p>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">택시 — 出租车 ｜ 잡다 — 抓/拦</span></div>
-    <div class="ex">💬 택시 불러 주세요 <span class="c">→ 请帮我叫车</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">-ㄹ게요 意志形「我来…的」表主动承诺</span></div>
-    <div class="ex">💬 제가 할게요 <span class="c">→ 我来做</span></div>
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
     <div class="phon"><b>🎵 音变</b>
-  ➜  잡을게요 → [자블께요]（连音化：잡的ㅂ+을→블 + 紧音化：ㄱ→ㄲ）</div>
+  ➜ [待补充]</div>
   </div>
 </div>
 
-<div class="line" data-time-start="36.0" data-time-end="40.0">
+<div class="line" data-time-start="21.32" data-time-end="22.0">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">9. 기사님, 여기요</p>
-    <button class="speak" onclick="event.stopPropagation();speak('기사님, 여기요')">🔊</button>
+    <p class="kr" style="flex:1">8. 네.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('네.')">🔊</button>
   </div>
-  <p class="cn">→ 师傅，这里</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Driver, over here</p>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">기사님 — 师傅/司机 ｜ 여기요 — 这里(呼唤/招呼语)</span></div>
-    <div class="ex">💬 기사님, 여기 세워 주세요 <span class="c">→ 师傅，请停在这里</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">여기요 在餐厅或路边招呼时用，相当于「这儿/麻烦这儿」</span></div>
-    <div class="ex">💬 저기요 <span class="c">→ 喂/请问</span></div>
-    
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="22.0" data-time-end="23.6">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">9. 아유, 대표님.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('아유, 대표님.')">🔊</button>
+  </div>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="23.6" data-time-end="24.92">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">10. 석 달 만에 들어왔는데</p>
+    <button class="speak" onclick="event.stopPropagation();speak('석 달 만에 들어왔는데')">🔊</button>
+  </div>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="24.92" data-time-end="26.56">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">11. 날이 많이 더워졌네요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('날이 많이 더워졌네요.')">🔊</button>
+  </div>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="26.56" data-time-end="28.4">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">12. 아유, 지금 더워줄 거 같은데</p>
+    <button class="speak" onclick="event.stopPropagation();speak('아유, 지금 더워줄 거 같은데')">🔊</button>
+  </div>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="28.4" data-time-end="30.5">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">13. 한참 더 올 때 좀 먹을까요?</p>
+    <button class="speak" onclick="event.stopPropagation();speak('한참 더 올 때 좀 먹을까요?')">🔊</button>
+  </div>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="30.5" data-time-end="32.5">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">14. 네, 됐습니다.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('네, 됐습니다.')">🔊</button>
+  </div>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
   </div>
 </div>
 
@@ -3090,17 +3197,10 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
     <span class="arr">▶</span> <b>📖 本课语法要点</b>
   </div>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>① '-나요?'</b> <span class="m">委婉疑问 — 준비됐나요?</span></div>
-    <div class="item"><b>② '-ㅂ니다/습니다'</b> <span class="m">格式体敬语 — 준비됐습니다</span></div>
-    <div class="item"><b>③ '-(으)ㄹ까요?'</b> <span class="m">提议疑问「要…吗？」— 출발할까요?</span></div>
-    <div class="item"><b>④ '-았/었어요?'</b> <span class="m">过去时疑问 — 놓쳤어요?</span></div>
-    <div class="item"><b>⑤ '-ㅂ시다/읍시다'</b> <span class="m">共动语尾「(我们)…吧」— 갑시다</span></div>
-    <div class="item"><b>⑥ '-ㄹ게요'</b> <span class="m">意志形「我来做」— 잡을게요</span></div>
-    <div class="phon"><b>🎵 核心音变</b>
-  ➜  됐나요 → [된나요] — 鼻音化
-  ➜  잡을게요 → [자블께요] — 连音化 + 紧音化
-  ➜  괜찮아요 → [괜차나요] — ㅎ弱化
-    </div>
+    <div class="item"><b>①</b> <span class="m">[待补充]</span></div>
+    <div class="item"><b>②</b> <span class="m">[待补充]</span></div>
+    <div class="phon"><b>🎵 音变提示</b>
+  ➜ [待补充]</div>
   </div>
 </div>
 <button class="done-toggle" data-lesson="11" onclick="toggleDone(11)">✓ 已完成学习</button>
@@ -3111,47 +3211,122 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
 </div></div>
 
 <div class="pg" id="pageLesson12">
-<div class="top"><span class="back" onclick="goHome()">← 返回</span><h2>你还好吗？</h2><button class="quiz-btn" onclick="toggleQuiz(12)">测验模式</button></div>
+<div class="top"><span class="back" onclick="goHome()">← 返回</span><h2>第12课 · 你还好吗？</h2><button class="quiz-btn" onclick="toggleQuiz(12)">测验模式</button></div>
 <!-- 视频由JS动态注入 -->
 <div class="content" id="content12">
 <div class="sec">📝 台词（点击展开讲解）</div>
 
-<div class="line" data-time-start="0" data-time-end="2.0">
+<div class="line" <div class="line" data-time-start="0" data-time-end="1">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">[台词待补充 1]</p>
-    <button class="speak" onclick="event.stopPropagation();speak('[台词待补充]')">🔊</button>
+    <p class="kr" style="flex:1">1. 왜 그러세요?</p>
+    <button class="speak" onclick="event.stopPropagation();speak('왜 그러세요?')">🔊</button>
   </div>
-  <p class="cn">→ [台词待补充 1]</p>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
   <div class="line-exp" style="display:none">
     <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
     <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
   </div>
 </div>
 
-<div class="line" data-time-start="2.0" data-time-end="4.0">
+<div class="line" data-time-start="1" data-time-end="4">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">[台词待补充 2]</p>
-    <button class="speak" onclick="event.stopPropagation();speak('[台词待补充]')">🔊</button>
+    <p class="kr" style="flex:1">2. 어디 안 좋으세요?</p>
+    <button class="speak" onclick="event.stopPropagation();speak('어디 안 좋으세요?')">🔊</button>
   </div>
-  <p class="cn">→ [台词待补充 2]</p>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
   <div class="line-exp" style="display:none">
     <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
     <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
   </div>
 </div>
 
-<div class="line" data-time-start="4.0" data-time-end="6.0">
+<div class="line" data-time-start="4" data-time-end="8">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">[台词待补充 3]</p>
-    <button class="speak" onclick="event.stopPropagation();speak('[台词待补充]')">🔊</button>
+    <p class="kr" style="flex:1">3. 아니요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('아니요.')">🔊</button>
   </div>
-  <p class="cn">→ [台词待补充 3]</p>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
   <div class="line-exp" style="display:none">
     <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
     <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="8" data-time-end="9">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">4. 괜찮아요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('괜찮아요.')">🔊</button>
+  </div>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="9" data-time-end="10">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">5. 괜찮아요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('괜찮아요.')">🔊</button>
+  </div>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="10" data-time-end="12">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">6. 제가 너무 긴장해서 좀 어지러웠나 봐요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('제가 너무 긴장해서 좀 어지러웠나 봐요.')">🔊</button>
+  </div>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
   </div>
 </div>
 
@@ -3161,9 +3336,10 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
     <span class="arr">▶</span> <b>📖 本课语法要点</b>
   </div>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>[待补充]</b></div>
+    <div class="item"><b>① [待补充语法点1]</b> <span class="m">[语法说明]</span></div>
+    <div class="item"><b>② [待补充语法点2]</b> <span class="m">[语法说明]</span></div>
     <div class="phon"><b>🎵 音变提示</b>
-  [待补充]</div>
+  ➜ [待补充]</div>
   </div>
 </div>
 <button class="done-toggle" data-lesson="12" onclick="toggleDone(12)">✓ 已完成学习</button>
@@ -3171,50 +3347,218 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
 <textarea class="note-box" data-note="12" placeholder="在此输入笔记..."></textarea>
 <span class="note-status" id="noteStatus12">✓ 已保存</span>
 <button class="speak-practice-toggle" onclick="startPractice(12)">🎤 口语练习</button>
-</div></div>
-
-<div class="pg" id="pageLesson13">
-<div class="top"><span class="back" onclick="goHome()">← 返回</span><h2>男女主再次重逢</h2><button class="quiz-btn" onclick="toggleQuiz(13)">测验模式</button></div>
+</div></div><div class="pg" id="pageLesson13">
+<div class="top"><span class="back" onclick="goHome()">← 返回</span><h2>第13课 · 男女主再次重逢</h2><button class="quiz-btn" onclick="toggleQuiz(13)">测验模式</button></div>
 <!-- 视频由JS动态注入 -->
 <div class="content" id="content13">
 <div class="sec">📝 台词（点击展开讲解）</div>
 
-<div class="line" data-time-start="0" data-time-end="2.0">
+<div class="line" <div class="line" data-time-start="0" data-time-end="8">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">[台词待补充 1]</p>
-    <button class="speak" onclick="event.stopPropagation();speak('[台词待补充]')">🔊</button>
+    <p class="kr" style="flex:1">1. 안녕하세요. 나이스 미츠.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('안녕하세요. 나이스 미츠.')">🔊</button>
   </div>
-  <p class="cn">→ [台词待补充 1]</p>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
   <div class="line-exp" style="display:none">
     <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
     <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
   </div>
 </div>
 
-<div class="line" data-time-start="2.0" data-time-end="4.0">
+<div class="line" data-time-start="8" data-time-end="10">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">[台词待补充 2]</p>
-    <button class="speak" onclick="event.stopPropagation();speak('[台词待补充]')">🔊</button>
+    <p class="kr" style="flex:1">2. 너무 좋아요, 미츠.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('너무 좋아요, 미츠.')">🔊</button>
   </div>
-  <p class="cn">→ [台词待补充 2]</p>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
   <div class="line-exp" style="display:none">
     <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
     <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
   </div>
 </div>
 
-<div class="line" data-time-start="4.0" data-time-end="6.0">
+<div class="line" data-time-start="10" data-time-end="12">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">[台词待补充 3]</p>
-    <button class="speak" onclick="event.stopPropagation();speak('[台词待补充]')">🔊</button>
+    <p class="kr" style="flex:1">3. 지금 기분이 더 좋아요?</p>
+    <button class="speak" onclick="event.stopPropagation();speak('지금 기분이 더 좋아요?')">🔊</button>
   </div>
-  <p class="cn">→ [台词待补充 3]</p>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
   <div class="line-exp" style="display:none">
     <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
     <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="12" data-time-end="14">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">4. 이렇게 만나니 반갑네요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('이렇게 만나니 반갑네요.')">🔊</button>
+  </div>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="14" data-time-end="30">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">5. 이제 건강은 괜찮으신가요, 자물씨?</p>
+    <button class="speak" onclick="event.stopPropagation();speak('이제 건강은 괜찮으신가요, 자물씨?')">🔊</button>
+  </div>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="30" data-time-end="33">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">6. 아, 죄송합니다. 뭐라고 하셨죠?</p>
+    <button class="speak" onclick="event.stopPropagation();speak('아, 죄송합니다. 뭐라고 하셨죠?')">🔊</button>
+  </div>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="33" data-time-end="35">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">7. 이렇게 만나니 반갑다고요?</p>
+    <button class="speak" onclick="event.stopPropagation();speak('이렇게 만나니 반갑다고요?')">🔊</button>
+  </div>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="35" data-time-end="40">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">8. 이제 건강은 괜찮은 거냐고요?</p>
+    <button class="speak" onclick="event.stopPropagation();speak('이제 건강은 괜찮은 거냐고요?')">🔊</button>
+  </div>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="40" data-time-end="44">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">9. 네, 이제 몸은 완전히 좋아요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('네, 이제 몸은 완전히 좋아요.')">🔊</button>
+  </div>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="44" data-time-end="55">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">10. 이렇게 만나니까 저도 너무 반갑네요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('이렇게 만나니까 저도 너무 반갑네요.')">🔊</button>
+  </div>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="55" data-time-end="57">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">11. 라고 해주세요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('라고 해주세요.')">🔊</button>
+  </div>
+  <p class="cn">→ [翻译待补充]</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ [待补充]</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 短语 <span class="c">→ [待补充]</span></div>
+    <div class="ex">💬 造句 <span class="c">→ [待补充]</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">[待补充]</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ [待补充]</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ [待补充]</div>
   </div>
 </div>
 
@@ -3224,9 +3568,10 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
     <span class="arr">▶</span> <b>📖 本课语法要点</b>
   </div>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>[待补充]</b></div>
+    <div class="item"><b>① [待补充语法点1]</b> <span class="m">[语法说明]</span></div>
+    <div class="item"><b>② [待补充语法点2]</b> <span class="m">[语法说明]</span></div>
     <div class="phon"><b>🎵 音变提示</b>
-  [待补充]</div>
+  ➜ [待补充]</div>
   </div>
 </div>
 <button class="done-toggle" data-lesson="13" onclick="toggleDone(13)">✓ 已完成学习</button>
@@ -3234,9 +3579,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
 <textarea class="note-box" data-note="13" placeholder="在此输入笔记..."></textarea>
 <span class="note-status" id="noteStatus13">✓ 已保存</span>
 <button class="speak-practice-toggle" onclick="startPractice(13)">🎤 口语练习</button>
-</div></div>
-
-<div id="practiceModal" class="practice-modal">
+</div></div><div id="practiceModal" class="practice-modal">
   <div class="practice-modal-inner">
     <div class="practice-modal-header">
       <button class="back-btn" onclick="closePracticeModal()">←</button>
@@ -3297,19 +3640,27 @@ var LESSONS={
     lines:[['차무희 씨','车武熙小姐'],['지금부터 뭐 할 겁니까, 뭐 할 일 있습니까?','从现在开始要做什么？有事要做吗？'],['제 볼일은 아까 다 끝났죠?','我的事刚才都办完了吧？'],['봤잖아요.','你不是看到了吗'],['왜요?','怎么了？'],['괜찮다면 저랑 같이 저녁 되실래요?','可以的话，跟我一起吃晚饭好吗？'],['아까는 싫다더니?','刚才不是说不要吗？'],['싫다고 안 했습니다.','我没说不要'],['굳이 같이 먹을 이유가 없다는 거였지.','是说没有非要一起吃的理由'],['그럼 지금은 왜?','那现在为什么？'],['이탈리아 가족한테 저녁식사 선물을 받았어요. 두 사람 자리라는데. 혼자 먹으면 아깝잖아요?','从意大利家庭那里收到了晚餐券，说是双人位。一个人吃太浪费了'],['그런 거면 아깝죠.','这样的话确实浪费'],['비싼 데래요?','听说很贵的地方？'],['아마도.','大概吧'],['그럼 내가 같이 가서 먹어 줄게요. 신세 진 것도 있는데.','那我跟你一起去吃吧。还欠你人情'],['지금 내가 보일을 베푼 건데 왜 신세를 갚는 것처럼 생색을 내지?','现在是我在施恩惠，为什么搞得像在还人情似的？'],['아유','哎呀'],['암만 마시는 것도 혼자 먹으면 맛이 없고 많이 안 들어가요?','再好吃的东西一个人吃也没味道，吃不了多少吧？']],
     en:['Ms. Cha Moo-hee','From now on what are you going to do? Anything you need to do?','I finished my errands earlier, right?','You saw it','Why?','If it is okay, would you like to have dinner with me?','Earlier you said you did not want to?','I did not say I did not want to','I just said there is no particular reason to eat together','Then why now?','I received a dinner gift from an Italian family. It is a two-person table. Would be a waste to eat alone','If that is the case, it would be a waste','Is it an expensive place?','Probably','Then I will go eat with you. I owe you one','I am the one doing you a favor, why are you making it sound like you are repaying me?','Oh dear','However delicious food is, eating alone has no taste and you do not eat much, right?'],
     vocab:[['지금부터','从现在开始'],['볼일','要做的事/事'],['끝나다','结束'],['괜찮다','可以/没关系'],['저랑','跟我(저+랑)'],['같이','一起'],['저녁','晚饭/晚上'],['싫다','讨厌/不愿意'],['굳이','非要/硬要'],['이유','理由'],['이탈리아','意大利'],['가족','家庭/家人'],['저녁식사','晚餐'],['선물','礼物'],['혼자','一个人/独自'],['아깝다','可惜/浪费'],['비싸다','贵'],['아마도','大概/也许'],['신세 지다','欠人情'],['베풀다','施恩惠/提供'],['갚다','还/偿还'],['생색','功劳/人情'],['아유','哎呀(感叹)'],['암만','再怎么/无论多么'],['마시다','(方言/口语)无论/再怎么'],['맛','味道'],['들어가다','进去/装得下']],tip:'邀请共进晚餐的场景对话'},
- 11:{title:'出机场之后打车',video:'https://korean-video-1433876150.cos.ap-guangzhou.myqcloud.com/media/korean_course/videos/ep02_scene01.mp4',subtitle:'',
+ 11:{title:'第11课 · 出机场之后打车',video:'https://korean-video-1433876150.cos.ap-guangzhou.myqcloud.com/media/korean_course/videos/ep02_scene01.mp4',subtitle:'',
     lines:[
-      ['준비됐나요?','准备好了吗？'],
-      ['네, 준비됐습니다','是的，准备好了'],
-      ['그럼 출발할까요?','那出发吧？'],
-      ['아, 잠깐만요','啊，请稍等'],
-      ['뭐 놓쳤어요?','落了什么吗？'],
-      ['아니요, 괜찮아요','不，没关系']
+      ['네, 네.','[翻译待补充]'],
+      ['기사님.','[翻译待补充]'],
+      ['아유, 예, 사장님이.','[翻译待补充]'],
+      ['아이고, 반갑습니다.','[翻译待补充]'],
+      ['아유, 제가 할게요.','[翻译待补充]'],
+      ['오유, 지금 이렇게 많은 거 보니까','[翻译待补充]'],
+      ['오래 있다 오시나 봐요.','[翻译待补充]'],
+      ['네.','[翻译待补充]'],
+      ['아유, 대표님.','[翻译待补充]'],
+      ['석 달 만에 들어왔는데','[翻译待补充]'],
+      ['날이 많이 더워졌네요.','[翻译待补充]'],
+      ['아유, 지금 더워줄 거 같은데','[翻译待补充]'],
+      ['한참 더 올 때 좀 먹을까요?','[翻译待补充]'],
+      ['네, 됐습니다.','[翻译待补充]']
     ],
-    en:['Are you ready?','Yes, I am ready','Shall we depart?','Ah, one moment','Did you forget something?','No, it is fine'],
+    en:['[待补充]','[待补充]','[待补充]','[待补充]','[待补充]','[待补充]','[待补充]','[待补充]','[待补充]','[待补充]','[待补充]','[待补充]','[待补充]','[待补充]'],
     vocab:[
-      ['준비되다','准备好'],['출발하다','出发'],['잠깐만','稍等'],['놓치다','错过/落下'],['괜찮다','没关系']
-    ],tip:'出发前的简短对话'},
+      ['네','是/好'],['기사님','司机师傅'],['아이고','哎呀'],['반갑다','高兴'],['할게요','我来做'],['오래','久'],['들어오다','回来'],['대표님','代表'],['석 달','三个月'],['더워지다','变热'],['한참','好一会儿'],['먹다','吃'],['되다','好了/可以']
+    ],tip:'出机场后打车与熟人寒暄的场景'},
   10:{title:'第10课 · 拍照·SNS',video:'https://korean-video-1433876150.cos.ap-guangzhou.myqcloud.com/media/korean_course/videos/scene10_namegreeting.mp4',subtitle:'videos/scene10_namegreeting.vtt',
     lines:[
       ['주호진 씨는 사진 안 찍어요?','车武熙小姐不拍照吗？'],
@@ -3362,27 +3713,37 @@ var LESSONS={
     vocab:[
       ['주호진','朱浩镇(人名)'],['인스타','Instagram'],['계정','账号'],['포스팅','发帖/发图'],['팔로워','粉丝/关注者'],['아쉽다','可惜/遗憾'],['만','万'],['늘다','增加/增长'],['보태다','增添/凑'],['어렵다','难/困难'],['맞팔','互相关注'],['생각해보다','考虑一下']
     ],tip:'SNS场景对话｜맞팔是맞춤 팔로우(互相关注)的缩略语'},
- 12:{title:'你还好吗？',video:'https://korean-video-1433876150.cos.ap-guangzhou.myqcloud.com/media/korean_course/videos/ep02_scene02.mp4',subtitle:'',
+ 12:{title:'第12课 · 你还好吗？',video:'https://korean-video-1433876150.cos.ap-guangzhou.myqcloud.com/media/korean_course/videos/ep02_scene02.mp4',subtitle:'',
     lines:[
-      ['[台词待补充]','[台词待补充]'],
-      ['[台词待补充]','[台词待补充]'],
-      ['[台词待补充]','[台词待补充]']
+      ['왜 그러세요?','[翻译待补充]'],
+      ['어디 안 좋으세요?','[翻译待补充]'],
+      ['아니요.','[翻译待补充]'],
+      ['괜찮아요.','[翻译待补充]'],
+      ['괜찮아요.','[翻译待补充]'],
+      ['제가 너무 긴장해서 좀 어지러웠나 봐요.','[翻译待补充]']
     ],
-    en:['[placeholder]','[placeholder]','[placeholder]'],
+    en:['[待补充]','[待补充]','[待补充]','[待补充]','[待补充]','[待补充]'],
     vocab:[
-      ['단어1','单词1'],['단어2','单词2'],['단어3','单词3']
-    ],tip:'你还好吗？（10:13~10:36）'},
- 13:{title:'男女主再次重逢',video:'https://korean-video-1433876150.cos.ap-guangzhou.myqcloud.com/media/korean_course/videos/ep02_scene03.mp4',subtitle:'',
+      ['그러다','那样/干嘛'],['안 좋다','不舒服'],['아니요','不'],['괜찮다','没关系/没事'],['긴장하다','紧张'],['어지럽다','头晕']
+    ],tip:'（10:13~10:36）关心问候场景'},
+ 13:{title:'第13课 · 男女主再次重逢',video:'https://korean-video-1433876150.cos.ap-guangzhou.myqcloud.com/media/korean_course/videos/ep02_scene03.mp4',subtitle:'',
     lines:[
-      ['[台词待补充]','[台词待补充]'],
-      ['[台词待补充]','[台词待补充]'],
-      ['[台词待补充]','[台词待补充]']
+      ['안녕하세요. 나이스 미츠.','[翻译待补充]'],
+      ['너무 좋아요, 미츠.','[翻译待补充]'],
+      ['지금 기분이 더 좋아요?','[翻译待补充]'],
+      ['이렇게 만나니 반갑네요.','[翻译待补充]'],
+      ['이제 건강은 괜찮으신가요, 자물씨?','[翻译待补充]'],
+      ['아, 죄송합니다. 뭐라고 하셨죠?','[翻译待补充]'],
+      ['이렇게 만나니 반갑다고요?','[翻译待补充]'],
+      ['이제 건강은 괜찮은 거냐고요?','[翻译待补充]'],
+      ['네, 이제 몸은 완전히 좋아요.','[翻译待补充]'],
+      ['이렇게 만나니까 저도 너무 반갑네요.','[翻译待补充]'],
+      ['라고 해주세요.','[翻译待补充]']
     ],
-    en:['[placeholder]','[placeholder]','[placeholder]'],
+    en:['[待补充]','[待补充]','[待补充]','[待补充]','[待补充]','[待补充]','[待补充]','[待补充]','[待补充]','[待补充]','[待补充]'],
     vocab:[
-      ['단어1','单词1'],['단어2','单词2'],['단어3','单词3']
-    ],tip:'男女主再次重逢（17:36~18:38）'},
-
+      ['안녕하세요','你好'],['너무','太/非常'],['좋다','好/喜欢'],['기분','心情'],['만나다','见面'],['반갑다','高兴'],['건강','健康'],['괜찮다','没关系/没事'],['죄송합니다','对不起'],['몸','身体'],['완전히','完全']
+    ],tip:'（17:36~18:38）男女主再次重逢的场景'},
 };
 
 
@@ -3788,11 +4149,14 @@ var LESSON_TIMES={
   ],
   10:[{start:2.5,end:6.5},{start:6.0,end:9.0},{start:8.0,end:12.0},{start:11.0,end:16.0},{start:15.5,end:19.0},{start:18.5,end:21.5},{start:20.0,end:24.0},{start:23.0,end:26.5},{start:25.5,end:29.5},{start:28.5,end:32.5},{start:31.0,end:34.0},{start:33.0,end:36.5},{start:35.5,end:39.0},{start:38.0,end:42.0},{start:41.0,end:44.0},{start:43.0,end:47.5},{start:46.5,end:50.5},{start:49.5,end:53.5},{start:52.5,end:56.5},{start:55.5,end:60.0},{start:59.0,end:65.0},{start:64.0,end:69.0}],
   11:[
-    {start:11.0,end:14.0},{start:14.0,end:17.0},{start:17.0,end:20.0},{start:20.0,end:24.0},{start:24.0,end:27.0},{start:27.0,end:30.0},{start:30.0,end:33.0},{start:33.0,end:36.0},{start:36.0,end:40.0}
+    {start:10.28,end:11.64},{start:11.64,end:12.92},{start:12.92,end:15.32},{start:15.32,end:16.56},{start:16.56,end:18.92},{start:18.92,end:20.12},{start:20.12,end:21.32},{start:21.32,end:22.0},{start:22.0,end:23.6},{start:23.6,end:24.92},{start:24.92,end:26.56},{start:26.56,end:28.4},{start:28.4,end:30.5}
+  ],
+  12:[
+    {start:0,end:1},{start:1,end:4},{start:4,end:8},{start:8,end:9},{start:9,end:10},{start:10,end:12}
   ],
   13:[
-    {start:0,end:1.0},{start:1.0,end:3.0},{start:3.0,end:4.5},{start:4.5,end:6.0},
-    {start:6.0,end:8.0},{start:8.0,end:10.0},{start:10.0,end:11.0}
+    {start:0,end:8},{start:8,end:10},{start:10,end:12},{start:12,end:14},
+    {start:14,end:30},{start:30,end:33},{start:33,end:35},{start:35,end:40},{start:40,end:44},{start:44,end:55},{start:55,end:57}
   ],
 };
 function setupSyncActiveLine(n){
