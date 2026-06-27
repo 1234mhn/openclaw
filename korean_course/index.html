@@ -3783,7 +3783,7 @@ function openLesson(n){
       wrap.className='video-wrap';
       var v=document.createElement('video');
       v.controls=true;
-      v.preload='metadata';
+      v.preload='auto';
       v.src=d.video;
       // 添加字幕轨道
       if(d.subtitle){
