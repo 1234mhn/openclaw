@@ -4234,7 +4234,7 @@ function setupSyncActiveLine(n){
       lines[idx].onclick=function(e){
         if(e.target.classList.contains('speak'))return;
         var t=times[idx];
-        if(t){video.currentTime=t.start;video.play()}
+        if(t){if(video.readyState>=1){video.currentTime=t.start;video.play()}else{video.addEventListener("loadedmetadata",function h(){video.currentTime=t.start;video.play();video.removeEventListener("loadedmetadata",h)})}}
       }
     })(i)
   }
