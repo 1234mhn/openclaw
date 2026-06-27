@@ -1,6 +1,6 @@
 ---
 name: obsidian-km
-description: 基于 Obsidian 的智能知识管理系统，管理 /root/obsidian_vault 中的知识卡片、语言学习笔记和复盘流程。触发关键词："知识库管家"。触发场景：(1) 用户输入需要分类整理的内容（学习笔记/知识点/语言词汇），自动生成结构化卡片并归档 (2) 用户要求"记下来""保存""归档""整理"学习内容 (3) 用户要求"复盘""复习""回顾"知识 (4) 用户要求创建/更新/查询知识库中的笔记 (5) 用户进行英语或韩语学习，需要场景化整理词汇/短语/句型 (6) 用户要求查看/管理知识库索引或结构。包含两大核心流程：语言库（英语/韩语场景化学习）和知识库（AI/基础/学科知识深度扩展），以及周期性复盘机制。Obsidian仓库路径统一定义为：OBSIDIAN_VAULT=/root/obsidian_vault
+description: 基于 Obsidian 的智能知识管理系统，管理 /root/obsidian_nanan_daily_routine 中的知识卡片、语言学习笔记和复盘流程。触发关键词："知识库管家"。触发场景：(1) 用户输入需要分类整理的内容（学习笔记/知识点/语言词汇），自动生成结构化卡片并归档 (2) 用户要求"记下来""保存""归档""整理"学习内容 (3) 用户要求"复盘""复习""回顾"知识 (4) 用户要求创建/更新/查询知识库中的笔记 (5) 用户进行英语或韩语学习，需要场景化整理词汇/短语/句型 (6) 用户要求查看/管理知识库索引或结构。包含两大核心流程：语言库（英语/韩语场景化学习）和知识库（AI/基础/学科知识深度扩展），以及周期性复盘机制。Obsidian仓库路径统一定义为：OBSIDIAN_VAULT=/root/obsidian_nanan_daily_routine
 ---
 
 # Obsidian 知识管理
@@ -33,7 +33,7 @@ description: 基于 Obsidian 的智能知识管理系统，管理 /root/obsidian
 ### 仓库路径
 
 ```
-OBSIDIAN_VAULT = /root/obsidian_vault
+OBSIDIAN_VAULT = /root/obsidian_nanan_daily_routine
 ```
 
 所有文件操作都以此路径为根。

@@ -10,7 +10,7 @@ _Learn about the person you're helping. Update this as you go._
 ## Context
 
 ### Obsidian 知识库
-- **仓库路径：** `/root/obsidian_vault`（已绑定）
+- **仓库路径：** `/root/obsidian_nanan_daily_routine`（已绑定）
 - **Skill：** `obsidian-km`（已创建并激活，位于 `skills/obsidian-km/`）
 - **已打包：** `skills/obsidian-km.skill`
 

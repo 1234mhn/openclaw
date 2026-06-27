@@ -3,7 +3,7 @@
 本仓库由 AI 管家「楠楠」自动维护，内容实时更新。
 电脑端 Obsidian 用户请拉取同步。
 
-> 服务器路径: `/root/obsidian_vault`
+> 服务器路径: `/root/obsidian_nanan_daily_routine`
 > 
 > 服务器: Tencent Cloud Lighthouse
 ### 同步说明
@@ -18,7 +18,7 @@
 ### 方式一：直接在服务器上编辑
 ```bash
 # SSH 到服务器后
-cd /root/obsidian_vault
+cd /root/obsidian_nanan_daily_routine
 vim "笔记名.md"     # 用终端编辑 Markdown
 code .              # 如果有 VS Code Server
 ```
@@ -29,7 +29,7 @@ code .              # 如果有 VS Code Server
 ### 方式二：通过 GitHub 同步到本地
 ```bash
 # 设置远程仓库（首次）
-cd /root/obsidian_vault
+cd /root/obsidian_nanan_daily_routine
 git remote add origin <你的仓库地址>
 git push -u origin main
 ### 同步说明
@@ -62,7 +62,7 @@ git clone <仓库地址> ~/我的知识库
 电脑端 Obsidian 用户请拉取同步。
 
 ```
-obsidian_vault/
+obsidian_nanan_daily_routine/
 ├── 📒 主页.md          ← 知识库入口
 ├── 日记/               ← 日常记录
 ├── 项目/               ← 项目笔记

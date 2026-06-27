@@ -48,7 +48,7 @@ body.dark .lesson:hover{background:#1c2128}
 .locked{opacity:.45;cursor:default}
 .locked:hover{background:transparent;transform:none;box-shadow:none;margin:0}
 .pg{display:none;min-height:100vh;background:#fff}
-.pg .video-wrap{position:sticky;top:52px;z-index:5;background:#000}
+.pg .video-wrap{position:sticky;top:0;z-index:5;background:#000}
 .pg video{width:100%;display:block;background:#000}
 body.dark .pg{background:#0d1117}
 .pg.show{display:block}
@@ -59,7 +59,10 @@ body.dark .top{background:#0d1117;border-bottom-color:#30363d}
 .top .quiz-btn{font-size:12px;padding:6px 14px;border-radius:20px;border:1px solid #3498db;color:#3498db;background:none;cursor:pointer;transition:all .2s}
 .top .quiz-btn.active{background:#3498db;color:#fff}
 video::cue{bottom:20px !important;background:rgba(0,0,0,.7);color:#fff;font-size:1.1em}
-/* 第2集（11~13课）已无需独立覆盖 - 统一使用上方 .pg .video-wrap 的 sticky 规则 */
+/* 第2集（11~13课）页面顶部间距修正 */
+#pageLesson11 .video-wrap,
+#pageLesson12 .video-wrap,
+#pageLesson13 .video-wrap{position:relative!important;top:auto!important}
 .content{padding:20px;max-width:700px;margin:0 auto}
 .sec{font-size:14px;font-weight:600;margin:16px 0 8px;color:#444}
 body.dark .sec{color:#8b949e}
@@ -3661,18 +3664,18 @@ var LESSONS={
     lines:[
       ['네, 네.','是的，好的。'],
       ['기사님.','司机师傅。'],
-      ['아유, 예, 사장님이 예.','哎呀，是的，社长您。'],
+      ['아유, 예, 사장님이.','哎呀，是的，社长您。'],
       ['아이고, 반갑습니다.','哎呀，很高兴见到您。'],
       ['아유, 제가 할게요.','哎呀，我来拿吧。'],
       ['오유, 지금 이렇게 많은 거 보니까','哦，看您现在带这么多东西……'],
       ['오래 있다 오시나 봐요.','看来您是待很久才来的吧。'],
       ['네.','是的。'],
       ['아유, 대표님.','哎呀，代表您。'],
-      ['섭달 많이 들어왔는데','隔了三个月才回来……'],
+      ['석 달 만에 들어왔는데','隔了三个月才回来……'],
       ['날이 많이 더워졌네요.','天气热了很多啊。'],
       ['아유, 지금 더워줄 거 같은데','哎呀，现在热得要命……'],
-      ['참 더울 때 좀 먹을까요?','等最热的时候吃点（冰的）吗？'],
-      ['아유, 네, 네.','嗯，不用了。']
+      ['한참 더 올 때 좀 먹을까요?','等最热的时候吃点（冰的）吗？'],
+      ['네, 됐습니다.','嗯，不用了。']
     ],
     en:['Yes, okay.','Driver sir.','Oh, yes, CEO.','Oh, nice to meet you.','Oh, let me do it.','Oh, seeing you have so much luggage now...','It looks like you\'ll be staying for a long time.','Yes.','Oh, CEO.','It\'s been three months since I came back...','The weather has gotten really hot.','Oh, it feels like I\'m dying from the heat...','Shall we eat something when it gets really hot?','Yes, I\'m fine. Thank you.'],
     vocab:[
