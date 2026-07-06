@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- v20260629-2 -->
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
@@ -48,11 +49,11 @@ body.dark .lesson:hover{background:#1c2128}
 .locked{opacity:.45;cursor:default}
 .locked:hover{background:transparent;transform:none;box-shadow:none;margin:0}
 .pg{display:none;min-height:100vh;background:#fff}
-.pg .video-wrap{position:sticky;top:52px;z-index:5;background:#000}
+.pg .video-wrap{position:sticky;top:40px;z-index:5;background:#000}
 .pg video{width:100%;display:block;background:#000}
 body.dark .pg{background:#0d1117}
 .pg.show{display:block}
-.top{display:flex;align-items:center;padding:12px 16px;border-bottom:1px solid #eee;position:sticky;top:0;background:#fff;z-index:10}
+.top{display:flex;align-items:center;padding:6px 16px;border-bottom:1px solid #eee;position:sticky;top:0;background:#fff;z-index:10}
 body.dark .top{background:#0d1117;border-bottom-color:#30363d}
 .top .back{color:#3498db;font-size:14px;cursor:pointer;margin-right:12px}
 .top h2{font-size:16px;font-weight:500;flex:1}
@@ -192,12 +193,12 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
 <div class="banner">
 <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" title="切换深色模式">🌙</button>
 <h1>📺 这爱情怎么翻译</h1>
-<div class="sub">Can This Love Be Translated? · 11集 / 13课</div>
+<div class="sub">Can This Love Be Translated? · 12集 / 16课</div>
 <div class="stats">
 <div class="item"><div class="num" style="color:#2ecc71;" id="statDone">2</div><div class="lbl">已学</div></div>
 <div class="item"><div class="num" style="color:#e74c3c;" id="statTodo">8</div><div class="lbl">待学</div></div>
-<div class="item"><div class="num" style="color:#fff;">11</div><div class="lbl">总集数</div></div>
-<div class="item"><div class="num" style="color:#f39c12;">13</div><div class="lbl">总课数</div></div>
+<div class="item"><div class="num" style="color:#fff;">12</div><div class="lbl">总集数</div></div>
+<div class="item"><div class="num" style="color:#f39c12;">18</div><div class="lbl">总课数</div></div>
 </div>
 <div class="bar-wrap"><div class="bar" id="progBar"></div></div>
 <div style="font-size:11px;opacity:.5;margin-top:6px;">每天一课，轻松学韩语 🇰🇷</div>
@@ -229,10 +230,53 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
 <div class="lesson" data-lesson="11" onclick="openLesson(11)"><span class="num red">11</span><div class="info"><div class="title">出机场之后打车</div><div class="sub">00:11~00:40 · 开场出发场景</div></div><span class="tag red">待学</span></div>
 <div class="lesson" data-lesson="12" onclick="openLesson(12)"><span class="num red">12</span><div class="info"><div class="title">你还好吗？</div><div class="sub">10:13~10:36 · 关心问候</div></div><span class="tag red">待学</span></div>
 <div class="lesson" data-lesson="13" onclick="openLesson(13)"><span class="num red">13</span><div class="info"><div class="title">男女主再次重逢</div><div class="sub">17:36~18:38 · 重逢场景</div></div><span class="tag red">待学</span></div>
+
+<div class="lesson" data-lesson="14" onclick="openLesson(14)">
+  <span class="num red">14</span>
+  <div class="info">
+    <div class="title">拍摄现场·散步对话</div>
+    <div class="sub">차무희 씨 / 걷는 마네킹</div>
+  </div>
+  <span class="tag red">待学</span>
+</div>
+<div class="lesson" data-lesson="15" onclick="openLesson(15)">
+  <span class="num red">15</span>
+  <div class="info">
+    <div class="title">一起去吃饭吧</div>
+    <div class="sub">어, 그래요 / 둘러요</div>
+  </div>
+  <span class="tag red">待学</span>
+</div>
+<div class="lesson" data-lesson="16" onclick="openLesson(16)">
+  <span class="num red">16</span>
+  <div class="info">
+    <div class="title">你不会喝酒吗？</div>
+    <div class="sub">술 못 마셔요? / 할 말 있어서 모셨다고 했죠</div>
+  </div>
+  <span class="tag red">待学</span>
+</div>
+<div class="lesson" data-lesson="17" onclick="openLesson(17)">
+  <span class="num red">17</span>
+  <div class="info">
+    <div class="title">特地来当翻译？</div>
+    <div class="sub">굳이 통역을 맡아서 / 만날 길이 없더라고요</div>
+  </div>
+  <span class="tag red">待学</span>
+</div>
+<div class="lesson" data-lesson="18" onclick="openLesson(18)">
+  <span class="num red">18</span>
+  <div class="info">
+    <div class="title">餐厅红酒招待</div>
+    <div class="sub">특별히 제 고향 이탈리아에서 온 와인 / 사양할게</div>
+  </div>
+  <span class="tag red">待学</span>
+</div>
+
 </div>
 </div>
 </div>
-<div class="footer">楠楠大管家 · 韩语学习系统</div>
+</div>
+
 </div>
 
 <div class="pg" id="pageLesson1">
@@ -542,7 +586,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
 <!-- 视频由JS动态注入 -->
 <div class="content" id="content2">
 <div class="sec">📝 台词（点击展开讲解）</div>
-<div class="line" data-time-start="0" data-time-end="2.0">
+<div class="line" data-time-start="0" data-time-end="2.5">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">1. 통역사님, 준비되셨어요?</p>
@@ -561,7 +605,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="2.5" data-time-end="4.0">
+<div class="line" data-time-start="2.5" data-time-end="5.0">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">2. 네, 저도 준비됐습니다</p>
@@ -579,7 +623,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="13.0" data-time-end="15.0">
+<div class="line" data-time-start="13" data-time-end="15.0">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">3. 아, 진짜 높다</p>
@@ -615,7 +659,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="22.0" data-time-end="25.5">
+<div class="line" data-time-start="22" data-time-end="25.5">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">5. 여기서 '이게 다 내 땅이다' 내려다보면 얼마나 좋았을까?</p>
@@ -633,7 +677,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="27.5" data-time-end="29.5">
+<div class="line" data-time-start="27.5" data-time-end="30">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">6. 이게 다 몇 평이야?</p>
@@ -651,7 +695,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="31.0" data-time-end="33.0">
+<div class="line" data-time-start="31" data-time-end="33">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">7. 어, 거기 기대면 안 됩니다. 물러서세요</p>
@@ -668,7 +712,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="33.5" data-time-end="34.5">
+<div class="line" data-time-start="33.5" data-time-end="35.5">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">8. 어?</p>
@@ -685,7 +729,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="35.0" data-time-end="37.5">
+<div class="line" data-time-start="36" data-time-end="38.5">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">9. 통역사님이 웬일로 불쑥 끼어드시나?</p>
@@ -703,7 +747,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="38.0" data-time-end="40.0">
+<div class="line" data-time-start="39" data-time-end="41.5">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">10. 나 걱정해 주는 거예요?</p>
@@ -721,7 +765,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="40.0" data-time-end="41.0">
+<div class="line" data-time-start="42" data-time-end="44">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">11. 바람에 날아갈까 봐?</p>
@@ -739,7 +783,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="41.0" data-time-end="43.0">
+<div class="line" data-time-start="44.5" data-time-end="46.5">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">12. 그 앞의 표지판에 쓰여 있습니다</p>
@@ -757,7 +801,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="43.5" data-time-end="46.5">
+<div class="line" data-time-start="47.5" data-time-end="50.5">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">13. '기대거나 올라서지 마시오'</p>
@@ -774,7 +818,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="49.5" data-time-end="51.0">
+<div class="line" data-time-start="51" data-time-end="53">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">14. 통역한 겁니다</p>
@@ -792,7 +836,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="53.0" data-time-end="55.0">
+<div class="line" data-time-start="53.5" data-time-end="55">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">15. 이탈리아어 못하는 사람은 어떡하라고?</p>
@@ -810,7 +854,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="54.8" data-time-end="56.0">
+<div class="line" data-time-start="55" data-time-end="55.5">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">16. 영어로도 써 놨어야지</p>
@@ -1277,225 +1321,293 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
 <div class="content" id="content4">
 <div class="sec">📝 台词（点击展开讲解）</div>
 
-<div class="line" data-time-start="7.9" data-time-end="2.0">
+<div class="line" data-time-start="0" data-time-end="2">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">1. 그 앞에 표지판이 써 있습니다</p>
-    <button class="speak" onclick="event.stopPropagation();speak('그 앞에 표지판이 써 있습니다')">🔊</button>
+    <p class="kr" style="flex:1">1. 토연사님이 웬일로 부스 끼어드시나?</p>
+    <button class="speak" onclick="event.stopPropagation();speak('토연사님이 웬일로 부스 끼어드시나?')">🔊</button>
   </div>
-  <p class="cn">→ 前面的标牌上写着呢</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ It's written on the sign in front</p>
+  <p class="cn">→ 你怎么突然插话进来？</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Why on earth are you butting into the booth?</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">그 앞 — 前面 ｜ 표지판 — 标牌/指示牌 ｜ 쓰이다 — 被写(쓰다的被动态)</span></div>
+    <div class="item"><b>📍单词</b> <span class="m">토연사 — 通译师/讲话人 ｜ -님 — 尊称后缀 ｜ 웬일 — 什么事(웬+일) ｜ 부스 — 隔间/booth ｜ 끼어들다 — 插入/中途参与</span></div>
+    <div class="ex">💬 웬일로 여기까지 오셨어요? <span class="c">→ 什么风把您吹来了？</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">웬일로「因何/什么原因」 + -(으)시- 尊敬中缀 + -나? 疑问语尾，戏谑/古风口吻</span></div>
+    <div class="ex">💬 여긴 웬일이세요? <span class="c">→ 您怎么来这里了？</span></div>
+    <div class="phon"><b>🎵 音变</b> ➜ 끼어드시나 → [끼어드시나]（元音自然连读，无变音）</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="2" data-time-end="4">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">2. 나 걱정해주는 거예요?</p>
+    <button class="speak" onclick="event.stopPropagation();speak('나 걱정해주는 거예요?')">🔊</button>
+  </div>
+  <p class="cn">→ 你是在担心我吗？</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Are you worried about me?</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">나 — 我(半语) ｜ 걱정하다 — 担心 ｜ 주다 — 给(补助动词「为对方…」)</span></div>
+    <div class="ex">💬 나 도와주는 거야? <span class="c">→ 你是在帮我吗？</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-아/어 주다 补助动词「为(某人)做…」 ｜ -는 거예요? 敬语确认疑问「是…的吗？」</span></div>
+    <div class="ex">💬 저 걱정해주시는 거예요? <span class="c">→ 您是担心我吗？</span></div>
+    <div class="phon"><b>🎵 音变</b> ➜ 걱정해 → [걱쩡해]（紧音化：收音ㄱ后的ㅈ→ㅉ）</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="4" data-time-end="6">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">3. 바람이 날아갈까 봐?</p>
+    <button class="speak" onclick="event.stopPropagation();speak('바람이 날아갈까 봐?')">🔊</button>
+  </div>
+  <p class="cn">→ 怕我被风吹走？</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Afraid I'll be blown away by the wind?</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">바람 — 风 ｜ 날아가다 — 飞走(날다+가다) ｜ 보다 — 看(此处作补助动词)</span></div>
+    <div class="ex">💬 감기 걸릴까 봐 걱정이야 <span class="c">→ 担心会感冒</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-(으)ㄹ까 봐「担心/怕会…」表推测性的忧虑；常与 걱정하다/두렵다 搭配</span></div>
+    <div class="ex">💬 늦을까 봐 뛰었어요 <span class="c">→ 怕迟到所以跑过来了</span></div>
+    <div class="phon"><b>🎵 音变</b> ➜ 날아갈까 → [나라갈까]（连音化：收音ㄹ移到后面与ㅏ连读）</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="6" data-time-end="10">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">4. 그 앞에 표지판이 써 있습니다.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('그 앞에 표지판이 써 있습니다.')">🔊</button>
+  </div>
+  <p class="cn">→ 前面有个标牌写着呢。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ There's a sign in front with writing on it.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">그 앞 — 前面 ｜ 표지판 — 标牌/指示牌 ｜ 쓰이다 — 被写(쓰다的被动) ｜ 써 있다 — 写着(状态持续)</span></div>
     <div class="ex">💬 문에 이름이 쓰여 있어요 <span class="c">→ 门上写着名字</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">-아/어 있다 被动状态持续「…着」｜ 쓰다→쓰이다→쓰여(쓰이+어→쓰여) + 있다「寫着」</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-아/어 있다 状态持续「…着」(与 -고 있다 动作进行相对) ｜ 쓰다→써(缩略) + 있다「写着」</span></div>
     <div class="ex">💬 벽에 그림이 걸려 있어요 <span class="c">→ 墙上挂着画</span></div>
-    <div class="phon"><b>🎵 音变</b>
-  ➜  있습니다 → [읻씀니다]（连音化+鼻音化）</div>
+    <div class="phon"><b>🎵 音变</b> ➜ 있습니다 → [읻씀니다]（收音ㅆ→ㄷ + 紧音化 + 鼻音化）</div>
   </div>
 </div>
 
-<div class="line" data-time-start="2.5" data-time-end="5.0">
+<div class="line" data-time-start="10" data-time-end="13">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">2. 기대거나 올라서지 마시오, 통역한 겁니다</p>
-    <button class="speak" onclick="event.stopPropagation();speak('기대거나 올라서지 마시오, 통역한 겁니다')">🔊</button>
+    <p class="kr" style="flex:1">5. 이탈리아 못한 사람은 어떡하라고?</p>
+    <button class="speak" onclick="event.stopPropagation();speak('이탈리아 못한 사람은 어떡하라고?')">🔊</button>
   </div>
-  <p class="cn">→ 不要倚靠或踩踏，这是翻译过来的</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Do not lean or step up. I just translated it</p>
+  <p class="cn">→ 不会意大利语的人怎么办？</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ What about people who don't know Italian?</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">기대다 — 倚靠 ｜ 올라서다 — 踩踏/站上去 ｜ 통역하다 — 翻译</span></div>
-    <div class="ex">💬 여기에 기대지 마세요 <span class="c">→ 请不要靠在这里</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">-거나 选择连接「…或者…」 ｜ -지 마시오 正式书面禁止语尾「请勿…」 ｜ -ㄴ/은 것이다 强调句式「是…的」</span></div>
-    <div class="ex">💬 앉거나 서 있지 마시오 <span class="c">→ 请勿坐或站</span></div>
-    <div class="phon"><b>🎵 音变</b>
-  ➜  겁니다 → [검니다]（鼻音化：收音ㅂ在ㄴ前变成ㅁ）</div>
+    <div class="item"><b>📍单词</b> <span class="m">이탈리아 — 意大利(口语中略去了「어」语言标记) ｜ 못하다 — 不会/做不好 ｜ 사람 — 人 ｜ 어떡하다 — 怎么办(어떻게 하다缩略)</span></div>
+    <div class="ex">💬 나는 어떡하라고? <span class="c">→ 那我怎么办？</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-ㄴ/은 过去冠形词尾「做过的…」 ｜ -(으)라고? 间接命令+反问语尾「让人…啊？」表不满/抗议</span></div>
+    <div class="ex">💬 나보고 어떻게 하라고? <span class="c">→ 让我怎么办啊？</span></div>
+    <div class="phon"><b>🎵 音变</b> ➜ 어떡하라고 → [어떠카라고]（送气化：ㄱ+ㅎ→ㅋ）</div>
   </div>
 </div>
 
-<div class="line" data-time-start="5.5" data-time-end="8.5">
+<div class="line" data-time-start="13" data-time-end="16">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">3. 이탈리아어 못하는 사람은 어떡하라고 영어도 써놨어야지</p>
-    <button class="speak" onclick="event.stopPropagation();speak('이탈리아어 못하는 사람은 어떡하라고 영어도 써놨어야지')">🔊</button>
+    <p class="kr" style="flex:1">6. 영어로도 써놨어야지.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('영어로도 써놨어야지.')">🔊</button>
   </div>
-  <p class="cn">→ 不会意大利语的人怎么办，应该也用英语写啊</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ What about people who don't know Italian? They should have written it in English too</p>
+  <p class="cn">→ 那也得用英语写上啊。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ They should've written it in English too.</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">이탈리아어 — 意大利语 ｜ 못하다 — 不会/不能 ｜ 어떡하다 — 怎么办(어떻게 하다缩略) ｜ 영어 — 英语 ｜ 쓰다 — 写 ｜ 놓다 — 放(补助动词)</span></div>
-    <div class="ex">💬 일찍 왔어야지 <span class="c">→ 应该早点来的</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">-(으)라고 间接命令+反问语气「让人…啊」表不满 ｜ -아/어 놓다 补助动词「事先做好」 ｜ -았/었어야지「本该…才对」(后悔/责备)</span></div>
-    <div class="ex">💬 어떻게 하라고? <span class="c">→ 那让我怎么办？</span></div>
-    <div class="phon"><b>🎵 音变</b>
-  ➜  어떡하라고 → [어떠카라고]（送气化：ㄱ+ㅎ→ㅋ）
-  ➜  써놨어야지 → [써놔써야지]（元音缩合：놓+아→놔）</div>
+    <div class="item"><b>📍单词</b> <span class="m">영어 — 英语 ｜ -(으)로 — 用…(工具格) ｜ -도 — 也 ｜ 쓰다 — 写 ｜ 놓다 — 放(补助动词表「事先做好」)</span></div>
+    <div class="ex">💬 미리 준비해놨어야지 <span class="c">→ 早该事先准备好啊</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-아/어 놓다 补助动词「事先做好保留状态」 + -았/었어야지「本该…才对」表遗憾/责备 ｜ 로도=로+도「也用…」</span></div>
+    <div class="ex">💬 나한테 말해놨어야지 <span class="c">→ 你早该告诉我啊</span></div>
+    <div class="phon"><b>🎵 音变</b> ➜ 써놨어야지 → [써놔써야지]（元音缩合：놓+아→놔；ㅆ+어连音）</div>
   </div>
 </div>
 
-<div class="line" data-time-start="9.0" data-time-end="10.5">
+<div class="line" data-time-start="16" data-time-end="20">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">4. 영어로 다 써 있습니다</p>
-    <button class="speak" onclick="event.stopPropagation();speak('영어로 다 써 있습니다')">🔊</button>
+    <p class="kr" style="flex:1">7. 영어로도 써 있습니다. 그쪽이 못 읽은 거지.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('영어로도 써 있습니다. 그쪽이 못 읽은 거지.')">🔊</button>
   </div>
-  <p class="cn">→ 全都用英语写着呢</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ It's all written in English</p>
+  <p class="cn">→ 也用英语写了的，是你没读到吧。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ It's written in English too. You just couldn't read it.</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">영어 — 英语 ｜ 로 — 用(工具格) ｜ 다 — 都/全部 ｜ 쓰다 — 写</span></div>
-    <div class="ex">💬 한글로 써 주세요 <span class="c">→ 请用韩文写</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">-(으)로 工具格「用…(语言/工具)」 ｜ -아/어 있다 状态持续「…着」</span></div>
-    <div class="ex">💬 볼펜로 쓰세요 <span class="c">→ 请用圆珠笔写</span></div>
-    <div class="phon"><b>🎵 音变</b>
-  ➜  있습니다 → [읻씀니다]（连音化+鼻音化）</div>
-  </div>
-</div>
-
-<div class="line" data-time-start="11.0" data-time-end="12.5">
-  <div class="line-hd" onclick="toggleExp(this)">
-    <span class="arr">▸</span>
-    <p class="kr" style="flex:1">5. 그쪽이 못 읽은 거지?</p>
-    <button class="speak" onclick="event.stopPropagation();speak('그쪽이 못 읽은 거지?')">🔊</button>
-  </div>
-  <p class="cn">→ 是你没看懂吧？</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ You're the one who couldn't read it, right?</p>
-  <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">그쪽 — 那边/您(口语中略带挑衅的称呼) ｜ 못 — 不能(否定副词) ｜ 읽다 — 读/看懂</span></div>
+    <div class="item"><b>📍单词</b> <span class="m">그쪽 — 那边/您(口语中略带对峙口吻) ｜ 못 — 不能(否定副词) ｜ 읽다 — 读</span></div>
     <div class="ex">💬 글씨를 못 읽겠어요 <span class="c">→ 看不清字</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">-ㄴ/은 거지? 确认反问「是…的吧？」表略带轻蔑的确认 ｜ 못 읽다 否定「不会读/没看懂」</span></div>
-    <div class="ex">💬 네가 늦은 거지? <span class="c">→ 是你迟到了吧？</span></div>
-    <div class="phon"><b>🎵 音变</b>
-  ➜  못 읽은 → [몬 닐근]（ㄴ添加：收音ㅅ后接이的变形；읽은 → 일근：收音ㄺ后接은时ㄱ脱落）</div>
+    <div class="item"><b>📌语法</b> <span class="m">-ㄴ/은 거지 确认反问「是…的吧」(半语)略带针锋相对 ｜ 못 + V 表能力否定「无法…」</span></div>
+    <div class="ex">💬 네가 못 본 거지 <span class="c">→ 是你没看到吧</span></div>
+    <div class="phon"><b>🎵 音变</b> ➜ 못 읽은 → [몬 닐근]（ㄴ添加 + 连音；ㄺ收音在元音前ㄱ活化）</div>
   </div>
 </div>
 
-<div class="line" data-time-start="13.0" data-time-end="14.5">
+<div class="line" data-time-start="20" data-time-end="22">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">6. 알아요, 영어?</p>
-    <button class="speak" onclick="event.stopPropagation();speak('알아요, 영어?')">🔊</button>
+    <p class="kr" style="flex:1">8. 알아요, 영어.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('알아요, 영어.')">🔊</button>
   </div>
-  <p class="cn">→ 我知道英语好吗？</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ I know English, okay?</p>
+  <p class="cn">→ 英语我当然认识。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ I know English, alright.</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">알다 — 知道 ｜ 영어 — 英语</span></div>
+    <div class="item"><b>📍单词</b> <span class="m">알다 — 知道/认识 ｜ 영어 — 英语</span></div>
     <div class="ex">💬 나도 알아! <span class="c">→ 我也知道！</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">-아/어요 敬语体终结词尾，此处表不服/辩驳语气 ｜ 알아요后的反问停顿加强不服感</span></div>
-    <div class="ex">💬 알아요, 그 정도는! <span class="c">→ 我知道，那种程度还是知道的！</span></div>
-    <div class="phon"><b>🎵 音变</b>
-  ➜  알아요 → [아라요]（连音化：收音ㄹ移到后面与아连读）</div>
+    <div class="item"><b>📌语法</b> <span class="m">-아/어요 敬语终结「…啊」此处停顿+逗号+主题倒装 → 表不服/辩驳的强调</span></div>
+    <div class="ex">💬 알아요, 그 정도는! <span class="c">→ 那种程度我知道！</span></div>
+    <div class="phon"><b>🎵 音变</b> ➜ 알아요 → [아라요]（连音化：收音ㄹ移到后面与ㅏ连读）</div>
   </div>
 </div>
 
-<div class="line" data-time-start="15.0" data-time-end="16.5">
+<div class="line" data-time-start="22" data-time-end="24">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">7. ABC는 읽지</p>
-    <button class="speak" onclick="event.stopPropagation();speak('ABC는 읽지')">🔊</button>
+    <p class="kr" style="flex:1">9. ABC는 읽지.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('ABC는 읽지.')">🔊</button>
   </div>
-  <p class="cn">→ ABC还是认得的</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ I can at least read the alphabet</p>
+  <p class="cn">→ ABC我还是会读的。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ I can at least read the alphabet.</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">ABC — 字母表(알파벳口语) ｜ 읽다 — 读</span></div>
-    <div class="ex">💬 한국어는 못 읽어요 <span class="c">→ 韩语读不了</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">-지 半语终结语尾(表强调/当然语气)「…可是会/好歹…」</span></div>
+    <div class="item"><b>📍单词</b> <span class="m">ABC — 字母表(알파벳口语) ｜ -는 — 主题助词(强调「至少ABC」) ｜ 읽다 — 读</span></div>
     <div class="ex">💬 밥은 먹지 <span class="c">→ 饭还是会吃的</span></div>
-    <div class="phon"><b>🎵 音变</b>
-  ➜  읽지 → [익찌]（紧音化：收音ㄱ后面的ㅈ变成紧音ㅉ）</div>
+    <div class="item"><b>📌语法</b> <span class="m">-지 半语终结「…当然/…还是会」表强调/理所应当 ｜ 与 -는 主题助词呼应「至少…还是…」</span></div>
+    <div class="ex">💬 그건 알지 <span class="c">→ 那个我还是知道的</span></div>
+    <div class="phon"><b>🎵 音变</b> ➜ 읽지 → [익찌]（ㄺ收音ㄱ化 + 紧音化ㅈ→ㅉ）</div>
   </div>
 </div>
 
-<div class="line" data-time-start="17.0" data-time-end="18.5">
+<div class="line" data-time-start="24" data-time-end="30">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">8. 그건 독일어입니다</p>
-    <button class="speak" onclick="event.stopPropagation();speak('그건 독일어입니다')">🔊</button>
+    <p class="kr" style="flex:1">10. 여기 있네.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('여기 있네.')">🔊</button>
   </div>
-  <p class="cn">→ 那个是德语</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ That's German</p>
+  <p class="cn">→ 在这里呢。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Here it is.</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">그건 — 那个(그것은缩略) ｜ 독일어 — 德语</span></div>
+    <div class="item"><b>📍单词</b> <span class="m">여기 — 这里 ｜ 있다 — 有/在</span></div>
+    <div class="ex">💬 저기 있네 <span class="c">→ 在那儿呢</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-네(요) 发现/感叹语尾「原来…啊」表当下发现 ｜ 半语「-네」/敬语「-네요」</span></div>
+    <div class="ex">💬 벌써 왔네 <span class="c">→ 都已经来了呢</span></div>
+    <div class="phon"><b>🎵 音变</b> ➜ 있네 → [인네]（收音ㅆ→ㄷ + 鼻音化ㄷ→ㄴ）</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="30" data-time-end="33">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">11. 그건 독일어입니다.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('그건 독일어입니다.')">🔊</button>
+  </div>
+  <p class="cn">→ 那是德语。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ That's German.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">그건 — 那个(그것은缩略) ｜ 독일 — 德国 ｜ 독일어 — 德语</span></div>
     <div class="ex">💬 이건 한자예요 <span class="c">→ 这个是汉字</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">-입니다 正式肯定陈述「是…」格式体尊敬阶名词谓语句 ｜ -이/가 아니다 的肯定形式</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">名词+-입니다 正式肯定「是…」(格式体尊敬阶) ｜ 그것은→그건 口语缩略</span></div>
     <div class="ex">💬 이것은 연필입니다 <span class="c">→ 这个是铅笔</span></div>
-    <div class="phon"><b>🎵 音变</b>
-  ➜  독일어 → [도기러]（ㄴ添加？不对——독일어是标准发音，注意ㄱ+ㅇ→连音化[도기러]）</div>
+    <div class="phon"><b>🎵 音变</b> ➜ 독일어 → [도기러]（连音化：ㄱ+ㅇ→ㄱ移到后面；ㄹ+ㅇ→ㄹ移到后面）</div>
   </div>
 </div>
 
-<div class="line" data-time-start="19.0" data-time-end="20.5">
+<div class="line" data-time-start="33" data-time-end="36">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">9. 그 밑에가 영어죠</p>
-    <button class="speak" onclick="event.stopPropagation();speak('그 밑에가 영어죠')">🔊</button>
+    <p class="kr" style="flex:1">12. 그 밑에가 영어죠.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('그 밑에가 영어죠.')">🔊</button>
   </div>
-  <p class="cn">→ 下面那个才是英语</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ The one below that is English</p>
+  <p class="cn">→ 下面那个是英语。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ The one below is English.</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">밑 — 下面/下方 ｜ 영어 — 英语</span></div>
+    <div class="item"><b>📍单词</b> <span class="m">밑 — 下面/下方 ｜ -에 — 场所助词 ｜ 영어 — 英语</span></div>
     <div class="ex">💬 그 밑에 책이 있어요 <span class="c">→ 那下面有书</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">-죠? = -지요? 确认语尾「…吧/…呢」表肯定+确认，较轻</span></div>
-    <div class="ex">💬 그렇죠? <span class="c">→ 是吧？</span></div>
-    <div class="phon"><b>🎵 音变</b>
-  ➜  밑에가 → [미테가]（连音化：받침ㅎ的变形—밑의 ㅎ脱落，ㄷ→[미테가]）</div>
+    <div class="item"><b>📌语法</b> <span class="m">-죠? = -지요? 委婉确认语尾「…吧/…呢」 ｜ 名词+이/가 主语助词，此处 밑에가「下面(那个)才是…」强调对比</span></div>
+    <div class="ex">💬 이게 정답이죠 <span class="c">→ 这个才是正确答案吧</span></div>
+    <div class="phon"><b>🎵 音变</b> ➜ 밑에가 → [미테가]（连音化：ㅌ移到后面与ㅔ连读）</div>
   </div>
 </div>
 
-<div class="line" data-time-start="21.0" data-time-end="23.0">
+<div class="line" data-time-start="36" data-time-end="40">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">10. 둘이 비슷비슷해서 헷갈려서 그런 거죠</p>
-    <button class="speak" onclick="event.stopPropagation();speak('둘이 비슷비슷해서 헷갈려서 그런 거죠')">🔊</button>
+    <p class="kr" style="flex:1">13. 둘이 비슷비슷해서 헷갈려서 그런 거죠.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('둘이 비슷비슷해서 헷갈려서 그런 거죠.')">🔊</button>
   </div>
-  <p class="cn">→ 两个差不多所以搞混了呗</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ They look alike so I got them mixed up</p>
+  <p class="cn">→ 两者太像了所以会搞混。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ They look alike so I got them mixed up.</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">둘 — 两个 ｜ 비슷비슷하다 — 差不多/相像 ｜ 헷갈리다 — 搞混/混淆 ｜ 그렇다 — 那样</span></div>
+    <div class="item"><b>📍单词</b> <span class="m">둘 — 两个 ｜ 비슷비슷하다 — 差不多/相似(비슷하다叠用强调) ｜ 헷갈리다 — 搞混/混淆 ｜ 그렇다 — 那样</span></div>
     <div class="ex">💬 얼굴이 비슷비슷해서 헷갈려요 <span class="c">→ 脸长得差不多，容易搞混</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">-아/어서 原因连接「因为…所以」 ｜ -ㄴ/은 거죠 解释说明「是…的(呀)」表轻描淡写的解释</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-아/어서 因果连接「因为…所以」 + -ㄴ/은 거죠「是…的呀」轻描淡写的解释 ｜ 双重-아/어서连用可表连锁因果</span></div>
     <div class="ex">💬 바빠서 그런 거예요 <span class="c">→ 是因为忙</span></div>
-    <div class="phon"><b>🎵 音变</b>
-  ➜  비슷비슷해서 → [비스드비스태서]（连音化：슷后面以元音开头时ㅆ移到后面）
-  ➜  헷갈려서 → [헤깔려서]（紧音化：ㅅ后面ㄱ→ㄲ）</div>
+    <div class="phon"><b>🎵 音变</b> ➜ 헷갈려서 → [헫깔려서]（ㅅ收音+紧音化ㄱ→ㄲ）</div>
   </div>
 </div>
 
-<div class="line" data-time-start="23.5" data-time-end="25.5">
+<div class="line" data-time-start="40" data-time-end="44">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">11. 이런 거 구분하는 사람이 신기한 거거든요</p>
-    <button class="speak" onclick="event.stopPropagation();speak('이런 거 구분하는 사람이 신기한 거거든요')">🔊</button>
+    <p class="kr" style="flex:1">14. 이러면 구분하는 사람이 신기한 거거든요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('이러면 구분하는 사람이 신기한 거거든요.')">🔊</button>
   </div>
-  <p class="cn">→ 能分清这个的人才是神奇</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ People who can tell them apart are the amazing ones</p>
+  <p class="cn">→ 能分得清的人真厉害。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Anyone who can tell them apart is amazing.</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">이런 — 这样的 ｜ 구분하다 — 区分/分辨 ｜ 신기하다 — 神奇/奇妙</span></div>
+    <div class="item"><b>📍单词</b> <span class="m">이러다 — 这样(缩略) ｜ 구분하다 — 区分/分辨 ｜ 사람 — 人 ｜ 신기하다 — 神奇/新奇/厉害</span></div>
     <div class="ex">💬 구분하기 어려워요 <span class="c">→ 很难区分</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">-는 现在冠形词尾「做…的」 ｜ -ㄴ/은 거(것) 冠形化名词「…的事情」 ｜ -거든요 说明语尾「是因为…嘛」表陈述理由/立场</span></div>
-    <div class="ex">💬 한국어가 재미있는 거거든요 <span class="c">→ 是因为韩语很有趣嘛</span></div>
-    <div class="phon"><b>🎵 音变</b>
-  ➜  신기한 → [신기한]（标准发音）</div>
+    <div class="item"><b>📌语法</b> <span class="m">-(으)면 条件连接「如果…的话」 ｜ -는 现在冠形词尾修饰名词 ｜ -거든요 说明语尾「是因为…嘛/要知道…」表陈述前提</span></div>
+    <div class="ex">💬 이러면 힘든 거거든요 <span class="c">→ 这样的话是很累的哦</span></div>
+    <div class="phon"><b>🎵 音变</b> ➜ 신기한 거거든요 → [신기한 거거드뇨]（ㄴ+元音连音「드뇨」）</div>
   </div>
 </div>
 
-<div class="sec">💡 小贴士（点击展开）</div>
-
-<div class="line" style="display:block;margin:6px 0">
+<div class="line" data-time-start="44" data-time-end="48">
   <div class="line-hd" onclick="toggleExp(this)">
-    <span class="arr">▶</span> <b>📖 本课语法要点</b>
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">15. 오늘이 촬영 끝이네요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('오늘이 촬영 끝이네요.')">🔊</button>
   </div>
+  <p class="cn">→ 今天拍摄结束了呢。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Today's the end of filming.</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>① '-아/어 있다'</b> <span class="m">状态持续「…着」— 써 있습니다</span></div>
-    <div class="item"><b>② '-거나'</b> <span class="m">选择连接「或者」— 기대거나 올라서거나</span></div>
-    <div class="item"><b>③ '-지 마시오'</b> <span class="m">正式禁止语尾「请勿」— 올라서지 마시오</span></div>
-    <div class="item"><b>④ '-ㄴ/은 것이다'</b> <span class="m">强调句式「是…的」— 통역한 겁니다</span></div>
-    <div class="item"><b>⑤ '-(으)라고'</b> <span class="m">间接命令+反问「让人…啊」— 어떡하라고</span></div>
-    <div class="item"><b>⑥ '-았/었어야지'</b> <span class="m">遗憾/后悔「本该…才对」— 써놨어야지</span></div>
-    <div class="item"><b>⑦ '-(으)로'</b> <span class="m">工具格「用…」— 영어로</span></div>
-    <div class="item"><b>⑧ '-ㄴ/은 거지?'</b> <span class="m">确认反问「是…的吧？」— 못 읽은 거지?</span></div>
-    <div class="item"><b>⑨ '-죠?'</b> <span class="m">确认语尾「…吧」— 영어죠</span></div>
-    <div class="item"><b>⑩ '-거든요'</b> <span class="m">说明语尾「是因为…嘛」— 신기한 거거든요</span></div>
-    <div class="item" style="margin-top:8px;background:#fef3e2;padding:8px 10px;border-radius:6px"><b>🎯 本课核心场景文化</b><br>多语言标识牌下的趣味小争吵——注意语感从礼貌到拌嘴的微妙转变：<br><b>그쪽</b> 略带挑衅的「您那方」 → <b>알아요, 영어?</b> 不服气地强调 → <b>ABC는 읽지</b> 赌气地辩解</div>
+    <div class="item"><b>📍单词</b> <span class="m">오늘 — 今天 ｜ 촬영 — 拍摄 ｜ 끝 — 结束/最后</span></div>
+    <div class="ex">💬 오늘이 마지막이에요 <span class="c">→ 今天是最后一天</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">名词+이/가+名词+이네요「…是…呢」名词谓语+发现语尾 ｜ -네요 敬语「原来是/看来是…」</span></div>
+    <div class="ex">💬 오늘이 생일이네요 <span class="c">→ 今天是生日呢</span></div>
+    <div class="phon"><b>🎵 音变</b> ➜ 끝이네요 → [끄치네요]（口盖音化：ㅌ+이→치）</div>
   </div>
+</div>
+
+<div class="line" data-time-start="48" data-time-end="52">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">16. 히로랑 작별 인사는 준비한 일본어로 할 거예요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('히로랑 작별 인사는 준비한 일본어로 할 거예요.')">🔊</button>
+  </div>
+  <p class="cn">→ 跟Hiro的道别我准备了用日语说。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ I'll say goodbye to Hiro in the Japanese I prepared.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">히로 — Hiro(人名) ｜ -(이)랑 — 和…(口语) ｜ 작별 — 告别 ｜ 인사 — 问候/招呼 ｜ 준비하다 — 准备 ｜ 일본어 — 日语</span></div>
+    <div class="ex">💬 친구랑 같이 갈 거예요 <span class="c">→ 和朋友一起去</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-(이)랑 口语「和/跟」(书面用 -와/과) ｜ -ㄴ/은 过去冠形「准备好的」 ｜ -(으)로 工具格「用(某语言)」 ｜ -(으)ㄹ 거예요 意志/未来「打算…」</span></div>
+    <div class="ex">💬 한국어로 인사할 거예요 <span class="c">→ 我打算用韩语打招呼</span></div>
+    <div class="phon"><b>🎵 音变</b> ➜ 작별 → [작뼐]（紧音化：ㄱ+ㅂ→ㅃ）</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="52" data-time-end="55">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">17. 그건 따로 통역해줄 필요 없어요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('그건 따로 통역해줄 필요 없어요.')">🔊</button>
+  </div>
+  <p class="cn">→ 那个不用帮我翻译。</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m"></span></div>
+    <div class="item"><b>📌语法</b> <span class="m"></span></div>
+    <div class="phon"><b>🎵 音变</b></div>
+  </div>
+</div>
+
+
 </div>
 
 <button class="done-toggle" data-lesson="4" onclick="toggleDone(4)">✓ 已完成学习</button>
@@ -3197,7 +3309,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
 <div class="content" id="content12">
 <div class="sec">📝 台词（点击展开讲解）</div>
 
-<div class="line" data-time-start="0" data-time-end="1">
+<div class="line" data-time-start="0" data-time-end="2.5">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">1. 왜 그러세요?</p>
@@ -3216,7 +3328,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="1" data-time-end="4">
+<div class="line" data-time-start="2.5" data-time-end="6.0">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">2. 어디 안 좋으세요?</p>
@@ -3235,7 +3347,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="4" data-time-end="8">
+<div class="line" data-time-start="7.0" data-time-end="8.5">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">3. 아니요.</p>
@@ -3254,7 +3366,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="8" data-time-end="9">
+<div class="line" data-time-start="10.5" data-time-end="12.0">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">4. 괜찮아요.</p>
@@ -3273,7 +3385,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="9" data-time-end="10">
+<div class="line" data-time-start="12.0" data-time-end="13.5">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">5. 괜찮아요.</p>
@@ -3292,7 +3404,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="10" data-time-end="12">
+<div class="line" data-time-start="20.0" data-time-end="23.0">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
     <p class="kr" style="flex:1">6. 제가 너무 긴장해서 좀 어지러웠나 봐요.</p>
@@ -3337,70 +3449,89 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
 <div class="content" id="content13">
 <div class="sec">📝 台词（点击展开讲解）</div>
 
-<div class="line" data-time-start="0" data-time-end="8">
+<div class="line" data-time-start="0" data-time-end="3">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">1. 안녕하세요. 나이스 미츠.</p>
-    <button class="speak" onclick="event.stopPropagation();speak('안녕하세요. 나이스 미츠.')">🔊</button>
+    <p class="kr" style="flex:1">1. Nice to meet you.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('Nice to meet you.')">🔊</button>
   </div>
-  <p class="cn">→ 你好，Nice to meet you。</p>
+  <p class="cn">→ Nice to meet you.</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Nice to meet you.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">Nice — 好的(nice) ｜ to meet — 见面(to meet) ｜ you — 你(you)</span></div>
+    <div class="ex">💬 短语 <span class="c">Nice to meet you too. — 我也很高兴见到你。(Nice to meet you too.)</span></div>
+    <div class="ex">💬 造句 <span class="c">Nice to meet you, everybody. — 很高兴见到大家。(Nice to meet you, everybody.)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">英文初次见面寒暄语。本视频前12秒是英文/中英混合开场，角色从英文切换到韩语。注意安可(영어)是演员故意显露英语能力的设计</span></div>
+    <div class="ex">💬 语法例句 <span class="c">Nice to meet you, Ms. Cha. — 很高兴见到您，车小姐。(Nice to meet you, Ms. Cha.)</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ 英文台词，无韩语音变。注意发音：[naɪs] [tu] [miːt] [juː]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="3" data-time-end="6">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">2. 안녕하세요. Nice to meet you.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('안녕하세요. Nice to meet you.')">🔊</button>
+  </div>
+  <p class="cn">→ 你好。Nice to meet you。</p>
   <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Hello. Nice to meet you.</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">안녕하다 — 安宁(be peaceful) ｜ -세요 — 敬语陈述/疑问语尾 ｜ 나이스 미츠 — 「Nice to meet」不完全英语表白(角色故意说错韩式英语)</span></div>
-    <div class="ex">💬 短语 <span class="c">안녕하세요 — 你好(Hello)</span></div>
-    <div class="ex">💬 造句 <span class="c">안녕하세요, 저는 김민수입니다. — 你好，我是金敏秀。(Hello, I'm Kim Min-soo.)</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">안녕하세요 固定问候语：안녕하다(安宁)+시(敬语)+어요(终结)→안녕하세요。原本是疑问语调「您好吗？」但已固化为陈述式问候。나이스 미츠是角色想说「Nice to meet you」但不完全准确的韩式发音</span></div>
-    <div class="ex">💬 语法例句 <span class="c">안녕히 계세요. — 再见(请安好)。(Goodbye.)</span></div>
+    <div class="item"><b>📍单词</b> <span class="m">안녕하세요 — 你好(Hello) ｜ Nice to meet you — 很高兴认识你(Nice to meet you)</span></div>
+    <div class="ex">💬 短语 <span class="c">안녕하세요, 처음 뵙겠습니다. — 你好，初次见面。(Hello, nice to meet you for the first time.)</span></div>
+    <div class="ex">💬 造句 <span class="c">안녕하세요. 저는 주호진입니다. — 你好，我是朱浩镇。(Hello, I am Joo Ho-jin.)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">안녕하세요是最基础的韩语问候语「你好」。本句是韩英混合台词，角色在用英语打招呼的同时说出韩语안녕하세요，展现双语切换</span></div>
+    <div class="ex">💬 语法例句 <span class="c">안녕하세요, 선생님. — 你好，老师。(Hello, teacher.)</span></div>
     <div class="phon"><b>🎵 音变</b>
-  ➜ 안녕하세요 → [안녕하세요] 无特殊音变 ｜ 나이스 미츠 → [나이스 미츠] 英语外来语按韩语发音</div>
+  ➜ 안녕하세요 → [안녕하세요] 无特殊音变(标准清晰发音)</div>
   </div>
 </div>
 
-<div class="line" data-time-start="8" data-time-end="10">
+<div class="line" data-time-start="6" data-time-end="9">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">2. 너무 좋아요, 미츠.</p>
-    <button class="speak" onclick="event.stopPropagation();speak('너무 좋아요, 미츠.')">🔊</button>
+    <p class="kr" style="flex:1">3. It's so nice to meet you.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('It\'s so nice to meet you.')">🔊</button>
   </div>
-  <p class="cn">→ 太好了，Meets。</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ So nice, Meets.</p>
+  <p class="cn">→ It's so nice to meet you.</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ It's so nice to meet you.</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">너무 — 太/非常(very/too) ｜ 좋다 — 好/喜欢(good/nice) ｜ -아요 — 半敬语陈述语尾 ｜ 미츠 — Meets(人名/昵称)</span></div>
-    <div class="ex">💬 短语 <span class="c">너무 좋다 — 太好了/非常棒(so nice/awesome)</span></div>
-    <div class="ex">💬 造句 <span class="c">이 노래 너무 좋아요. — 这首歌太好听了。(This song is so good.)</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">좋아요 形容词陈述：좋다(好) + 아요 → 좋아요。韩语中形容词可以直接做谓语。너무 좋아요字面「太好了」，实际常用表感叹「真棒/真好」</span></div>
-    <div class="ex">💬 语法例句 <span class="c">날씨가 너무 좋아요. — 天气太好了。(The weather is so nice.)</span></div>
+    <div class="item"><b>📍单词</b> <span class="m">It — 它(it) ｜ 's (= is) — 是(is) ｜ so — 非常/很(so) ｜ nice — 好的(nice) ｜ to meet — 见面(to meet) ｜ you — 你(you)</span></div>
+    <div class="ex">💬 短语 <span class="c">It's nice to meet you. — 很高兴认识你。(Standard greeting)</span></div>
+    <div class="ex">💬 造句 <span class="c">It's so nice to finally meet you in person. — 终于见到你本人太好了。(It's so nice to finally meet you in person.)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">英文强调句式：It's so nice…比It's nice…语气更强。so表「非常」，演员用升调表达真挚的开心</span></div>
+    <div class="ex">💬 语法例句 <span class="c">It's so good to see you again. — 再次见到你真好。(It's so good to see you again.)</span></div>
     <div class="phon"><b>🎵 音变</b>
-  ➜ 좋아요 → [조아요] (ㅎ在ㅇ前弱化脱落)</div>
+  ➜ 英文台词，注意连读：It's so nice to meet you → [ɪts soʊ naɪs tə miːt juː]</div>
   </div>
 </div>
 
-<div class="line" data-time-start="10" data-time-end="12">
+<div class="line" data-time-start="9" data-time-end="12">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">3. 지금 기분이 더 좋아요?</p>
-    <button class="speak" onclick="event.stopPropagation();speak('지금 기분이 더 좋아요?')">🔊</button>
+    <p class="kr" style="flex:1">4. Are you feeling better now?</p>
+    <button class="speak" onclick="event.stopPropagation();speak('Are you feeling better now?')">🔊</button>
   </div>
-  <p class="cn">→ 现在心情更好了吗？</p>
+  <p class="cn">→ 你身体好些了吗？</p>
   <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Are you feeling better now?</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">지금 — 现在(now) ｜ 기분 — 心情/情绪(mood/feeling) ｜ 이 — 主语标记(subject marker) ｜ 더 — 更(more) ｜ 좋다 — 好(good) ｜ -아요? — 疑问语尾(question ending)</span></div>
-    <div class="ex">💬 短语 <span class="c">기분이 좋다 — 心情好(in a good mood)</span></div>
-    <div class="ex">💬 造句 <span class="c">기분이 좀 나아졌어요? — 心情好点了吗？(Are you feeling better?)</span></div>
-    <div class="item"><b>📌语法</b> <span class="m">기분이 좋다 惯用搭配：「心情好」。名词+이/가 + 形容词 是韩语基本叙述结构。疑问句用升调或-아요?即可。더(更)用于比较或递进</span></div>
-    <div class="ex">💬 语法例句 <span class="c">오늘 기분이 어때요? — 今天心情怎么样？(How are you feeling today?)</span></div>
+    <div class="item"><b>📍单词</b> <span class="m">Are — 是(be动词) ｜ you — 你(you) ｜ feeling — 感觉(feeling) ｜ better — 更好(better) ｜ now — 现在(now)</span></div>
+    <div class="ex">💬 短语 <span class="c">feel better — 感觉好一些了(feel better)</span></div>
+    <div class="ex">💬 造句 <span class="c">I'm feeling much better now, thank you. — 我现在好多啦，谢谢。(I'm feeling much better now, thank you.)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">英文现在进行时(Are you feeling) 表「现在感觉如何」。这句话与后面第5~6句的韩语内容呼应(이제 건강은 괜찮으신가요?)：</span></div>
+    <div class="ex">💬 语法例句 <span class="c">Are you feeling okay? — 你感觉还好吗？(Are you feeling okay?)</span></div>
     <div class="phon"><b>🎵 音变</b>
-  ➜ 좋아요 → [조아요] ㅎ脱落</div>
+  ➜ 英文台词。注意发音：[ɑːr] [juː] [ˈfiːlɪŋ] [ˈbetər] [naʊ]</div>
   </div>
 </div>
 
-<div class="line" data-time-start="12" data-time-end="14">
+<div class="line" data-time-start="12.0" data-time-end="14.9">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">4. 이렇게 만나니 반갑네요.</p>
+    <p class="kr" style="flex:1">5. 이렇게 만나니 반갑네요.</p>
     <button class="speak" onclick="event.stopPropagation();speak('이렇게 만나니 반갑네요.')">🔊</button>
   </div>
-  <p class="cn">→ 这样见面真开心啊。</p>
+  <p class="cn">→ 这样见面真开心呢。</p>
   <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ It's so nice to meet you like this.</p>
   <div class="line-exp" style="display:none">
     <div class="item"><b>📍单词</b> <span class="m">이렇게 — 这么/这样地(like this) ｜ 만나다 — 见面(meet) ｜ -니 — 因…而(because/as/since) ｜ 반갑다 — 高兴/开心(glad) ｜ -네요 — 感叹语尾(exclamatory ending)</span></div>
@@ -3413,32 +3544,51 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="14" data-time-end="30">
+<div class="line" data-time-start="15.4" data-time-end="18.0">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">5. 이제 건강은 괜찮으신가요, 자물씨?</p>
-    <button class="speak" onclick="event.stopPropagation();speak('이제 건강은 괜찮으신가요, 자물씨?')">🔊</button>
+    <p class="kr" style="flex:1">6. 이제 건강은 괜찮으신가요?</p>
+    <button class="speak" onclick="event.stopPropagation();speak('이제 건강은 괜찮으신가요?')">🔊</button>
   </div>
-  <p class="cn">→ 现在身体还好吗，子默先生？</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ How is your health now, Mr. Jamool?</p>
+  <p class="cn">→ 您身体还好吗？</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ How is your health now?</p>
   <div class="line-exp" style="display:none">
-    <div class="item"><b>📍单词</b> <span class="m">이제 — 现在(now/from now) ｜ 건강 — 健康(health) ｜ 은 — 主题标记(topic marker) ｜ 괜찮다 — 没关系/可以(fine/alright) ｜ -으시 — 敬语词尾(honorific) ｜ -ㄴ가요 — 疑问语尾(question) ｜ 자물 — Jamool(子默, 角色名) ｜ 씨 — 先生/小姐(Mr./Ms.)</span></div>
+    <div class="item"><b>📍单词</b> <span class="m">이제 — 现在(now/from now) ｜ 건강 — 健康(health) ｜ 은 — 主题标记(topic marker) ｜ 괜찮다 — 没关系/可以(fine/alright) ｜ -으시 — 敬语词尾(honorific) ｜ -ㄴ가요 — 疑问语尾(question)</span></div>
     <div class="ex">💬 短语 <span class="c">건강이 괜찮다 — 身体还好(health is fine)</span></div>
     <div class="ex">💬 造句 <span class="c">요즘 건강은 괜찮으세요? — 最近身体还好吗？(How's your health these days?)</span></div>
     <div class="item"><b>📌语法</b> <span class="m">-(으)신가요? 敬语疑问：괜찮으시다 = 괜찮다 + (으)시(敬语) + ㄴ가요(疑问) → 괜찮으신가요。시进入后괜찮다→괜찮으시다, 是对主语(对方)的尊敬</span></div>
     <div class="ex">💬 语法例句 <span class="c">어디가 편찮으신가요? — 您哪里不舒服？(Where are you not feeling well?)</span></div>
     <div class="phon"><b>🎵 音变</b>
-  ➜ 괜찮으신가요 → [괜차느신가요] (ㅎ在ㅇ前脱落)+连音 ｜ 자물씨 → [자물씨] (ㄹ+ㅆ→无特殊音变)</div>
+  ➜ 괜찮으신가요 → [괜차느신가요] (ㅎ在ㅇ前脱落)+连音</div>
   </div>
 </div>
 
-<div class="line" data-time-start="30" data-time-end="33">
+<div class="line" data-time-start="36.5" data-time-end="38.4">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">6. 아, 죄송합니다. 뭐라고 하셨죠?</p>
-    <button class="speak" onclick="event.stopPropagation();speak('아, 죄송합니다. 뭐라고 하셨죠?')">🔊</button>
+    <p class="kr" style="flex:1">7. 미스 참우희</p>
+    <button class="speak" onclick="event.stopPropagation();speak('미스 참우희')">🔊</button>
   </div>
-  <p class="cn">→ 啊，抱歉。您刚才说什么？</p>
+  <p class="cn">→ 车茂熙小姐？</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Miss Cha Moo-hee?</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">미스 — Miss(小姐) ｜ 참우희 — 车茂熙(人名, Cha Mo-hee)</span></div>
+    <div class="ex">💬 短语 <span class="c">미스 참우희 — 车茂熙小姐(Miss Cha Moo-hee)</span></div>
+    <div class="ex">💬 造句 <span class="c">미스 리가 기다리고 있어요. — 李小姐在等。(Miss Lee is waiting.)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">미스(Miss)+이름：英语Miss+韩语姓名混合，角色在说英语和韩语转换。참우희(车茂熙)是人名</span></div>
+    <div class="ex">💬 语法例句 <span class="c">미스 김, 여기 앉으세요. — 金小姐，请坐这里。(Miss Kim, please sit here.)</span></div>
+    <div class="phon"><b>🎵 音变</b>
+  ➜ 참우희 — [차무희] (ㅊ+ㅏ→[차], 움→[우])</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="38.8" data-time-end="42.2">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">8. 아 죄송합니다. 뭐라고 하셨죠.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('아 죄송합니다. 뭐라고 하셨죠.')">🔊</button>
+  </div>
+  <p class="cn">→ 啊，对不起。您说什么？</p>
   <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Ah, I'm sorry. What did you say?</p>
   <div class="line-exp" style="display:none">
     <div class="item"><b>📍单词</b> <span class="m">아 — 啊(感叹词) ｜ 죄송합니다 — 对不起(I'm sorry) ｜ 뭐 — 什么(what) ｜ 라고 — 间接引用(quotation) ｜ 하다 — 说(say) ｜ 시 — 敬语词尾(honorific) ｜ 었 — 过去(past tense) ｜ 죠 — 确认反问(-지요缩略)</span></div>
@@ -3451,14 +3601,14 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="33" data-time-end="35">
+<div class="line" data-time-start="42.9" data-time-end="44.2">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">7. 이렇게 만나니 반갑다고요?</p>
-    <button class="speak" onclick="event.stopPropagation();speak('이렇게 만나니 반갑다고요?')">🔊</button>
+    <p class="kr" style="flex:1">9. 이렇게 만나니 반갑다고요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('이렇게 만나니 반갑다고요.')">🔊</button>
   </div>
-  <p class="cn">→ 你说这样见面很开心？</p>
-  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ You said it's nice to meet me like this?</p>
+  <p class="cn">→ 你是说这样见面真开心？</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ You said it's so nice to meet me like this?</p>
   <div class="line-exp" style="display:none">
     <div class="item"><b>📍单词</b> <span class="m">이렇게 — 这样(like this) ｜ 만나다 — 见面(meet) ｜ -니 — 因为(since) ｜ 반갑다 — 高兴(glad) ｜ -다고 — 间接引用(quotation) ｜ 요? — 疑问(polite question)</span></div>
     <div class="ex">💬 短语 <span class="c">반갑다고요? — 你说很开心？(Did you say glad?)</span></div>
@@ -3470,13 +3620,13 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="35" data-time-end="40">
+<div class="line" data-time-start="44.9" data-time-end="46.8">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">8. 이제 건강은 괜찮은 거냐고요?</p>
-    <button class="speak" onclick="event.stopPropagation();speak('이제 건강은 괜찮은 거냐고요?')">🔊</button>
+    <p class="kr" style="flex:1">10. 이제 건강은 괜찮은 거냐고요</p>
+    <button class="speak" onclick="event.stopPropagation();speak('이제 건강은 괜찮은 거냐고요')">🔊</button>
   </div>
-  <p class="cn">→ 你问现在身体还好吗？</p>
+  <p class="cn">→ 你问我身体还好吗？</p>
   <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ You asked if I'm feeling better now?</p>
   <div class="line-exp" style="display:none">
     <div class="item"><b>📍单词</b> <span class="m">이제 — 现在(now) ｜ 건강 — 健康(health) ｜ 은 — 主题标记(topic marker) ｜ 괜찮다 — 没事/可以(fine) ｜ ㄴ — 冠形词尾(adnominal) ｜ 거 —  것(thing/事实) ｜ 냐고 — 疑问引用(question quotation) ｜ 요? — 疑问(polite question)</span></div>
@@ -3489,10 +3639,10 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="40" data-time-end="44">
+<div class="line" data-time-start="48.5" data-time-end="51.9">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">9. 네, 이제 몸은 완전히 좋아요.</p>
+    <p class="kr" style="flex:1">11. 네, 이제 몸은 완전히 좋아요.</p>
     <button class="speak" onclick="event.stopPropagation();speak('네, 이제 몸은 완전히 좋아요.')">🔊</button>
   </div>
   <p class="cn">→ 嗯，现在身体完全好了。</p>
@@ -3508,10 +3658,10 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="44" data-time-end="55">
+<div class="line" data-time-start="53.7" data-time-end="56.2">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">10. 이렇게 만나니까 저도 너무 반갑네요.</p>
+    <p class="kr" style="flex:1">12. 이렇게 만나니까 저도 너무 반갑네요.</p>
     <button class="speak" onclick="event.stopPropagation();speak('이렇게 만나니까 저도 너무 반갑네요.')">🔊</button>
   </div>
   <p class="cn">→ 这样见面，我也非常开心呢。</p>
@@ -3527,10 +3677,10 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
   </div>
 </div>
 
-<div class="line" data-time-start="55" data-time-end="57">
+<div class="line" data-time-start="60.0" data-time-end="62.0">
   <div class="line-hd" onclick="toggleExp(this)">
     <span class="arr">▸</span>
-    <p class="kr" style="flex:1">11. 라고 해주세요.</p>
+    <p class="kr" style="flex:1">13. 라고 해주세요.</p>
     <button class="speak" onclick="event.stopPropagation();speak('라고 해주세요.')">🔊</button>
   </div>
   <p class="cn">→ 请这么说吧。</p>
@@ -3569,7 +3719,1394 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
 <textarea class="note-box" data-note="13" placeholder="在此输入笔记..."></textarea>
 <span class="note-status" id="noteStatus13">✓ 已保存</span>
 <button class="speak-practice-toggle" onclick="startPractice(13)">🎤 口语练习</button>
-</div></div><div id="practiceModal" class="practice-modal">
+</div></div>
+<div class="pg" id="pageLesson14">
+<div class="top">
+  <span class="back" onclick="goHome()">← 返回</span>
+  <h2>第14课 · 拍摄现场散步</h2>
+  <button class="quiz-btn" onclick="toggleQuiz(14)">测验模式</button>
+</div>
+<div class="content" id="content14">
+<div class="sec">📝 台词（点击展开讲解）</div>
+
+<div class="line" data-time-start="0" data-time-end="4">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">1. 차무희 씨?</p>
+    <button class="speak" onclick="event.stopPropagation();handleSpeak(event,'차무희 씨?')">🔊</button>
+  </div>
+  <p class="cn">→ 车茂熙小姐？</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Cha Mu-hee?</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">차무희 — 车茂熙(人名) ｜ 씨 — 先生/小姐(敬称)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 차무희 씨 — 车茂熙小姐</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 김 선생님, 안녕하세요? — 金老师，您好？</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">씨：接在人名后表示尊称，相当于"……先生/小姐"，比선생님更随意但仍有礼貌</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 박 씨는 어디 있어요? — 朴先生在哪儿？</span></div>
+    <div class="phon"><b>🎵 音变</b> 차무희[차무히] ｜ 희→히 (ㅎ弱化) ｜ 씨[씨] ｜ 发音不变</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="4" data-time-end="7">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">2. 나가요.</p>
+    <button class="speak" onclick="event.stopPropagation();handleSpeak(event,'나가요.')">🔊</button>
+  </div>
+  <p class="cn">→ 走吧。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Let's go.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">나가다 — 出去/走(go out) ｜ -아요 — 口语终结词尾</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 밖에 나가요 — 出去外面(Go outside)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 지금 나가요 — 现在走吧(Let's go now)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">나가다：나(出) + 가다(去)，意为"出去/走出去"。-아요是口语体终结词尾</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 같이 나가요 — 一起出去吧(Let's go out together)</span></div>
+    <div class="phon"><b>🎵 音变</b> 나가요[나가요] ｜ 发音不变</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="15" data-time-end="17">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">3. 기다리기 지루했죠? 미안해요.</p>
+    <button class="speak" onclick="event.stopPropagation();handleSpeak(event,'기다리기 지루했죠? 미안해요.')">🔊</button>
+  </div>
+  <p class="cn">→ 等无聊了吧？对不起。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ I kept you waiting, huh? Sorry.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">기다리다 — 等(wait) ｜ 지루하다 — 无聊(boring) ｜ 미안하다 — 抱歉(sorry)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 오래 기다렸어요? — 等很久了吗？(Have you waited long?)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 기다리기 너무 지루했어요 — 等得实在太无聊了</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-기：将动词名词化，기다리기→"等待"。지루했죠? = 지루하다 + 었 + 지요? 的缩略，-지요表确认语气"…吧？"</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 노래하기 좋아해요 — 喜欢唱歌</span></div>
+  
+    <div class="phon"><b>🎵 音变</b> 기다리기[기다리기] ｜ 지루했죠[지루해쬬] ｜ ㅆ+ㅈ→ㅆㅉ(浓音化) ｜ 미안해요[미안해요]</div></div>
+</div>
+
+<div class="line" data-time-start="17" data-time-end="20">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">4. 아니에요, 재미있던데요?</p>
+    <button class="speak" onclick="event.stopPropagation();handleSpeak(event,'아니에요, 재미있던데요?')">🔊</button>
+  </div>
+  <p class="cn">→ 没有，还挺有意思的呢。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ No, it was actually fun.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">아니요 — 不是(no) ｜ 재미있다 — 有趣/有意思(fun) ｜ -는데요 — …呢(委婉语气)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 재미있었어요 — 很有趣(It was fun)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 이거 진짜 재미있는데요? — 这个真的很有趣呢？(This is really fun, isn't it?)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-는데요：用于句末，婉转说明或反问，这里带"其实…"的意味</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 괜찮은데요? — 挺好的呀？(It's fine, isn't it?)</span>
+    <div class="phon"><b>🎵 音变</b> 재미있던데요[재미읻떤데요] ｜ 있[읻] ｜ ㄷ + ㄷ → ㄸ (浓音化)</div></div>
+  </div>
+</div>
+
+<div class="line" data-time-start="20" data-time-end="22">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">5. 스태프들이 그렇게 많은 줄 몰랐어요.</p>
+    <button class="speak" onclick="event.stopPropagation();handleSpeak(event,'스태프들이 그렇게 많은 줄 몰랐어요.')">🔊</button>
+  </div>
+  <p class="cn">→ 没想到工作人员这么多。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ I didn't know there were this many staff.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">스태프 — 工作人员(staff) ｜ 이렇게 — 这么/这样 ｜ 많다 — 多 ｜ 모르다 — 不知道</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 많을 줄 몰랐어요 — 没想到这么多(Didn't know there were so many)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 시간이 이렇게 늦을 줄 몰랐어요 — 没想到时间这么晚了(Didn't know it was this late)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-(으)ㄹ 줄 몰랐다：表示"不知道会……"或"没想到……"</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 이렇게 비쌀 줄 몰랐어요 — 没想到这么贵(Didn't know it was this expensive)</span>
+    <div class="phon"><b>🎵 音变</b> 몰랐어요[몰라써요] ｜ ㄹ + ㅆ → ㅆ (浓音化)</div></div>
+  </div>
+</div>
+
+<div class="line" data-time-start="22" data-time-end="26">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">6. 드라마나 영화 스태프들은 더 많아요.</p>
+    <button class="speak" onclick="event.stopPropagation();handleSpeak(event,'드라마나 영화 스태프들은 더 많아요.')">🔊</button>
+  </div>
+  <p class="cn">→ 电视剧或电影的工作人员更多。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ For dramas or movies, there are even more staff.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">드라마 — 电视剧(drama) ｜ 영화 — 电影(movie) ｜ 더 — 更/更多</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 사람이 더 많아요 — 人更多(There are more people)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 이 가게가 더 커요 — 这家店更大(This store is bigger)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-나：表示选择，"或"。더 + 形容词：比较级，"更…"</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 커피나 음료수 마실래요? — 要喝咖啡或饮料吗？</span>
+    <div class="phon"><b>🎵 音变</b> 스태프들[스태프들] ｜ 많아요[마나요] ｜ ㄴ + ㅎ脱落 → ㅏ</div></div>
+  </div>
+</div>
+
+<div class="line" data-time-start="27" data-time-end="31">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">7. 근데 괜찮아요? 이렇게 다녀도?</p>
+    <button class="speak" onclick="event.stopPropagation();handleSpeak(event,'근데 괜찮아요? 이렇게 다녀도?')">🔊</button>
+  </div>
+  <p class="cn">→ 不过没关系吗？这样走动？</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ But is it okay walking around like this?</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">그런데 — 不过/但是(but) ｜ 괜찮다 — 没关系/没事 ｜ 다니다 — 走动/来往</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 밖에 다녀도 돼요? — 可以出去走动吗？</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 혼자 다녀도 괜찮아요 — 一个人走动也没关系</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-아/어도：表示"即使…也…"，다녀도? = 다녀도 괜찮아요?</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 비가 와도 갈 거예요 — 即使下雨也要去</span></div>
+  
+    <div class="phon"><b>🎵 音变</b> 괜찮아요[괜차나요] ｜ ㅎ脱落(ㅎ→Ø) ｜ 근데[근데] ｜ 이렇게[이러케] ｜ ㅎ+ㄱ→ㅋ(激音化)</div></div>
+</div>
+
+<div class="line" data-time-start="32" data-time-end="35">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">8. 아직 차무희는 잘 못 알아봐요.</p>
+    <button class="speak" onclick="event.stopPropagation();handleSpeak(event,'아직 차무희는 잘 못 알아봐요.')">🔊</button>
+  </div>
+  <p class="cn">→ 大家还认不出车茂熙。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ They still don't recognize Cha Mu-hee well.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">아직 — 还(still) ｜ 차무희 — 车茂熙(角色名) ｜ 잘 못 — 不太能 ｜ 알아보다 — 认出来</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 사람을 못 알아봤어요 — 没认出人来</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 아직 이걸 잘 못해요 — 我还不太会做这个</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">잘 못 + 动词：表示"不太会/不太能……"，注意和 잘못(错误地)区分</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 한국어를 아직 잘 못해요 — 韩语还不太会</span>
+    <div class="phon"><b>🎵 音变</b> 알아봐요[아라봐요] ｜ ㄹ + 아 → 라 (ㄹ脱落)</div></div>
+  </div>
+</div>
+
+<div class="line" data-time-start="35" data-time-end="38">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">9. 도라미라고 해야 알아보지.</p>
+    <button class="speak" onclick="event.stopPropagation();handleSpeak(event,'도라미라고 해야 알아보지.')">🔊</button>
+  </div>
+  <p class="cn">→ 要说"都拉美"才认得出来。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ But if you say Do Ra-mi, they know me.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">도라미 — 都拉美(角色名) ｜ -라고 하다 — 叫作/说 ｜ -아야 하다 — 只有…才</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 이름을 대야 알아요 — 说了名字才知道</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 이거 뭐라고 해요? — 这个叫什么？</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-아/어야：表示"只有……才……"，-라고 해야 = "只有说……才……"，强调唯一条件</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 직접 가야 알 수 있어요 — 亲自去才能知道</span>
+    <div class="phon"><b>🎵 音变</b> 알아보지[아라보지] ｜ 알아보다 → [아라보다] 同化</div></div>
+  </div>
+</div>
+
+<div class="line" data-time-start="38" data-time-end="41">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">10. 춥지 않아요? 옷이 너무 얇아 보이는데.</p>
+    <button class="speak" onclick="event.stopPropagation();handleSpeak(event,'춥지 않아요? 옷이 너무 얇아 보이는데.')">🔊</button>
+  </div>
+  <p class="cn">→ 不冷吗？衣服看着很薄。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Aren't you cold? Your clothes look too thin.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">춥다 — 冷(cold) ｜ 옷 — 衣服 ｜ 너무 — 太(too) ｜ 얇다 — 薄(thin) ｜ 보이다 — 看起来/显得</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 옷이 얇아요 — 衣服薄</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 그 치마가 너무 예뻐 보이는데요 — 那条裙子看起来太漂亮了</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-아/어 보이다：表示"看起来…"，얇아 보이다 → 看起来很薄</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 건강해 보여요 — 看起来很健康</span></div>
+  
+    <div class="phon"><b>🎵 音变</b> 춥지[춥찌] ｜ ㅂ+ㅈ→ㅂㅉ(浓音化) ｜ 않아요[아나요] ｜ ㅎ脱落 ｜ 얇아[얼바] ｜ ㄹ+ㅂ连音 ｜ 옷이[오시] ｜ ㅅ连音</div></div>
+</div>
+
+<div class="line" data-time-start="41" data-time-end="44">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">11. 이게 백화점에도 없는 신상이에요.</p>
+    <button class="speak" onclick="event.stopPropagation();handleSpeak(event,'이게 백화점에도 없는 신상이에요.')">🔊</button>
+  </div>
+  <p class="cn">→ 这可是百货商店都没有的新款。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ This isn't even out in department stores yet.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">백화점 — 百货商店 ｜ 없다 — 没有(there is not) ｜ 신상 — 新款(新品)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 백화점에 없는 신상 — 百货商店都没有的新款</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 시중에 없는 제품이에요 — 市面上没有的产品</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-에도：强调助词，"连…也"，백화점에도 → 连百货商店也</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 친구도 몰랐어요 — 连朋友都不知道</span>
+    <div class="phon"><b>🎵 音变</b> 없는[엄는] ｜ ㅄ → ㅁ (鼻音化) ｜ 신상[신상]</div></div>
+  </div>
+</div>
+
+<div class="line" data-time-start="44" data-time-end="46">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">12. 나한테만 특별하게 미리 입으라고 보내 준 건데.</p>
+    <button class="speak" onclick="event.stopPropagation();handleSpeak(event,'나한테만 특별하게 미리 입으라고 보내 준 건데.')">🔊</button>
+  </div>
+  <p class="cn">→ 是品牌方特意提前寄给我的。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ The brand sent it to me in advance.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">나 — 我(I) ｜ -한테 — 给…(to) ｜ 특별하다 — 特别的(special) ｜ 미리 — 提前 ｜ 입다 — 穿 ｜ 보내주다 — 寄给</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 선물을 보내줬어요 — 送了我礼物</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 친구가 특별하게 만들어준 거예요 — 朋友特意给我做的</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-아/어주다：表示"为某人做某事"，-준是 -주 + -은的缩略</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 제가 해줄게요 — 我帮你做</span>
+    <div class="phon"><b>🎵 音变</b> 입으라고[이브라고] ｜ ㅂ + 으 → 브 (连音)</div></div>
+  </div>
+</div>
+
+<div class="line" data-time-start="46" data-time-end="48">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">13. 얼어 죽어도 입어 줘야죠.</p>
+    <button class="speak" onclick="event.stopPropagation();handleSpeak(event,'얼어 죽어도 입어 줘야죠.')">🔊</button>
+  </div>
+  <p class="cn">→ 就算冻死也得穿这个啊。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Even if I freeze, I have to wear this.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">얼다 — 冻(freeze) ｜ 죽다 — 死(die) ｜ -아/어도 — 即使…也 ｜ 입다 — 穿 ｜ -아/어야 하다 — 必须</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 추워서 얼어 죽겠어요 — 冷得冻死了</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 바빠 죽어도 이거 해야 해요 — 再忙也得做这个</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-아/어 죽다：口语中程度极深，"…死了"，얼어 죽다 → 冻死</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 배고파 죽겠어요 — 饿死了</span>
+    <div class="phon"><b>🎵 音变</b> 죽어도[주거도] ｜ 줘야죠[줘야죠] ｜ ㅈ + 여 → 져 (缩略)</div></div>
+  </div>
+</div>
+
+<div class="line" data-time-start="48" data-time-end="50">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">14. 아, 마케팅.</p>
+    <button class="speak" onclick="event.stopPropagation();handleSpeak(event,'아, 마케팅.')">🔊</button>
+  </div>
+  <p class="cn">→ 啊，是营销啊。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Ah, marketing.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">아 — 啊(ah) ｜ 마케팅 — 营销(marketing)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 마케팅 전략 — 营销策略</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 그건 다 마케팅이에요 — 那全都是营销</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">外来语名词：마케팅来自marketing，用-이다作谓语</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 그건 광고예요 — 那是广告</span>
+    <div class="phon"><b>🎵 音变</b> 마케팅[마케팅] ｜ 外来语，按标记发音</div></div>
+  </div>
+</div>
+
+<div class="line" data-time-start="50" data-time-end="53">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">15. 걸어 다니는 마네킹이네요.</p>
+    <button class="speak" onclick="event.stopPropagation();handleSpeak(event,'걸어 다니는 마네킹이네요.')">🔊</button>
+  </div>
+  <p class="cn">→ 行走的人体模特啊。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ You're a walking mannequin.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">걷다 — 走(walk) ｜ -어다니다 — 来回/到处 ｜ 마네킹 — 人体模特(mannequin) ｜ -네요 — …呢(感叹)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 마네킹 같아요 — 像人体模特一样</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 밤에 혼자 걸어다니면 위험해요 — 晚上一个人走很危险</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-아/어다니다：接在动词后，表示"到处/来回做…"</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 아이들이 뛰어다녀요 — 孩子们跑来跑去</span>
+    <div class="phon"><b>🎵 音变</b> 마네킹이네요[마네킹이네요] ｜ 外来语+语尾，发音不变</div></div>
+  </div>
+</div>
+
+<div class="line" data-time-start="53" data-time-end="56">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">16. 칭찬으로 들을게요.</p>
+    <button class="speak" onclick="event.stopPropagation();handleSpeak(event,'칭찬으로 들을게요.')">🔊</button>
+  </div>
+  <p class="cn">→ 我就当作是称赞了。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ I'll take that as a compliment.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">칭찬 — 称赞(compliment) ｜ -으로 — 作为/当作 ｜ 듣다 — 听/当作</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 칭찬해요 — 称赞</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 그 말은 칭찬으로 들을게요 — 我就当称赞了</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-(으)로：助词，表示"作为…"，칭찬으로 → 作为称赞</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 선물로 받았어요 — 作为礼物收到的</span>
+    <div class="phon"><b>🎵 音变</b> 들을게요[드를께요] ｜ 듣다 + -을게요 → 들을게요 ｜ ㄷ + ㄱ → ㄲ (浓音化)</div></div>
+  </div>
+</div>
+
+<div class="line" data-time-start="59" data-time-end="64">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">17. 피곤할 텐데 빨리 얘기하고 들어가서 쉬셔야겠네요.</p>
+    <button class="speak" onclick="event.stopPropagation();handleSpeak(event,'피곤할 텐데 빨리 얘기하고 들어가서 쉬셔야겠네요.')">🔊</button>
+  </div>
+  <p class="cn">→ 你应该累了，我快点说完你进去休息吧。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ You must be tired, I'll talk quickly so you can rest.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">피곤하다 — 累(tired) ｜ -ㄹ 텐데 — 应该…吧 ｜ 얘기하다 — 说话(talk) ｜ 들어가다 — 进去(go in) ｜ 쉬다 — 休息(rest)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 피곤해요? — 累吗？</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 바쁠 텐데 먼저 들어갈게요 — 你应该很忙，我先进去了</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-ㄹ 텐데：推测+转折，"应该…(但)…"。 -셔야겠네요 = -시-(敬语) + -아야겠다(意志"得…了") + -네요(感叹"…啊")</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 비가 올 텐데 우산 가져가세요 — 要下雨了，带伞吧</span>
+    <div class="phon"><b>🎵 音变</b> 피곤할[피곤할] ｜ 쉬셔야겠네요[쉬셔야견네요] ｜ 겠[겓] + 네 → [견네] (ㄷ+ㄴ→ㄴㄴ 鼻音化)</div></div>
+  </div>
+</div>
+
+<div class="sec">💡 小贴士</div>
+<p class="tip">✨ 本课重点：① 잘 못 + 动词：表示"不太会做…" ② -아/어 보이다：看起来… ③ -아/어 죽다：程度夸张表达 ④ -아/어다니다：来回做… ⑤ -ㄹ 텐데：推测语气</p>
+
+<div class="sec" onclick="toggleVocab(this)" style="cursor:pointer;user-select:none">
+<span style="display:inline-block;transition:transform .2s">▶</span> 📌 单词
+</div>
+<div id="vocab14" style="display:none">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;margin:8px 0">
+<div style="font-size:13px;padding:3px 0"><b>차무희</b> — 车茂熙(Cha Mu-hee)</div>
+<div style="font-size:13px;padding:3px 0"><b>스태프</b> — 工作人员(staff)</div>
+<div style="font-size:13px;padding:3px 0"><b>드라마</b> — 电视剧(drama)</div>
+<div style="font-size:13px;padding:3px 0"><b>영화</b> — 电影(movie)</div>
+<div style="font-size:13px;padding:3px 0"><b>알아보다</b> — 认出来(recognize)</div>
+<div style="font-size:13px;padding:3px 0"><b>춥다</b> — 冷(cold)</div>
+<div style="font-size:13px;padding:3px 0"><b>얇다</b> — 薄(thin)</div>
+<div style="font-size:13px;padding:3px 0"><b>백화점</b> — 百货商店(department store)</div>
+<div style="font-size:13px;padding:3px 0"><b>신상</b> — 新款(new item)</div>
+<div style="font-size:13px;padding:3px 0"><b>브랜드</b> — 品牌(brand)</div>
+<div style="font-size:13px;padding:3px 0"><b>마네킹</b> — 人体模特(mannequin)</div>
+<div style="font-size:13px;padding:3px 0"><b>칭찬</b> — 称赞(compliment)</div>
+<div style="font-size:13px;padding:3px 0"><b>피곤하다</b> — 累(tired)</div>
+<div style="font-size:13px;padding:3px 0"><b>얼다</b> — 冻(freeze)</div>
+<div style="font-size:13px;padding:3px 0"><b>마케팅</b> — 营销(marketing)</div>
+</div>
+</div>
+
+
+<div class="sec" onclick="toggleGrammar(this)" style="cursor:pointer;user-select:none">
+<span style="display:inline-block;transition:transform .2s">▶</span> 📖 语法总结
+</div>
+<div id="grammar14" style="display:none">
+<div style="margin:8px 0">
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>① 잘 못 + 动词</b>
+<div style="font-size:13px;color:#555;margin:2px 0">表示"不太会/不太能……"，否定能力。注意与 잘못(错误地)区分。</div>
+<div style="font-size:12px;color:#888">→ 한국어를 아직 잘 못해요 (韩语还不太会说)</div>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>② -아/어 보이다</b>
+<div style="font-size:13px;color:#555;margin:2px 0">接形容词后，表示"看起来……"。</div>
+<div style="font-size:12px;color:#888">→ 건강해 보여요 (看起来很健康)</div>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>③ -아/어 죽다</b>
+<div style="font-size:13px;color:#555;margin:2px 0">口语中表示程度极深，"……死了"。</div>
+<div style="font-size:12px;color:#888">→ 배고파 죽겠어요 (饿死了)</div>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>④ -아/어다니다</b>
+<div style="font-size:13px;color:#555;margin:2px 0">接在动词后，表示"到处/来回做……"。</div>
+<div style="font-size:12px;color:#888">→ 아이들이 뛰어다녀요 (孩子们跑来跑去)</div>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>⑤ -ㄹ 텐데</b>
+<div style="font-size:13px;color:#555;margin:2px 0">表示推测+转折/原因，"应该……(但)……"。</div>
+<div style="font-size:12px;color:#888">→ 비가 올 텐데 우산 가져가세요 (要下雨了，带伞吧)</div>
+</div>
+</div>
+</div>
+
+<script>
+function toggleVocab(el){
+  var arrow=el.querySelector('span');
+  var content=el.nextElementSibling;
+  if(content.style.display==='none'){
+    content.style.display='block';
+    arrow.style.transform='rotate(90deg)';
+  }else{
+    content.style.display='none';
+    arrow.style.transform='rotate(0deg)';
+  }
+}
+
+function toggleGrammar(el){
+  var arrow=el.querySelector('span');
+  var content=el.nextElementSibling;
+  if(content.style.display==='none'){
+    content.style.display='block';
+    arrow.style.transform='rotate(90deg)';
+  }else{
+    content.style.display='none';
+    arrow.style.transform='rotate(0deg)';
+  }
+}
+</script>
+
+<button class="done-toggle" data-lesson="14" onclick="toggleDone(14)">✓ 已完成学习</button>
+<div class="sec">✏️ 笔记</div>
+<textarea class="note-box" data-note="14" placeholder="在此输入笔记..."></textarea>
+<span class="note-status" id="noteStatus14">✓ 已保存</span>
+<button class="speak-practice-toggle" onclick="startPractice(14)">🎤 口语练习</button>
+</div></div>
+<div class="pg" id="pageLesson15">
+<div class="top">
+  <span class="back" onclick="goHome()">← 返回</span>
+  <h2>第15课 · 一起去吃饭吧</h2>
+  <button class="quiz-btn" onclick="toggleQuiz(15)">测验模式</button>
+</div>
+<div class="content" id="content15">
+<div class="sec">📝 台词（点击展开讲解）</div>
+
+<div class="line" data-time-start="0.3" data-time-end="2.3">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">1. 빨리 얘기하고 들어가서 쉬셔야겠네요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('빨리 얘기하고 들어가서 쉬셔야겠네요.')">🔊</button>
+  </div>
+  <p class="cn">→ 我赶紧说完 你好回去休息。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ I'll talk quickly so you can go in and rest.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">빨리 — 快(quickly) ｜ 얘기하다 — 说/说话(talk) ｜ 들어가다 — 进去(go in) ｜ 쉬다 — 休息(rest) ｜ -어야겠네요 — 得…了吧(should/ought to)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 들어가서 쉬다 — 进去休息(go in and rest)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 빨리 얘기하고 갈게요 — 我赶紧说完就走</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-아/어야겠네요：-아/어야 하다(应该) + -겠네요(推测感叹)，"得…了/该…了"，表说话人的判断或决心</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 이제 가야겠네요 — 我现在得走了</span></div>
+    <div class="phon"><b>🎵 音变</b> 얘기하고[예기하고] ｜ 들어가서[드러가서] ｜ 쉬셔야겠네요[쉬셔야겐네요] 连音化</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="2.8" data-time-end="4.5">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">2. 어, 그래요, 나 배도 너무 고파요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('어, 그래요, 나 배도 너무 고파요.')">🔊</button>
+  </div>
+  <p class="cn">→ 嗯，好吧，我也真的很饿。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Uh, okay, I'm really hungry too.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">어 — 嗯(uh) ｜ 그래요 — 好吧/那样(okay) ｜ 배 — 肚子(stomach) ｜ 고프다 — 饿(hungry) ｜ 너무 — 太/非常(very)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 배가 고파요 — 肚子饿(I'm hungry)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 나도 배고파요 — 我也饿了(I'm hungry too)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-도：助词，表示"也"，배도(배+도) → "肚子也(饿了)"</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 나도 좋아요 — 我也喜欢(I like it too)</span></div>
+    <div class="phon"><b>🎵 音变</b> 고파요[고파요] ｜ 发音不变 ｜ 그래요[그래요]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="4.6" data-time-end="6.0">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">3. 우리 어디 들어가서 밥 먹어요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('우리 어디 들어가서 밥 먹어요.')">🔊</button>
+  </div>
+  <p class="cn">→ 我们找个地方吃饭吧。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Let's go somewhere to eat.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">우리 — 我们(we) ｜ 어디 — 哪里(where) ｜ 들어가다 — 进去(go in) ｜ 밥 — 饭/餐(meal) ｜ 먹다 — 吃(eat)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 밥 먹어요 — 吃饭(eat a meal)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 우리 같이 밥 먹어요 — 我们一起吃饭吧(Let's eat together)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-아/어서：连接词尾，表示先后顺序或方式，"…然后…/找个地方…"</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 가게에 들어가서 물건을 샀어요 — 进店里买了东西</span></div>
+    <div class="phon"><b>🎵 音变</b> 들어가서[드러가서] ｜ 들어가다 → [드러가다] 连音化</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="8.2" data-time-end="9.1">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">4. 밥을 먹자고요?</p>
+    <button class="speak" onclick="event.stopPropagation();speak('밥을 먹자고요?')">🔊</button>
+  </div>
+  <p class="cn">→ 吃饭吗？</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ You want to eat?</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">밥 — 饭(rice/meal) ｜ -을 — (宾格助词) ｜ 먹다 — 吃(eat) ｜ -자고 하다 — 提议说(suggest that)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 밥 먹자 — 吃饭吧(Let's eat)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 영화 보자고 했어요 — 说一起看电影吧</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-자고요？：-자고(间接引用表示提议) + -요(敬语)，反问确认，"你是说…？"</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 같이 가자고요? — 说一起走？(You mean let's go together?)</span></div>
+    <div class="phon"><b>🎵 音变</b> 먹자고요[먹짜고요] ｜ ㅈ + ㄱ → 紧音化</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="12.8" data-time-end="16.3">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">5. 우리 전에 같이 밥 먹어 주기로 하고 못 먹었었잖아요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('우리 전에 같이 밥 먹어 주기로 하고 못 먹었었잖아요.')">🔊</button>
+  </div>
+  <p class="cn">→ 我们之前说要一起吃的，不还没有吃上吗？</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ We said we'd eat together before but couldn't, remember?</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">전에 — 之前(before) ｜ 같이 — 一起(together) ｜ 먹어 주다 — 请吃(feed) ｜ -기로 하다 — 决定做…(decide to) ｜ 못 먹다 — 没能吃(couldn't eat) ｜ -잖아요 — 不是吗</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 밥 먹기로 했어요 — 说好要吃饭(Agreed to eat)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 전에 만나기로 했었잖아요 — 之前不是说好见面的嘛</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-기로 하다：表示"决定/说好做某事"。-잖아요：反问语气，"不是…嘛"(反问对方已知事实)</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 같이 가기로 했잖아요 — 不是说好一起去的嘛</span></div>
+    <div class="phon"><b>🎵 音变</b> 먹었었잖아요[머거써쨔나요] ｜ ㅆ + ㅈ → ㅉ 紧音化</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="16.4" data-time-end="19.1">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">6. 그때 못 먹은 거 오늘 같이 먹어 줄게요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('그때 못 먹은 거 오늘 같이 먹어 줄게요.')">🔊</button>
+  </div>
+  <p class="cn">→ 那天没吃的，今天就陪你吃吧。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ I'll eat with you today what we missed back then.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">그때 — 那时(back then) ｜ 못 먹다 — 没能吃(couldn't eat) ｜ 오늘 — 今天(today) ｜ -ㄹ게요 — 我会…(will) ｜ 먹어 주다 — 给吃/陪着吃</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 못 먹은 거 — 没吃成的(what we couldn't eat)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 그 일은 제가 할게요 — 那件事我来做(I'll do that)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-(으)ㄴ 거：动词冠词形+的，名词化"…的事"。-(아/어) 줄게요：表示为对方做某事的意志，"我来为你…"</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 도와줄게요 — 我来帮你(I'll help you)</span></div>
+    <div class="phon"><b>🎵 音变</b> 먹은[머근] ｜ ㄱ + 은 → ㄱ连音 ｜ 줄게요[줄께요] ｜ ㄱ → ㄲ 浓音化</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="23.1" data-time-end="27.5">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">7. 그래요. 그때는 제가 미안했으니까 밥은 내가 살게요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('그래요. 그때는 제가 미안했으니까 밥은 내가 살게요.')">🔊</button>
+  </div>
+  <p class="cn">→ 好吧。那时候是我对不起你，今天的饭就我请你吃。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Okay. I was the one who was sorry back then, so I'll buy the meal.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">그래요 — 好吧(okay) ｜ 그때 — 那时(back then) ｜ 제가 — 我(谦称/I) ｜ 미안하다 — 对不起/抱歉(sorry) ｜ 밥 — 饭 ｜ 내가 — 我(I) ｜ 사다 — 请客/买(buy/treat)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 밥을 살게요 — 我请客(I'll treat you)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 오늘은 제가 낼게요 — 今天我请客(I'll pay today)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-았/었으니까：表示原因"因为…了，所以…"。-ㄹ게요：表态意志，"我会…的"</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 시간이 늦었으니까 빨리 가요 — 因为晚了，快走吧</span></div>
+    <div class="phon"><b>🎵 音变</b> 미안했으니까[미아내써니까] ｜ ㅎ脱落(했→애) ｜ 살게요[살께요] ｜ ㄱ→ㄲ</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="36.4" data-time-end="37.7">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">8. 근처에 아는 식당이 있어요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('근처에 아는 식당이 있어요.')">🔊</button>
+  </div>
+  <p class="cn">→ 我知道一家这附近的餐厅。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ I know a restaurant nearby.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">근처 — 附近(nearby) ｜ 알다 — 知道/认识(know) ｜ 식당 — 餐厅(restaurant) ｜ 있다 — 有/在(there is/be)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 아는 식당 — 认识的餐厅(a restaurant I know)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 근처에 좋은 카페가 있어요 — 附近有家不错的咖啡厅</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-는：冠词形语尾，修饰名词。"아는" = "认识的"（动词알다的冠词形）</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 제가 아는 사람이에요 — 是我认识的人</span></div>
+    <div class="phon"><b>🎵 音变</b> 있어요[이써요] ｜ ㅆ 紧音化 ｜ 근처[근처] 发音不变</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="37.8" data-time-end="39.3">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">9. 걸어가는 동안 추울 테니까 이거 둘러요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('걸어가는 동안 추울 테니까 이거 둘러요.')">🔊</button>
+  </div>
+  <p class="cn">→ 去的路上还冷，这个你先围着吧。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ It'll be cold on the way, so wrap this around you.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">걸어가다 — 走过去(walk) ｜ 동안 — 期间(during/while) ｜ 춥다 — 冷(cold) ｜ -ㄹ 테니까 — 应该会…所以 ｜ 이거 — 这个(this) ｜ 두르다 — 围上(wrap)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 걸어가다 — 走路去(walk there)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 날씨가 추울 테니까 옷을 많이 입어요 — 天气应该冷，多穿点</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-(으)ㄹ 테니까：推测+原因，"应该会…所以…"（테니까来自터이니까的缩略）</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 비가 올 테니까 우산 가져가세요 — 要下雨了，带伞去吧</span></div>
+    <div class="phon"><b>🎵 音变</b> 추울[추울] ｜ 테니까[테니까] ｜ 둘러요[둘러요] ｜ 发音不变</div>
+  </div>
+</div>
+
+<div class="sec">💡 小贴士</div>
+<p class="tip">✨ 本课重点：① -어야겠네요：得…了/该…了 ② -잖아요：反问语气"不是…嘛" ③ -기로 하다：决定做某事 ④ -(으)ㄹ 테니까：推测+原因 ⑤ -아/어 줄게요：为对方做某事的意志 ⑥ -도：也</p>
+
+<div class="sec" onclick="toggleVocab(this)" style="cursor:pointer;user-select:none">
+<span style="display:inline-block;transition:transform .2s">▶</span> 📌 单词
+</div>
+<div id="vocab15" style="display:none">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;margin:8px 0">
+<div style="font-size:13px;padding:3px 0"><b>배</b> — 肚子/胃(stomach)</div>
+<div style="font-size:13px;padding:3px 0"><b>고프다</b> — 饿(hungry)</div>
+<div style="font-size:13px;padding:3px 0"><b>들어가다</b> — 进去(go in)</div>
+<div style="font-size:13px;padding:3px 0"><b>밥</b> — 饭(rice/meal)</div>
+<div style="font-size:13px;padding:3px 0"><b>먹다</b> — 吃(eat)</div>
+<div style="font-size:13px;padding:3px 0"><b>전에</b> — 之前(before)</div>
+<div style="font-size:13px;padding:3px 0"><b>못 먹다</b> — 没能吃(couldn&apos;t eat)</div>
+<div style="font-size:13px;padding:3px 0"><b>오늘</b> — 今天(today)</div>
+<div style="font-size:13px;padding:3px 0"><b>미안하다</b> — 对不起/抱歉(sorry)</div>
+<div style="font-size:13px;padding:3px 0"><b>사다</b> — 请客/买(buy/treat)</div>
+<div style="font-size:13px;padding:3px 0"><b>근처</b> — 附近(nearby)</div>
+<div style="font-size:13px;padding:3px 0"><b>식당</b> — 餐厅(restaurant)</div>
+<div style="font-size:13px;padding:3px 0"><b>걸어가다</b> — 走过去(walk)</div>
+<div style="font-size:13px;padding:3px 0"><b>춥다</b> — 冷(cold)</div>
+<div style="font-size:13px;padding:3px 0"><b>두르다</b> — 围上(wrap)</div>
+<div style="font-size:13px;padding:3px 0"><b>빨리</b> — 快(quickly)</div>
+<div style="font-size:13px;padding:3px 0"><b>얘기하다</b> — 说话(talk)</div>
+<div style="font-size:13px;padding:3px 0"><b>쉬다</b> — 休息(rest)</div>
+<div style="font-size:13px;padding:3px 0"><b>우리</b> — 我们(we)</div>
+<div style="font-size:13px;padding:3px 0"><b>같이</b> — 一起(together)</div>
+<div style="font-size:13px;padding:3px 0"><b>그때</b> — 那时(back then)</div>
+<div style="font-size:13px;padding:3px 0"><b>알다</b> — 知道(know)</div>
+<div style="font-size:13px;padding:3px 0"><b>동안</b> — 期间(during/while)</div>
+<div style="font-size:13px;padding:3px 0"><b>이거</b> — 这个(this)</div>
+</div>
+</div>
+
+
+<div class="sec" onclick="toggleGrammar(this)" style="cursor:pointer;user-select:none">
+<span style="display:inline-block;transition:transform .2s">▶</span> 📖 语法总结
+</div>
+<div id="grammar15" style="display:none">
+<div style="margin:8px 0">
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>① -잖아요</b>
+<div style="font-size:13px;color:#555;margin:2px 0">反问语气，"不是…嘛"。用于提醒对方已知事实。</div>
+<div style="font-size:12px;color:#888">→ 같이 가기로 했잖아요 (不是说好一起去的嘛)</div>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>② -기로 하다</b>
+<div style="font-size:13px;color:#555;margin:2px 0">接动词后，表示"决定/说好做某事"。</div>
+<div style="font-size:12px;color:#888">→ 만나기로 했어요 (说好要见面)</div>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>③ -(으)ㄹ 테니까</b>
+<div style="font-size:13px;color:#555;margin:2px 0">推测+原因，"应该会…所以…"。前半句推测，后半句据此行动。</div>
+<div style="font-size:12px;color:#888">→ 비가 올 테니까 우산 가져가세요 (要下雨了，带伞去吧)</div>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>④ -아/어 줄게요</b>
+<div style="font-size:13px;color:#555;margin:2px 0">表示为对方做某事的意志，"我来为你…"。</div>
+<div style="font-size:12px;color:#888">→ 도와줄게요 (我来帮你)</div>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>⑤ -도</b>
+<div style="font-size:13px;color:#555;margin:2px 0">助词，表示"也"。"배도(肚子也)" → 肚子也(饿了)。</div>
+<div style="font-size:12px;color:#888">→ 나도 좋아요 (我也喜欢)</div>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>⑥ -어야겠네요</b>
+<div style="font-size:13px;color:#555;margin:2px 0">接动词词干后，表说话人判断"得…了/该…了"（-아/어야 하다 + -겠네요 的缩合）。</div>
+<div style="font-size:12px;color:#888">→ 이제 가야겠네요 (我现在得走了)</div>
+</div>
+</div>
+</div>
+
+<script>
+function toggleVocab(el){
+  var arrow=el.querySelector('span');
+  var content=el.nextElementSibling;
+  if(content.style.display==='none'){
+    content.style.display='block';
+    arrow.style.transform='rotate(90deg)';
+  }else{
+    content.style.display='none';
+    arrow.style.transform='rotate(0deg)';
+  }
+}
+
+function toggleGrammar(el){
+  var arrow=el.querySelector('span');
+  var content=el.nextElementSibling;
+  if(content.style.display==='none'){
+    content.style.display='block';
+    arrow.style.transform='rotate(90deg)';
+  }else{
+    content.style.display='none';
+    arrow.style.transform='rotate(0deg)';
+  }
+}
+</script>
+
+<button class="done-toggle" data-lesson="15" onclick="toggleDone(15)">✓ 已完成学习</button>
+<div class="sec">✏️ 笔记</div>
+<textarea class="note-box" data-note="15" placeholder="在此输入笔记..."></textarea>
+<span class="note-status" id="noteStatus15">✓ 已保存</span>
+<button class="speak-practice-toggle" onclick="startPractice(15)">🎤 口语练习</button>
+</div></div>
+<div class="pg" id="pageLesson16">
+<div class="top">
+  <span class="back" onclick="goHome()">← 返回</span>
+  <h2>第16课 · 你不会喝酒吗？</h2>
+  <button class="quiz-btn" onclick="toggleQuiz(16)">测验模式</button>
+</div>
+<div class="content" id="content16">
+
+<div class="sec">📝 台词（点击展开讲解）</div>
+
+<div class="line" data-time-start="4.92" data-time-end="6.72">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">1. 주호진 씨, 술 못 마셔요?</p>
+    <button class="speak" onclick="event.stopPropagation();speak('주호진 씨, 술 못 마셔요?')">🔊</button>
+  </div>
+  <p class="cn">→ 周浩镇先生，不能喝酒吗？</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Mr. Joo Ho-jin, you can't drink?</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">주호진 — 周浩镇(Joo Ho-jin) ｜ 씨 — 先生(Mr.) ｜ 술 — 酒(alcohol) ｜ 못 — 不能(can't) ｜ 마시다 — 喝(drink)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 술 마셔요? — 喝酒吗？(Drink alcohol?)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 술 잘 마셔요? — 酒量好吗？(Do you drink well?)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">못 + 动词：否定能力，"不能做/做不了"，表示因能力或条件限制做不了某事</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 한국어 못 해요 — 不会韩语(I can't speak Korean)</span></div>
+    <div class="phon"><b>🎵 音变</b> 못 마셔요[몬 마셔요] ｜ ㅅ + ㅁ → ㄴ (鼻音化同化) ｜ 마셔요[마셔요] ｜ ㅅ + ㅕ → ㅕ (连音)</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="7.62" data-time-end="8.84">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">2. 아니요. 잘 마십니다.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('아니요. 잘 마십니다.')">🔊</button>
+  </div>
+  <p class="cn">→ 不是的，我酒量还不错。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ No, I drink quite well.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">아니요 — 不/不是(No) ｜ 잘 — 好/擅长(well) ｜ 마시다 — 喝(drink) ｜ -ㅂ니다 — 敬语正式体陈述语尾</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 잘 먹어요 — 吃得好/胃口好(Eat well)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 저는 술을 잘 마셔요 — 我酒量很好(I drink well)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-(스)ㅂ니다：敬语正式体陈述语尾。动词词干以元音结尾+ㅂ니다，以辅音结尾+습니다</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 네, 압니다 — 是的，我知道(Yes, I know)</span></div>
+    <div class="phon"><b>🎵 音变</b> 마십니다[마심니다] ｜ 마시 + ㅂ니다 → 마십니다 ｜ 마시[마시] + ㅂ니다 → [마심니다] (连音化)</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="9.90" data-time-end="13.14">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">3. 피곤할 텐데 쓸데없이 시간 뺏고 싶지 않으세요.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('피곤할 텐데 쓸데없이 시간 뺏고 싶지 않으세요.')">🔊</button>
+  </div>
+  <p class="cn">→ 您应该累了，我不想白白占用您的时间。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ You must be tired. I don't want to needlessly take your time.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">피곤하다 — 累(tired) ｜ -ㄹ 텐데 — 应该…吧(推测) ｜ 쓸데없이 — 无谓地/白白地(needlessly) ｜ 시간 — 时间(time) ｜ 뺏다 — 占用/夺走(take up) ｜ -고 싶다 — 想做(want to) ｜ -지 않다 — 不(do not) ｜ -으세요 — 敬语疑问语尾</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 시간을 뺏다 — 占用时间(take up time)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 쓸데없이 기다리고 싶지 않아요 — 不想白白等待(I don't want to wait needlessly)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-ㄹ 텐데：推测语气"应该会…(但)…" ｜ -고 싶다 + -지 않다 = "不想做…"，是"想做"的否定形式</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 바쁠 텐데 쉬세요 — 应该忙吧，休息吧(You must be busy, rest)</span></div>
+    <div class="phon"><b>🎵 音变</b> 피곤할[피곤할] ｜ 쓸데없이[쓸데업씨] ｜ 없 + 시 → [업씨] (ㅄ→ㅂ紧音化) ｜ 뺏고[빼꼬] ｜ ㅆ + ㄱ → ㄲ (浓音化)</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="13.28" data-time-end="15.60">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">4. 내가 하려는 말은 식사하면서 듣기에도 충분합니다.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('내가 하려는 말은 식사하면서 듣기에도 충분합니다.')">🔊</button>
+  </div>
+  <p class="cn">→ 我要说的话，边吃饭边听也完全足够了。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ What I have to say is enough to listen to over the meal.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">내가 — 我(I) ｜ 하다 — 做/说(do/say) ｜ -려는 — 想要…的(try to) ｜ 말 — 话(words) ｜ -은 — 话题标记 ｜ 식사하다 — 吃饭(eat a meal) ｜ -(으)면서 — 一边…一边(while) ｜ 듣다 — 听(listen) ｜ -기에 — …来说(for/to) ｜ -도 — 也(also) ｜ 충분하다 — 足够(enough)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 식사하면서 얘기해요 — 边吃饭边聊(Talk while eating)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 이 책은 읽기에도 좋아요 — 这本书读起来也很好(This book is good to read too)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-(으)려는：冠词形"想要…的" ｜ -(으)면서："一边…一边" ｜ -기에：基准"…来说/…来看"</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 듣기에 재미있어요 — 听起来很有趣(It's interesting to listen to) ｜ 산책하면서 음악 들어요 — 一边散步一边听音乐(Listen to music while walking)</span></div>
+    <div class="phon"><b>🎵 音变</b> 하려는[하려는] ｜ 식사하면서[식싸하면서] ｜ ㅅ紧音化 ｜ 듣기에[드기에] ｜ ㄷ + 이 → [드기] (ㄷ脱落/连音化) ｜ 충분합니다[충분함니다] ｜ ㅂ + 하 → [함] (ㅂ+하→함)</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="19.54" data-time-end="20.22">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">5. 어...</p>
+    <button class="speak" onclick="event.stopPropagation();speak('어...')">🔊</button>
+  </div>
+  <p class="cn">→ 呃...</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Uh...</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">어 — 呃/嗯(Uh/Um/Well)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 어, 그래요 — 呃，好吧(Uh, okay)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 어, 알겠어요 — 呃，我知道了(Uh, I understand)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">어：感叹/犹豫词，"呃/嗯"，韩语中常用的填充词，表示思考或转折</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 어, 잠깐만요 — 呃，等一下(Uh, hold on)</span></div>
+    <div class="phon"><b>🎵 音变</b> 어[어] ｜ 发音不变</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="20.22" data-time-end="22.14">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">6. 할 말 있어서 모셨다고 했죠.</p>
+    <button class="speak" onclick="event.stopPropagation();speak('할 말 있어서 모셨다고 했죠.')">🔊</button>
+  </div>
+  <p class="cn">→ 我说了叫您来是有话要说的。</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ I said I called you here because I have something to say.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">할 말 있다 — 有话要说(have something to say) ｜ -아/어서 — 因为/所以(so/because) ｜ 모시다 — 带来(敬语)(bring/escort) ｜ -다고 하다 — 说…(said that) ｜ -었죠 — …了(回忆确认)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 할 말 있어요? — 有事要说吗？(Do you have something to say?)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 할 말이 있어서 왔어요 — 因为有事要说所以来了(I came because I have something to say)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-다고 하다：间接引用"说…" ｜ -아/어서：表示原因"因为…所以…" ｜ -었죠：过去时+确认语气"…了吧"</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 약속이 있어서 못 가요 — 因为有事去不了(I can't go because I have plans) ｜ 내일 온다고 했어요 — 说明天来(He said he'll come tomorrow)</span></div>
+    <div class="phon"><b>🎵 音变</b> 모셨다고[모셔따고] ｜ ㅆ + ㄷ → ㄸ (浓音化) ｜ 했죠[핻죠→핵쬬] ｜ ㅆ + ㅈ → ㅉ (紧音化)</div>
+  </div>
+</div>
+
+<div class="sec">💡 小贴士</div>
+<p class="tip">✨ 本课重点：① 못 + 动词：否定能力"不能做…" ② -(스)ㅂ니다：敬语正式体 ③ -ㄹ 텐데：推测语气"应该…吧" ④ -(으)면서：一边…一边 ⑤ -기에：…来说/…来看 ⑥ -다고 하다：间接引用"说…"</p>
+
+<div class="sec" onclick="toggleVocab(this)" style="cursor:pointer;user-select:none">
+<span style="display:inline-block;transition:transform .2s">▶</span> 📌 单词
+</div>
+<div id="vocab16" style="display:none">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;margin:8px 0">
+<div style="font-size:13px;padding:3px 0"><b>주호진</b> — 周浩镇(Joo Ho-jin)</div>
+<div style="font-size:13px;padding:3px 0"><b>술</b> — 酒(alcohol)</div>
+<div style="font-size:13px;padding:3px 0"><b>못 마시다</b> — 不能喝(can't drink)</div>
+<div style="font-size:13px;padding:3px 0"><b>아니요</b> — 不(No)</div>
+<div style="font-size:13px;padding:3px 0"><b>잘 마시다</b> — 酒量好(drink well)</div>
+<div style="font-size:13px;padding:3px 0"><b>피곤하다</b> — 累(tired)</div>
+<div style="font-size:13px;padding:3px 0"><b>쓸데없이</b> — 无谓地/白白地(needlessly)</div>
+<div style="font-size:13px;padding:3px 0"><b>시간</b> — 时间(time)</div>
+<div style="font-size:13px;padding:3px 0"><b>뺏다</b> — 占用/夺走(take up)</div>
+<div style="font-size:13px;padding:3px 0"><b>-고 싶다</b> — 想做(want to)</div>
+<div style="font-size:13px;padding:3px 0"><b>-지 않다</b> — 不(do not)</div>
+<div style="font-size:13px;padding:3px 0"><b>내가</b> — 我(I)</div>
+<div style="font-size:13px;padding:3px 0"><b>말</b> — 话(words)</div>
+<div style="font-size:13px;padding:3px 0"><b>식사하다</b> — 吃饭(eat a meal)</div>
+<div style="font-size:13px;padding:3px 0"><b>듣다</b> — 听(listen)</div>
+<div style="font-size:13px;padding:3px 0"><b>충분하다</b> — 足够(enough)</div>
+<div style="font-size:13px;padding:3px 0"><b>모시다</b> — 带来(敬语)(bring/escort)</div>
+<div style="font-size:13px;padding:3px 0"><b>할 말 있다</b> — 有话要说(have something to say)</div>
+</div>
+</div>
+
+<div class="sec" onclick="toggleGrammar(this)" style="cursor:pointer;user-select:none">
+<span style="display:inline-block;transition:transform .2s">▶</span> 📖 语法总结
+</div>
+<div id="grammar16" style="display:none">
+<div style="margin:8px 0">
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>① 못 + 动词</b>
+<div style="font-size:13px;color:#555;margin:2px 0">否定能力，"不能做/做不了"，表示因能力或条件限制做不了某事。与 안 + 动词（主观不愿）不同。</div>
+<div style="font-size:12px;color:#888">→ 한국어 못 해요 (不会韩语)</div>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>② -(스)ㅂ니다</b>
+<div style="font-size:13px;color:#555;margin:2px 0">敬语正式体陈述语尾。动词词干以元音结尾 + ㅂ니다，以ㄹ结尾的动词(如알다→압니다)发生ㄹ脱落，以其他辅音结尾+습니다。</div>
+<div style="font-size:12px;color:#888">→ 네, 압니다 (是的，我知道)</div>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>③ -ㄹ 텐데</b>
+<div style="font-size:13px;color:#555;margin:2px 0">推测语气"应该会…(但)…"，-ㄹ 터이다(推测) + -(으)ㄴ데(转折/背景)。后面常接建议或行动。</div>
+<div style="font-size:12px;color:#888">→ 바쁠 텐데 쉬세요 (应该忙吧，休息吧)</div>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>④ -(으)면서</b>
+<div style="font-size:13px;color:#555;margin:2px 0">连接词尾，表示两个动作同时进行，"一边…一边…"。</div>
+<div style="font-size:12px;color:#888">→ 산책하면서 음악 들어요 (一边散步一边听音乐)</div>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>⑤ -기에</b>
+<div style="font-size:13px;color:#555;margin:2px 0">接在动词后，表示基准或评价，"…来说/…来看"。常与좋다, 나쁘다, 충분하다等评价形容词连用。</div>
+<div style="font-size:12px;color:#888">→ 듣기에 재미있어요 (听起来很有趣)</div>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>⑥ -다고 하다</b>
+<div style="font-size:13px;color:#555;margin:2px 0">间接引用语尾，"说…"。将某人说的话以间接方式转述。动词/形容词词干 + -다고 하다，名词 + -(이)라고 하다。</div>
+<div style="font-size:12px;color:#888">→ 내일 온다고 했어요 (说明天来)</div>
+</div>
+</div>
+</div>
+
+<script>
+function toggleVocab(el){
+  var arrow=el.querySelector('span');
+  var content=el.nextElementSibling;
+  if(content.style.display==='none'){
+    content.style.display='block';
+    arrow.style.transform='rotate(90deg)';
+  }else{
+    content.style.display='none';
+    arrow.style.transform='rotate(0deg)';
+  }
+}
+
+function toggleGrammar(el){
+  var arrow=el.querySelector('span');
+  var content=el.nextElementSibling;
+  if(content.style.display==='none'){
+    content.style.display='block';
+    arrow.style.transform='rotate(90deg)';
+  }else{
+    content.style.display='none';
+    arrow.style.transform='rotate(0deg)';
+  }
+}
+</script>
+
+<button class="done-toggle" data-lesson="16" onclick="toggleDone(16)">✓ 已完成学习</button>
+<div class="sec">✏️ 笔记</div>
+<textarea class="note-box" data-note="16" placeholder="在此输入笔记..."></textarea>
+<span class="note-status" id="noteStatus16">✓ 已保存</span>
+<button class="speak-practice-toggle" onclick="startPractice(16)">🎤 口语练习</button>
+</div></div>
+
+<div class="pg" id="pageLesson17">
+<div class="top">
+  <span class="back" onclick="goHome()">← 返回</span>
+  <h2>第17课 · 照片风波</h2>
+  <button class="quiz-btn" onclick="toggleQuiz(17)">测验模式</button>
+</div>
+<div class="content" id="content17">
+
+<div class="sec">📝 台词（点击展开讲解）</div>
+
+<div class="line" data-time-start="0.0" data-time-end="4.0">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">1. 차무희 씨 인스타에 일본에서 찍은 사진 올라와 있죠?</p>
+    <button class="speak" onclick="event.stopPropagation();speak('차무희 씨 인스타에 일본에서 찍은 사진 올라와 있죠?')">🔊</button>
+  </div>
+  <p class="cn">→ 车茂熙小姐，你Instagram上有在日本拍的照片吧？</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ You posted photos from Japan on Instagram, right?</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">인스타 — Instagram｜일본 — 日本｜찍다 — 拍｜사진 — 照片｜올리다 — 上传｜-아/어 있다 — 状态持续</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-아/어 있다「…着/在」表结果状态的持续</span></div>
+    <div class="ex">💬 올라와 있어요 → 上传在上面（You posted it there）</div>
+    <div class="phon"><b>🎵 音变</b> 찍은[찌근]｜올라와[올라와]｜无特殊变化</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="4.0" data-time-end="10.0">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">2. 그 인스타 포스팅하는 거 같이 보셨잖아요</p>
+    <button class="speak" onclick="event.stopPropagation();speak('그 인스타 포스팅하는 거 같이 보셨잖아요')">🔊</button>
+  </div>
+  <p class="cn">→ 我上传Instagram的时候，你不也一起看到了吗？</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ You were watching when I posted it, weren't you?</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">포스팅하다 — 发帖(to post)｜같이 — 一起｜보다 — 看｜-잖아요 — 不是嘛/你也知道</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-잖아요 反问/提醒「不是…吗」</span></div>
+    <div class="ex">💬 알잖아요 → 你不是知道嘛(You know it)</div>
+    <div class="phon"><b>🎵 音变</b> 보셨잖아요[보셨짜나요]｜ㅆ+ㅈ→紧音化</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="10.0" data-time-end="15.0">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">3. 그중에서 내가 찍혀 있는 사진은 지워 주십시오</p>
+    <button class="speak" onclick="event.stopPropagation();speak('그중에서 내가 찍혀 있는 사진은 지워 주십시오')">🔊</button>
+  </div>
+  <p class="cn">→ 其中拍到了我的照片，请删掉</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Please delete the photo that has me in it.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">그중에서 — 其中｜내가 — 我(主格)｜찍히다 — 被拍到(被动态)｜지우다 — 删除｜-아/어 주십시오 — 请为我…(敬语)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-히다 被动「被…」｜-아/어 주십시오 敬语请求「请为我…」</span></div>
+    <div class="ex">💬 도와 주십시오 → 请帮帮我(Please help me)</div>
+    <div class="phon"><b>🎵 音变</b> 찍혀[찌켜]｜ㅎ+ㅕ→켜(送气化)</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="15.0" data-time-end="27.0">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">4. 아까 인터뷰에서도 언급된 그 사진이요, 그거 지워 주세요</p>
+    <button class="speak" onclick="event.stopPropagation();speak('아까 인터뷰에서도 언급된 그 사진이요, 그거 지워 주세요')">🔊</button>
+  </div>
+  <p class="cn">→ 刚才采访中也提到的那张照片，请删掉它</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ The photo mentioned in the interview — please delete it.</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">아까 — 刚才｜인터뷰 — 采访｜언급되다 — 被提及｜그거 — 那个(口语)｜지워 주세요 — 请删掉</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-에도 强调「也」｜-된 冠形词形「被…的」｜-이요 口语强调</span></div>
+    <div class="ex">💬 아까 말한 그거요 → 刚才说的那个(That thing I mentioned)</div>
+    <div class="phon"><b>🎵 音变</b> 언급된[언급뙨]｜ㄱ+ㄷ→紧音化</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="27.0" data-time-end="29.0">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">5. 아니, 그러니까</p>
+    <button class="speak" onclick="event.stopPropagation();speak('아니, 그러니까')">🔊</button>
+  </div>
+  <p class="cn">→ 不是，所以说</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ No, I mean...</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">아니 — 不/不是｜그러니까 — 所以说/也就是说</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">그러니까 惯用「所以说」用于重新组织语言</span></div>
+    <div class="ex">💬 아니 그러니까 내 말은 → 不 我是说(No I mean)</div>
+    <div class="phon"><b>🎵 音变</b> 그러니까[그러니까]｜无特殊变化</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="29.0" data-time-end="33.0">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">6. 그 인스타 사진 지워 달라는 말 하려고</p>
+    <button class="speak" onclick="event.stopPropagation();speak('그 인스타 사진 지워 달라는 말 하려고')">🔊</button>
+  </div>
+  <p class="cn">→ 就是想让你删掉那张Instagram照片</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ (You came) to tell me to delete that Instagram photo</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">그 — 那｜인스타 — Instagram｜사진 — 照片｜지우다 — 删除｜-아/어 달라 — 请为我…(请求)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-(으)려고「为了/想要…」表目的意图</span></div>
+    <div class="ex">💬 도와 달라는 말이에요 → 是说让我帮忙(Asking me to help)</div>
+    <div class="phon"><b>🎵 音变</b> 지워[지워]｜元音缩合</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="33.0" data-time-end="37.0">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">7. 굳이 통역을 맡아서 나를 만나러 오신 거라고요?</p>
+    <button class="speak" onclick="event.stopPropagation();speak('굳이 통역을 맡아서 나를 만나러 오신 거라고요?')">🔊</button>
+  </div>
+  <p class="cn">→ 还特意来当我的翻译吗？</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ You took on interpreting just to come meet me?</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">굳이 — 特意｜통역 — 翻译｜맡다 — 承担｜만나다 — 见面｜오다 — 来｜-라고요? — 反问</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-(으)러「为了…(去/来)」移动目的｜-라고요? 反问惊讶</span></div>
+    <div class="ex">💬 만나러 왔어요 → 来见面的(Came to meet)</div>
+    <div class="phon"><b>🎵 音变</b> 굳이[구지]｜ㄷ+이→口盖音化｜맡아서[마타서]</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="37.0" data-time-end="39.0">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">8. 그렇게라도 안 하면 만날 길이 없더라고요</p>
+    <button class="speak" onclick="event.stopPropagation();speak('그렇게라도 안 하면 만날 길이 없더라고요')">🔊</button>
+  </div>
+  <p class="cn">→ 不这样做的话没有别的办法见到你</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ If I didn't do it that way, there was no way to meet you</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">그렇게라도 — 就算那样｜안 하면 — 如果不做｜만나다 — 见面｜길 — 路/方法｜없다 — 没有｜-더라고요 — 回想陈述</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-라도 让步「就算…也」｜-더라고요 回想「我记得…」</span></div>
+    <div class="ex">💬 이렇게라도 해야 해요 → 就算这样也得做</div>
+    <div class="phon"><b>🎵 音变</b> 없더라고요[업떠라고요]｜紧音化</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="44.0" data-time-end="48.0">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">9. 아니, 그러면 아까 인터뷰 끝나고 바로 말씀하시지 그러셨어요</p>
+    <button class="speak" onclick="event.stopPropagation();speak('아니, 그러면 아까 인터뷰 끝나고 바로 말씀하시지 그러셨어요')">🔊</button>
+  </div>
+  <p class="cn">→ 那刚才采访结束的时候干嘛不说</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Why didn't you just say it right after the interview?</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">그러면 — 那么｜아까 — 刚才｜인터뷰 — 采访｜끝나다 — 结束｜바로 — 马上｜말씀하다 — 说(敬语)｜-시- — 敬语</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-지 그랬어요? 遗憾反问「怎么不…」</span></div>
+    <div class="ex">💬 일찍 오지 그랬어요? → 怎么不早点来？</div>
+    <div class="phon"><b>🎵 音变</b> 끝나고[끈나고]｜鼻音化</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="48.0" data-time-end="56.0">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">10. 말하려고 했는데 그쪽이 너무 바빴잖아요</p>
+    <button class="speak" onclick="event.stopPropagation();speak('말하려고 했는데 그쪽이 너무 바빴잖아요')">🔊</button>
+  </div>
+  <p class="cn">→ 想说来着，但是你太忙了啊</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ I was going to, but you were too busy, you know</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">말하다 — 说｜-(으)려고 하다 — 打算/想要｜-는데 — 但是｜그쪽 — 您/那边｜너무 — 太｜바쁘다 — 忙｜-잖아요 — 不是嘛</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-(으)려고 하다+는데「想要…但是」｜-잖아요 共同认知</span></div>
+    <div class="ex">💬 전화하려고 했는데 → 想打电话来着但是</div>
+    <div class="phon"><b>🎵 音变</b> 바빴잖아요[바빴짜나요]｜紧音化</div>
+  </div>
+</div>
+
+<!-- ===== 小贴士 ===== -->
+<div class="sec">💡 小贴士</div>
+<p class="tip">✨ 本课重点：① <b>-아/어 있다</b> 状态持续 ② <b>-잖아요</b> 共同认知 ③ <b>-라고요?</b> 反问惊讶 ④ <b>-더라고요</b> 回想陈述 ⑤ <b>-지 그랬어요?</b> 遗憾反问</p>
+
+<!-- ===== 单词汇总 ===== -->
+<div class="sec" onclick="toggleVocab(this)" style="cursor:pointer;user-select:none"><span style="display:inline-block;transition:transform .2s">▶</span> 📌 单词</div>
+<div id="vocab17" style="display:none">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;margin:8px 0">
+<div style="font-size:13px;padding:3px 0"><b>인스타</b> — Instagram</div>
+<div style="font-size:13px;padding:3px 0"><b>찍다</b> — 拍(to take photo)</div>
+<div style="font-size:13px;padding:3px 0"><b>올리다</b> — 上传(to upload)</div>
+<div style="font-size:13px;padding:3px 0"><b>포스팅하다</b> — 发帖(to post)</div>
+<div style="font-size:13px;padding:3px 0"><b>같이</b> — 一起(together)</div>
+<div style="font-size:13px;padding:3px 0"><b>지우다</b> — 删除(to delete)</div>
+<div style="font-size:13px;padding:3px 0"><b>아까</b> — 刚才(earlier)</div>
+<div style="font-size:13px;padding:3px 0"><b>인터뷰</b> — 采访(interview)</div>
+<div style="font-size:13px;padding:3px 0"><b>언급되다</b> — 被提及(mentioned)</div>
+<div style="font-size:13px;padding:3px 0"><b>굳이</b> — 特意(specifically)</div>
+<div style="font-size:13px;padding:3px 0"><b>통역</b> — 翻译(interpretation)</div>
+<div style="font-size:13px;padding:3px 0"><b>맡다</b> — 承担(to take on)</div>
+<div style="font-size:13px;padding:3px 0"><b>만나다</b> — 见面(to meet)</div>
+<div style="font-size:13px;padding:3px 0"><b>길</b> — 路/方法(way)</div>
+<div style="font-size:13px;padding:3px 0"><b>끝나다</b> — 结束(to end)</div>
+<div style="font-size:13px;padding:3px 0"><b>바로</b> — 马上(right away)</div>
+<div style="font-size:13px;padding:3px 0"><b>말씀하다</b> — 说(敬语)</div>
+<div style="font-size:13px;padding:3px 0"><b>말하다</b> — 说(to say)</div>
+<div style="font-size:13px;padding:3px 0"><b>바쁘다</b> — 忙(busy)</div>
+<div style="font-size:13px;padding:3px 0"><b>그러니까</b> — 所以说(I mean)</div>
+</div>
+</div>
+
+<!-- ===== 语法总结 ===== -->
+<div class="sec" onclick="toggleGrammar(this)" style="cursor:pointer;user-select:none"><span style="display:inline-block;transition:transform .2s">▶</span> 📖 语法总结</div>
+<div id="grammar17" style="display:none">
+<div style="margin:8px 0 16px 0">
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>① -아/어 있다</b> 状态持续「…着/在」<br>
+<span style="font-size:13px;color:#666">올라와 있다 → 上传在上面(状态)｜적혀 있다 → 写着(状态)</span>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>② -잖아요</b> 共同认知/提醒「不是…吗」<br>
+<span style="font-size:13px;color:#666">보셨잖아요 → 你不是看到了吗｜바빴잖아요 → 不是很忙吗</span>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>③ -라고요?</b> 反问惊讶「说来…的？」<br>
+<span style="font-size:13px;color:#666">오신 거라고요? → 说是来的吗？(惊讶)</span>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>④ -더라고요</b> 回想陈述「我记得/发现…」<br>
+<span style="font-size:13px;color:#666">없더라고요 → (我回想起来)没有</span>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>⑤ -지 그랬어요?</b> 遗憾反问「怎么不…呢？」<br>
+<span style="font-size:13px;color:#666">말씀하시지 그랬어요? → 怎么不说呢？</span>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #e74c3c">
+<b>⑥ -아/어 달라</b> 请求「请为我…」<br>
+<span style="font-size:13px;color:#666">지워 달라 → (要求)删掉｜-아/어 주다的强硬请求形式</span>
+</div>
+</div>
+</div>
+
+<div style="height:1px;background:#e0e0e0;margin:10px 0"></div>
+
+<button class="done-toggle" data-lesson="17" onclick="toggleDone(17)">✓ 已完成学习</button>
+
+<div class="note-area">
+  <textarea placeholder="✏️ 记下你的学习笔记..." oninput="saveNote(17, this.value)" id="note17"></textarea>
+  <div class="noteStatus" id="noteStatus17"></div>
+</div>
+
+<div class="speak-practice" style="margin-top:16px">
+  <button class="speak-practice-toggle" onclick="toggleSpeakPractice(17)">🎙️ 口语练习</button>
+</div>
+
+</div>
+</div>
+
+
+
+<div class="pg" id="pageLesson18">
+<div class="top">
+  <span class="back" onclick="goHome()">← 返回</span>
+  <h2>第18课 · 餐厅红酒招待</h2>
+  <button class="quiz-btn" onclick="toggleQuiz(18)">测验模式</button>
+</div>
+<div class="content" id="content18">
+
+<div class="sec">📝 台词（点击展开讲解）</div>
+
+<div class="line" data-time-start="0" data-time-end="3.0">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">1. 오늘 귀한 손님 오셨으니까</p>
+    <button class="speak" onclick="event.stopPropagation();speak('오늘 귀한 손님 오셨으니까')">🔊</button>
+  </div>
+  <p class="cn">→ 今天有贵客驾到</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Since we have an honored guest today</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">오늘 — 今天(today) ｜ 귀하다 — 贵重的/宝贵的(precious) ｜ 손님 — 客人/顾客(guest/customer) ｜ 오시다 — 来(오다的敬语)(to come/honorific) ｜ -(으)니까 — 因为…所以(since/because)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 오늘 귀한 손님이 오셨어요 — 今天有贵客来了(A honored guest came today)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 귀한 손님이 오셨으니까 잘 대접해야 해요 — 因为贵客来了，所以要好好招待(Since an honored guest is here, we should treat them well)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-(으)니까 理由/因果连接语尾「因为…所以…」 ｜ 오시다 是 오다的敬语形式，-시-为敬语词尾 ｜ 语序：오늘(状语) + 귀한(定语) + 손님(主语) + 오셨으니까(原因)</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 비가 오니까 우산을 가져가세요 — 因为下雨，请带伞(Since it's raining, take an umbrella) ｜ 시간이 없으니까 빨리 가요 — 因为没时间了，快走吧(Since there's no time, let's hurry)</span></div>
+    <div class="phon"><b>🎵 音变</b> 오셨으니까[오셔쓰니까] ｜ 시+었→셨(元音缩合) ｜ ㅆ+으→쓰(连音化)</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="3.0" data-time-end="5.5">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">2. 특별히 제 고향 이탈리아에서 온 와인</p>
+    <button class="speak" onclick="event.stopPropagation();speak('특별히 제 고향 이탈리아에서 온 와인')">🔊</button>
+  </div>
+  <p class="cn">→ 我特地献上从故乡意大利来的红酒</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Specially, wine from my hometown Italy</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">특별히 — 特地/特别地(specially) ｜ 제 — 我的(저+의缩合)(my) ｜ 고향 — 故乡(hometown) ｜ 이탈리아 — 意大利(Italy) ｜ -에서 — 从…(地点出处助词)(from) ｜ 온 — 来的(오다+ㄴ过去冠形词)(that came) ｜ 와인 — 红酒(wine)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 특별히 준비한 선물이에요 — 这是特地准备的礼物(It's a specially prepared gift)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 제 고향에서 온 특별한 선물이에요 — 这是从我故乡来的特别礼物(It's a special gift from my hometown)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-에서 地点出处助词「从…」 ｜ 온 是 오다(来)+ㄴ→过去冠形词形「来的」，修饰后面的와인 ｜ 제 是 저+의的缩合，谦称「我的」</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 한국에서 온 편지예요 — 是从韩国来的信(It's a letter from Korea) ｜ 부산에서 온 친구를 만났어요 — 见了从釜山来的朋友(I met a friend from Busan)</span></div>
+    <div class="phon"><b>🎵 音变</b> 특별히[특뼐히] ｜ ㄱ+ㅂ→ㄲ(紧音化) ｜ 이탈리아에서[이탈리아에서] ｜ 外来词标准发音 ｜ 온[온] ｜ 无特殊变化</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="5.5" data-time-end="7.5">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">3. 제가 서비스로 대접하겠습니다</p>
+    <button class="speak" onclick="event.stopPropagation();speak('제가 서비스로 대접하겠습니다')">🔊</button>
+  </div>
+  <p class="cn">→ 我以服务赠送的方式招待大家</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ I'll treat you as a complimentary service</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">제가 — 我(저的谦称主语)(I) ｜ 서비스 — 服务/赠送(service/complimentary) ｜ -(으)로 — 以/用…方式(手段助词)(by/with) ｜ 대접하다 — 招待/款待(to treat/host) ｜ -겠- — 将/会(意志/将来)(will) ｜ -습니다 — 正式陈述终结语尾(formal ending)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 서비스로 드리는 거예요 — 这是以服务方式赠送的(It's complimentary)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 오늘 저녁은 제가 대접하겠습니다 — 今天的晚饭我请客(I'll treat you to dinner today)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-(으)로 手段/方法助词「以/用…方式」 ｜ -겠- 意志/将来「将/会」 ｜ -습니다 正式陈述终结语尾，用于正式场合向顾客/长辈表达</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 이걸로 하겠습니다 — 我就要这个了(I'll take this one) ｜ 최선을 다하겠습니다 — 我会尽全力的(I'll do my best)</span></div>
+    <div class="phon"><b>🎵 音变</b> 대접하겠습니다[대저파겓씀니다] ｜ ㅂ+ㅎ→ㅍ(送气化) ｜ 겠+습→겓씀(送气化+紧音化)</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="7.5" data-time-end="10.0">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">4. 아니야, 사양할게 술은 안 마실 거야</p>
+    <button class="speak" onclick="event.stopPropagation();speak('아니야, 사양할게 술은 안 마실 거야')">🔊</button>
+  </div>
+  <p class="cn">→ 不，我婉拒了，我们不喝酒</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ No, I'll pass. We won't drink alcohol</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">아니야 — 不/不是(平语)(no/it's not) ｜ 사양하다 — 婉拒/谢绝(to decline politely) ｜ -(으)ㄹ게 — 我会…(意志/承诺)(I will) ｜ 술 — 酒(alcohol) ｜ 은/는 — 主题助词(as for) ｜ 안 — 不(not) ｜ 마시다 — 喝(to drink) ｜ -(으)ㄹ 거야 — 会…(将来意图平语)(will)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 사양할게요, 괜찮아요 — 我婉拒了，没关系(I'll pass, it's okay)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 저는 술을 안 마셔요 — 我不喝酒(I don't drink alcohol)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-(으)ㄹ게 意志/承诺语尾「我会…」，常用于平语/半语 ｜ 안 + 动词 直接否定「不…」 ｜ -(으)ㄹ 거야 将来意图「会/要…」平语形式 ｜ 아니야 是 아니다的平语반말</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 내가 할게 — 我来做(I'll do it) ｜ 안 갈 거야 — 不会去的(I won't go) ｜ 사양하지 않을게요 — 我不会推辞的(I won't decline)</span></div>
+    <div class="phon"><b>🎵 音变</b> 사양할게[사양할께] ｜ ㄹ+ㄱ→ㄲ(紧音化) ｜ 마실[마실] ｜ 无特殊变化 ｜ 안[안] ｜ 无特殊变化</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="10.0" data-time-end="13.0">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">5. 식사만 하고 바로 일어날 거야</p>
+    <button class="speak" onclick="event.stopPropagation();speak('식사만 하고 바로 일어날 거야')">🔊</button>
+  </div>
+  <p class="cn">→ 吃完饭我们就走</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ We'll just eat and leave right away</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">식사 — 用餐/吃饭(meal/dining) ｜ 만 — 只/仅(only/just) ｜ 하고 — 做了然后(하다+고)(do and then) ｜ 바로 — 马上/立即(right away) ｜ 일어나다 — 起来/起身(to get up/leave) ｜ -(으)ㄹ 거야 — 会…(将来意图平语)(will)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 식사만 하고 가자 — 吃完饭就走吧(Let's just eat and go)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 밥만 먹고 바로 일어날게요 — 吃完饭我马上就走(I'll eat and leave right away)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">만 限定助词「只/仅」 ｜ -고 先后连接语尾「做…之后/然后」 ｜ -(으)ㄹ 거야 平语将来式「会…」 ｜ 식사만 하고 = 只吃饭然后，省略了宾语</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 이것만 먹고 갈게요 — 只吃这个就走(I'll just eat this and go) ｜ 숙제만 하고 놀 거야 — 做完作业才玩(I'll just do homework then play)</span></div>
+    <div class="phon"><b>🎵 音变</b> 식사만[식싸만] ｜ ㄱ+ㅅ→ㄲ(紧音化) ｜ 일어날[이러날] ｜ ㄹ+ㅇ→ㄹ(连音化) ｜ 바로[바로] ｜ 无特殊变化</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="13.0" data-time-end="15.0">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">6. 어, 신경 써 줘서 고마워</p>
+    <button class="speak" onclick="event.stopPropagation();speak('어, 신경 써 줘서 고마워')">🔊</button>
+  </div>
+  <p class="cn">→ 嗯，谢谢你的关照</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Oh, thanks for looking out for me</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">어 — 哦/嗯(感叹词)(oh/uh) ｜ 신경 — 神经/关心/费心(attention/care) ｜ 쓰다 — 用/费心(to use/pay attention) ｜ -아/어 주다 — 为…做(to do for someone) ｜ -아/어서 — 因为…(理由连接)(because) ｜ 고맙다 — 谢谢(to be thankful)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 신경 써 줘서 고마워요 — 谢谢你费心了(Thanks for caring)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 항상 신경 써 주셔서 감사합니다 — 感谢您一直以来的关照(Thank you for always caring about me)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-아/어 주다 授益表现「给…做/为…做」 ｜ -아/어서 理由/因果连接语尾「因为…所以…」 ｜ 고마워 是 고맙다的平语반말「谢谢」 ｜ 어 感叹词，表示轻微转折或注意到某事</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 도와줘서 고마워 — 谢谢你帮我(Thanks for helping me) ｜ 와 줘서 고마워 — 谢谢你来(Thanks for coming)</span></div>
+    <div class="phon"><b>🎵 音变</b> 신경 써[신경 써] ｜ 无特殊变化 ｜ 줘서[줘서] ｜ 无特殊变化 ｜ 고마워[고마워] ｜ 无特殊变化</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="15.0" data-time-end="17.0">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">7. 그래, 그렇게 할게</p>
+    <button class="speak" onclick="event.stopPropagation();speak('그래, 그렇게 할게')">🔊</button>
+  </div>
+  <p class="cn">→ 好吧，那我拿走了</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Okay, I'll do that then</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">그래 — 好吧/行(okay/alright) ｜ 그렇게 — 那样(like that/that way) ｜ 하다 — 做(to do) ｜ -(으)ㄹ게 — 我会…(意志/承诺)(I will)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 그래, 그렇게 하자 — 好吧，那样做吧(Okay, let's do that)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 네, 그렇게 할게요 — 好的，我会那样做的(Yes, I'll do that)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">그래 是 그렇다的活用，肯定/同意应答「行/好」 ｜ 그렇게 副词「那样地」 ｜ -(으)ㄹ게 意志承诺语尾，表示说话人决定做某事</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 알겠어, 그렇게 할게 — 知道了，我会那么做的(Got it, I'll do that) ｜ 다음에 연락할게 — 下次联系你(I'll contact you next time)</span></div>
+    <div class="phon"><b>🎵 音变</b> 할게[할께] ｜ ㄹ+ㄱ→ㄲ(紧音化) ｜ 그래[그래] ｜ 无特殊变化 ｜ 그렇게[그러케] ｜ ㅎ弱化：렇+게→러케→케(送气化)</div>
+  </div>
+</div>
+
+<div class="line" data-time-start="17.0" data-time-end="19.0">
+  <div class="line-hd" onclick="toggleExp(this)">
+    <span class="arr">▸</span>
+    <p class="kr" style="flex:1">8. 좋은 시간 되세요 / 감사합니다</p>
+    <button class="speak" onclick="event.stopPropagation();speak('좋은 시간 되세요 / 감사합니다')">🔊</button>
+  </div>
+  <p class="cn">→ 祝你用餐愉快 / 谢谢</p>
+  <p class="en" style="font-size:12px;color:#888;margin:2px 0 0 16px">→ Have a good time / Thank you</p>
+  <div class="line-exp" style="display:none">
+    <div class="item"><b>📍单词</b> <span class="m">좋다 — 好(good) ｜ 시간 — 时间(time) ｜ 되다 — 成为/度过(to become/have) ｜ -(으)세요 — 请…(敬语命令)(please) ｜ 감사합니다 — 谢谢(thank you)</span></div>
+    <div class="ex">💬 短语 <span class="c">→ 좋은 시간 보내세요 — 祝您度过愉快时光(Have a good time)</span></div>
+    <div class="ex">💬 造句 <span class="c">→ 좋은 하루 되세요 — 祝您度过美好的一天(Have a nice day)</span></div>
+    <div class="item"><b>📌语法</b> <span class="m">-(으)세요 敬语命令/祈使语尾「请…」 ｜ 좋은 시간 되세요 是韩语中常见的祝福语，直译「愿您拥有好时光」 ｜ 감사합니다 来自 감사(感谢)+합니다(做)，最标准的正式道谢</span></div>
+    <div class="ex">💬 语法例句 <span class="c">→ 좋은 주말 되세요 — 周末愉快(Have a nice weekend) ｜ 맛있게 드세요 — 请慢用(Enjoy your meal)</span></div>
+    <div class="phon"><b>🎵 音变</b> 되세요[되세요/뒈세요] ｜ 口语中常读作뒈 ｜ 감사합니다[감사함니다] ｜ ㅂ+ㄴ→ㅁ(鼻音化)</div>
+  </div>
+</div>
+
+<!-- ===== 小贴士 ===== -->
+<div class="sec">💡 小贴士</div>
+<p class="tip">✨ 本课重点：① <b>-(으)니까</b> 理由因果关系「因为…所以」 ② <b>-(으)로</b> 手段方式「以/用…」 ③ <b>-(으)ㄹ게</b> 意志承诺「我会…」 ④ <b>-아/어서</b> 理由连接「因为…」 ⑤ <b>신경 쓰다</b> 惯用表达「费心/关照」 ⑥ <b>사양하다</b> 婉拒/谢绝（比거절하다更礼貌）</p>
+
+<!-- ===== 单词汇总 ===== -->
+<div class="sec" onclick="toggleVocab(this)" style="cursor:pointer;user-select:none">
+<span style="display:inline-block;transition:transform .2s">▶</span> 📌 单词
+</div>
+<div id="vocab18" style="display:none">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;margin:8px 0">
+<div style="font-size:13px;padding:3px 0"><b>귀하다</b> — 贵重的/宝贵的</div>
+<div style="font-size:13px;padding:3px 0"><b>손님</b> — 客人/顾客</div>
+<div style="font-size:13px;padding:3px 0"><b>오시다</b> — 来(오다敬语)</div>
+<div style="font-size:13px;padding:3px 0"><b>특별히</b> — 特地/特别地</div>
+<div style="font-size:13px;padding:3px 0"><b>고향</b> — 故乡</div>
+<div style="font-size:13px;padding:3px 0"><b>이탈리아</b> — 意大利</div>
+<div style="font-size:13px;padding:3px 0"><b>와인</b> — 红酒</div>
+<div style="font-size:13px;padding:3px 0"><b>서비스</b> — 服务/赠送</div>
+<div style="font-size:13px;padding:3px 0"><b>대접하다</b> — 招待/款待</div>
+<div style="font-size:13px;padding:3px 0"><b>사양하다</b> — 婉拒/谢绝</div>
+<div style="font-size:13px;padding:3px 0"><b>술</b> — 酒</div>
+<div style="font-size:13px;padding:3px 0"><b>마시다</b> — 喝</div>
+<div style="font-size:13px;padding:3px 0"><b>식사</b> — 用餐/吃饭</div>
+<div style="font-size:13px;padding:3px 0"><b>바로</b> — 马上/立即</div>
+<div style="font-size:13px;padding:3px 0"><b>일어나다</b> — 起来/起身</div>
+<div style="font-size:13px;padding:3px 0"><b>신경 쓰다</b> — 费心/关照</div>
+<div style="font-size:13px;padding:3px 0"><b>고맙다</b> — 谢谢/感谢</div>
+<div style="font-size:13px;padding:3px 0"><b>시간</b> — 时间</div>
+<div style="font-size:13px;padding:3px 0"><b>좋다</b> — 好</div>
+</div>
+</div>
+
+<!-- ===== 语法总结 ===== -->
+<div class="sec" onclick="toggleGrammar(this)" style="cursor:pointer;user-select:none">
+<span style="display:inline-block;transition:transform .2s">▶</span> 📖 语法总结
+</div>
+<div id="grammar18" style="display:none">
+<div style="margin:8px 0 16px 0">
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>① -(으)니까 — 理由因果「因为…所以…」</b>
+<div style="font-size:13px;color:#555;margin:2px 0">连接语尾，表示前面内容是后面内容的理由或根据。比-아/어서更强调因果关系，主语不受限制。받침有则으니까，无则니까</div>
+<div style="font-size:12px;color:#888">→ 날씨가 좋으니까 산책해요 — 因为天气好，所以散步(Since the weather is nice, let's walk)</div>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>② -(으)로 — 手段方式「以/用/作为…」</b>
+<div style="font-size:13px;color:#555;margin:2px 0">助词，表示手段、方法、方向、资格等。받침有或ㄹ则으로，无则로。本课「서비스로」意为「以赠送服务的方式」</div>
+<div style="font-size:12px;color:#888">→ 선물로 받았어요 — 作为礼物收到的(I received it as a gift)</div>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>③ -(으)ㄹ게 — 意志承诺「我会…」(平语/半语)</b>
+<div style="font-size:13px;color:#555;margin:2px 0">表示说话人的意志或承诺，带有「我会做…你放心」的语气。받침有则을게，无则ㄹ게。发音时ㄱ紧音化为[께]</div>
+<div style="font-size:12px;color:#888">→ 내가 도와줄게 — 我会帮你的(I'll help you)</div>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #3498db">
+<b>④ -아/어서 — 理由连接「因为…所以…」</b>
+<div style="font-size:13px;color:#555;margin:2px 0">表示原因/理由的连接语尾。与-(으)니까的区别：-아/어서不能用于命令句/请诱句，主语前后一致；而-(으)니까可用于命令/请诱</div>
+<div style="font-size:12px;color:#888">→ 피곤해서 일찍 잤어요 — 因为累了，所以早睡了(I went to bed early because I was tired)</div>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #e67e22">
+<b>⑤ 신경 쓰다 — 惯用表达「费心/关照」</b>
+<div style="font-size:13px;color:#555;margin:2px 0">신경是「神经」，쓰다是「用」，组合意为「费心/放在心上」。常与-아/어 주다搭配表示「为某人费心/关照某人」。否定形式 신경 안 쓰다 = 不费心/不在意</div>
+<div style="font-size:12px;color:#888">→ 신경 쓰지 마세요 — 别放在心上/不用费心(Don't worry about it)</div>
+</div>
+<div style="background:#f0f4ff;padding:10px 14px;border-radius:8px;margin:4px 0;border-left:3px solid #e67e22">
+<b>⑥ 사양하다 — 婉拒/谢绝（比 거절하다更礼貌）</b>
+<div style="font-size:13px;color:#555;margin:2px 0">사양하다表示礼貌地婉拒，常用于社交场合；거절하다是直接/坚决地拒绝。사양할게「我婉拒了」比거절할게更温和得体</div>
+<div style="font-size:12px;color:#888">→ 사양하지 않겠습니다 — 我不会推辞的(Thank you, I won't decline)</div>
+</div>
+</div>
+</div>
+
+
+<!-- ===== 底部 ===== -->
+<button class="done-toggle" data-lesson="18" onclick="toggleDone(18)">✓ 已完成学习</button>
+<div class="sec">✏️ 笔记</div>
+<textarea class="note-box" data-note="18" placeholder="在此输入笔记..."></textarea>
+<span class="note-status" id="noteStatus18">✓ 已保存</span>
+<button class="speak-practice-toggle" onclick="startPractice(18)">🎤 口语练习</button>
+
+</div></div>
+<div id="practiceModal" class="practice-modal">
   <div class="practice-modal-inner">
     <div class="practice-modal-header">
       <button class="back-btn" onclick="closePracticeModal()">←</button>
@@ -3580,7 +5117,7 @@ body.dark .practice-modal-body{background:#0d1117;color:#c9d1d9}
 </div>
 
 <script>
-var TOTAL_LESSONS=13,UNLOCKED=[1,2,3,4,5,6,7,8,9,10,11,12,13];
+var TOTAL_LESSONS=18,UNLOCKED=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18];
 
 /* ---------- 课程数据 ----------
    第1、2课正文写在页面里；第3~12课由下方模板自动生成。
@@ -3750,22 +5287,35 @@ var LESSONS={
     ],tip:'关心问候场景｜-으세요?疑问敬语语尾｜-나 봐요表推测「好像…」｜긴장해서意为「因为紧张」'},
  13:{title:'第13课 · 男女主再次重逢',video:'https://korean-video-1433876150.cos.ap-guangzhou.myqcloud.com/media/korean_course/videos/ep02_scene03_hd.mp4',subtitle:'',
     lines:[
-      ['안녕하세요. 나이스 미츠.','你好，Nice to meet you。'],
-      ['너무 좋아요, 미츠.','太好了，Meets。'],
-      ['지금 기분이 더 좋아요?','现在心情更好了吗？'],
-      ['이렇게 만나니 반갑네요.','这样见面真开心啊。'],
-      ['이제 건강은 괜찮으신가요, 자물씨?','现在身体还好吗，子默先生？'],
-      ['아, 죄송합니다. 뭐라고 하셨죠?','啊，抱歉。您刚才说什么？'],
-      ['이렇게 만나니 반갑다고요?','你说这样见面很开心？'],
-      ['이제 건강은 괜찮은 거냐고요?','你问现在身体还好吗？'],
+      ['Nice to meet you.','Nice to meet you.'],
+      ['안녕하세요. Nice to meet you.','你好。Nice to meet you。'],
+      ["It's so nice to meet you.","It's so nice to meet you."],
+      ['Are you feeling better now?','你身体好些了吗？'],
+      ['이렇게 만나니 반갑네요.','这样见面真开心呢。'],
+      ['이제 건강은 괜찮으신가요?','您身体还好吗？'],
+      ['미스 참우희','车茂熙小姐？'],
+      ['아 죄송합니다. 뭐라고 하셨죠.','啊，对不起。您说什么？'],
+      ['이렇게 만나니 반갑다고요.','你是说这样见面真开心？'],
+      ['이제 건강은 괜찮은 거냐고요','你问我身体还好吗？'],
       ['네, 이제 몸은 완전히 좋아요.','嗯，现在身体完全好了。'],
       ['이렇게 만나니까 저도 너무 반갑네요.','这样见面，我也非常开心呢。'],
       ['라고 해주세요.','请这么说吧。']
     ],
-    en:['Hello. Nice to meet you.','So nice, Meets.','Are you feeling better now?','It\'s so nice to meet you like this.','How is your health now, Mr. Jamool?','Ah, I\'m sorry. What did you say?','You said it\'s nice to meet me like this?','You asked if I\'m feeling better now?','Yes, my body is completely fine now.','Meeting like this, I\'m really happy too.','Please say it that way.'],
+    en:['Nice to meet you.','Hello. Nice to meet you.','It\'s so nice to meet you.','Are you feeling better now?','It\'s so nice to meet you like this.','How is your health now?','Miss Cha Moo-hee?','Ah, I\'m sorry. What did you say?','You said it\'s so nice to meet me like this?','You asked if I\'m feeling better now?','Yes, my body is completely fine now.','Meeting like this, I\'m really happy too.','Please say it that way.'],
     vocab:[
-      ['안녕하세요','你好(Hello)'],['너무','太/非常(very/too)'],['좋다','好/喜欢(good/nice)'],['기분','心情(mood/feeling)'],['만나다','见面(meet)'],['반갑다','高兴/开心(glad/happy)'],['건강','健康(health)'],['괜찮다','没关系/没事(fine/alright)'],['죄송합니다','对不起(sorry)'],['몸','身体(body)'],['완전히','完全(completely)'],['라고','这样说(like this)']
-    ],tip:'重逢场景｜-니表因果「因为…所以…」｜-네요表感叹｜-다고요?表反问确认（间接引用+疑问）｜-냐고요?表疑问确认｜라고 해주세요「请这样说」'},
+      ['안녕하세요','你好(Hello)'],['너무','太/非常(very/too)'],['좋다','好/喜欢(good/nice)'],['만나다','见面(meet)'],['반갑다','高兴/开心(glad/happy)'],['건강','健康(health)'],['괜찮다','没关系/没事(fine/alright)'],['죄송합니다','对不起(sorry)'],['몸','身体(body)'],['완전히','完全(completely)'],['라고','这样说(like this)'],['안녕','你好/安宁'],['기분','心情'],['자물','子默(角色名/Jamool)'],['참우희','车茂熙(人名)'],['미스','Miss'],['이제','现在']
+    ],tip:'重逢场景｜前4句英文暖场｜-니表因果「因为…所以…」｜-네요表感叹｜-다고요?表反问确认（间接引用+疑问）｜-냐고요?表疑问确认｜라고 해주세요「请这样说」'},
+14:{title:'第14课 · 拍摄现场散步',video:'https://korean-video-1433876150.cos.ap-guangzhou.myqcloud.com/media/korean_course/videos/scene14_ep2_27min.mp4',vocab:[['차무희','车茂熙(人名)'],['스태프','工作人员(staff)'],['드라마','电视剧(drama)'],['알아보다','认出来'],['춥다','冷'],['얇다','薄'],['백화점','百货商店'],['신상','新款'],['브랜드','品牌(brand)'],['마네킹','人体模特(mannequin)'],['칭찬','称赞'],['피곤하다','累'],['얼다','冻']],lines:['차무희 씨?','나가요.','기다리기 지루했죠? 미안해요.','아니에요, 재미있던데요?','스태프들이 그렇게 많은 줄 몰랐어요.','드라마나 영화 스태프들은 더 많아요.','근데 괜찮아요? 이렇게 다녀도?','아직 차무희는 잘 못 알아봐요.','도라미라고 해야 알아보지.','춥지 않아요? 옷이 너무 얇아 보이는데.','이게 백화점에도 없는 신상이에요.','나한테만 특별하게 미리 입으라고 보내 준 건데.','얼어 죽어도 입어 줘야죠.','아, 마케팅.','걸어 다니는 마네킹이네요.','칭찬으로 들을게요.','피곤할 텐데 빨리 얘기하고 들어가서 쉬셔야겠네요.']},
+  15:{title:'第15课 · 一起去吃饭吧',video:'https://nannan2026.cn/english/scene15_eat.mp4',vocab:[['배','肚子'],['고프다','饿'],['들어가다','进去'],['밥','饭'],['먹다','吃'],['전에','之前'],['못 먹다','没能吃'],['오늘','今天'],['미안하다','抱歉'],['사다','请客'],['근처','附近'],['식당','餐厅'],['걸어가다','走过去'],['춥다','冷'],['두르다','围上'],['빨리','快'],['얘기하다','说话'],['쉬다','休息'],['우리','我们'],['같이','一起'],['그때','那时'],['알다','知道'],['동안','期间'],['이거','这个']],lines:['빨리 얘기하고 들어가서 쉬셔야겠네요.','어, 그래요, 나 배도 너무 고파요.','우리 어디 들어가서 밥 먹어요.','밥을 먹자고요?','우리 전에 같이 밥 먹어 주기로 하고 못 먹었었잖아요.','그때 못 먹은 거 오늘 같이 먹어 줄게요.','그래요. 그때는 제가 미안했으니까 밥은 내가 살게요.','근처에 아는 식당이 있어요.','걸어가는 동안 추울 테니까 이거 둘러요.']},
+  16:{title:'第16课 · 你不会喝酒吗？',video:'https://korean-video-1433876150.cos.ap-guangzhou.myqcloud.com/media/korean_course/videos/scene16_drink.mp4',
+    vocab:[['주호진','周浩镇(人名)'],['술','酒'],['못 마시다','不能喝'],['아니요','不'],['잘 마시다','酒量好'],['피곤하다','累'],['쓸데없이','无谓地/白白地'],['시간','时间'],['뺏다','占用/夺走'],['-고 싶다','想做'],['-지 않다','不'],['내가','我'],['말','话'],['식사하다','吃饭'],['듣다','听'],['충분하다','足够'],['모시다','带来(敬语)'],['할 말 있다','有话要说']],
+    lines:['주호진 씨, 술 못 마셔요?','아니요. 잘 마십니다.','피곤할 텐데 쓸데없이 시간 뺏고 싶지 않으세요.','내가 하려는 말은 식사하면서 듣기에도 충분합니다.','어...','할 말 있어서 모셨다고 했죠.']},
+  17:{title:'第17课 · 照片风波',video:'https://korean-video-1433876150.cos.ap-guangzhou.myqcloud.com/media/korean_course/videos/scene17_why_translator.mp4',
+    vocab:[['인스타','Instagram'],['찍다','拍(to take photo)'],['올리다','上传(to upload)'],['포스팅하다','发帖(to post)'],['같이','一起(together)'],['지우다','删除(to delete)'],['아까','刚才(earlier)'],['인터뷰','采访(interview)'],['언급되다','被提及(mentioned)'],['굳이','特意(specifically)'],['통역','翻译(interpretation)'],['맡다','承担(to take on)'],['만나다','见面(to meet)'],['길','路/方法(way)'],['그러니까','所以说(I mean)'],['끝나다','结束(to end)'],['바로','马上(right away)'],['말씀하다','说(敬语)'],['말하다','说(to say)'],['바쁘다','忙(busy)']],
+    lines:['차무희 씨 인스타에 일본에서 찍은 사진 올라와 있죠?','그 인스타 포스팅하는 거 같이 보셨잖아요','그중에서 내가 찍혀 있는 사진은 지워 주십시오','아까 인터뷰에서도 언급된 그 사진이요, 그거 지워 주세요','아니, 그러니까','그 인스타 사진 지워 달라는 말 하려고','굳이 통역을 맡아서 나를 만나러 오신 거라고요?','그렇게라도 안 하면 만날 길이 없더라고요','아니, 그러면 아까 인터뷰 끝나고 바로 말씀하시지 그러셨어요','말하려고 했는데 그쪽이 너무 바빴잖아요']},
+  18:{title:'第18课 · 餐厅红酒招待',video:'https://korean-video-1433876150.cos.ap-guangzhou.myqcloud.com/media/korean_course/videos/scene18_ep2_29min.mp4',
+    vocab:[['귀하다','贵重的/宝贵的'],['손님','客人/顾客'],['오시다','来(오다敬语)'],['특별히','特地/特别地'],['고향','故乡'],['이탈리아','意大利'],['와인','红酒'],['서비스','服务/赠送'],['대접하다','招待/款待'],['사양하다','婉拒/谢绝'],['술','酒'],['마시다','喝'],['식사','用餐/吃饭'],['바로','马上/立即'],['일어나다','起来/起身'],['신경 쓰다','费心/关照'],['고맙다','谢谢/感谢'],['시간','时间'],['좋다','好']],
+    lines:['오늘 귀한 손님 오셨으니까','특별히 제 고향 이탈리아에서 온 와인','제가 서비스로 대접하겠습니다','아니야, 사양할게 술은 안 마실 거야','식사만 하고 바로 일어날 거야','어, 신경 써 줘서 고마워','그래, 그렇게 할게','좋은 시간 되세요 / 감사합니다']},
 };
 
 
@@ -3821,7 +5371,7 @@ function openLesson(n){
   window.scrollTo(0,0);
 }
 function toggleExp(el){var arr=el.querySelector('.arr'),exp=el.parentElement.querySelector('.line-exp');if(exp.style.display==='block'){exp.style.display='none';arr.classList.remove('open')}else{exp.style.display='block';arr.classList.add('open')}}
-function goHome(){document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('show')});document.getElementById('pageIndex').classList.add('show');refreshProgress()}
+function goHome(){document.querySelectorAll('video').forEach(function(v){v.pause()});document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('show')});document.getElementById('pageIndex').classList.add('show');refreshProgress()}
 
 /* ---------- 韩语朗读 (TTS) — 使用预生成音频 + 浏览器TTS降级 ---------- */
 var KO_AUDIO_MAP={"NG를 너무 많이 내서":"ko_984b4a0893fc.mp3","같이 적게 조심하세요":"ko_4af1abf5c9c0.mp3","궁금하네 유튜브에 있나?":"ko_146e16ed6107.mp3","그 앞의 표지판에 쓰여 있습니다":"ko_8255a15927c6.mp3","그건 반납이에요":"ko_c37c6eb42633.mp3","그건 정말 돌이키고 싶지 않은":"ko_9276ecec6985.mp3","그때 대사는 아주 또렷하게 기억하고 있어요":"ko_60dcd2b7ebad.mp3","그때는 정말 연기를 못했거든요":"ko_9bfa74214cf6.mp3","기대거나 올라서지 마시오":"ko_7de0f3346602.mp3","나 걱정해 주는 거예요?":"ko_0f24fe9cb259.mp3","날씨가 도와줘서 다행이에요":"ko_57fdcbb80019.mp3","날씨가 참 좋네요":"ko_880a4e3a5a57.mp3","네 누나 말씀하세요":"ko_3f63a5a935db.mp3","네, 저도 준비됐습니다":"ko_e1f00a2da9ea.mp3","됐나요?":"ko_7b14365f2010.mp3","마지막 촬영 장소로 내가 여길 추천했는데":"ko_1bdc0da5545a.mp3","맞아, 맞아! 흑역사?":"ko_2f8ac330f48d.mp3","바람에 날아갈까 봐?":"ko_92f9e3ce8bf2.mp3","아 다리 아파":"ko_78d3e3466a8f.mp3","아 참 더 차를 보라더니 이게 뭐야?":"ko_bb2b1a6e2355.mp3","아! 흑역사!":"ko_6aa5601d4fb4.mp3","아, 진짜 높다":"ko_fcc625734ae9.mp3","아, 진짜? 얼마나 못했길래?":"ko_a7c6cc08be3d.mp3","아구 더 나아가겠네":"ko_8e06b11bde09.mp3","아이씨":"ko_92bd1660a7bf.mp3","액션캠 똑바로 들어주세요":"ko_de0429bbc7b7.mp3","어 오케이":"ko_29e3290852f6.mp3","어, 거기 기대면 안 됩니다. 물러서세요":"ko_46a116072daf.mp3","어?":"ko_8f76e0a0ebbe.mp3","여기 와 본 적 있어요?":"ko_2a3c20f93145.mp3","여기서 이게 다 내 땅이다 내려다보면 얼마나 좋았을까?":"ko_a18d6afee466.mp3","영어로도 써 놨어야지":"ko_1cdb101795de.mp3","예전에 여기서 드라마를 찍은 적이 있어요":"ko_50711c507d8b.mp3","옛날에 이게 다 이 성에 살던 왕 땅이었다는 거네":"ko_389b7f988d0c.mp3","이거 구두 증정이야 반납이요?":"ko_56b66cac0b6d.mp3","이게 다 몇 평이야?":"ko_a6dd4a3ff999.mp3","이런 낸 줄 알았으면 운동을 해 지내라고 했어야지":"ko_d50a3d1c02f6.mp3","이야, 대박!":"ko_0f5e7de9ee12.mp3","이탈리아어 못하는 사람은 어떡하라고?":"ko_6baa7d6e097e.mp3","저기요 거기 우리 매니저 있죠":"ko_3b2a8b6e9fd7.mp3","저쪽에서 보이는 경치가 더 근사해요":"ko_ee5b14525123.mp3","저쪽으로 가 봐요":"ko_53c67997d638.mp3","절대 찾아보지 마요":"ko_00a5519b62d5.mp3","차모인 씨 오디오 들어갑니다":"ko_5f0688d6fa07.mp3","통역사님, 준비되셨어요?":"ko_8b0b1600ae81.mp3","통역사님이 웬일로 불쑥 끼어드시나?":"ko_595fcac26898.mp3","통역한 겁니다":"ko_6523f496f1e0.mp3","하격사?":"ko_f5b45e977bf0.mp3","허, 허격사?":"ko_79b85f7eb91d.mp3","허격사?":"ko_7a497e032320.mp3","흑역사":"ko_76ef24c1ff78.mp3","거기 기대면 안 됩니다":"ko_e7bb82cd007f.mp3","작별 인사":"ko_fffb2b91d515.mp3","진심으로 좋습니다":"ko_feb5bdb7d77b.mp3","어서 오세요":"ko_4f58a07c0e38.mp3","구급차 불러 주세요":"ko_e687c9ff78b9.mp3","인스타 맞팔해요":"ko_2969eb13c3d6.mp3","내 것도 사랑이에요":"ko_38252f19b48d.mp3","불꽃 축제":"ko_d3f38b7b47de.mp3"};
@@ -4150,12 +5700,12 @@ var LESSON_TIMES={
     {start:36,end:38},
     {start:38,end:42},
   ],
-  2:[
-    {start:0,end:2.0},{start:2.5,end:4.0},{start:13.0,end:15.0},{start:15.5,end:19.5},
-    {start:22.0,end:25.5},{start:27.5,end:29.5},{start:31.0,end:33.0},{start:33.5,end:34.5},
-    {start:35.0,end:37.5},{start:38.0,end:40.0},{start:40.0,end:41.0},{start:41.0,end:43.0},
-    {start:43.5,end:46.5},{start:49.5,end:51.0},
-    {start:53.0,end:55.0},{start:54.8,end:56.0}
+    2:[
+    {start:0,end:2.5},{start:2.5,end:5.0},{start:13,end:15.0},{start:15.5,end:19.5},
+    {start:22,end:25.5},{start:27.5,end:30},{start:31,end:33},{start:33.5,end:35.5},
+    {start:36,end:38.5},{start:39,end:41.5},{start:42,end:44},{start:44.5,end:46.5},
+    {start:47.5,end:50.5},{start:51,end:53},
+    {start:53.5,end:55},{start:55,end:55.5}
   ],
   3:[
     {start:0,end:1.5},{start:1.5,end:4.0},{start:4.0,end:7.0},{start:9.0,end:11.0}
@@ -4195,11 +5745,53 @@ var LESSON_TIMES={
     {start:25.0,end:29.0},
   ],
   12:[
-    {start:0,end:1},{start:1,end:4},{start:4,end:8},{start:8,end:9},{start:9,end:10},{start:10,end:12}
+    {start:0,end:2.5},{start:2.5,end:6.0},{start:7.0,end:8.5},{start:10.5,end:12.0},{start:12.0,end:13.5},{start:20.0,end:23.0}
   ],
   13:[
-    {start:0,end:8},{start:8,end:10},{start:10,end:12},{start:12,end:14},
-    {start:14,end:30},{start:30,end:33},{start:33,end:35},{start:35,end:40},{start:40,end:44},{start:44,end:55},{start:55,end:57}
+    {start:0,end:3},
+    {start:3,end:6},
+    {start:6,end:9},
+    {start:9,end:12},
+    {start:12.0,end:14.9},
+    {start:15.4,end:18.0},
+    {start:36.5,end:38.4},
+    {start:38.8,end:42.2},
+    {start:42.9,end:44.2},
+    {start:44.9,end:46.8},
+    {start:48.5,end:51.9},
+    {start:53.7,end:56.2},
+    {start:60.0,end:62.0}
+  ],
+  14:[
+    {start:0,end:4},{start:4,end:7},{start:15,end:17},{start:17,end:20},{start:20,end:22},{start:22,end:26},{start:27,end:31},{start:32,end:35},{start:35,end:38},{start:38,end:41},{start:41,end:44},{start:44,end:46},{start:46,end:48},{start:48,end:50},{start:50,end:53},{start:53,end:56},{start:59,end:64},
+  ],
+  15:[
+    {start:0.3,end:2.3},{start:2.8,end:4.5},{start:4.6,end:6.0},{start:8.2,end:9.1},{start:12.8,end:16.3},{start:16.4,end:19.1},{start:23.1,end:27.5},{start:36.4,end:37.7},{start:37.8,end:39.3},
+  ],
+  16:[
+    {start:4.92,end:6.72},{start:7.62,end:8.84},{start:9.90,end:13.14},{start:13.28,end:15.60},{start:19.54,end:20.22},{start:20.22,end:22.14},
+  ],
+  17:[
+    {start:0.0,end:4.0},
+    {start:4.0,end:10.0},
+    {start:10.0,end:15.0},
+    {start:15.0,end:27.0},
+    {start:27.0,end:29.0},
+    {start:29.0,end:33.0},
+    {start:33.0,end:37.0},
+    {start:37.0,end:44.0},
+    {start:44.0,end:48.0},
+    {start:48.0,end:56.0},
+  ],
+  18:[
+    {start:0,end:3.0},
+    {start:3.0,end:5.5},
+    {start:5.5,end:7.5},
+    {start:7.5,end:10.0},
+    {start:10.0,end:13.0},
+    {start:13.0,end:15.0},
+    {start:15.0,end:17.0},
+    {start:17.0,end:19.0},
   ],
 };
 function setupSyncActiveLine(n){

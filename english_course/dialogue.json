@@ -1,9 +1,0 @@
-[
-  {"speaker":"barista","text":"Good morning! Welcome to Brew House. What can I get for you today?"},
-  {"speaker":"customer","text":"Hi! I'd like a latte, please. With oat milk."},
-  {"speaker":"barista","text":"Sure, one oat milk latte. Would you like any flavor syrup with that?"},
-  {"speaker":"customer","text":"Yes, a shot of vanilla, please. And can I get a blueberry muffin too?"},
-  {"speaker":"barista","text":"Of course! That will be seven fifty. How would you like to pay?"},
-  {"speaker":"customer","text":"Card, please. Can I also get a glass of water?"},
-  {"speaker":"barista","text":"No problem. Your total is seven fifty, tap your card here."}
-]

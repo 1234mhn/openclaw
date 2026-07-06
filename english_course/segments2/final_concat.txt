@@ -1,7 +1,0 @@
-file '/root/.openclaw/workspace/english_course/segments2/01_intro.mp4'
-file '/root/.openclaw/workspace/english_course/segments2/02_dialog.mp4'
-file '/root/.openclaw/workspace/english_course/segments2/03_explain_latte.mp4'
-file '/root/.openclaw/workspace/english_course/segments2/03_explain_oat.mp4'
-file '/root/.openclaw/workspace/english_course/segments2/03_explain_idlike.mp4'
-file '/root/.openclaw/workspace/english_course/segments2/03_explain_price.mp4'
-file '/root/.openclaw/workspace/english_course/segments2/04_outro.mp4'

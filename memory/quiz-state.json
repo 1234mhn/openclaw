@@ -3,5 +3,12 @@
   "lastCategory": null,
   "lastItem": null,
   "quizCount": 0,
-  "quizzedItems": []
+  "quizzedItems": [],
+  "korean": {
+    "lastQuizTime": null,
+    "lastItem": null,
+    "quizCount": 0,
+    "quizzedItems": [],
+    "sourceDir": "语言库/韩语库/韩语搭子学习/每日打卡/"
+  }
 }
