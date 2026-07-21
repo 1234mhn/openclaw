@@ -1737,12 +1737,36 @@ async function mediaTranscodeJob(opts) {
   const format = opts.format || "mp4";
   const outObject = `${base}_transcode_${generateCode(6)}.${format}`;
   const ciUrl = `https://${ciHost()}/jobs`;
+  
+  // Build transcode config
+  const transcodeConfig = { Container: { Format: format } };
+  
+  // Add TimeInterval if start/duration provided
+  if (opts.start || opts.duration) {
+    transcodeConfig.TimeInterval = {};
+    if (opts.start) transcodeConfig.TimeInterval.Start = opts.start;
+    if (opts.duration) transcodeConfig.TimeInterval.Duration = Number(opts.duration);
+  }
+  
+  // Add video config for compatibility
+  transcodeConfig.Video = { Codec: "h.264", Width: "1920", Height: "1080", Fps: "24" };
+  transcodeConfig.Audio = { Codec: "aac" };
+  
+  // Add HDR to SDR conversion if requested
+  if (opts.hdr2sdr === 'true' || opts.hdr2sdr === true) {
+    transcodeConfig.Video.Pixfmt = 'yuv420p';
+    transcodeConfig.TransConfig = { IsHdr2Sdr: 'true' };
+  }
+  if (opts.pixfmt) {
+    transcodeConfig.Video.Pixfmt = opts.pixfmt;
+  }
+  
   const body = COS.util.json2xml({
     Request: {
       Tag: "Transcode",
       Input: { Object: key },
       Operation: {
-        Transcode: { Container: { Format: format } },
+        Transcode: transcodeConfig,
         Output: { Bucket, Region, Object: outObject },
       },
     },

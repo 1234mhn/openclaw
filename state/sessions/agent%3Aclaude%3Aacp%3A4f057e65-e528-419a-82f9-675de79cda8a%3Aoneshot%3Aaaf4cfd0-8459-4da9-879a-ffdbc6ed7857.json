@@ -1,0 +1,224 @@
+{
+  "schema": "acpx.session.v1",
+  "acpx_record_id": "agent:claude:acp:4f057e65-e528-419a-82f9-675de79cda8a:oneshot:aaf4cfd0-8459-4da9-879a-ffdbc6ed7857",
+  "acp_session_id": "69fd86a5-0bca-4606-b424-8c6d3c78e2f3",
+  "agent_command": "\"/root/.nvm/versions/node/v22.22.2/bin/node\" \"/root/.openclaw/acpx/claude-agent-acp-wrapper.mjs\"",
+  "cwd": "/root/.openclaw/workspace/claude",
+  "name": "agent:claude:acp:4f057e65-e528-419a-82f9-675de79cda8a",
+  "created_at": "2026-07-17T03:54:42.024Z",
+  "last_used_at": "2026-07-17T03:54:44.740Z",
+  "last_seq": 0,
+  "last_request_id": "8a496497-7192-4815-ae67-4bbea7f80d72",
+  "event_log": {
+    "active_path": "/root/.acpx/sessions/agent%3Aclaude%3Aacp%3A4f057e65-e528-419a-82f9-675de79cda8a%3Aoneshot%3Aaaf4cfd0-8459-4da9-879a-ffdbc6ed7857.stream.ndjson",
+    "segment_count": 5,
+    "max_segment_bytes": 67108864,
+    "max_segments": 5,
+    "last_write_error": null
+  },
+  "closed": true,
+  "closed_at": "2026-07-17T03:54:44.908Z",
+  "pid": 119319,
+  "agent_started_at": "2026-07-17T03:54:42.369Z",
+  "last_prompt_at": "2026-07-17T03:54:44.538Z",
+  "protocol_version": 1,
+  "agent_capabilities": {
+    "_meta": {
+      "claudeCode": {
+        "promptQueueing": true
+      }
+    },
+    "promptCapabilities": {
+      "image": true,
+      "embeddedContext": true
+    },
+    "mcpCapabilities": {
+      "http": true,
+      "sse": true
+    },
+    "loadSession": true,
+    "sessionCapabilities": {
+      "additionalDirectories": {},
+      "close": {},
+      "delete": {},
+      "fork": {},
+      "list": {},
+      "resume": {}
+    }
+  },
+  "title": null,
+  "messages": [
+    {
+      "User": {
+        "id": "179f5afb-a4da-4010-9bfb-9329043c5fd0",
+        "content": [
+          {
+            "Text": "Quick test: respond with exactly one word 'pong'. Nothing else."
+          }
+        ]
+      }
+    }
+  ],
+  "updated_at": "2026-07-17T03:54:44.543Z",
+  "cumulative_token_usage": {},
+  "request_token_usage": {},
+  "acpx": {
+    "current_model_id": "default",
+    "available_models": [
+      "default",
+      "sonnet",
+      "sonnet[1m]",
+      "haiku"
+    ],
+    "available_commands": [
+      "lark-apps",
+      "lark-contact",
+      "lark-slides",
+      "lark-skill-maker",
+      "lark-whiteboard",
+      "lark-vc",
+      "lark-shared",
+      "lark-event",
+      "lark-task",
+      "lark-openapi-explorer",
+      "lark-sheets",
+      "lark-workflow-standup-report",
+      "lark-im",
+      "lark-calendar",
+      "lark-workflow-meeting-summary",
+      "lark-mail",
+      "lark-wiki",
+      "lark-okr",
+      "lark-vc-agent",
+      "lark-base",
+      "lark-note",
+      "lark-doc",
+      "lark-markdown",
+      "lark-approval",
+      "lark-minutes",
+      "lark-attendance",
+      "lark-drive",
+      "update-config",
+      "verify",
+      "debug",
+      "code-review",
+      "batch",
+      "fewer-permission-prompts",
+      "loop",
+      "claude-api",
+      "run",
+      "run-skill-generator",
+      "compact",
+      "context",
+      "heapdump",
+      "init",
+      "review",
+      "security-review",
+      "usage",
+      "insights",
+      "goal",
+      "team-onboarding"
+    ],
+    "config_options": [
+      {
+        "id": "mode",
+        "name": "Mode",
+        "description": "Session permission mode",
+        "category": "mode",
+        "type": "select",
+        "currentValue": "default",
+        "options": [
+          {
+            "value": "auto",
+            "name": "Auto",
+            "description": "Use a model classifier to approve/deny permission prompts"
+          },
+          {
+            "value": "default",
+            "name": "Default",
+            "description": "Standard behavior, prompts for dangerous operations"
+          },
+          {
+            "value": "acceptEdits",
+            "name": "Accept Edits",
+            "description": "Auto-accept file edit operations"
+          },
+          {
+            "value": "plan",
+            "name": "Plan Mode",
+            "description": "Planning mode, no actual tool execution"
+          },
+          {
+            "value": "dontAsk",
+            "name": "Don't Ask",
+            "description": "Don't prompt for permissions, deny if not pre-approved"
+          }
+        ]
+      },
+      {
+        "id": "model",
+        "name": "Model",
+        "description": "AI model to use",
+        "category": "model",
+        "type": "select",
+        "currentValue": "default",
+        "options": [
+          {
+            "value": "default",
+            "name": "Default (recommended)",
+            "description": "Use the default model (currently Opus 4.7 (1M context)) · $5/$25 per Mtok"
+          },
+          {
+            "value": "sonnet",
+            "name": "Sonnet",
+            "description": "Sonnet 4.6 · Best for everyday tasks · $3/$15 per Mtok"
+          },
+          {
+            "value": "sonnet[1m]",
+            "name": "Sonnet (1M context)",
+            "description": "Sonnet 4.6 for long sessions · $3/$15 per Mtok"
+          },
+          {
+            "value": "haiku",
+            "name": "Haiku",
+            "description": "Haiku 4.5 · Fastest for quick answers · $1/$5 per Mtok"
+          }
+        ]
+      },
+      {
+        "id": "effort",
+        "name": "Effort",
+        "description": "Available effort levels for this model",
+        "category": "thought_level",
+        "type": "select",
+        "currentValue": "default",
+        "options": [
+          {
+            "value": "default",
+            "name": "Default"
+          },
+          {
+            "value": "low",
+            "name": "Low"
+          },
+          {
+            "value": "medium",
+            "name": "Medium"
+          },
+          {
+            "value": "high",
+            "name": "High"
+          },
+          {
+            "value": "xhigh",
+            "name": "Xhigh"
+          },
+          {
+            "value": "max",
+            "name": "Max"
+          }
+        ]
+      }
+    ]
+  }
+}

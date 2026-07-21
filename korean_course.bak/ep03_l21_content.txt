@@ -1,0 +1,152 @@
+# Lesson 21 Content - 第21课 · 病院で (At the Hospital)
+
+## Lesson Data
+title: "第21课 · 病院での问诊"
+video: "videos/ep03_l21.mp4"
+
+## Characters
+- Doctor (호진): Hospital doctor examining Moo-hee
+- 차무희 (Cha Moo-hee): Actress who collapsed/is sick but wants to attend event
+
+## Lines & Times
+I'll organize 10 lines with precise timestamps from the SRT data.
+
+## Line 1
+LINE: 불안한 거 말고는 뭐, 어디 다른 데 아픈 데는 없어요?
+TIME: 6:17.085 - 6:19.003 (373.085 - 379.003s)
+CN: 除了焦虑，还有其他地方不舒服吗？
+EN: Besides feeling anxious, is there anywhere else that hurts?
+SPEAKER: Doctor
+
+📍단어: 불안하다 — 不安，焦虑(anxious) | 말고는 — 除了...(aside from) | 아프다 — 痛(hurt) 
+💬短语: 다른 데 아픈 데 — 其他地方疼 (other places that hurt)
+💬造句: 아픈 데 없어요? — 有哪里不舒服吗？(Is there anywhere that hurts?)
+📌语法: -고 말고는 — "除了...之外" (aside from/besides) | -ㄴ/은 거 — 名词化(nominalization)
+💬例句: 밥 먹은 거 말고는 아무것도 안 했어요 → 除了吃饭，我什么都没做 (I didn't do anything besides eat)
+🎵音变: 불안한[부란한] ㄴ插入 → ㄴ音化 | 말고는[말고는] 无特殊音变
+
+## Line 2
+LINE: 뭐, 꾀병일까 봐요?
+TIME: 6:20.880 - 6:22.423 (380.880 - 382.423s)
+CN: 怎么，怕我装病吗？
+EN: What, are you afraid I'm faking it?
+SPEAKER: Moo-hee
+
+📍단어: 꾀병 — 装病(faking illness) | -일까 봐 — 担心/怕...(worried that...)
+💬短语: 꾀병일까 봐 — 怕我装病 (worried I'm faking it)
+💬造句: 거짓말일까 봐 걱정했어요 → 我担心是谎言 (I was worried it might be a lie)
+📌语法: -일까 봐(서) — "担心/怕会..." (worried that it might be...)
+💬例句: 비가 올까 봐 우산을 가져왔어요 → 怕下雨所以带了伞 (Brought an umbrella in case it rains)
+🎵音变: 꾀병[꿰병] 紧音化 | 없어요[업써요] ㅄ→ㅂ 音变+紧音化
+
+## Line 3
+LINE: 어지럽고 덜덜 떨리고, 속도 뒤집어질 거 같고
+TIME: 6:22.924 - 6:25.176 (382.924 - 385.176s)
+CN: 头晕、一直发抖，肚子也像要翻过来一样
+EN: I'm dizzy, shaking all over, and my stomach feels like it's turning inside out
+SPEAKER: Moo-hee
+
+📍단어: 어지럽다 — 头晕(dizzy) | 덜덜 떨리다 — 瑟瑟发抖(shake/tremble) | 속 — 肚子/肠胃(stomach/guts) | 뒤집어지다 — 翻转，翻过来(turn over)
+💬短语: 덜덜 떨리다 — 瑟瑟发抖 (trembling/shaking)
+💬造句: 너무 추워서 덜덜 떨려요 → 太冷了，我直发抖 (I'm so cold I'm shaking)
+📌语法: -고... -고 — 并列连接("...and...") | -(으)ㄹ 거 같다 — "好像要..." (it seems like/it's going to)
+💬例句: 비가 올 거 같아요 → 好像要下雨了 (It looks like it's going to rain)
+🎵音变: 어지럽고[어지럽꼬] ㄱ紧音化 | 뒤집어질[뒤지버질] ㅂ→ㅇ音变(不规则) | 떨리고[떨리고] 无特殊音变
+
+## Line 4
+LINE: 열도 나고 쓰러질 거 같거든요?
+TIME: 6:25.259 - 6:26.344 (385.259 - 386.344s)
+CN: 还发烧，感觉要晕倒了
+EN: I have a fever too, and I feel like I'm going to collapse
+SPEAKER: Moo-hee
+
+📍단어: 열 — 发烧/热(fever) | 나다 — 出现(occur) | 쓰러지다 — 倒下(collapse)
+💬短语: 열이 나다 — 发烧 (have a fever)
+💬造句: 감기에 걸려서 열이 났어요 → 我感冒发烧了 (I caught a cold and have a fever)
+📌语法: -거든요 — 表示"因为/要知道..."(explanatory tone，给理由时用)
+💬例句: 오늘 좀 피곤하거든요 → 我今天有点累嘛 (You see, I'm a bit tired today)
+🎵音变: 열도[열또] ㄷ紧音化 | 쓰러질[쓰러질] 无特殊音变 | 같거든요[가꺼든요] ㅌ→ㄲ紧音化
+
+## Line 5
+LINE: 갖다 대 봐요, 진짜 열나나
+TIME: 6:29.806 - 6:30.848 (389.806 - 390.848s)
+CN: 来贴贴看，到底发不发烧
+EN: Here, put it on (the thermometer/back of hand), let's see if you really have a fever
+SPEAKER: Doctor
+
+📍단어: 갖다 대다 — 贴上/靠近(touch against/put against) | 보다 — (辅助)试着做(try doing) | 진짜 — 真的(really)
+💬短语: 갖다 대 보다 — 贴近试试 (put it against and check)
+💬造句: 한번 먹어 봐요 → 尝尝看 (Try eating it)
+📌语法: -아/어 보다 — "试着做..."(try doing...) | -나 — 疑问词尾(疑问/不确定) "是不是..."
+💬例句: 이거 맞나? → 这个对吗？(Is this right?)
+🎵音变: 갖다[갇따] ㅆ→ㄷ+紧音化 | 대 봐요[대봐요] 无特殊 | 열나나[열라나] ㄴ连音
+
+## Line 6
+LINE: 왜 이래요?
+TIME: 6:32.433 - 6:33.851 (392.433 - 393.851s)
+CN: 你干吗呀？
+EN: What are you doing? / Why are you like this?
+SPEAKER: Moo-hee
+
+📍단어: 왜 — 为什么(why) | 이러다 — 这样做(do like this)
+💬短语: 이래요 — 这样做 (doing it like this) = 이렇게 해요
+💬造句: 갑자기 왜 그래요? → 你突然怎么了？(What's wrong with you all of a sudden?)
+📌语法: 이래요 = 이러(이렇게 하) + -아요 — "这样做"(doing this)
+💬例句: 왜 이렇게 늦었어요? → 为什么这么晚？(Why are you so late?)
+🎵音变: 이래요[이래요] 无特殊音变
+
+## Line 7
+LINE: 차무희 씨, 여기 병원이에요
+TIME: 6:35.353 - 6:37.063 (395.353 - 397.063s)
+CN: 车武熙小姐，这里是医院
+EN: Miss Cha Moo-hee, this is a hospital
+SPEAKER: Doctor
+
+📍단어: 병원 — 医院(hospital) | -이에요 — 是...(is/am/are)
+💬短语: 여기 — 这里(here) | 병원이에요 — 是医院 (is a hospital)
+💬造句: 여기 도서관이에요 → 这里是图书馆 (This is a library)
+📌语法: -이에요/예요 — 陈述/疑问终结词尾(是...) (is/am/are - polite informal)
+💬例句: 저는 학생이에요 → 我是学生 (I am a student)
+🎵音变: 병원[병원] 无特殊音变 | 이에요[이에요] 无特殊音变
+
+## Line 8
+LINE: 내가 들은 그대로 믿고 통역하면
+TIME: 6:37.730 - 6:39.732 (397.730 - 399.732s)
+CN: 如果我按听到的如实翻译
+EN: If I translate exactly what I heard
+SPEAKER: Doctor
+
+📍단어: 듣다 — 听(hear/listen) | 그대로 — 按照原样(as is/exactly) | 믿다 — 相信(believe) | 통역하다 — 翻译/口译(interpret)
+💬短语: 들은 그대로 — 按照听到的 (as heard / exactly what I heard)
+💬造句: 본 그대로 말해 주세요 → 请如实告诉我你看到的 (Tell me exactly what you saw)
+📌语法: -(으)ㄴ 대로 — "按照...的样子"(as.../according to what...) | -(으)면 — "如果..."(if/when)
+💬例句: 시킨 대로 했어요 → 我照吩咐做了 (I did as I was told)
+🎵音变: 들은[드른] ㄷ→ㄹ音变(듣다不规则) | 믿고[믿꼬] ㄱ紧音化 | 통역하면[통여카면] ㅂ→ㅍ激音化
+
+## Line 9
+LINE: 당신 행사고 뭐고 못 가고, 당장 입원입니다
+TIME: 6:39.816 - 6:42.151 (399.816 - 402.151s)
+CN: 你的活动什么的都去不了，马上住院
+EN: You won't be able to go to your event or anything, you'll be hospitalized immediately
+SPEAKER: Doctor
+
+📍단어: 행사 — 活动(event) | 당장 — 立刻(immediately/right away) | 입원 — 住院(hospitalization)
+💬短语: 행사고 뭐고 — 活动啊什么的 (events and such)
+💬造句: 공부고 뭐고 다 싫어요 → 学习什么的都讨厌 (I hate studying and everything)
+📌语法: -고 뭐고 — "什么...的都..."(and such/and everything - 列举，强调什么都不行)
+💬例句: 밥이고 뭐고 다 먹고 싶어요 → 饭啊什么的都想吃 (I want to eat everything including rice)
+🎵音变: 입원[이붠] 无特殊 | 당장[당짱] 无特殊 | 못 가고[몯까고] ㅅ→ㄷ音变+紧音化
+
+## Line 10
+LINE: 장난하지 마요
+TIME: 6:42.693 - 6:44.612 (402.693 - 404.612s)
+CN: 别开玩笑了
+EN: Don't joke around / Stop messing around
+SPEAKER: Moo-hee
+
+📍단어: 장난 — 玩笑(joke/game) | 장난하다 — 开玩笑(joke around) | -지 마요 — 请不要...(don't...)
+💬短语: 장난하지 마요 — 别开玩笑 (don't joke around)
+💬造句: 거짓말하지 마요 → 别说谎 (Don't lie)
+📌语法: -지 마(요) — "请不要... / 别..."(don't do - negative imperative)
+💬例句: 걱정하지 마요 → 别担心 (Don't worry)
+🎵音变: 장난하지[장난하지] 无特殊音变 | 마요[마요] 无特殊音变

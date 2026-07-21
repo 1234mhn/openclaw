@@ -1,5 +1,24 @@
 {
-  "cards": [],
-  "lastReviewTime": null,
-  "totalReviews": 0
+  "cards": [
+    {
+      "topic": "버틸 만할 — 语感辨析",
+      "path": "韩语/词汇/버틸 만할",
+      "level": "L2",
+      "reviewCount": 1,
+      "lastReview": "2026-07-19",
+      "keyInsight": "버티다(扛)+만하다(值得)=值得扛一扛，比'值得'多了层'虽然苦但能扛住'的口语力道",
+      "nextReview": "2026-07-21"
+    },
+    {
+      "topic": "韩语引用句型 -ㄴ다고 하다 四类",
+      "path": "韩语/语法/引用句型",
+      "level": "L2",
+      "reviewCount": 1,
+      "lastReview": "2026-07-19",
+      "keyInsight": "陈述-ㄴ/는다고、命令-라고、邀请-자고、疑问-냐고；缩略-대요/-래요/-재요/-냬요",
+      "nextReview": "2026-07-21"
+    }
+  ],
+  "lastReviewTime": "2026-07-19T22:03:00+08:00",
+  "totalReviews": 1
 }

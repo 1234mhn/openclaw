@@ -1,14 +1,19 @@
 {
-  "lastQuizTime": null,
-  "lastCategory": null,
-  "lastItem": null,
-  "quizCount": 0,
-  "quizzedItems": [],
+  "lastQuizTime": "2026-07-19T15:00:00+08:00",
+  "lastCategory": "知识库",
+  "lastItem": "IPO学习模式 / 信息囤积症",
+  "quizCount": 3,
+  "quizzedItems": ["韩语/2026-07-06_소개시키다", "知识库/2026-07-19_IPO学习模式"],
   "korean": {
-    "lastQuizTime": null,
-    "lastItem": null,
-    "quizCount": 0,
-    "quizzedItems": [],
+    "lastQuizTime": "2026-07-18T12:40:00+08:00",
+    "lastItem": "2026-07-04 打卡 / -려고 하다造句",
+    "quizCount": 1,
+    "quizzedItems": ["2026-07-06_소개시키다"],
     "sourceDir": "语言库/韩语库/韩语搭子学习/每日打卡/"
+  },
+  "skipped": {
+    "2026-07-17_영어": {"time": "2026-07-17T12:40:00+08:00", "item": "排队等待/wait in line", "reason": "no_response"},
+    "2026-07-18_한국어": {"time": "2026-07-18T11:45:00+08:00", "item": "2026-07-04 打卡 / -려고 하다造句", "reason": "no_response"},
+    "2026-07-20_抽查跳过": {"time": "2026-07-20T15:00:00+08:00", "item": "随机数2（需>65）", "reason": "dice_not_rolled"}
   }
 }

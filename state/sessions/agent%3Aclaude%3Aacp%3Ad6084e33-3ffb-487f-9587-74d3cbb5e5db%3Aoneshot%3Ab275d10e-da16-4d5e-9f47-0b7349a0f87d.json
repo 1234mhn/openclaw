@@ -1,0 +1,162 @@
+{
+  "schema": "acpx.session.v1",
+  "acpx_record_id": "agent:claude:acp:d6084e33-3ffb-487f-9587-74d3cbb5e5db:oneshot:b275d10e-da16-4d5e-9f47-0b7349a0f87d",
+  "acp_session_id": "d46b4f8c-8544-4fca-be1f-799ba7ae9c92",
+  "agent_command": "\"/root/.nvm/versions/node/v22.22.2/bin/node\" \"/root/.openclaw/acpx/claude-agent-acp-wrapper.mjs\"",
+  "cwd": "/root/.openclaw/workspace/claude",
+  "name": "agent:claude:acp:d6084e33-3ffb-487f-9587-74d3cbb5e5db",
+  "created_at": "2026-07-17T12:57:15.481Z",
+  "last_used_at": "2026-07-17T12:57:15.481Z",
+  "last_seq": 0,
+  "event_log": {
+    "active_path": "/root/.acpx/sessions/agent%3Aclaude%3Aacp%3Ad6084e33-3ffb-487f-9587-74d3cbb5e5db%3Aoneshot%3Ab275d10e-da16-4d5e-9f47-0b7349a0f87d.stream.ndjson",
+    "segment_count": 5,
+    "max_segment_bytes": 67108864,
+    "max_segments": 5,
+    "last_write_error": null
+  },
+  "closed": true,
+  "closed_at": "2026-07-17T12:57:16.744Z",
+  "pid": 398019,
+  "agent_started_at": "2026-07-17T12:57:13.847Z",
+  "protocol_version": 1,
+  "agent_capabilities": {
+    "_meta": {
+      "claudeCode": {
+        "promptQueueing": true
+      }
+    },
+    "promptCapabilities": {
+      "image": true,
+      "embeddedContext": true
+    },
+    "mcpCapabilities": {
+      "http": true,
+      "sse": true
+    },
+    "loadSession": true,
+    "sessionCapabilities": {
+      "additionalDirectories": {},
+      "close": {},
+      "delete": {},
+      "fork": {},
+      "list": {},
+      "resume": {}
+    }
+  },
+  "title": null,
+  "messages": [],
+  "updated_at": "2026-07-17T12:57:15.481Z",
+  "cumulative_token_usage": {},
+  "request_token_usage": {},
+  "acpx": {
+    "current_model_id": "default",
+    "available_models": [
+      "default",
+      "sonnet",
+      "sonnet[1m]",
+      "haiku"
+    ],
+    "config_options": [
+      {
+        "id": "mode",
+        "name": "Mode",
+        "description": "Session permission mode",
+        "category": "mode",
+        "type": "select",
+        "currentValue": "default",
+        "options": [
+          {
+            "value": "auto",
+            "name": "Auto",
+            "description": "Use a model classifier to approve/deny permission prompts"
+          },
+          {
+            "value": "default",
+            "name": "Default",
+            "description": "Standard behavior, prompts for dangerous operations"
+          },
+          {
+            "value": "acceptEdits",
+            "name": "Accept Edits",
+            "description": "Auto-accept file edit operations"
+          },
+          {
+            "value": "plan",
+            "name": "Plan Mode",
+            "description": "Planning mode, no actual tool execution"
+          },
+          {
+            "value": "dontAsk",
+            "name": "Don't Ask",
+            "description": "Don't prompt for permissions, deny if not pre-approved"
+          }
+        ]
+      },
+      {
+        "id": "model",
+        "name": "Model",
+        "description": "AI model to use",
+        "category": "model",
+        "type": "select",
+        "currentValue": "default",
+        "options": [
+          {
+            "value": "default",
+            "name": "Default (recommended)",
+            "description": "Use the default model (currently Opus 4.7 (1M context)) · $5/$25 per Mtok"
+          },
+          {
+            "value": "sonnet",
+            "name": "Sonnet",
+            "description": "Sonnet 4.6 · Best for everyday tasks · $3/$15 per Mtok"
+          },
+          {
+            "value": "sonnet[1m]",
+            "name": "Sonnet (1M context)",
+            "description": "Sonnet 4.6 for long sessions · $3/$15 per Mtok"
+          },
+          {
+            "value": "haiku",
+            "name": "Haiku",
+            "description": "Haiku 4.5 · Fastest for quick answers · $1/$5 per Mtok"
+          }
+        ]
+      },
+      {
+        "id": "effort",
+        "name": "Effort",
+        "description": "Available effort levels for this model",
+        "category": "thought_level",
+        "type": "select",
+        "currentValue": "default",
+        "options": [
+          {
+            "value": "default",
+            "name": "Default"
+          },
+          {
+            "value": "low",
+            "name": "Low"
+          },
+          {
+            "value": "medium",
+            "name": "Medium"
+          },
+          {
+            "value": "high",
+            "name": "High"
+          },
+          {
+            "value": "xhigh",
+            "name": "Xhigh"
+          },
+          {
+            "value": "max",
+            "name": "Max"
+          }
+        ]
+      }
+    ]
+  }
+}

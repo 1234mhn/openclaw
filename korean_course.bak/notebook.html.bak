@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台词应用笔记 · 这爱情怎么翻译</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f5f0e8;min-height:100vh;display:flex;justify-content:center;align-items:center;padding:30px 20px;font-family:system-ui,sans-serif}
+.book{max-width:720px;width:100%;background:#fffdf9;border-radius:4px 16px 16px 4px;box-shadow:-8px 8px 30px rgba(0,0,0,.15),8px 8px 30px rgba(0,0,0,.1);padding:0 0 30px;position:relative;min-height:550px}
+.book::before{content:'';position:absolute;left:0;top:0;bottom:0;width:24px;background:linear-gradient(to bottom,#d4c8b0,#e8ddd0,#d4c8b0);border-radius:4px 0 0 4px}
+.ring{position:absolute;left:-2px;width:42px;height:42px;border:3px solid #b8ac96;border-radius:50%;background:linear-gradient(145deg,#f5f0e8,#eee6d8);z-index:5}
+.r1{top:30px}.r2{top:100px}.r3{top:170px}.r4{top:240px}.r5{top:310px}.r6{top:380px}.r7{top:450px}
+
+.cover{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:550px;padding:40px 50px 40px 70px;text-align:center;background:linear-gradient(160deg,#fcf9f2 0%,#fffdf9 40%,#faf5ea 100%)}
+.cover h1{font-size:32px;font-weight:800;color:#2c3e50;letter-spacing:3px}
+.cover .hl{width:50px;height:3px;background:#c0392b;margin:14px auto;border-radius:2px}
+.cover .sub1{font-size:18px;color:#777;letter-spacing:2px;margin-bottom:4px}
+.cover .sub2{font-size:13px;color:#bbb;margin-bottom:24px}
+.cover .fig{display:flex;align-items:center;justify-content:center;gap:40px;margin:16px 0;position:relative;width:100%;height:80px}
+.cover .fig .p{width:44px;height:64px;border-radius:22px 22px 8px 8px;position:relative}
+.cover .fig .p::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:20px;height:20px;border-radius:50%}
+.cover .fig .m{background:linear-gradient(135deg,#5b7fa5,#3d5a80);transform:rotate(-6deg)}
+.cover .fig .m::before{background:#f5d6b8}
+.cover .fig .f{background:linear-gradient(135deg,#c0392b,#d86552);transform:rotate(6deg)}
+.cover .fig .f::before{background:#f5d6b8}
+.cover .fig .ht{font-size:26px;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#c0392b}
+.cover .info{font-size:11px;color:#d0c8b8;margin-bottom:20px}
+.cover .btn{border:2px solid #c0392b;background:transparent;color:#c0392b;padding:12px 44px;border-radius:30px;font-size:15px;cursor:pointer;transition:.25s;font-weight:500}
+.cover .btn:hover{background:#c0392b;color:#fff}
+
+.toc-page{display:none;min-height:500px}
+.toc-hd{text-align:center;padding:18px 20px 12px 50px;border-bottom:2px solid #e0d6c8}
+.toc-hd h2{font-size:18px;color:#2c3e50;letter-spacing:4px}
+.toc-hd .sub{font-size:12px;color:#999;margin-top:2px}
+
+.ep{padding:5px 20px 5px 44px}
+.ep-tg{display:flex;align-items:center;gap:8px;padding:9px 14px;background:#f8f6f2;border-radius:6px;cursor:pointer;user-select:none;margin-bottom:2px;transition:.2s}
+.ep-tg:hover{background:#f0ece4}
+.ep-tg .ar{color:#bbb;font-size:12px;transition:transform .3s;min-width:14px}
+.ep-tg .ar.op{transform:rotate(90deg)}
+.ep-tg .nm{flex:1;font-size:14px;color:#2c3e50;font-weight:500}
+.ep-tg .ct{font-size:11px;color:#aaa}
+
+.ls{margin:0 0 5px 18px;max-height:0;overflow:hidden;transition:max-height .3s}
+.ls.op{max-height:2000px}
+.lii{display:flex;align-items:center;gap:8px;padding:6px 12px 6px 14px;cursor:pointer;border-radius:4px;border-left:3px solid transparent;transition:.15s}
+.lii:hover{background:#f5f3ef;border-left-color:#c0392b}
+.lii .no{color:#c0392b;font-weight:600;font-size:12px;min-width:18px;text-align:center}
+.lii .tt{flex:1;font-size:13px;color:#333}
+.lii .st{font-size:10px;color:#aaa}
+
+.detail-page{display:none;min-height:500px}
+.dt-hd{display:flex;align-items:center;gap:8px;padding:12px 20px 8px 44px;border-bottom:1px solid #eee}
+.dt-hd .bk{font-size:12px;color:#999;cursor:pointer;background:none;border:none;padding:3px 6px;border-radius:4px}
+.dt-hd .bk:hover{color:#c0392b;background:#f5f0e8}
+.dt-hd .info{flex:1;text-align:center}
+.dt-hd .info .epn{font-size:11px;color:#aaa}
+.dt-hd .info .lt{font-size:15px;color:#2c3e50;font-weight:600}
+.dt-hd .info .pl{font-size:11px;color:#c0392b;margin-top:2px}
+
+.pc{padding:16px 25px 16px 46px;min-height:350px}
+.pc .tk{font-size:16px;font-weight:600;color:#2c3e50;line-height:1.5;margin-bottom:5px}
+.pc .tc{font-size:14px;color:#666;margin-bottom:2px}
+.pc .te{font-size:12px;color:#aaa;margin-bottom:10px}
+.pc .ei{margin-bottom:5px;font-size:13px;line-height:1.5}
+.pc .ei b{color:#2c3e50}
+.pc .ei .g{color:#555}
+.pc .pf{text-align:right;font-size:11px;color:#d0c8b8;margin-top:10px}
+
+.nb{border-top:1px solid #f0ece4;display:flex;justify-content:space-between;align-items:center;padding:8px 20px 8px 44px}
+.nb button{border:1px solid #d0c8b8;background:#f8f6f2;padding:4px 14px;border-radius:5px;cursor:pointer;font-size:12px;color:#555;transition:.15s}
+.nb button:hover{background:#e8e4dc}
+.nb button:disabled{opacity:.3;cursor:default}
+.nb .fl{border-color:#c0392b36;color:#c0392b}
+.nb .fl:hover{background:#fdf0ed}
+.ft{text-align:center;padding:12px;color:#ccc;font-size:11px}
+.ph{text-align:center;padding:40px 20px;color:#ccc;font-size:14px}
+</style>
+</head>
+<body>
+<div class="book" id="app">
+<div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+<div class="ring r4"></div><div class="ring r5"></div><div class="ring r6"></div><div class="ring r7"></div>
+
+<!-- 封面 -->
+<div class="cover" id="coverPage">
+<h1>这爱情怎么翻译</h1>
+<div class="hl"></div>
+<div class="sub1">台 词 应 用 笔 记</div>
+<div class="sub2">Can This Love Be Translated?</div>
+<div class="fig">
+<div class="p m"></div>
+<div class="ht">&#x2661;</div>
+<div class="p f"></div>
+</div>
+<div class="info">12集 · 25课 · 持续更新中</div>
+<button class="btn" onclick="showPage('toc')">打开目录</button>
+</div>
+
+<!-- 目录 -->
+<div class="toc-page" id="tocPage">
+<div class="toc-hd"><h2>目 录</h2><div class="sub">点击剧集展开课程</div></div>
+<div class="ep" id="epList"></div>
+</div>
+
+<!-- 详情 -->
+<div class="detail-page" id="detailPage">
+<div class="dt-hd">
+<button class="bk" onclick="showPage('toc')">&#x2190; 目录</button>
+<div class="info">
+<div class="epn" id="detailEp"></div>
+<div class="lt" id="detailTitle"></div>
+<div class="pl" id="detailLabel"></div>
+</div>
+</div>
+<div class="pc" id="pageBody">
+<div class="tk" id="lineKr"></div>
+<div class="tc" id="lineCn"></div>
+<div class="te" id="lineEn"></div>
+<div id="contentArea"></div>
+<div class="pf" id="pageFooter"></div>
+</div>
+<div class="nb">
+<button id="prevBtn">&#x25c0; 上一课</button>
+<button class="fl" id="flipBtn">&#x21c4; 翻页</button>
+<button id="nextBtn">下一课 &#x25b6;</button>
+</div>
+</div>
+</div>
+<div class="ft">&#x24d8; 这爱情怎么翻译 · 台词应用笔记</div>
+
+<script>
+var EP_DATA = [{"name": "第1集 · 翻译与演员的初遇", "lessons": [{"num": 1, "title": "拍摄现场", "sub": "拍摄现场"}, {"num": 2, "title": "城堡对话", "sub": "城堡对话"}, {"num": 3, "title": "感叹风景", "sub": "感叹风景"}, {"num": 4, "title": "标牌翻译·多语言", "sub": "多语言标牌"}, {"num": 5, "title": "跟着导航乘车", "sub": "跟着导航走"}, {"num": 6, "title": "自我介绍", "sub": "自我介绍"}, {"num": 7, "title": "表达感谢", "sub": "表达感谢"}, {"num": 8, "title": "脾气·骂人·翻译拒", "sub": "翻译罢工"}, {"num": 9, "title": "一起去吃饭吧", "sub": "一起吃饭"}, {"num": 10, "title": "拍照·SNS", "sub": "拍照发SNS"}]}, {"name": "第2集 · 出租车对话", "lessons": [{"num": 11, "title": "出机场后打车", "sub": "打车去酒店"}, {"num": 12, "title": "你还好吗", "sub": "你还好吗"}, {"num": 13, "title": "去饭馆吃饭", "sub": "去饭馆吃饭"}]}, {"name": "第3集 · 新剧情", "lessons": [{"num": 21, "title": "医院问诊", "sub": "医院问诊"}, {"num": 22, "title": "你到底去没去医院", "sub": "去医院了吗"}, {"num": 23, "title": "道歉与和解", "sub": "道歉与和解"}, {"num": 24, "title": "你的弱点", "sub": "你的弱点"}, {"num": 25, "title": "接那个节目吧", "sub": "接那个节目吧"}]}];
+var LESSON_DATA = {};
+var curEp = 0, curLesson = 0, curLine = 0, curSide = 0;
+
+function showPage(p){
+  var pages = ["cover","toc","detail"];
+  pages.forEach(function(x){
+    var el = document.getElementById(x+"Page");
+    if(el) el.style.display = (x===p) ? (x==="cover"?"flex":"block") : "none";
+  });
+}
+
+function renderToc(){
+  var h = "";
+  EP_DATA.forEach(function(ep, ei){
+    h += '<div class="ep-tg" onclick="toggleEp('+ei+')"><span class="ar" id="ar'+ei+'">&#x25b8;</span><span class="nm">'+ep.name+'</span><span class="ct">'+ep.lessons.length+'课</span></div><div class="ls" id="ls'+ei+'">';
+    ep.lessons.forEach(function(ls, li){
+      h += '<div class="lii" onclick="openLesson('+ei+','+li+')"><span class="no">'+ls.num+'</span><span class="tt">'+ls.title+'</span><span class="st">精讲</span></div>';
+    });
+    h += '</div>';
+  });
+  document.getElementById("epList").innerHTML = h;
+}
+
+function toggleEp(ei){
+  document.getElementById("ls"+ei).classList.toggle("op");
+  var ar = document.getElementById("ar"+ei);
+  if(ar) ar.classList.toggle("op");
+}
+
+function openLesson(ei, li){
+  curEp = ei; curLesson = li; curLine = 0; curSide = 0;
+  showPage("detail");
+  renderDetail();
+}
+
+function renderDetail(){
+  var ep = EP_DATA[curEp];
+  var ls = ep.lessons[curLesson];
+  document.getElementById("detailEp").textContent = ep.name;
+  document.getElementById("detailTitle").textContent = ls.num+"课 · "+ls.title;
+  document.getElementById("detailLabel").textContent = curSide===0 ? "第1页 · 台词精讲" : "第2页 · 台词运用";
+  
+  var data = LESSON_DATA[ls.num];
+  if(data && data.lines && data.lines.length > 0){
+    var line = data.lines[curLine] || data.lines[0];
+    document.getElementById("lineKr").textContent = line.kr;
+    document.getElementById("lineCn").textContent = "→ "+line.cn;
+    document.getElementById("lineEn").textContent = "→ "+line.en;
+    document.getElementById("contentArea").innerHTML = curSide===0 ? line.exp : line.prac;
+    document.getElementById("pageFooter").textContent = "第"+(curLine+1)+"句/共"+data.lines.length+"句 · 第"+(curSide+1)+"页";
+  } else {
+    document.getElementById("lineKr").textContent = ls.num+"课 · "+ls.title;
+    document.getElementById("lineCn").textContent = "内容待补充";
+    document.getElementById("lineEn").textContent = "";
+    document.getElementById("contentArea").innerHTML = '<div class="ph">&#x270d;&#xfe0f; 内容待补充</div>';
+    document.getElementById("pageFooter").textContent = "";
+  }
+}
+
+document.getElementById("flipBtn").onclick = function(){curSide=curSide===0?1:0;renderDetail()};
+document.getElementById("prevBtn").onclick = function(){if(curSide===1){curSide=0;renderDetail();return}if(curLesson>0){curLesson--;curSide=1;renderDetail()}};
+document.getElementById("nextBtn").onclick = function(){if(curSide===0){curSide=1;renderDetail();return}if(curLesson<EP_DATA[curEp].lessons.length-1){curLesson++;curSide=0;renderDetail()}};
+
+renderToc();
+showPage("cover");
+</script>
+</body>
+</html>
