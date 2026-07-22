@@ -52,3 +52,4 @@ daily_clips/
 *.wav
 .cos_credentials.json
 obsidian_nanan_portfolio/
+ML_notebook/
