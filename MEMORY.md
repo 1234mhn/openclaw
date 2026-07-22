@@ -37,8 +37,8 @@
 - **规则依据**：`📋 知识管理规则.md` 规则2/3/4
 
 ## 🛣️ 路径变更（2026.6.27）
-- `obsidian_vault` → 更名为 `obsidian_nanan_daily_routine`
-- `/root/obsidian_nanan_daily_routine` → 软链接指向 `/root/.openclaw/workspace/obsidian_nanan_daily_routine/`
+- `obsidian_vault` → 更名为 `obsidian_nanan_compound_library`
+- `/root/obsidian_nanan_compound_library` → 软链接指向 `/root/.openclaw/workspace/obsidian_nanan_compound_library/`
 - GitHub 跟踪工作区里的副本
 
 ## 🔴 铁律：我是调度员，不是干活的（2026.7.2）

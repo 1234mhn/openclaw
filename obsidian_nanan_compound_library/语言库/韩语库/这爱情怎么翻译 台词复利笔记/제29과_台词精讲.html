@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>第29课 · 让我平静下来的人就是你</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+*{margin:0;padding: 24px;box-sizing:border-box}
+
+body{word-spacing:0.15em;letter-spacing:1px;line-height:2.0;font-family:'Noto Sans SC','Noto Sans KR',sans-serif;background:#f8f6f2;padding: 24px
+
+.page{
+  width:190mm;min-height:277mm;
+  padding: 24px;
+  background:#fff;color:#333;
+  margin:0 auto 20px;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+  border-radius:2px;
+  page-break-after:always;
+  position:relative;
+}
+
+/* === 封面 === */
+.cover-page{
+  width:190mm;min-height:277mm;
+  margin:0 auto 20px;
+  padding: 24px;
+  background:linear-gradient(135deg,#faf8f4 0%,#f5f0e8 50%,#efe8dc 100%);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  border-radius:2px;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+  page-break-after:always;
+  position:relative;
+}
+.cover-inner{max-width:340px}
+.cover-label{font-size: 15px;color:#c4b998;letter-spacing: 1px;margin-bottom:14px}
+.cover-title{font-size:26px;font-weight:700;color:#2c3e50;line-height: 2.0;margin-bottom:16px}
+.cover-line{width:50px;height:3px;background:#c4b998;margin:0 auto 16px;border-radius:2px}
+.cover-sub{font-size:14px;color:#888;margin-bottom:6px}
+.cover-desc{font-size: 14px;color:#aaa;line-height: 2.0;
+  padding-bottom:5px;margin-bottom:16px;
+  display:flex;justify-content:space-between;
+  font-size: 14px;color:#999;letter-spacing: 1px;
+}
+
+/* 台词 */
+.kr-big{font-size:18px;font-weight:700;line-height: 2.0;margin-bottom:5px;color:#1a1a1a}
+.cn-line{font-size: 15px;color:#555;margin-bottom:3px}
+.en-line{font-size: 14px;color:#999;font-style:italic;margin-bottom:14px}
+
+/* 句子框架 */
+.frame-box{
+  background:#f8f6f2;border:1px solid #e8e4dc;border-radius:5px;
+  padding: 24px;margin-bottom:14px;font-size: 15px;line-height: 2.0;
+}
+.tag{display:inline-block;background:#8b7355;color:#fff;font-size:9px;border-radius:3px;padding: 24px;margin-right:4px}
+.who{color:#2a6f97}
+.what{color:#2d6a4f}
+.do{color:#a53860}
+.conn-line{background:#f0ebe0;border-radius:4px;padding: 24px;margin-top:5px;font-size:14px;color:#666}
+
+/* 分节 */
+.sec-title{font-size: 14px;font-weight:700;color:#8b7355;padding-bottom:2px;margin: 8px 0 6px;border-bottom:1px solid #e8e4dc;}
+
+/* 单词两列 */
+.word-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 16px;font-size:14px;line-height: 2.0;margin-bottom:4px;}
+.word-item{padding: 24px;border-bottom:1px dotted #f0ece4}
+.word-item b{color:#222}
+.word-item .zh{color:#555}
+.word-item .en{color:#999;font-size: 14px}
+
+/* 短语/造句 */
+.info-item{margin-bottom:4px;font-size:14px;line-height: 2.0;padding-left:4px}
+.info-item .ib{font-weight:700;color:#8b7355;margin-right:4px}
+.info-item .kt{color:#333}
+.info-item .ct{color:#666;font-size: 14px}
+
+/* 句型卡片 */
+.sentence-card{background:#faf8f4;border-left:3px solid #d4cdc0;padding: 24px;margin-bottom:5px;font-size:14px;line-height: 2.0;border-radius:4px;padding: 24px;margin-top:8px;font-size:14px;color:#666;line-height: 2.0;color:#ddd;position:absolute;bottom:10mm;right:18mm}
+
+/* === 应用页 === */
+.prac-title{font-size: 15px;font-weight:700;color:#8b7355;margin-bottom:6px;padding-left:8px;border-left:3px solid #c4b998}
+.prac-item{margin-bottom:10px;font-size:14px;line-height: 2.0;padding-left:4px}
+.prac-item b{color:#333}
+.prac-item .p-cn{color:#666;font-size: 14px}
+.prac-item .p-en{color:#999;font-size: 14px;font-style:italic}
+</style>
+</head>
+<body>
+
+<!-- 封面 -->
+<div class="cover-page">
+  <div class="cover-inner">
+    <div class="cover-label">第29课</div>
+    <div class="cover-title">让我平静下来<br>的人就是你</div>
+    <div class="cover-line"></div>
+    <div class="cover-sub">台词精讲 &amp; 应用</div>
+    <div class="cover-desc">从「如果有人在身边就好了」<br>到「怎么用到生活中」</div>
+  </div>
+</div>
+
+<!-- 第1句 精讲 -->
+<div class="page">
+  <div class="header-bar">
+    <span>第29课 · 让我平静下来的人就是你</span>
+    <span>台词精讲 ①/⑥</span>
+  </div>
+
+  <div class="kr-big">냉정하고 차분하게 나를 진정시켜줄 사람이 옆에 있으면</div>
+  <div class="cn-line">→ 如果有个冷静又沉稳地能让我平静下来的人在身边的话</div>
+  <div class="en-line">→ If there's a person next to me who can calmly and coolly soothe me</div>
+
+  <div class="frame-box">
+    <div><span class="tag who-bg" style="background:#2a6f97">谁</span> <b style="color:#2a6f97">사람</b>（人）</div>
+    <div style="padding-left:24px;color:#666;font-size:14px">← 前面修饰：「<b style="color:#2a6f97">냉정하고 차분하게 나를 진정시켜줄</b>」</div>
+    <div style="padding-left:48px;font-size:11px;color:#888">-고 串"冷静"+"沉稳"；-아/어주다"帮谁做"；-ㄹ修饰</div>
+    <div style="margin-top:3px"><span class="tag" style="background:#2d6a4f">什么</span> 没有宾语</div>
+    <div style="margin-top:3px"><span class="tag" style="background:#a53860">干</span> <b style="color:#a53860">있으면</b>（如果有）<span style="color:#a53860;font-weight:700">→ -면</span> = 如果</div>
+    <div class="conn-line">📎 连接：不是两个句子拼的。修饰内部用<b style="color:#a53860">-고</b>把"冷静"+"沉稳"串在一起</div>
+  </div>
+
+  <div class="sec-title">📍 单词</div>
+  <div class="word-grid">
+    <div class="word-item"><b>냉정하다</b><span class="zh">冷静</span><span class="en"> (cool-hearted)</span></div>
+    <div class="word-item"><b>차분하다</b><span class="zh">沉稳</span><span class="en"> (calm/composed)</span></div>
+    <div class="word-item"><b>진정시키다</b><span class="zh">使镇定</span><span class="en"> (calm down/soothe)</span></div>
+    <div class="word-item"><b>사람</b><span class="zh">人</span><span class="en"> (person)</span></div>
+    <div class="word-item"><b>옆</b><span class="zh">旁边</span><span class="en"> (next to/side)</span></div>
+    <div class="word-item"><b>있다</b><span class="zh">有/在</span><span class="en"> (exist)</span></div>
+  </div>
+
+  <div class="sec-title">💬 短语</div>
+  <div class="info-item"><span class="ib">진정시켜주다</span> — 帮忙安抚（-아/어주다"给/帮"）</div>
+
+  <div class="sec-title">💬 造句</div>
+  <div class="info-item"><span class="kt">그녀가 나를 진정시켜줬어요.</span><span class="ct"> — 她让我平静下来了。</span></div>
+
+  <div class="sec-title">🔧 句型 / 接口</div>
+  <div class="sentence-card"><b>-고</b> 连接两个形容词：냉정<span style="color:#a53860">하고</span> 차분하다 = 又冷静又沉稳（像英语 A and B）</div>
+  <div class="sentence-card"><b>-아/어주다</b> 动词+"帮谁做"：진정시키<span style="color:#a53860">줄</span> = 帮我平静（"给"塞进动词里）</div>
+  <div class="sentence-card"><b>-면</b> "如果"：있<span style="color:#a53860">으면</span> = 如果有（条件句，if）</div>
+
+  <div class="sec-title">🔊 音变现象</div>
+  <div class="phon-box">냉정하고[냉정하고] · 차분하게[차분하게] → 无特殊音变</div>
+
+  <div class="footer-note">第29课 · ① 台词精讲</div>
+</div>
+
+<!-- 第1句 应用 -->
+<div class="page">
+  <div class="header-bar">
+    <span>第29课 · 让我平静下来的人就是你</span>
+    <span>台词应用 ①/⑥</span>
+  </div>
+
+  <div class="kr-big" style="font-size:16px;">냉정하고 차분하게 나를 진정시켜줄 사람이 옆에 있으면</div>
+  <div class="cn-line">→ 如果有个冷静又沉稳地能让我平静下来的人在身边的话</div>
+
+  <div style="margin-bottom:14px"></div>
+
+  <div class="prac-title">① 换词练习</div>
+  <div class="prac-item"><b>차분하게 → 따뜻하게</b><br><span class="p-cn">따뜻하게 나를 안아줄 사람이 옆에 있으면… — 如果有个人能温暖地拥抱我…</span></div>
+  <div class="prac-item"><b>진정시켜줄 → 격려해줄</b><br><span class="p-cn">격려해줄 사람이 옆에 있으면 힘이 나요. — 有鼓励我的人在身边就有力量。</span></div>
+
+  <div class="prac-title">② 场景迁移 · 职场</div>
+  <div class="prac-item"><b>힘들 때 격려해주는 동료가 옆에 있으면 버틸 만해요.</b><br><span class="p-cn">累的时候有同事鼓励我就能撑住。</span></div>
+
+  <div class="prac-title">③ 问答对话</div>
+  <div class="prac-item"><b>Q: 어떤 사람이 옆에 있으면 좋겠어요?</b><br><span class="p-cn">什么样的人在身边就好了？</span></div>
+  <div class="prac-item"><b>A: 냉정하고 차분하게 진정시켜줄 사람이요.</b><br><span class="p-cn">冷静又沉稳能让我平静下来的人。</span></div>
+
+  <div class="prac-title">④ 句型扩展 · -면 条件句</div>
+  <div class="prac-item"><b>시간이 있으면 같이 영화 봐요.</b><br><span class="p-cn">有时间的话一起看电影吧。</span></div>
+  <div class="prac-item"><b>돈이 많으면 세계 여행을 갈 거예요.</b><br><span class="p-cn">如果有钱就去环游世界。</span></div>
+
+  <div class="footer-note">第29课 · ① 台词应用</div>
+</div>
+
+<!-- 第2句 精讲 -->
+<div class="page">
+  <div class="header-bar">
+    <span>第29课 · 让我平静下来的人就是你</span>
+    <span>台词精讲 ②/⑥</span>
+  </div>
+
+  <div class="kr-big">어떨 것 같아요?</div>
+  <div class="cn-line">→ （你觉得）会怎么样呢？</div>
+  <div class="en-line">→ What do you think it would be like?</div>
+
+  <div class="frame-box">
+    <div><span class="tag" style="background:#2a6f97">谁</span> 省略了（默认"你"）</div>
+    <div><span class="tag" style="background:#2d6a4f">什么</span> 省略了（指前面说的那种情况）</div>
+    <div style="margin-top:3px"><span class="tag" style="background:#a53860">干</span> <b style="color:#a53860">어떨 것 같아요</b>（会怎么样呢）<span style="color:#a53860;font-weight:700">→ -ㄹ 것 같다</span> = 推测</div>
+    <div class="conn-line">📎 简单推测疑问句，不是两个句子拼的。</div>
+  </div>
+
+  <div class="sec-title">📍 单词</div>
+  <div class="word-grid">
+    <div class="word-item"><b>어떻다</b><span class="zh">怎么样</span><span class="en"> (how is it)</span></div>
+    <div class="word-item"><b>같다</b><span class="zh">像/好像</span><span class="en"> (seems like)</span></div>
+  </div>
+
+  <div class="sec-title">💬 短语</div>
+  <div class="info-item"><span class="ib">어떨 것 같아요?</span> — 你觉得怎么样？会怎么样呢？</div>
+
+  <div class="sec-title">💬 造句</div>
+  <div class="info-item"><span class="kt">내일 날씨가 어떨 것 같아요?</span><span class="ct"> — 明天天气会怎么样？</span></div>
+
+  <div class="sec-title">🔧 句型 / 接口</div>
+  <div class="sentence-card"><b>-ㄹ 것 같다</b> "好像会/觉得会"，推测语气。<br>어떻<span style="color:#a53860">ㄹ</span> 것 같아요 = 会怎么样呢？<br><span style="font-size:11px;color:#888">→ 词干加 -ㄹ/-을 것 같다，英语 I think it will…</span></div>
+
+  <div class="sec-title">🔊 音变现象</div>
+  <div class="phon-box">같아요[가타요] → ㅌ+ㅇ 紧音化</div>
+
+  <div class="footer-note">第29课 · ② 台词精讲</div>
+</div>
+
+<!-- 第2句 应用 -->
+<div class="page">
+  <div class="header-bar">
+    <span>第29课 · 让我平静下来的人就是你</span>
+    <span>台词应用 ②/⑥</span>
+  </div>
+
+  <div class="kr-big" style="font-size:16px;">어떨 것 같아요?</div>
+  <div class="cn-line">→ （你觉得）会怎么样呢？</div>
+
+  <div style="margin-bottom:14px"></div>
+
+  <div class="prac-title">① 换词练习</div>
+  <div class="prac-item"><b>어떨 → 누굴</b><br><span class="p-cn">누굴 만날 것 같아요? — 你觉得会见到谁？</span></div>
+  <div class="prac-item"><b>어떨 → 어떤</b><br><span class="p-cn">내일 날씨가 어떨 것 같아요? — 明天天气会怎么样？</span></div>
+
+  <div class="prac-title">② 场景迁移 · 约会</div>
+  <div class="prac-item"><b>그 사람 성격이 어떨 것 같아요?</b><br><span class="p-cn">你觉得那个人性格怎么样？</span></div>
+
+  <div class="prac-title">③ 问答对话</div>
+  <div class="prac-item"><b>Q: 이 음식 맛이 어떨 것 같아요?</b><br><span class="p-cn">你觉得这个味道怎么样？</span></div>
+  <div class="prac-item"><b>A: 매운데 맛있을 것 같아요!</b><br><span class="p-cn">虽然辣但应该好吃！</span></div>
+
+  <div class="prac-title">④ 句型扩展 · -ㄹ 것 같다 推测</div>
+  <div class="prac-item"><b>그는 벌써 집에 갔을 것 같아요.</b><br><span class="p-cn">他好像已经回家了。</span></div>
+  <div class="prac-item"><b>이 일은 오래 걸릴 것 같아요.</b><br><span class="p-cn">这件事好像要花很长时间。</span></div>
+
+  <div class="footer-note">第29课 · ② 台词应用</div>
+</div>
+
+</body>
+<div class="page">
+  <div class="header-bar">
+    <span>第29课 · 让我平静下来的人就是你</span>
+    <span>台词精讲 03/⑥</span>
+  </div>
+
+  <div class="kr-big">그 사람이 마침 외국어도 잘하면 외국에 나가서도 안심이 될 거예요, 그쵸?</div>
+  <div class="cn-line">→ 那个人碰巧外语也好的话，去国外也能放心了，对吧？</div>
+  <div class="en-line">→ If that person happens to be good at foreign languages too, even going abroad would be reassuring, right?</div>
+
+  <div class="frame-box">
+    <div><span class="tag" style="background:#2a6f97">谁</span> <b style="color:#2a6f97">그 사람（那个人）</b></div>
+    <div style="padding-left:24px;color:#666;font-size:14px">← 마침 외국어도 잘하면（碰巧外语也好的话）条件在谁后面</div>
+    <div style="margin-top:3px"><span class="tag" style="background:#2d6a4f">什么</span> 没有直接宾语</div>
+    <div style="margin-top:3px"><span class="tag" style="background:#a53860">干</span> <b style="color:#a53860">잘하면（擅长）→ -면 = 如果 | 안심이 될 거예요（会放心）→ -ㄹ 거예요 = 将来/推测</b></div>
+    <div class="conn-line">📎 <b>两个简单句拼的！</b>[条件] 마침 외국어도 잘<span style="color:#a53860">하면</span>（如果外语好）→ [结果] 안심이 <span style="color:#a53860">될 거예요</span>（会放心）<br>尾巴 + <span style="color:#a53860">그쵸?</span>（对吧？确认一下）</div>
+  </div>
+
+  <div class="sec-title">📍 单词</div>
+  <div class="word-grid">
+    <div class="word-item"><b>마침</b><span class="zh">恰好/碰巧</span><span class="en"> (coincidentally)</span></div>
+    <div class="word-item"><b>외국어</b><span class="zh">外语</span><span class="en"> (foreign language)</span></div>
+    <div class="word-item"><b>잘하다</b><span class="zh">擅长</span><span class="en"> (be good at)</span></div>
+    <div class="word-item"><b>외국</b><span class="zh">外国</span><span class="en"> (foreign country)</span></div>
+    <div class="word-item"><b>나가다</b><span class="zh">出去/去</span><span class="en"> (go out)</span></div>
+    <div class="word-item"><b>안심</b><span class="zh">安心/放心</span><span class="en"> (relief)</span></div>
+    <div class="word-item"><b>되다</b><span class="zh">成为/变得</span><span class="en"> (become)</span></div>
+  </div>
+  <div class="sec-title">💬 短语</div>
+  <div class="info-item"><span class="ib">안심이 되다</span> — 放心/安心</div>
+  <div class="sec-title">💬 造句</div>
+  <div class="info-item"><span class="kt">네가 같이 있으면 안심이 돼요.</span><span class="ct"> — 你在我身边我就放心了。</span></div>
+  <div class="sec-title">🔧 句型 / 接口</div>
+  <div class="sentence-card"><b>-도</b> 表示"也"：외국어<span style="color:#a53860">도</span> = 外语也</div>
+  <div class="sentence-card"><b>-면</b> 条件句"如果"：잘하<span style="color:#a53860">면</span></div>
+  <div class="sentence-card"><b>-서도</b> "即使/也"：나가<span style="color:#a53860">서도</span></div>
+  <div class="sentence-card"><b>-ㄹ 거예요</b> 将来/推测：될 거예요</div>
+  <div class="sentence-card"><b>-그쵸?</b> 确认语气"是吧？"</div>
+  <div class="sec-title">🔊 音变现象</div>
+  <div class="phon-box">잘하면[잘하면] · 나가서도[나가서도] · 거예요[거예요] → 无特殊音变</div>
+  <div class="footer-note">第29课 · 03/⑥ 台词精讲</div>
+</div>
+
+<div class="page">
+  <div class="header-bar">
+    <span>第29课 · 让我平静下来的人就是你</span>
+    <span>台词应用 03/⑥</span>
+  </div>
+
+  <div class="kr-big" style="font-size:16px;">그 사람이 마침 외국어도 잘하면 외국에 나가서도 안심이 될 거예요, 그쵸?</div>
+  <div class="cn-line" style="margin-bottom:14px">→ 那个人碰巧外语也好的话，去国外也能放心了，对吧？</div>
+  <div class="prac-title">① 换词练习</div>
+  <div class="prac-item"><b>외국어 → 운전</b><br><span class="p-cn">운전도 잘하면 좋겠어요. → 开车也好的话就好了。</span></div>
+  <div class="prac-item"><b>외국에 나가서도 → 혼자 살아도</b><br><span class="p-cn">혼자 살아도 안심이 될 거예요. → 一个人生活也能放心。</span></div>
+  <div class="prac-title">② 场景迁移·旅行</div>
+  <div class="prac-item"><b>같이 여행 가는 사람이 영어도 잘하면 안심이 돼요, 그쵸?</b><br><span class="p-cn">一起旅行的人英语也好的话就放心了，对吧？</span></div>
+  <div class="prac-title">③ 问答对话</div>
+  <div class="prac-item"><b>Q: 어떤 사람이랑 여행 가고 싶어요?</b><br><span class="p-cn">你想跟什么样的人去旅行？</span></div>
+  <div class="prac-item"><b>A: 길을 잘 찾는 사람이요!</b><br><span class="p-cn">会认路的人！</span></div>
+  <div class="prac-title">④ 句型扩展·-면+-ㄹ 거예요</div>
+  <div class="prac-item"><b>비가 오면 집에 있을 거예요.</b><br><span class="p-cn">下雨的话就待在家里。</span></div>
+  <div class="prac-item"><b>시간이 되면 도와줄 거예요.</b><br><span class="p-cn">有时间的话会帮忙的。</span></div>
+  <div class="footer-note">第29课 · 03/⑥ 台词应用</div>
+</div>
+
+<div class="page">
+  <div class="header-bar">
+    <span>第29课 · 让我平静下来的人就是你</span>
+    <span>台词精讲 04/⑥</span>
+  </div>
+
+  <div class="kr-big">그런 사람이 옆에 있으면 버틸 만할 것 같은데</div>
+  <div class="cn-line">→ 那种人在身边的话，好像还能撑得住</div>
+  <div class="en-line">→ With that kind of person by my side, I think I could endure it</div>
+
+  <div class="frame-box">
+    <div><span class="tag" style="background:#2a6f97">谁</span> <b style="color:#2a6f97">그런 사람（那种人）</b></div>
+    <div style="padding-left:24px;color:#666;font-size:14px">← 그런（那样的）直接贴在사람前面</div>
+    <div style="margin-top:3px"><span class="tag" style="background:#2d6a4f">什么</span> 没有宾语</div>
+    <div style="margin-top:3px"><span class="tag" style="background:#a53860">干</span> <b style="color:#a53860">있으면（在）→ -면 = 如果 | 버틸 만할 것 같은데（好像能撑住）→ -ㄹ 만하다 + -ㄹ 것 같다 + -는데</b></div>
+    <div class="conn-line">📎 <b>两个简单句拼的。</b>[条件] 사람이 옆에 있<span style="color:#a53860">으면</span>（人在旁边）→ [结果] 버틸 만할 것 같<span style="color:#a53860">은데</span>（好像能撑住）<br>「<span style="color:#a53860">-는데</span>」留个话尾巴等对方接。</div>
+  </div>
+
+  <div class="sec-title">📍 单词</div>
+  <div class="word-grid">
+    <div class="word-item"><b>그런</b><span class="zh">那样的</span><span class="en"> (such/that kind of)</span></div>
+    <div class="word-item"><b>옆</b><span class="zh">旁边</span><span class="en"> (next to)</span></div>
+    <div class="word-item"><b>버티다</b><span class="zh">坚持/撑住</span><span class="en"> (endure/withstand)</span></div>
+    <div class="word-item"><b>만하다</b><span class="zh">值得/足以</span><span class="en"> (worth/worthy)</span></div>
+  </div>
+  <div class="sec-title">💬 短语</div>
+  <div class="info-item"><span class="ib">버틸 만하다</span> — 还能撑得住/值得坚持</div>
+  <div class="sec-title">💬 造句</div>
+  <div class="info-item"><span class="kt">이 정도 일은 버틸 만해요.</span><span class="ct"> — 这种程度的事还能撑得住。</span></div>
+  <div class="sec-title">🔧 句型 / 接口</div>
+  <div class="sentence-card"><b>-면</b> "如果"：있<span style="color:#a53860">으면</span></div>
+  <div class="sentence-card"><b>-ㄹ 만하다</b> "值得/足以"：버틸 만하<span style="color:#a53860">ㄹ</span>（볼 만하다=值得看）</div>
+  <div class="sentence-card"><b>-ㄹ 것 같다</b> 推测"好像会"</div>
+  <div class="sentence-card"><b>-는데</b> 铺垫语气，话说一半等接话</div>
+  <div class="sec-title">🔊 音变现象</div>
+  <div class="phon-box">버틸[버틸] · 만할[만할] → 无特殊音变</div>
+  <div class="footer-note">第29课 · 04/⑥ 台词精讲</div>
+</div>
+
+<div class="page">
+  <div class="header-bar">
+    <span>第29课 · 让我平静下来的人就是你</span>
+    <span>台词应用 04/⑥</span>
+  </div>
+
+  <div class="kr-big" style="font-size:16px;">그런 사람이 옆에 있으면 버틸 만할 것 같은데</div>
+  <div class="cn-line" style="margin-bottom:14px">→ 那种人在身边的话，好像还能撑得住</div>
+  <div class="prac-title">① 换词练习</div>
+  <div class="prac-item"><b>버틸 만하다 → 참을 만하다</b><br><span class="p-cn">그 정도는 참을 만해요. → 那种程度还能忍。</span></div>
+  <div class="prac-item"><b>옆에 있으면 → 함께하면</b><br><span class="p-cn">함께하면 버틸 만할 것 같아요. → 在一起的话好像还能撑住。</span></div>
+  <div class="prac-title">② 场景迁移·学习</div>
+  <div class="prac-item"><b>혼자 공부하기 힘들지만 선생님이 옆에 있으면 버틸 만해요.</b><br><span class="p-cn">虽然一个人学很难，但有老师在身边就能撑住。</span></div>
+  <div class="prac-title">③ 问答对话</div>
+  <div class="prac-item"><b>Q: 이 일이 버틸 만해요?</b><br><span class="p-cn">这事能撑得住吗？</span></div>
+  <div class="prac-item"><b>A: 네, 좀 힘들지만 버틸 만해요.</b><br><span class="p-cn">嗯，虽然有点累但还能撑。</span></div>
+  <div class="prac-title">④ 句型扩展·-ㄹ 만하다</div>
+  <div class="prac-item"><b>이 영화는 볼 만해요.</b><br><span class="p-cn">这部电影值得一看。</span></div>
+  <div class="prac-item"><b>이 집 김치는 먹을 만해요.</b><br><span class="p-cn">这家的泡菜还能吃。</span></div>
+  <div class="footer-note">第29课 · 04/⑥ 台词应用</div>
+</div>
+
+<div class="page">
+  <div class="header-bar">
+    <span>第29课 · 让我平静下来的人就是你</span>
+    <span>台词精讲 05/⑥</span>
+  </div>
+
+  <div class="kr-big">어떻게 생각해요?</div>
+  <div class="cn-line">→ 你怎么想？</div>
+  <div class="en-line">→ What do you think?</div>
+
+  <div class="frame-box">
+    <div><span class="tag" style="background:#2a6f97">谁</span> <b style="color:#2a6f97">省略了（默认"你"）</b></div>
+    <div style="padding-left:24px;color:#666;font-size:14px">← （无）</div>
+    <div style="margin-top:3px"><span class="tag" style="background:#2d6a4f">什么</span> 省略了（默认"刚才说的事"）</div>
+    <div style="margin-top:3px"><span class="tag" style="background:#a53860">干</span> <b style="color:#a53860">생각해요（想/认为）← 前面加修饰：「어떻게」（怎么/如何）<br>→ 词尾：-아/어요 = 敬语疑问</b></div>
+    <div class="conn-line">📎 不是连接句。简单疑问句——"你怎么+想" = 你怎么想？</div>
+  </div>
+
+  <div class="sec-title">📍 单词</div>
+  <div class="word-grid">
+    <div class="word-item"><b>어떻게</b><span class="zh">怎么/如何</span><span class="en"> (how)</span></div>
+    <div class="word-item"><b>생각하다</b><span class="zh">想/思考</span><span class="en"> (think)</span></div>
+  </div>
+  <div class="sec-title">💬 短语</div>
+  <div class="info-item"><span class="ib">어떻게 생각해요?</span> — 你怎么想？你觉得呢？（日常高频）</div>
+  <div class="sec-title">💬 造句</div>
+  <div class="info-item"><span class="kt">이 제안에 대해 어떻게 생각해요?</span><span class="ct"> — 对这个提议你怎么看？</span></div>
+  <div class="sec-title">🔧 句型 / 接口</div>
+  <div class="sentence-card"><b>-에 대해</b> "关于……"：이 제안<span style="color:#a53860">에 대해</span></div>
+  <div class="sec-title">🔊 音变现象</div>
+  <div class="phon-box">생각해요[생가캐요] → ㅎ+ㅏ紧音化（각+해→가캐）</div>
+  <div class="footer-note">第29课 · 05/⑥ 台词精讲</div>
+</div>
+
+<div class="page">
+  <div class="header-bar">
+    <span>第29课 · 让我平静下来的人就是你</span>
+    <span>台词应用 05/⑥</span>
+  </div>
+
+  <div class="kr-big" style="font-size:16px;">어떻게 생각해요?</div>
+  <div class="cn-line" style="margin-bottom:14px">→ 你怎么想？</div>
+  <div class="prac-title">① 换词练习</div>
+  <div class="prac-item"><b>어떻게 → 왜</b><br><span class="p-cn">왜 그렇게 생각해요? → 你为什么那么想？</span></div>
+  <div class="prac-item"><b>생각해요 → 느껴요</b><br><span class="p-cn">이 음악을 어떻게 느껴요? → 你感觉这首音乐怎么样？</span></div>
+  <div class="prac-title">② 场景迁移·会议</div>
+  <div class="prac-item"><b>이번 프로젝트 방향에 대해 어떻게 생각해요?</b><br><span class="p-cn">关于这次项目的方向你怎么想？</span></div>
+  <div class="prac-title">③ 问答对话</div>
+  <div class="prac-item"><b>Q: 이 옷 어때요?</b><br><span class="p-cn">这件衣服怎么样？</span></div>
+  <div class="prac-item"><b>A: 예쁜데 좀 비싸요. 어떻게 생각해요?</b><br><span class="p-cn">好看但有点贵，你怎么想？</span></div>
+  <div class="prac-title">④ 句型扩展·-에 대해</div>
+  <div class="prac-item"><b>그 문제에 대해 얘기해 봐요.</b><br><span class="p-cn">我们来聊聊那个问题吧。</span></div>
+  <div class="prac-item"><b>환경 보호에 대해 어떻게 생각해요?</b><br><span class="p-cn">关于环保你怎么看？</span></div>
+  <div class="footer-note">第29课 · 05/⑥ 台词应用</div>
+</div>
+
+<div class="page">
+  <div class="header-bar">
+    <span>第29课 · 让我平静下来的人就是你</span>
+    <span>台词精讲 06/⑥</span>
+  </div>
+
+  <div class="kr-big">민희미 씨, 내가 알아듣게 얘기해요.</div>
+  <div class="cn-line">→ 闵熙美小姐，说我能听懂的话吧。</div>
+  <div class="en-line">→ Ms. Min Huimi, speak so that I can understand.</div>
+
+  <div class="frame-box">
+    <div><span class="tag" style="background:#2a6f97">谁</span> <b style="color:#2a6f97">민희미 씨（闵熙美小姐 — 呼语，不是主语）</b></div>
+    <div style="padding-left:24px;color:#666;font-size:14px">← （无）</div>
+    <div style="margin-top:3px"><span class="tag" style="background:#2d6a4f">什么</span> 没有宾语</div>
+    <div style="margin-top:3px"><span class="tag" style="background:#a53860">干</span> <b style="color:#a53860">얘기해요（说吧）← 前面加修饰：「내가 알아듣게」（让我能听懂地）<br>→ 알아듣<span style="color:#a53860">게</span> = -게（目的/方式）<br>→ 词尾：-아/어요 = 请求/命令语气</b></div>
+    <div class="conn-line">📎 不是连接句。含修饰的祈使句——"让我能听懂"<span style="color:#a53860">地</span> + "说"。</div>
+  </div>
+
+  <div class="sec-title">📍 单词</div>
+  <div class="word-grid">
+    <div class="word-item"><b>민희미</b><span class="zh">闵熙美</span><span class="en"> (Min Huimi/人名)</span></div>
+    <div class="word-item"><b>씨</b><span class="zh">先生/小姐</span><span class="en"> (Mr./Ms.)</span></div>
+    <div class="word-item"><b>알아듣다</b><span class="zh">听懂</span><span class="en"> (understand by hearing)</span></div>
+    <div class="word-item"><b>얘기하다</b><span class="zh">说话/讲话</span><span class="en"> (talk/speak)</span></div>
+  </div>
+  <div class="sec-title">💬 短语</div>
+  <div class="info-item"><span class="ib">알아듣게 얘기하다</span> — 说得让人能听懂</div>
+  <div class="sec-title">💬 造句</div>
+  <div class="info-item"><span class="kt">쉽게 설명해 주세요.</span><span class="ct"> — 请简单说明一下。</span></div>
+  <div class="sec-title">🔧 句型 / 接口</div>
+  <div class="sentence-card"><b>-게</b> 动词+게 = "以便…地/让…地"<br>알아듣<span style="color:#a53860">게</span> = 让人能听懂地</div>
+  <div class="sentence-card"><b>-아/어요</b> 请求/命令：얘기<span style="color:#a53860">해요</span> = 说吧</div>
+  <div class="sec-title">🔊 音变现象</div>
+  <div class="phon-box">알아듣게[아라듣게] → ㄹ+아连音化<br>얘기해요[얘기해요] → 无特殊音变</div>
+  <div class="footer-note">第29课 · 06/⑥ 台词精讲</div>
+</div>
+
+<div class="page">
+  <div class="header-bar">
+    <span>第29课 · 让我平静下来的人就是你</span>
+    <span>台词应用 06/⑥</span>
+  </div>
+
+  <div class="kr-big" style="font-size:16px;">민희미 씨, 내가 알아듣게 얘기해요.</div>
+  <div class="cn-line" style="margin-bottom:14px">→ 闵熙美小姐，说我能听懂的话吧。</div>
+  <div class="prac-title">① 换词练习</div>
+  <div class="prac-item"><b>알아듣게 → 이해할 수 있게</b><br><span class="p-cn">이해할 수 있게 설명해요. → 用我能理解的方式说明吧。</span></div>
+  <div class="prac-item"><b>얘기해요 → 가르쳐요</b><br><span class="p-cn">초보자도 알게 가르쳐 주세요. → 请教得让初学者也能懂。</span></div>
+  <div class="prac-title">② 场景迁移·课堂</div>
+  <div class="prac-item"><b>학생이 알아듣게 천천히 말해 주세요.</b><br><span class="p-cn">请说得让学生能听懂。</span></div>
+  <div class="prac-title">③ 问答对话</div>
+  <div class="prac-item"><b>Q: 이 내용이 너무 어려워요.</b><br><span class="p-cn">这个内容太难了。</span></div>
+  <div class="prac-item"><b>A: 그러면 제가 쉽게 설명해 드릴게요.</b><br><span class="p-cn">那我简单说明一下。</span></div>
+  <div class="prac-title">④ 句型扩展·-게目的/方式</div>
+  <div class="prac-item"><b>모두 보게 앞에 서 주세요.</b><br><span class="p-cn">请站到前面让大家都看到。</span></div>
+  <div class="prac-item"><b>아이가 먹기 좋게 잘라 주세요.</b><br><span class="p-cn">请切好让孩子方便吃。</span></div>
+  <div class="footer-note">第29课 · 06/⑥ 台词应用</div>
+</div>
+</body>
+</html>
