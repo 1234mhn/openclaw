@@ -14,21 +14,15 @@ const key = "爱情怎么翻译全集/Can This Love Be Translated？ S01E04 - �
 const bucket = 'korean-video-1433876150';
 const region = 'ap-guangzhou';
 
-async function extractSub(pipeSubIndex, outputFile, label) {
-  // pipe renumbers streams: Video=0 Audio1=1 Audio2=2 Sub0=3 Sub1=4 Sub2=5 Sub3=6 ...
-  // s:0 = KR Forced (global 3)
-  // s:1 = KR SDH (global 4)
-  // s:2 = KR/hearing impaired (global 5)
-  // s:3 = CN Simplified (global 6)
-  console.log(`Extracting pipe stream 0:s:${pipeSubIndex} (${label})...`);
+async function extractAllSubs(pipeIndex, outputFile, label) {
+  // pipe: s:2 = Korean, s:3 = Chinese Simplified
+  console.log(`Extracting ALL subtitles from s:${pipeIndex} (${label})...`);
   const stream = cos.getObjectStream({ Bucket: bucket, Region: region, Key: key });
   
   await new Promise((resolve, reject) => {
     const ff = spawn('ffmpeg', [
       '-i', 'pipe:0',
-      '-ss', '285',
-      '-to', '326',
-      '-map', `0:s:${pipeSubIndex}`,
+      '-map', `0:s:${pipeIndex}`,
       '-c:s', 'srt',
       '-f', 'srt',
       'pipe:1',
@@ -42,19 +36,21 @@ async function extractSub(pipeSubIndex, outputFile, label) {
     ff.stdout.on('end', () => {
       const content = Buffer.concat(chunks).toString('utf8');
       writeFileSync(outputFile, content);
-      console.log(`  Done: ${content.length} bytes -> ${outputFile}`);
+      const lines = content.trim().split('\n').filter(l => l.match(/^\d+:\d+:\d+/)).length;
+      console.log(`  Done: ${content.length} bytes, ${lines} subtitle entries -> ${outputFile}`);
       resolve();
     });
+    ff.stderr.on('data', d => process.stderr.write(d));
     ff.on('error', reject);
   });
 }
 
 async function main() {
-  // s:2 = Korean/hearing impaired
-  await extractSub(2, '/tmp/scene04_lesson31_kr.srt', 'Korean');
-  // s:3 = Chinese Simplified
-  await extractSub(3, '/tmp/scene04_lesson31_cn.srt', 'Chinese Simplified');
-  console.log('Done!');
+  console.log('Starting subtitle extraction...');
+  await extractAllSubs(2, '/tmp/scene04_ep04_full_kr.srt', 'Korean');
+  console.log('Korean done. Starting Chinese...');
+  await extractAllSubs(3, '/tmp/scene04_ep04_full_cn.srt', 'Chinese Simplified');
+  console.log('All done!');
 }
 
 main().catch(console.error);

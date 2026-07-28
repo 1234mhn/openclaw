@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>E3-30 这爱情怎么翻译 · 一起去看极光</title>
+<style>
+@page { margin: 0; size: A4; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", sans-serif;
+  color: #333;
+  background: #f8f6f2;
+  width: 210mm;
+}
+
+/* ===== Page ===== */
+.page {
+  width: 180mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  padding: 20mm 15mm;
+  page-break-after: always;
+  background: #fff;
+  position: relative;
+}
+.page:last-child { page-break-after: auto; }
+
+/* ===== Cover ===== */
+.cover {
+  background: linear-gradient(170deg, #faf8f4 0%, #f5f0e8 30%, #ede6d8 65%, #e8dfce 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 25mm 15mm;
+}
+.cover .lesson-badge {
+  display: inline-block;
+  background: #8b7355; color: #fff;
+  padding: 4px 20px; border-radius: 20px;
+  font-size: 13px; letter-spacing: 2px; margin-bottom: 20px;
+}
+.cover h1 {
+  color: #8b7355; font-size: 28px; font-weight: 700;
+  margin-bottom: 8px; letter-spacing: 3px;
+}
+.cover .subtitle {
+  color: #666; font-size: 16px; margin-bottom: 10px;
+}
+.cover .deco-line {
+  width: 60px; height: 2px; background: #c4b998;
+  margin: 12px auto;
+}
+.cover .english-title {
+  color: #999; font-size: 14px; margin-bottom: 30px;
+}
+.cover .svg-illus { margin: 10px 0 20px; }
+
+/* ===== Line Summary ===== */
+.summary-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+.summary-table th {
+  background: #8b7355; color: #fff;
+  padding: 6px 8px; font-size: 11px; text-align: left;
+}
+.summary-table th:first-child { width: 32px; text-align: center; }
+.summary-table td {
+  padding: 4px 8px; font-size: 11px; border-bottom: 1px solid #ede6d8;
+  vertical-align: top; line-height: 1.5;
+}
+.summary-table .kr { font-weight: 500; }
+.summary-table .en { color: #999; font-size: 10px; }
+.summary-table .cn { color: #555; font-size: 11px; }
+.summary-table tr:nth-child(even) td { background: #faf8f4; }
+
+/* ===== Sections ===== */
+.section-title {
+  color: #8b7355; font-size: 16px; font-weight: 700;
+  border-bottom: 2px solid #c4b998;
+  padding-bottom: 4px; margin-bottom: 10px;
+}
+.page-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 10px;
+}
+.page-header .line-num {
+  font-size: 11px; color: #999; background: #f5f0e8;
+  padding: 2px 10px; border-radius: 10px;
+}
+.page-header .lesson-tag {
+  font-size: 10px; color: #8b7355;
+}
+
+/* ===== Sentence Display ===== */
+.sentence-box {
+  background: #f8f6f2; border-left: 4px solid #8b7355;
+  padding: 10px 14px; margin-bottom: 12px; border-radius: 0 6px 6px 0;
+}
+.sentence-box .kr { font-size: 16px; font-weight: 600; color: #333; margin-bottom: 3px; }
+.sentence-box .cn { font-size: 13px; color: #555; }
+.sentence-box .en { font-size: 12px; color: #999; }
+
+/* ===== Framework ===== */
+.framework-box {
+  background: #faf8f4; border: 1px solid #ede6d8;
+  border-radius: 8px; padding: 10px 14px; margin-bottom: 12px;
+}
+.framework-box .label {
+  font-size: 12px; font-weight: 600; color: #8b7355; margin-bottom: 4px;
+}
+.fw-compact { font-size: 13px; line-height: 1.9; }
+.fw-compact .who { color: #2a6f97; font-weight: 600; }
+.fw-compact .what { color: #2d6a4f; font-weight: 600; }
+.fw-compact .do { color: #a53860; font-weight: 600; }
+.fw-compact .bg { color: #8b7355; }
+.fw-compact .mod { color: #7a6e5a; }
+/* Endings legend */
+.endings-legend {
+  background: #f8f6f2; border: 1px solid #e8dfce;
+  border-radius: 6px; padding: 8px 12px; margin-top: 6px;
+  font-size: 11px; color: #555; line-height: 1.6;
+}
+.endings-legend .tag { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; margin-right: 4px; }
+.tag-blue { background: #dbeafe; color: #2a6f97; }
+.tag-green { background: #d1fae5; color: #2d6a4f; }
+.tag-red { background: #fce7f3; color: #a53860; }
+.tag-orange { background: #fef3c7; color: #b45309; }
+
+/* ===== Items ===== */
+.items-grid { margin-bottom: 10px; }
+.item-row { padding: 3px 0; font-size: 12px; line-height: 1.7; }
+.item-row .item-label { font-weight: 600; color: #8b7355; margin-right: 6px; }
+.item-row .tag {
+  display: inline-block; padding: 1px 6px; border-radius: 3px;
+  font-size: 10px; margin: 1px 2px; white-space: nowrap;
+}
+.tag-gray { background: #f3f0ea; color: #8b7355; }
+
+/* ===== Application ===== */
+.practice-block {
+  background: #faf8f4; border: 1px solid #ede6d8;
+  border-radius: 8px; padding: 10px 14px; margin-bottom: 10px;
+}
+.practice-block .p-title {
+  font-size: 13px; font-weight: 600; color: #8b7355; margin-bottom: 4px;
+}
+.practice-block .kr-ex { font-size: 13px; font-weight: 500; color: #333; }
+.practice-block .cn-ex { font-size: 12px; color: #555; margin-top: 1px; }
+.practice-block .en-ex { font-size: 11px; color: #999; }
+
+/* ===== Summary Page ===== */
+.summary-section { margin-bottom: 14px; }
+.summary-section h3 {
+  color: #8b7355; font-size: 14px; font-weight: 700;
+  border-bottom: 1px solid #ede6d8; padding-bottom: 3px; margin-bottom: 6px;
+}
+.sm-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+.sm-table th {
+  background: #8b7355; color: #fff; padding: 4px 8px; text-align: left;
+  font-size: 10px;
+}
+.sm-table td {
+  padding: 4px 8px; border-bottom: 1px solid #ede6d8; vertical-align: top;
+}
+.sm-table tr:nth-child(even) td { background: #faf8f4; }
+.dialogue-line { padding: 3px 0; font-size: 12px; line-height: 1.5; }
+.dialogue-line .speaker { font-weight: 600; color: #8b7355; margin-right: 6px; }
+.dialogue-line .trans { color: #555; font-size: 11px; }
+.fill-blank { margin: 4px 0; }
+.fill-blank .cn-q { font-size: 12px; color: #333; }
+.fill-blank .underline { 
+  border-bottom: 1px solid #c4b998; min-height: 24px; 
+  margin: 4px 0; padding: 2px 0; font-size: 13px; color: #2a6f97;
+}
+.fill-blank .answer { font-size: 11px; color: #bbb; margin-top: 2px; }
+
+/* ===== Multi-line merge ===== */
+.merged-line { 
+  border-bottom: 1px solid #ede6d8; padding: 6px 0; margin-bottom: 6px;
+}
+.merged-line:last-child { border-bottom: none; margin-bottom: 0; }
+
+/* ===== General ===== */
+p { line-height: 1.7; }
+.sep { height: 1px; background: #ede6d8; margin: 8px 0; }
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1: COVER ==================== -->
+<div class="page cover">
+  <span class="lesson-badge">E3 · 第30课</span>
+  <h1>一起去看极光</h1>
+  <div class="deco-line"></div>
+  <p class="english-title">Let's Go See the Aurora Together</p>
+  <div class="svg-illus">
+    <svg width="240" height="160" viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
+      <!-- Mountains -->
+      <path d="M0 140 Q30 80 60 110 Q80 70 110 100 Q130 60 160 95 Q180 50 210 85 Q230 65 240 90 L240 160 L0 160Z" fill="#c4b998" opacity="0.6"/>
+      <path d="M0 150 Q40 100 70 125 Q95 90 120 115 Q145 80 175 110 Q200 75 230 100 L240 95 L240 160 L0 160Z" fill="#8b7355" opacity="0.3"/>
+      <!-- Aurora waves -->
+      <path d="M20 40 Q50 25 80 38 Q110 50 140 30 Q170 10 200 35 Q220 50 240 25" stroke="#8b7355" stroke-width="3" fill="none" opacity="0.5"/>
+      <path d="M10 55 Q45 40 75 50 Q105 60 135 42 Q165 25 195 48 Q215 58 240 40" stroke="#c4b998" stroke-width="2" fill="none" opacity="0.4"/>
+      <!-- Stars -->
+      <circle cx="50" cy="20" r="1.5" fill="#8b7355" opacity="0.6"/>
+      <circle cx="120" cy="10" r="1" fill="#8b7355" opacity="0.5"/>
+      <circle cx="180" cy="15" r="1.5" fill="#8b7355" opacity="0.6"/>
+      <circle cx="200" cy="35" r="1" fill="#8b7355" opacity="0.4"/>
+      <circle cx="80" cy="30" r="1.2" fill="#8b7355" opacity="0.5"/>
+      <circle cx="160" cy="22" r="1" fill="#8b7355" opacity="0.4"/>
+      <!-- Two small figures -->
+      <circle cx="100" cy="135" r="5" fill="#8b7355" opacity="0.7"/>
+      <circle cx="130" cy="135" r="5" fill="#8b7355" opacity="0.7"/>
+      <line x1="100" y1="140" x2="100" y2="155" stroke="#8b7355" stroke-width="2" opacity="0.7"/>
+      <line x1="130" y1="140" x2="130" y2="155" stroke="#8b7355" stroke-width="2" opacity="0.7"/>
+    </svg>
+  </div>
+  <p class="subtitle">这爱情怎么翻译 · 台词复利笔记</p>
+  <p style="color:#999;font-size:12px;margin-top:20px;">"既然要去，因为我也想看看那极光"</p>
+</div>
+
+<!-- ==================== PAGE 2: LINE SUMMARY ==================== -->
+<div class="page">
+  <div class="section-title">🎬 台词汇总</div>
+  <table class="summary-table">
+    <tr><th>#</th><th>한국어</th><th>English</th><th>中文</th></tr>
+    <tr><td style="text-align:center">1</td><td class="kr">그러니까 지금 당신 말은...</td><td class="en">So what you are saying now is...</td><td class="cn">所以你现在意思是说……</td></tr>
+    <tr><td style="text-align:center">2</td><td class="kr">도와주세요!</td><td class="en">Help me!</td><td class="cn">帮帮我！</td></tr>
+    <tr><td style="text-align:center">3</td><td class="kr">당신이 같이 가 줬으면 좋겠어요</td><td class="en">I wish you would go with me</td><td class="cn">我希望你能和我一起去</td></tr>
+    <tr><td style="text-align:center">4</td><td class="kr">혹시 내가 부담스러워요?</td><td class="en">Am I a burden to you?</td><td class="cn">我让你感到负担了吗？</td></tr>
+    <tr><td style="text-align:center">5</td><td class="kr">내가 막 사귀자고 협박할까 봐 무서워요?</td><td class="en">Are you scared I will threaten you to date me?</td><td class="cn">你是怕我会威胁你要和我交往吗？</td></tr>
+    <tr><td style="text-align:center">6</td><td class="kr">그런 협박에 넘어가지 않을 자신은 있습니다</td><td class="en">I am confident I won't fall for that kind of threat</td><td class="cn">我有自信不会被那种威胁吓到</td></tr>
+    <tr><td style="text-align:center">7</td><td class="kr">그럼 같이 가요!</td><td class="en">Then let's go together!</td><td class="cn">那一起去吧！</td></tr>
+    <tr><td style="text-align:center">8</td><td class="kr">가면 오로라도 볼 수 있는데?</td><td class="en">If we go, we can also see the aurora!</td><td class="cn">如果去的话还能看到极光呢</td></tr>
+    <tr><td style="text-align:center">9</td><td class="kr">오로라...</td><td class="en">Aurora...</td><td class="cn">极光……</td></tr>
+    <tr><td style="text-align:center">10</td><td class="kr">오로라...</td><td class="en">Aurora...</td><td class="cn">极光……</td></tr>
+    <tr><td style="text-align:center">11</td><td class="kr">초록색...</td><td class="en">Green...</td><td class="cn">绿色……</td></tr>
+    <tr><td style="text-align:center">12</td><td class="kr">파란색...</td><td class="en">Blue...</td><td class="cn">蓝色……</td></tr>
+    <tr><td style="text-align:center">13</td><td class="kr">인생이잖아...</td><td class="en">That's life, you know...</td><td class="cn">这就是人生啊……</td></tr>
+    <tr><td style="text-align:center">14</td><td class="kr">오로라!</td><td class="en">Aurora!</td><td class="cn">极光！</td></tr>
+    <tr><td style="text-align:center">15</td><td class="kr">그래요?</td><td class="en">Is that so?</td><td class="cn">是吗？</td></tr>
+    <tr><td style="text-align:center">16</td><td class="kr">그럼 같이 가죠.</td><td class="en">Then let's go together.</td><td class="cn">那一起去吧。</td></tr>
+    <tr><td style="text-align:center">17</td><td class="kr">어차피 난 피할 거 없기로 했고</td><td class="en">Anyway, I decided there's nothing to avoid</td><td class="cn">反正我也没什么好躲的</td></tr>
+    <tr><td style="text-align:center">18</td><td class="kr">간 김엔</td><td class="en">Since (we're) going anyway</td><td class="cn">既然要去</td></tr>
+    <tr><td style="text-align:center">19</td><td class="kr">그 오로라도 보고 싶으니까</td><td class="en">Since I also want to see that aurora</td><td class="cn">因为我也想看看那极光</td></tr>
+    <tr><td style="text-align:center">20</td><td class="kr">그래요! 우리 같이 가서 오로라도 봐요!</td><td class="en">Okay! Let's go together and see the aurora!</td><td class="cn">好啊！我们一起去看看极光吧！</td></tr>
+  </table>
+</div>
+
+<!-- ==================== PAGE 3: INTENSIVE - LINE 1 (medium) ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">🔍 精讲</span>
+    <span class="line-num">#1 / 20</span>
+  </div>
+  <div class="sentence-box">
+    <div class="kr">그러니까 지금 당신 말은...</div>
+    <div class="cn">→ 所以你现在意思是说……</div>
+    <div class="en">→ So what you are saying now is...</div>
+  </div>
+  <div class="framework-box">
+    <div class="label">📐 核心框架</div>
+    <div class="fw-compact">
+      <span class="bg">[背景]</span> 그러니까 <span class="bg">[时间]</span> 지금 <span class="who">[谁]</span> 당신 <span class="what">[什么]</span> 말<span class="do">은...（未完）</span>
+    </div>
+    <div class="endings-legend" style="margin-top:6px;">
+      <span class="tag tag-blue">谁</span> 당신 你 <span class="tag tag-green">什么</span> 말 话/说话 <span class="tag tag-red">干</span> -은/는 强调助词（未完句尾）
+    </div>
+  </div>
+  <div class="items-grid">
+    <div class="item-row">
+      <span class="item-label">📍单词</span>
+      <span class="tag tag-gray">그러니까</span>所以说 <span class="tag tag-gray">지금</span>现在 <span class="tag tag-gray">당신</span>你 <span class="tag tag-gray">말</span>话/说话
+    </div>
+    <div class="item-row">
+      <span class="item-label">💬短语</span>
+      그러니까 — 意思是说（总结/追问） | 당신 말은 — 你的意思是
+    </div>
+    <div class="item-row">
+      <span class="item-label">💬造句</span>
+      그러니까 지금 무슨 말을 하고 싶은 거예요? — 所以你现在想说什么？
+    </div>
+    <div class="item-row">
+      <span class="item-label">🔧句型/接口</span>
+      -은/는 强调助词（말은 强调所说的内容）| -다 引用省略（未完表达）
+    </div>
+    <div class="item-row">
+      <span class="item-label">💬句型例句</span>
+      그러니까 제 말은, 우리 같이 가자는 거예요. — 所以我的意思是说，我们一起去吧。
+    </div>
+    <div class="item-row">
+      <span class="item-label">🎵音变现象</span>
+      그러니까[그러니까] 无特殊 | 말은[마른] ㄹ+ㅇ→连音
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 4: APPLICATION - LINE 1 ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">✏️ 应用</span>
+    <span class="line-num">#1 / 20</span>
+  </div>
+  <div class="sentence-box">
+    <div class="kr">그러니까 지금 당신 말은...</div>
+    <div class="cn">— 所以你现在意思是说……</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🔄 换词练习</div>
+    <div class="kr-ex">그러니까 지금 <span style="color:#2a6f97;">동생</span> 말은...</div>
+    <div class="cn-ex">→ 所以你现在意思是说弟弟/妹妹的话……</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">그러니까 <span style="color:#2a6f97;">어제</span> 당신 말은...</div>
+    <div class="cn-ex">→ 所以说你昨天的话……</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">그러니까 <span style="color:#2a6f97;">그분</span> 말은...</div>
+    <div class="cn-ex">→ 所以说那位的意思……</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🗣️ 场景迁移 — 对话延续</div>
+    <div class="kr-ex">A: 그러니까 지금 당신 말은, 우리 헤어지자는 거예요?</div>
+    <div class="cn-ex">→ 所以你现在意思是说，我们分手吗？</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">B: 아니요, 그러니까 제 말은 좀 더 생각해보자는 거예요.</div>
+    <div class="cn-ex">→ 不是，我的意思是说再考虑一下。</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">✍️ 仿写改写</div>
+    <div class="kr-ex">그러니까 지금 네 말은, 내가 잘못했다는 거야?</div>
+    <div class="cn-ex">→ 所以你现在意思是说，是我错了？</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">그러니까 제 말은, 이렇게 하는 게 더 좋다는 거예요.</div>
+    <div class="cn-ex">→ 所以我的意思是说，这样做更好。</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 5: INTENSIVE - LINES 2,7,15,16 (short, merged) ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">🔍 精讲 · 合并</span>
+    <span class="line-num">#2 · #7 · #15 · #16</span>
+  </div>
+
+  <!-- Line 2 -->
+  <div class="merged-line">
+    <div class="sentence-box">
+      <div class="kr">#2. 도와주세요!</div>
+      <div class="cn">→ 帮帮我！</div>
+      <div class="en">→ Help me!</div>
+    </div>
+    <div class="framework-box" style="margin-bottom:6px;">
+      <div class="label">📐 核心框架</div>
+      <div class="fw-compact">
+        <span class="do">干</span> 도와주<span class="do">세요</span>（帮助 + 请为我 + 敬语终结）
+      </div>
+      <div class="endings-legend" style="margin-top:4px;font-size:10px;">
+        <span class="tag tag-red">干</span> 도와주다 帮助 <span class="tag tag-orange">③收尾</span> -세요 敬语终结（请求）
+      </div>
+    </div>
+    <div class="items-grid">
+      <div class="item-row"><span class="item-label">📍单词</span>도와주다 — 帮助（돕다+주다缩写）</div>
+      <div class="item-row"><span class="item-label">💬短语</span>도와주세요 — 请帮帮我（请求敬语）</div>
+      <div class="item-row"><span class="item-label">💬造句</span>이 문제 좀 도와주세요. — 请帮我解决这个问题。</div>
+      <div class="item-row"><span class="item-label">🔧句型/接口</span>-아/어 주세요 请为我做……（请求敬语）</div>
+      <div class="item-row"><span class="item-label">🎵音变</span>도와주세요[도와주세요] 无特殊</div>
+    </div>
+  </div>
+
+  <!-- Line 7 -->
+  <div class="merged-line">
+    <div class="sentence-box">
+      <div class="kr">#7. 그럼 같이 가요!</div>
+      <div class="cn">→ 那一起去吧！</div>
+      <div class="en">→ Then let's go together!</div>
+    </div>
+    <div class="framework-box" style="margin-bottom:6px;">
+      <div class="label">📐 核心框架</div>
+      <div class="fw-compact">
+        <span class="bg">[条件]</span> 그럼 + <span class="who">[一起]</span> 같이 + <span class="do">干</span> 가<span class="do">요</span>
+      </div>
+    </div>
+    <div class="items-grid">
+      <div class="item-row"><span class="item-label">📍单词</span>그럼 — 那么 | 같이 — 一起 | 가다 — 去</div>
+      <div class="item-row"><span class="item-label">💬短语</span>그럼 같이 가요 — 那一起去吧（口语邀约）</div>
+      <div class="item-row"><span class="item-label">💬造句</span>그럼 우리 내일 같이 점심 먹어요. — 那我们明天一起吃午饭吧。</div>
+      <div class="item-row"><span class="item-label">🔧句型/接口</span>-아/어요 口语终结词尾（表提议"一起……吧"）——<span class="tag tag-orange">③收尾</span></div>
+      <div class="item-row"><span class="item-label">🎵音变</span>같이[가치] 紧音化</div>
+    </div>
+  </div>
+
+  <!-- Line 15 -->
+  <div class="merged-line">
+    <div class="sentence-box">
+      <div class="kr">#15. 그래요?</div>
+      <div class="cn">→ 是吗？</div>
+      <div class="en">→ Is that so?</div>
+    </div>
+    <div class="items-grid" style="margin-bottom:0;">
+      <div class="item-row"><span class="item-label">📍单词</span>그래요 — 是吗/好吧（그렇다→그래요）</div>
+      <div class="item-row"><span class="item-label">💬短语</span>그래요? — 是吗？（半信半疑或确认）</div>
+      <div class="item-row"><span class="item-label">💬造句</span>그래요? 정말요? — 是吗？真的吗？</div>
+      <div class="item-row"><span class="item-label">🔧句型/接口</span>-요 敬语终结词尾（그렇다→그래요）——<span class="tag tag-orange">③收尾</span></div>
+      <div class="item-row"><span class="item-label">🎵音变</span>그래요[그래요] 无特殊</div>
+    </div>
+  </div>
+
+  <!-- Line 16 -->
+  <div class="merged-line">
+    <div class="sentence-box">
+      <div class="kr">#16. 그럼 같이 가죠.</div>
+      <div class="cn">→ 那一起去吧。</div>
+      <div class="en">→ Then let's go together.</div>
+    </div>
+    <div class="items-grid" style="margin-bottom:0;">
+      <div class="item-row"><span class="item-label">📍单词</span>그럼 — 那么 | 같이 — 一起 | 가다 — 去</div>
+      <div class="item-row"><span class="item-label">💬短语</span>같이 가죠 — 一起去吧（柔和敬语提议）</div>
+      <div class="item-row"><span class="item-label">💬造句</span>좋아요, 그럼 같이 시작하죠. — 好，那我们开始吧。</div>
+      <div class="item-row"><span class="item-label">🔧句型/接口</span>-죠/-지요 共动式"一起……吧"（-지요缩略，更柔和）——<span class="tag tag-orange">③收尾</span></div>
+      <div class="item-row"><span class="item-label">🎵音变</span>같이[가치] 紧音化</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 6: APPLICATION - LINES 2,7,15,16 (merged) ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">✏️ 应用 · 合并</span>
+    <span class="line-num">#2 · #7 · #15 · #16</span>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🔄 换词练习 — 도와주세요</div>
+    <div class="kr-ex">이거 좀 <span style="color:#a53860;">도와주세요</span>.</div>
+    <div class="cn-ex">→ 请帮帮我这个。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">문을 열어 주세요.</div>
+    <div class="cn-ex">→ 请帮我开门。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">여기 앉아 주세요.</div>
+    <div class="cn-ex">→ 请坐这里。</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🗣️ Q&A 对话 — 같이 가요 / 같이 가죠对比</div>
+    <div class="kr-ex">A: 영화 볼래요? 같이 가요!</div>
+    <div class="cn-ex">A: 看电影吗？一起去吧！</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">B: 좋아요, 그럼 같이 가죠.</div>
+    <div class="cn-ex">B: 好啊，那一起去吧。（更柔和）</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">✍️ 仿写 — 그래요?的使用</div>
+    <div class="kr-ex">A: 내일 눈이 온대요.</div>
+    <div class="cn-ex">A: 说明天会下雪。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">B: 그래요? 정말요?</div>
+    <div class="cn-ex">B: 是吗？真的吗？</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">A: 네, 뉴스에서 그랬어요.</div>
+    <div class="cn-ex">A: 嗯，新闻上说的。</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 7: INTENSIVE - LINE 3 (long) ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">🔍 精讲</span>
+    <span class="line-num">#3 / 20</span>
+  </div>
+  <div class="sentence-box">
+    <div class="kr">당신이 같이 가 줬으면 좋겠어요</div>
+    <div class="cn">→ 我希望你能和我一起去</div>
+    <div class="en">→ I wish you would go with me</div>
+  </div>
+
+  <div class="framework-box">
+    <div class="label">📐 核心短句结构</div>
+    <div class="fw-compact">
+      <span class="who">[谁]</span> 당신이 + <span class="do">[干]</span> <span class="what">가</span> 줬으면 좋겠어요
+    </div>
+  </div>
+
+  <div class="framework-box">
+    <div class="label">📐 完整框架拆解</div>
+    <div class="fw-compact">
+      <span class="who">谁</span> 당신<span class="tag tag-blue">이</span>（你——主语）<br>
+      + <span class="what">什么</span> <span style="color:#7a6e5a;">같이</span>（一起——方式修饰）<br>
+      + <span class="do">干</span> 가<span class="tag tag-red">줬으면</span> 좋겠<span class="tag tag-red">어요</span><br>
+    </div>
+    <div class="endings-legend">
+      ↓ 四个词尾 ↓<br>
+      <span class="tag tag-red">①加料</span> 줬— 었（过去时/完成，-아/어 주다的过去式）<br>
+      <span class="tag tag-orange">②接口</span> —으면 —（条件连接）<br>
+      <span class="tag tag-orange">③收尾</span> 좋겠어요 — 겠 (推测/希望) + 어요 (终结)<br>
+      <span class="tag tag-green">✅用到</span> ①加料(었) ✅ ②接口(으면) ✅ ③收尾(어요/겠)
+    </div>
+  </div>
+  <div class="items-grid">
+    <div class="item-row"><span class="item-label">📍单词</span>
+      <span class="tag tag-gray">당신</span>你 <span class="tag tag-gray">같이</span>一起 <span class="tag tag-gray">가다</span>去 <span class="tag tag-gray">주다</span>给(辅助动词) <span class="tag tag-gray">좋다</span>好
+    </div>
+    <div class="item-row"><span class="item-label">💬短语</span>같이 가다 — 一起去 | 가 줬으면 좋겠다 — 希望（你）能去</div>
+    <div class="item-row"><span class="item-label">💬造句</span>다음 휴가에 같이 여행 갔으면 좋겠어요. — 希望下次休假能一起去旅行。</div>
+    <div class="item-row"><span class="item-label">🔧句型/接口</span>
+      -아/어 주다 为某人做某事（辅助动词）<br>
+      -았/었으면 좋겠다 "要是……就好了"（希望的<strong>接口</strong>表达）
+    </div>
+    <div class="item-row"><span class="item-label">🎵音变</span>같이[가치] ㅆ+히→紧音化 | 줬으면[줘쓰면] 连音 | 좋겠어요[조케써요] ㅎ+ㄱ→ㅋ</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 8: APPLICATION - LINE 3 ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">✏️ 应用</span>
+    <span class="line-num">#3 / 20</span>
+  </div>
+  <div class="sentence-box">
+    <div class="kr">당신이 같이 가 줬으면 좋겠어요</div>
+    <div class="cn">— 我希望你能和我一起去</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🔄 换词替换</div>
+    <div class="kr-ex">엄마가 같이 <span style="color:#a53860;">와 줬으면 좋겠어요</span>.</div>
+    <div class="cn-ex">→ 希望妈妈能一起来。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">날씨가 <span style="color:#a53860;">좋았으면 좋겠어요</span>.</div>
+    <div class="cn-ex">→ 天气要是好就好了。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">이번 시험에 <span style="color:#a53860;">합격했으면 좋겠어요</span>.</div>
+    <div class="cn-ex">→ 希望这次考试能合格。</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🗣️ Q&A 对话</div>
+    <div class="kr-ex">A: 주말에 뭐 하고 싶어요?</div>
+    <div class="cn-ex">A: 周末想做什么？</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">B: 당신이 같이 산책해 줬으면 좋겠어요.</div>
+    <div class="cn-ex">B: 希望你能陪我一起散步。</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">✍️ 仿写</div>
+    <div class="kr-ex">我希望你能帮我做这件事。</div>
+    <div class="fill-blank"><div style="border-bottom:1px solid #c4b998;min-height:24px;margin:4px 0;padding:2px 0;font-size:13px;color:#2a6f97;">당신이 이 일을 도와 줬으면 좋겠어요.</div></div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 9: INTENSIVE - LINE 4 (short) ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">🔍 精讲</span>
+    <span class="line-num">#4 / 20</span>
+  </div>
+  <div class="sentence-box">
+    <div class="kr">혹시 내가 부담스러워요?</div>
+    <div class="cn">→ 我让你感到负担了吗？</div>
+    <div class="en">→ Am I a burden to you?</div>
+  </div>
+  <div class="framework-box">
+    <div class="label">📐 核心框架</div>
+    <div class="fw-compact">
+      <span class="bg">[推测]</span> 혹시 + <span class="who">[谁]</span> 내가 + <span class="what">[什么]</span> 부담<span class="do">스러워요?</span>
+    </div>
+    <div class="endings-legend" style="margin-top:4px;">
+      <span class="tag tag-blue">谁</span> 내가 我 <span class="tag tag-green">什么</span> 부담 负担 <span class="tag tag-red">干</span> -스럽다 形容词化 + -어요 疑问终结 <span class="tag tag-orange">④变身</span>
+    </div>
+  </div>
+  <div class="items-grid">
+    <div class="item-row"><span class="item-label">📍单词</span>혹시 — 也许/难道 | 내 — 我 | 부담스럽다 — 有负担的(burdensome)</div>
+    <div class="item-row"><span class="item-label">💬短语</span>부담스럽다 — 觉得有负担</div>
+    <div class="item-row"><span class="item-label">💬造句</span>제가 자주 연락하면 부담스러울까요? — 我经常联系的话会让你有负担吗？</div>
+    <div class="item-row"><span class="item-label">🔧句型/接口</span>-스럽다 名词→形容词后缀"令人感到……的"（부담+스럽다=有负担的）——<span class="tag tag-orange">④变身</span></div>
+    <div class="item-row"><span class="item-label">🎵音变</span>혹시[혹씨] ㄱ+ㅅ→紧音化</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 10: APPLICATION - LINE 4 ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">✏️ 应用</span>
+    <span class="line-num">#4 / 20</span>
+  </div>
+  <div class="sentence-box">
+    <div class="kr">혹시 내가 부담스러워요?</div>
+    <div class="cn">— 我让你感到负担了吗？</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🔄 -스럽다 扩展练习</div>
+    <div class="kr-ex">자연<span style="color:#a53860;">스러운</span> 모습이 가장 예뻐요.</div>
+    <div class="cn-ex">→ 自然的样子最美。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">그 사람은 정말 <span style="color:#a53860;">자랑스러워요</span>.</div>
+    <div class="cn-ex">→ 那个人真的很值得骄傲（令人骄傲）。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">이 선물이 오히려 <span style="color:#a53860;">부담스러워요</span>.</div>
+    <div class="cn-ex">→ 这个礼物反而让人有负担。</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🗣️ 场景迁移</div>
+    <div class="kr-ex">A: 제가 너무 자주 만나자고 해서 부담스러웠으면 미안해요.</div>
+    <div class="cn-ex">→ 如果我总约你见面让你有负担了，对不起。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">B: 아니요, 전혀 부담스럽지 않아요!</div>
+    <div class="cn-ex">→ 不会，一点也不觉得有负担！</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 11: INTENSIVE - LINE 5 (long) ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">🔍 精讲</span>
+    <span class="line-num">#5 / 20</span>
+  </div>
+  <div class="sentence-box">
+    <div class="kr">내가 막 사귀자고 협박할까 봐 무서워요?</div>
+    <div class="cn">→ 你是怕我会威胁你要和我交往吗？</div>
+    <div class="en">→ Are you scared I will threaten you to date me?</div>
+  </div>
+
+  <div class="framework-box">
+    <div class="label">📐 核心短句结构</div>
+    <div class="fw-compact">
+      <span class="who">[谁]</span> 내가 + <span class="do">[干]</span> 협박할까 봐 + 무서워요?
+    </div>
+  </div>
+
+  <div class="framework-box">
+    <div class="label">📐 完整框架拆解</div>
+    <div class="fw-compact">
+      <span class="who">谁</span> 내<span class="tag tag-blue">가</span>（我——主语）<br>
+      + <span class="bg">方式</span> 막（随便地/胡乱地）<br>
+      + <span class="what">内容</span> 사귀<span class="tag tag-red">자고</span>（说要交往——引用内容）<br>
+      + <span class="do">干</span> 협박할<span class="tag tag-red">까 봐</span> 무서워<span class="tag tag-red">요?</span>
+    </div>
+    <div class="endings-legend">
+      ↓ 四个词尾 ↓<br>
+      <span class="tag tag-orange">②接口</span> —자고 提议引用"说要一起做" | —ㄹ까 봐 担心"怕会"<br>
+      <span class="tag tag-orange">③收尾</span> —요 敬语终结<br>
+      <span class="tag tag-green">✅用到</span> ②接口(자고, ㄹ까 봐) ✅ ③收尾(요)
+    </div>
+  </div>
+  <div class="items-grid">
+    <div class="item-row"><span class="item-label">📍单词</span>막 — 胡乱地 | 사귀다 — 交往 | 협박하다 — 威胁 | 무섭다 — 害怕</div>
+    <div class="item-row"><span class="item-label">💬短语</span>사귀자고 협박하다 — 威胁说要交往 | -ㄹ까 봐 무섭다 — 怕会……</div>
+    <div class="item-row"><span class="item-label">💬造句</span>시험에 떨어질까 봐 무서워요. — 我怕考试会不及格。</div>
+    <div class="item-row"><span class="item-label">🔧句型/接口</span>-자고 提议引用"说要一起做"（<span class="tag tag-orange">②接口</span>）| -ㄹ까 봐 担心"怕会……"（<span class="tag tag-orange">②接口</span>）</div>
+    <div class="item-row"><span class="item-label">🎵音变</span>협박할까[협빠칼까] ㅂ+ㅎ→ㅍ紧音</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 12: APPLICATION - LINE 5 ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">✏️ 应用</span>
+    <span class="line-num">#5 / 20</span>
+  </div>
+  <div class="sentence-box">
+    <div class="kr">내가 막 사귀자고 협박할까 봐 무서워요?</div>
+    <div class="cn">— 你是怕我会威胁你要和我交往吗？</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🔄 -ㄹ까 봐 换词练习</div>
+    <div class="kr-ex">비가 올<span style="color:#a53860;">까 봐</span> 우산을 가져왔어요.</div>
+    <div class="cn-ex">→ 怕下雨，带了伞。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">늦을<span style="color:#a53860;">까 봐</span> 먼저 갔어요.</div>
+    <div class="cn-ex">→ 怕迟到，先走了。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">엄마가 화낼<span style="color:#a53860;">까 봐</span> 걱정돼요.</div>
+    <div class="cn-ex">→ 怕妈妈生气，很担心。</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🗣️ -자고 提议引用场景</div>
+    <div class="kr-ex">A: 친구가 같이 여행가<strong>자고</strong> 했어요.</div>
+    <div class="cn-ex">→ 朋友说要一起去旅行。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">B: 그래요? 어디로 가<strong>자고</strong> 했어요?</div>
+    <div class="cn-ex">→ 是吗？说去哪里？</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">A: 제주도로 가<strong>자고</strong> 했어요.</div>
+    <div class="cn-ex">→ 说去济州岛。</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 13: INTENSIVE - LINE 6 (long) ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">🔍 精讲</span>
+    <span class="line-num">#6 / 20</span>
+  </div>
+  <div class="sentence-box">
+    <div class="kr">그런 협박에 넘어가지 않을 자신은 있습니다</div>
+    <div class="cn">→ 我有自信不会被那种威胁吓到</div>
+    <div class="en">→ I am confident I won't fall for that kind of threat</div>
+  </div>
+
+  <div class="framework-box">
+    <div class="label">📐 核心短句结构</div>
+    <div class="fw-compact">
+      <span class="what">[对象]</span> 협박에 + <span class="do">[干]</span> 넘어가지 않을 + <span class="who">[谁]</span> 자신은 있습니다
+    </div>
+  </div>
+
+  <div class="framework-box">
+    <div class="label">📐 完整框架拆解</div>
+    <div class="fw-compact">
+      <span class="bg">对象</span> 그런 협박<span class="tag tag-blue">에</span>（对那种威胁）<br>
+      + <span class="do">干</span> 넘어가지 않<span class="tag tag-red">을</span>（不会上钩——定语形）<br>
+      + <span class="who">谁(自信所属)</span> 자신<span class="tag tag-blue">은</span> 있<span class="tag tag-red">습니다</span>
+    </div>
+    <div class="endings-legend">
+      ↓ 四个词尾 ↓<br>
+      <span class="tag tag-orange">②接口</span> —지 않— 否定 | —ㄹ 定语（将来）<br>
+      <span class="tag tag-orange">③收尾</span> —습니다 敬语终结<br>
+      <span class="tag tag-blue">助词</span> —에 对象 | —은 强调<br>
+      <span class="tag tag-green">✅用到</span> ②接口(지 않, ㄹ) ✅ ③收尾(습니다)
+    </div>
+  </div>
+  <div class="items-grid">
+    <div class="item-row"><span class="item-label">📍单词</span>그런 — 那样的 | 협박 — 威胁 | 넘어가다 — 上钩/被骗 | 자신 — 自信/把握</div>
+    <div class="item-row"><span class="item-label">💬短语</span>협박에 넘어가다 — 被威胁吓到/上钩 | 자신이 있다 — 有自信/有把握</div>
+    <div class="item-row"><span class="item-label">💬造句</span>그런 말에 넘어가지 않을 자신 있어요. — 我有自信不会被那种话骗到。</div>
+    <div class="item-row"><span class="item-label">🔧句型/接口</span>-에 对象（<span class="tag tag-orange">助词</span>）| -지 않다 否定（<span class="tag tag-orange">②接口</span>）| -ㄹ 定语修饰（<span class="tag tag-orange">②接口</span>）</div>
+    <div class="item-row"><span class="item-label">🎵音变</span>협박에[협빠게] 紧音 | 않을[아늘] ㅎ脱落 | 했고[했꼬] 紧音</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 14: APPLICATION - LINE 6 ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">✏️ 应用</span>
+    <span class="line-num">#6 / 20</span>
+  </div>
+  <div class="sentence-box">
+    <div class="kr">그런 협박에 넘어가지 않을 자신은 있습니다</div>
+    <div class="cn">— 我有自信不会被那种威胁吓到</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🔄 자신이 있다 句式练习</div>
+    <div class="kr-ex">이 일을 <span style="color:#a53860;">할 자신 있어요</span>.</div>
+    <div class="cn-ex">→ 我有信心做这件事。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">시험에 <span style="color:#a53860;">합격할 자신 있어요</span>?</div>
+    <div class="cn-ex">→ 你有信心考试合格吗？</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">그는 유혹에 <span style="color:#a53860;">넘어가지 않을 자신이 있어요</span>.</div>
+    <div class="cn-ex">→ 他有自信不被诱惑所动。</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🗣️ 场景对话 — 自信表达</div>
+    <div class="kr-ex">A: 이렇게 어려운 일을 할 수 있어요?</div>
+    <div class="cn-ex">→ 这么难的事你能做到吗？</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">B: 네, 할 자신 있습니다!</div>
+    <div class="cn-ex">→ 是的，我有信心做到！</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">✍️ 仿写 — "有自信不……"</div>
+    <div class="kr-ex">他有自信不会被那种话骗到。</div>
+    <div class="fill-blank"><div style="border-bottom:1px solid #c4b998;min-height:24px;margin:4px 0;padding:2px 0;font-size:13px;color:#2a6f97;">그는 그런 말에 속지 않을 자신이 있어요.</div></div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 15: INTENSIVE - LINE 8 (medium) ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">🔍 精讲</span>
+    <span class="line-num">#8 / 20</span>
+  </div>
+  <div class="sentence-box">
+    <div class="kr">가면 오로라도 볼 수 있는데?</div>
+    <div class="cn">→ 如果去的话还能看到极光呢</div>
+    <div class="en">→ If we go, we can also see the aurora!</div>
+  </div>
+  <div class="framework-box">
+    <div class="label">📐 核心框架</div>
+    <div class="fw-compact">
+      <span class="do">[条件]</span> 가<span class="tag tag-red">면</span> + <span class="what">[内容]</span> 오로라<span class="tag tag-green">도</span> 볼 수 있<span class="tag tag-red">는데?</span>
+    </div>
+    <div class="endings-legend" style="margin-top:4px;">
+      <span class="tag tag-blue">条件</span> -(으)면 "如果" <span class="tag tag-green">也</span> -도 "也/还" <span class="tag tag-red">可能</span> -ㄹ 수 있다 "能" <span class="tag tag-orange">③收尾</span> -는데 口语反诘
+    </div>
+  </div>
+  <div class="items-grid">
+    <div class="item-row"><span class="item-label">📍单词</span>가다 — 去 | 오로라 — 极光 | 보다 — 看 | 있다 — 有</div>
+    <div class="item-row"><span class="item-label">💬短语</span>오로라를 보다 — 看极光 | 볼 수 있다 — 能看到</div>
+    <div class="item-row"><span class="item-label">💬造句</span>여기에 오면 바다도 볼 수 있어요. — 来这里还能看到大海。</div>
+    <div class="item-row"><span class="item-label">🔧句型/接口</span>
+      -(으)면 "如果"（<span class="tag tag-orange">②接口</span>）| -도 "也/还"<br>
+      -ㄹ 수 있다 "能/可以"（<span class="tag tag-orange">可能形</span>）| -는데 口语反诘/委婉（<span class="tag tag-orange">③收尾</span>）
+    </div>
+    <div class="item-row"><span class="item-label">🎵音变</span>있는데[인는데] 无特殊</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 16: APPLICATION - LINE 8 ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">✏️ 应用</span>
+    <span class="line-num">#8 / 20</span>
+  </div>
+  <div class="sentence-box">
+    <div class="kr">가면 오로라도 볼 수 있는데?</div>
+    <div class="cn">— 如果去的话还能看到极光呢</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🔄 -(으)면 ~도 ~수 있다 模式练习</div>
+    <div class="kr-ex"><span style="color:#a53860;">시간이 있으면</span> 영화<span style="color:#a53860;">도</span> 볼 수 있는데?</div>
+    <div class="cn-ex">→ 有时间的话还能看电影呢？</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex"><span style="color:#a53860;">한국에 가면</span> 친구<span style="color:#a53860;">도</span> 만날 수 있어요.</div>
+    <div class="cn-ex">→ 去韩国的话还能见到朋友。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex"><span style="color:#a53860;">일찍 일어나면</span> 해돋이<span style="color:#a53860;">도</span> 볼 수 있어요.</div>
+    <div class="cn-ex">→ 早起的话还能看到日出。</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🗣️ -는데 口语场景</div>
+    <div class="kr-ex">A: 주말에 등산 갈까요?</div>
+    <div class="cn-ex">→ 周末去爬山吗？</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">B: 가면 단풍도 볼 수 있는데요!</div>
+    <div class="cn-ex">→ 去的话还能看到红叶呢！</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 17: INTENSIVE - LINES 9-14 (very short, merged) ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">🔍 精讲 · 合并</span>
+    <span class="line-num">#9 ~ #14</span>
+  </div>
+  <div class="sentence-box">
+    <div class="kr" style="margin-bottom:4px;">#9. 오로라... &nbsp; #10. 오로라...</div>
+    <div class="kr" style="margin-bottom:4px;">#11. 초록색... &nbsp; #12. 파란색...</div>
+    <div class="kr" style="margin-bottom:4px;">#13. 인생이잖아... &nbsp; #14. 오로라!</div>
+    <div class="cn">极光…… / 极光…… / 绿色…… / 蓝色…… / 这就是人生啊…… / 极光！</div>
+    <div class="en">Aurora... / Aurora... / Green... / Blue... / That's life... / Aurora!</div>
+  </div>
+
+  <div class="framework-box">
+    <div class="label">📐 核心框架 — 感叹/留白类短句</div>
+    <div class="fw-compact">
+      #9~12 <span class="what">[所见]</span> 오로라, 초록색, 파란색 —— 感叹式独词句<br>
+      #13 <span class="what">[感慨]</span> 인생<span class="do">이잖아...</span> —— 用<span class="tag tag-red">-잖아</span>反问强调"不是吗"<br>
+      #14 <span class="what">[惊喜]</span> 오로라<span class="do">!</span> —— 感叹句
+    </div>
+  </div>
+  <div class="items-grid">
+    <div class="item-row"><span class="item-label">📍单词</span>오로라 — 极光 | 초록색 — 绿色 | 파란색 — 蓝色 | 인생 — 人生</div>
+    <div class="item-row"><span class="item-label">💬短语</span>인생이잖아 — 这就是人生啊（感叹）| 오로라! — 极光！（惊喜）</div>
+    <div class="item-row"><span class="item-label">💬造句</span>
+      초록색 오로라가 가장 아름다워요. — 绿色的极光最美。<br>
+      누구에게나 힘든 순간은 있는 거잖아요. — 谁都有艰难的瞬间嘛。<br>
+      와, 오로라다! — 哇，是极光！
+    </div>
+    <div class="item-row"><span class="item-label">🔧句型/接口</span>
+      <span class="tag tag-gray">#13</span> -잖아(요) 反问式强调"不是……嘛"（<span class="tag tag-orange">③收尾</span>）<br>
+      <span class="tag tag-gray">#11~12</span> -색 颜色后缀
+    </div>
+    <div class="item-row"><span class="item-label">🎵音变</span>인생이잖아[인생이자나] ㅎ脱落</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 18: APPLICATION - LINES 9-14 (merged) ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">✏️ 应用 · 合并</span>
+    <span class="line-num">#9 ~ #14</span>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🔄 -잖아(요) 反问强调练习</div>
+    <div class="kr-ex">원래 인생이 다 그런 거<span style="color:#a53860;">잖아요</span>.</div>
+    <div class="cn-ex">→ 人生本来就是这样嘛。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">내가 말했<span style="color:#a53860;">잖아요</span>, 조심하라고.</div>
+    <div class="cn-ex">→ 我不是说了嘛，要小心。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">우리 친구<span style="color:#a53860;">잖아요</span>!</div>
+    <div class="cn-ex">→ 我们是朋友嘛！</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🗣️ 感叹场景 — 看到极光</div>
+    <div class="kr-ex">A: 아, 오로라다! 정말 예쁘다!</div>
+    <div class="cn-ex">→ 啊，是极光！真美！</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">B: 초록색이랑 파란색이 섞였어요!</div>
+    <div class="cn-ex">→ 绿色和蓝色交织在一起！</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">A: 이걸 보니까 인생이 정말 짧다는 생각이 들어요. 인생이잖아...</div>
+    <div class="cn-ex">→ 看到这个，觉得人生真的很短暂。这就是人生啊……</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">✍️ 颜色后缀 -색 扩展</div>
+    <div class="kr-ex">무슨 색을 제일 좋아해요? — <span style="color:#a53860;">파란색</span>이요!</div>
+    <div class="cn-ex">→ 你最喜欢什么颜色？蓝色！</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">이 <span style="color:#a53860;">빨간색</span> 치마가 어때요? — 예뻐요!</div>
+    <div class="cn-ex">→ 这条红色裙子怎么样？漂亮！</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 19: INTENSIVE - LINE 17 (long) ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">🔍 精讲</span>
+    <span class="line-num">#17 / 20</span>
+  </div>
+  <div class="sentence-box">
+    <div class="kr">어차피 난 피할 거 없기로 했고</div>
+    <div class="cn">→ 反正我也没什么好躲的</div>
+    <div class="en">→ Anyway, I decided there's nothing to avoid</div>
+  </div>
+
+  <div class="framework-box">
+    <div class="label">📐 核心短句结构</div>
+    <div class="fw-compact">
+      <span class="bg">[背景]</span> 어차피 + <span class="who">[谁]</span> 난 + <span class="what">[什么]</span> 피할 거(<span class="tag tag-red">없기로</span>) 했<span class="tag tag-red">고</span>
+    </div>
+  </div>
+
+  <div class="framework-box">
+    <div class="label">📐 完整框架拆解</div>
+    <div class="fw-compact">
+      <span class="bg">背景</span> 어차피（反正）<br>
+      + <span class="who">谁</span> 나<span class="tag tag-blue">는</span>（我——话题标记）<br>
+      + <span class="what">对象</span> 피할 거（要躲避的事——将来定语形）<br>
+      + <span class="do">决定</span> 없<span class="tag tag-red">기로</span> 하<span class="tag tag-red">았</span>고（决定没有 + 过去 + 连接）
+    </div>
+    <div class="endings-legend">
+      ↓ 四个词尾 ↓<br>
+      <span class="tag tag-orange">②接口</span> —기로 하다 决定做 | —ㄹ 将来定语<br>
+      <span class="tag tag-orange">②接口</span> —고 连接（并列/列举）<br>
+      <span class="tag tag-red">①加料</span> —았— 过去时<br>
+      <span class="tag tag-green">✅用到</span> ①加料(았) ✅ ②接口(기로, ㄹ, 고)
+    </div>
+  </div>
+  <div class="items-grid">
+    <div class="item-row"><span class="item-label">📍单词</span>어차피 — 反正 | 나 — 我 | 피하다 — 躲避 | 없기로 하다 — 决定没有/不</div>
+    <div class="item-row"><span class="item-label">💬短语</span>어차피 — 反正 | 피할 거 없다 — 没什么好躲的 | -기로 하다 — 决定……</div>
+    <div class="item-row"><span class="item-label">💬造句</span>어차피 늦었으니 천천히 가기로 했어요. — 反正也晚了，我决定慢慢走。</div>
+    <div class="item-row"><span class="item-label">🔧句型/接口</span>-기로 하다 "决定做……"（<span class="tag tag-orange">②接口</span>）| -ㄹ 거(것) 名词化（<span class="tag tag-orange">②接口</span>）</div>
+    <div class="item-row"><span class="item-label">🎵音变</span>없기로[업끼로] ㅂ+ㄱ→紧音 | 했고[했꼬] 紧音</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 20: APPLICATION - LINE 17 ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">✏️ 应用</span>
+    <span class="line-num">#17 / 20</span>
+  </div>
+  <div class="sentence-box">
+    <div class="kr">어차피 난 피할 거 없기로 했고</div>
+    <div class="cn">— 反正我也没什么好躲的</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🔄 -기로 하다 决定句式</div>
+    <div class="kr-ex">올해는 운동을 하<span style="color:#a53860;">기로 했어요</span>.</div>
+    <div class="cn-ex">→ 决定今年要运动。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">내일부터 다이어트를 시작하<span style="color:#a53860;">기로 했어요</span>.</div>
+    <div class="cn-ex">→ 决定从明天开始减肥。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">그냥 솔직하게 말하<span style="color:#a53860;">기로 했어요</span>.</div>
+    <div class="cn-ex">→ 决定就坦诚地说出来。</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🗣️ 어차피 场景会话</div>
+    <div class="kr-ex">A: 이렇게 늦었는데 아직 갈 거예요?</div>
+    <div class="cn-ex">→ 这么晚了还要去吗？</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">B: 네, <strong>어차피</strong> 가기로 했으니까 가요.</div>
+    <div class="cn-ex">→ 嗯，反正决定要去了，走吧。</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">✍️ 仿写 — "决定不……"</div>
+    <div class="kr-ex">我决定不再担心了。</div>
+    <div class="fill-blank"><div style="border-bottom:1px solid #c4b998;min-height:24px;margin:4px 0;padding:2px 0;font-size:13px;color:#2a6f97;">더 이상 걱정하지 않기로 했어요.</div></div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 21: INTENSIVE - LINES 18,19 (merged) ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">🔍 精讲 · 合并</span>
+    <span class="line-num">#18 · #19</span>
+  </div>
+
+  <!-- Line 18 -->
+  <div class="merged-line">
+    <div class="sentence-box">
+      <div class="kr">#18. 간 김엔</div>
+      <div class="cn">→ 既然要去</div>
+      <div class="en">→ Since (we're) going anyway</div>
+    </div>
+    <div class="framework-box" style="margin-bottom:6px;">
+      <div class="label">📐 核心框架</div>
+      <div class="fw-compact">
+        <span class="do">干</span> 가<span class="tag tag-red">ㄴ</span>（去了——过去定语形）+ <span class="what">契机</span> 김<span class="tag tag-blue">에</span>（趁……机会）→ 縮约：간 김에 → 간 김엔
+      </div>
+    </div>
+    <div class="items-grid">
+      <div class="item-row"><span class="item-label">📍单词</span>가다 — 去 | 김 — 契机/机会 | -에 — 在……之时</div>
+      <div class="item-row"><span class="item-label">💬短语</span>-ㄴ 김에 — 趁……的机会/既然……</div>
+      <div class="item-row"><span class="item-label">💬造句</span>나간 김에 우유도 사 올게요. — 既然出去了，顺便买牛奶回来。</div>
+      <div class="item-row"><span class="item-label">🔧句型/接口</span>-ㄴ 김에 "趁做……的机会/顺便"（<span class="tag tag-orange">②接口</span>）通常接过去时动词</div>
+      <div class="item-row"><span class="item-label">🎵音变</span>김에[기메] 无特殊</div>
+    </div>
+  </div>
+
+  <!-- Line 19 -->
+  <div class="merged-line">
+    <div class="sentence-box">
+      <div class="kr">#19. 그 오로라도 보고 싶으니까</div>
+      <div class="cn">→ 因为我也想看看那极光</div>
+      <div class="en">→ Since I also want to see that aurora</div>
+    </div>
+    <div class="framework-box" style="margin-bottom:6px;">
+      <div class="label">📐 核心框架</div>
+      <div class="fw-compact">
+        <span class="what">[对象]</span> 그 오로라<span class="tag tag-green">도</span> 보<span class="tag tag-red">고 싶</span>으니까
+      </div>
+      <div class="endings-legend" style="margin-top:4px;font-size:10px;">
+        <span class="tag tag-green">也</span> -도 "也" <span class="tag tag-orange">②接口</span> -고 싶다 "想做" <span class="tag tag-orange">②接口</span> -(으)니까 "因为……"
+      </div>
+    </div>
+    <div class="items-grid">
+      <div class="item-row"><span class="item-label">📍单词</span>그 — 那个 | 오로라 — 极光 | -도 — 也 | 보다 — 看 | 싶다 — 想</div>
+      <div class="item-row"><span class="item-label">💬短语</span>보고 싶다 — 想看 | -고 싶으니까 — 因为想……</div>
+      <div class="item-row"><span class="item-label">💬造句</span>그 영화도 보고 싶으니까 같이 가요. — 因为我也想看看那部电影，一起去吧。</div>
+      <div class="item-row"><span class="item-label">🔧句型/接口</span>-고 싶다 "想做……"（<span class="tag tag-orange">②接口</span>）| -(으)니까 原因"因为……"（<span class="tag tag-orange">②接口</span>）</div>
+      <div class="item-row"><span class="item-label">🎵音变</span>싶으니까[시프니까] ㅂ+ㄱ→鼻音化</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 22: APPLICATION - LINES 18,19 (merged) ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">✏️ 应用 · 合并</span>
+    <span class="line-num">#18 · #19</span>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🔄 -ㄴ 김에 趁便句式</div>
+    <div class="kr-ex">도서관에 <span style="color:#a53860;">간 김에</span> 책도 빌렸어요.</div>
+    <div class="cn-ex">→ 既然去了图书馆，顺便也借了书。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">시장에 <span style="color:#a53860;">간 김에</span> 점심도 먹었어요.</div>
+    <div class="cn-ex">→ 既然去了市场，顺便也吃了午饭。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">한국에 <span style="color:#a53860;">온 김에</span> 친구들도 만날 거예요.</div>
+    <div class="cn-ex">→ 既然来了韩国，顺便也要见朋友。</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🗣️ -(으)니까 原因场景</div>
+    <div class="kr-ex">A: 왜 한국어를 공부해요?</div>
+    <div class="cn-ex">→ 为什么学韩语？</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">B: 한국 드라마가 재미있<span style="color:#a53860;">으니까</span>요!</div>
+    <div class="cn-ex">→ 因为韩剧有趣！</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">A: 아, 그래서구나! 한국에 가고 싶<span style="color:#a53860;">으니까</span> 열심히 공부하는구나!</div>
+    <div class="cn-ex">→ 啊，原来如此！因为想去韩国所以努力学习啊！</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">✍️ 仿写 — "既然……顺便……"</div>
+    <div class="kr-ex">既然去了超市，顺便也买了水果。</div>
+    <div class="fill-blank"><div style="border-bottom:1px solid #c4b998;min-height:24px;margin:4px 0;padding:2px 0;font-size:13px;color:#2a6f97;">슈퍼에 간 김에 과일도 샀어요.</div></div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 23: INTENSIVE - LINE 20 (medium) ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">🔍 精讲</span>
+    <span class="line-num">#20 / 20</span>
+  </div>
+  <div class="sentence-box">
+    <div class="kr">그래요! 우리 같이 가서 오로라도 봐요!</div>
+    <div class="cn">→ 好啊！我们一起去看看极光吧！</div>
+    <div class="en">→ Okay! Let's go together and see the aurora!</div>
+  </div>
+  <div class="framework-box">
+    <div class="label">📐 核心框架</div>
+    <div class="fw-compact">
+      <span class="who">[谁]</span> 우리 + <span class="bg">[方式]</span> 같이 + <span class="do">干①</span> 가<span class="tag tag-red">서</span> + <span class="what">[对象]</span> 오로라<span class="tag tag-green">도</span> + <span class="do">干②</span> 봐<span class="tag tag-red">요!</span>
+    </div>
+    <div class="endings-legend" style="margin-top:4px;">
+      <span class="tag tag-orange">②接口</span> -아/어서 "之后/然后" <span class="tag tag-green">也</span> -도 "也" <span class="tag tag-orange">③收尾</span> -아/어요 提议终结
+    </div>
+  </div>
+  <div class="items-grid">
+    <div class="item-row"><span class="item-label">📍单词</span>그래요 — 好啊 | 우리 — 我们 | 같이 — 一起 | 가다 — 去 | 오로라 — 极光 | 보다 — 看</div>
+    <div class="item-row"><span class="item-label">💬短语</span>같이 가서 보다 — 一起去看看</div>
+    <div class="item-row"><span class="item-label">💬造句</span>우리 같이 공원에 가서 꽃도 봐요. — 我们一起去公园看看花吧。</div>
+    <div class="item-row"><span class="item-label">🔧句型/接口</span>-아/어서 连接动作（<span class="tag tag-orange">②接口</span>）| -도 "也" | -아/어요 口语提议（<span class="tag tag-orange">③收尾</span>）</div>
+    <div class="item-row"><span class="item-label">🎵音变</span>같이[가치] 紧音化</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 24: APPLICATION - LINE 20 ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="section-title">✏️ 应用</span>
+    <span class="line-num">#20 / 20</span>
+  </div>
+  <div class="sentence-box">
+    <div class="kr">그래요! 우리 같이 가서 오로라도 봐요!</div>
+    <div class="cn">— 好啊！我们一起去看看极光吧！</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🔄 -아/어서 连接动作练习</div>
+    <div class="kr-ex">우리 같이 식당에 <span style="color:#a53860;">가서</span> 밥<span style="color:#a53860;">도</span> 먹어요.</div>
+    <div class="cn-ex">→ 我们一起去食堂吃饭吧。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">카페에 <span style="color:#a53860;">가서</span> 커피<span style="color:#a53860;">도</span> 마셔요.</div>
+    <div class="cn-ex">→ 去咖啡馆喝咖啡吧。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">백화점에 <span style="color:#a53860;">가서</span> 옷<span style="color:#a53860;">도</span> 봐요.</div>
+    <div class="cn-ex">→ 去百货商店看看衣服吧。</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">🗣️ 邀约场景 — 本课句子串联</div>
+    <div class="kr-ex">A: 오로라 보고 싶어요. 당신이 같이 가 줬으면 좋겠어요.</div>
+    <div class="cn-ex">→ 我想看极光。希望你能和我一起去。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">B: 가면 오로라도 볼 수 있는데?</div>
+    <div class="cn-ex">→ 去的话还能看到极光呢。</div>
+    <div style="height:4px"></div>
+    <div class="kr-ex">A: 그래요! 우리 같이 가서 오로라도 봐요!</div>
+    <div class="cn-ex">→ 好啊！我们一起去看看极光吧！</div>
+  </div>
+
+  <div class="practice-block">
+    <div class="p-title">✍️ 仿写 — "一起去……吧"</div>
+    <div class="kr-ex">我们一起去海边看日出吧。</div>
+    <div class="fill-blank"><div style="border-bottom:1px solid #c4b998;min-height:24px;margin:4px 0;padding:2px 0;font-size:13px;color:#2a6f97;">우리 같이 바다에 가서 해돋이도 봐요.</div></div>
+  </div>
+</div>
+
+<!-- ==================== LAST PAGE: LESSON SUMMARY ==================== -->
+<div class="page">
+  <div class="section-title">📖 本课总结</div>
+
+  <!-- ① 重点句型 -->
+  <div class="summary-section">
+    <h3>① 重点句型</h3>
+    <table class="sm-table">
+      <tr><th style="width:28%">句型</th><th style="width:22%">意思</th><th>本课例句</th></tr>
+      <tr><td>-아/어 주다</td><td>为某人做某事</td><td>같이 가 줬으면 좋겠어요</td></tr>
+      <tr><td>-았/었으면 좋겠다</td><td>希望/要是…就好了</td><td>같이 가 줬으면 좋겠어요</td></tr>
+      <tr><td>-스럽다</td><td>令人感到…</td><td>내가 부담스러워요</td></tr>
+      <tr><td>-자고</td><td>提议引用"说要一起"</td><td>사귀자고 협박하다</td></tr>
+      <tr><td>-ㄹ까 봐</td><td>担心"怕会…"</td><td>협박할까 봐 무서워요</td></tr>
+      <tr><td>-(으)면</td><td>如果</td><td>가면 오로라도 볼 수 있는데</td></tr>
+      <tr><td>-ㄹ 수 있다</td><td>能/可以</td><td>볼 수 있는데</td></tr>
+      <tr><td>-는데</td><td>口语反诘"……呢"</td><td>볼 수 있는데</td></tr>
+      <tr><td>-잖아(요)</td><td>不是…嘛</td><td>인생이잖아</td></tr>
+      <tr><td>-기로 하다</td><td>决定做</td><td>없기로 했고</td></tr>
+      <tr><td>-ㄴ 김에</td><td>趁……顺便</td><td>간 김엔</td></tr>
+      <tr><td>-(으)니까</td><td>因为……</td><td>보고 싶으니까</td></tr>
+      <tr><td>-아/어서</td><td>然后/之后</td><td>가서 오로라도 봐요</td></tr>
+      <tr><td>-죠/-지요</td><td>共动"一起……吧"</td><td>같이 가죠</td></tr>
+    </table>
+  </div>
+
+  <!-- ② 重点单词 -->
+  <div class="summary-section">
+    <h3>② 重点单词</h3>
+    <table class="sm-table">
+      <tr><th style="width:22%">单词</th><th style="width:18%">意思</th><th>联想记忆</th></tr>
+      <tr><td>오로라</td><td>极光</td><td>Aurora 同源词，发音也像"奥罗拉"</td></tr>
+      <tr><td>부담스럽다</td><td>有负担的</td><td>부담(负担)+스럽다(令人感到)</td></tr>
+      <tr><td>협박</td><td>威胁</td><td>汉字词"脅迫"，发音接近</td></tr>
+      <tr><td>어차피</td><td>反正</td><td>"於此彼"汉字词，"不管这样那样"</td></tr>
+      <tr><td>넘어가다</td><td>过去/上钩</td><td>넘다(越过)+가다→"被越过"引申为"被骗"</td></tr>
+      <tr><td>사귀다</td><td>交往</td><td>사귀자→"交往吧"，常用邀约</td></tr>
+      <tr><td>그러니까</td><td>所以说</td><td>그렇다+니까 的缩合，"所以说"</td></tr>
+      <tr><td>김</td><td>契机</td><td>간 김에 "去的劲儿上"，独特表达</td></tr>
+    </table>
+  </div>
+
+  <!-- ③ 场景对话 -->
+  <div class="summary-section">
+    <h3>③ 场景对话 — 邀约看极光</h3>
+    <div class="dialogue-line">
+      <span class="speaker">A:</span> 당신이 같이 가 줬으면 좋겠어요.<br>
+      <span class="trans">&nbsp;&nbsp;&nbsp;→ 我希望你能和我一起去。</span>
+    </div>
+    <div class="dialogue-line">
+      <span class="speaker">B:</span> 혹시 내가 부담스러워요?<br>
+      <span class="trans">&nbsp;&nbsp;&nbsp;→ 我让你感到负担了吗？</span>
+    </div>
+    <div class="dialogue-line">
+      <span class="speaker">A:</span> 아니에요, 그런 게 아니에요. 그럼 같이 가요! 가면 오로라도 볼 수 있는데?<br>
+      <span class="trans">&nbsp;&nbsp;&nbsp;→ 不是的，不是那样。那一起去吧！去的话还能看到极光呢！</span>
+    </div>
+    <div class="dialogue-line">
+      <span class="speaker">B:</span> 오로라... 초록색... 파란색... 인생이잖아...<br>
+      <span class="trans">&nbsp;&nbsp;&nbsp;→ 极光……绿色……蓝色……这就是人生啊……</span>
+    </div>
+    <div class="dialogue-line">
+      <span class="speaker">A:</span> 그래요! 우리 같이 가서 오로라도 봐요!<br>
+      <span class="trans">&nbsp;&nbsp;&nbsp;→ 好啊！我们一起去看看极光吧！</span>
+    </div>
+  </div>
+
+  <!-- ④ 仿写练习 -->
+  <div class="summary-section">
+    <h3>④ 仿写填空</h3>
+
+    <div class="fill-blank">
+      <div class="cn-q">(1) 所以你现在想说什么呢？</div>
+      <div class="underline">그러니까 지금 무슨 말을 하고 싶은 거예요?</div>
+    </div>
+
+    <div class="fill-blank">
+      <div class="cn-q">(2) 我希望你能帮我做这件事。</div>
+      <div class="underline">당신이 이 일을 도와 줬으면 좋겠어요.</div>
+    </div>
+
+    <div class="fill-blank">
+      <div class="cn-q">(3) 既然来了，顺便也喝杯咖啡吧。</div>
+      <div class="underline">온 김에 커피도 마셔요.</div>
+    </div>
+
+    <div class="fill-blank">
+      <div class="cn-q">(4) 因为想见你，所以来了。</div>
+      <div class="underline">당신이 보고 싶으니까 왔어요.</div>
+    </div>
+
+    <div class="fill-blank">
+      <div class="cn-q">(5) 那一起去图书馆看书吧。</div>
+      <div class="underline">그럼 같이 도서관에 가서 책도 봐요.</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

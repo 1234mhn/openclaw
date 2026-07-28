@@ -1,5 +1,26 @@
 {
   "dependencies": {
-    "playwright": "^1.61.1"
-  }
+    "cheerio": "^1.2.0",
+    "playwright": "^1.61.1",
+    "puppeteer": "^25.3.0"
+  },
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://1234mhn:REDACTED_PAT@github.com/1234mhn/openclaw.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/1234mhn/openclaw/issues"
+  },
+  "homepage": "https://github.com/1234mhn/openclaw#readme"
 }
