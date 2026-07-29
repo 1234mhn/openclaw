@@ -28,14 +28,6 @@
   6. 全部通过再通知用户，不给看半成品
   7. 用户说文件在COS上 → 先信用户，多换路径查
 
-## 不定期抽查系统（2026.6.11）
-- **机制**：heartbeat 随机触发 ~35%概率，距上次 >=4小时
-- **权重**：英语30% / 知识库30% / 韩语20% / AI/ML 10% / 写作10%
-- **方式**：禁止选择题，纯翻译/造句/概念提问
-- **存量**：英语卡片2张 + KC卡片5张 + 通用技能3 + AI实操2 + 方法论1 + 写作2篇
-- **状态文件**：`memory/quiz-state.json`
-- **规则依据**：`📋 知识管理规则.md` 规则2/3/4
-
 ## 🛣️ 路径变更（2026.6.27）
 - `obsidian_vault` → 更名为 `obsidian_nanan_compound_library`
 - `/root/obsidian_nanan_compound_library` → 软链接指向 `/root/.openclaw/workspace/obsidian_nanan_compound_library/`
