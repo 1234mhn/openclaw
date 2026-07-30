@@ -27,10 +27,218 @@
 - 深灰字 `#333` / 暖棕标题 `#8b7355`
 - 装饰线 `#c4b998`
 - 页面底色 `#f8f6f2`（精讲框/图例框/场景对话框）
-- 原文顺序：韩文(16px加粗) → 中文(13px) → 英文(11px斜体 #999)
+- 原文顺序：韩文(14px加粗 #1a1a1a) → 中文(13px #555) → 英文(11px斜体 #999)
 - 每页底部 padding `14mm`
-- 每页右上标「台词精讲 X/N」或「台词应用 X/N」
+- 每页右上标「台词精讲 X/N」或「台词应用 X/N」（10px #8b7355）
 - 标签色：「谁」`#2a6f97`蓝 /「什么」`#2d6a4f`绿 /「干」`#a53860`红
+
+### CSS模板（固定，不可变动）
+```css
+/* ===== 全局样式 ===== */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans SC', 'Noto Sans KR', 'Noto Sans', sans-serif;
+  background: #f5f0e8;
+  color: #333;
+}
+
+/* ===== 页面 ===== */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 14mm 16mm;
+  background: #fff;
+  margin: 0 auto;
+  position: relative;
+  page-break-after: always;
+}
+
+/* ===== 封面 ===== */
+.cover {
+  background: linear-gradient(145deg, #faf8f4, #f5f0e8, #ede6d8, #e8dfce);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cover .lesson-number {
+  font-size: 13px;
+  color: #8b7355;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.cover h1 {
+  font-size: 30px;
+  color: #5c4a3a;
+  margin-bottom: 18px;
+}
+
+.cover .subtitle {
+  font-size: 16px;
+  color: #8b7355;
+  margin-top: 8px;
+}
+
+.cover .divider {
+  width: 60px;
+  height: 2px;
+  background: #c4b998;
+  margin: 15px auto;
+}
+
+.cover .desc {
+  font-size: 13px;
+  color: #8b7355;
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+/* ===== 页眉 ===== */
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #8b7355;
+  border-bottom: 1px solid #e8dfce;
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+}
+
+/* ===== 章节标题 ===== */
+.sec-title {
+  font-size: 14px;
+  color: #8b7355;
+  font-weight: bold;
+  margin: 10px 0 6px;
+}
+
+/* ===== 原文 ===== */
+.kr-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+.zh-text {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.en-text {
+  font-size: 11px;
+  color: #999;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* ===== 句子框架标签 ===== */
+.tag-who {
+  color: #2a6f97;
+  font-weight: bold;
+}
+.tag-what {
+  color: #2d6a4f;
+  font-weight: bold;
+}
+.tag-do {
+  color: #a53860;
+  font-weight: bold;
+}
+
+/* ===== 单词网格 ===== */
+.word-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 16px;
+  padding: 10px 0;
+}
+
+.word-item {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.word-item .ko {
+  font-weight: bold;
+}
+.word-item .zh {
+  color: #555;
+  margin-left: 4px;
+}
+.word-item .en {
+  color: #999;
+  font-size: 11px;
+  font-style: italic;
+  margin-left: 4px;
+}
+
+/* ===== 场景练习块 ===== */
+.scene-block {
+  background: #f8f6f2;
+  padding: 10px 12px;
+  border-radius: 4px;
+  margin: 8px 0;
+}
+
+/* ===== 角色标签 ===== */
+.theatre-role {
+  font-size: 11px;
+  display: inline-block;
+  min-width: 70px;
+}
+.theatre-line {
+  line-height: 1.7;
+  margin: 3px 0;
+}
+
+/* ===== 表格 ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+}
+th {
+  background: #c4b998;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #e8dfce;
+  font-size: 12px;
+}
+
+/* ===== 音频按钮 ===== */
+.audio-btn {
+  color: #2a6f97;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 12px;
+  display: inline-block;
+  margin: 4px 0;
+}
+
+/* ===== 页脚 ===== */
+.footer-num {
+  position: absolute;
+  bottom: 10mm;
+  right: 16mm;
+  font-size: 9px;
+  color: #c4b998;
+}
+```
 
 ### 总页数公式
 ```
