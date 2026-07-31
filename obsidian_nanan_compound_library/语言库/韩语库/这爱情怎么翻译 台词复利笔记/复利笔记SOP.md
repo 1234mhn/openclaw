@@ -1,1 +1,1 @@
-../../../../SOP集合/复利笔记本PDF组装SOP.md
+/root/.openclaw/workspace/SOP集合/复利笔记本PDF组装SOP.md

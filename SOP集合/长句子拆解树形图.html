@@ -1,0 +1,143 @@
+<!doctype html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>长句子拆解树形图</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f8fafc;
+    --fg: #172033;
+    --muted: #5b6475;
+    --line: #64748b;
+    --neutral: #e2e8f0;
+    --input: #bfdbfe;
+    --process: #c7d2fe;
+    --storage: #99f6e4;
+    --external: #fde68a;
+    --risk: #fecaca;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f172a; --fg: #e5e7eb; --muted: #a3adbd; --line: #94a3b8;
+      --neutral: #334155; --input: #1d4ed8; --process: #4338ca;
+      --storage: #0f766e; --external: #92400e; --risk: #991b1b;
+    }
+  }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 14px/1.4 ui-sans-serif, system-ui, sans-serif; }
+  main { max-width: 1250px; margin: 20px auto; padding: 0 12px; }
+  svg { width: 100%; height: auto; display: block; }
+  .title { font-size: 19px; font-weight: 700; fill: var(--fg); }
+  .label { font-size: 13px; font-weight: 600; fill: var(--fg); }
+  .small { font-size: 11px; fill: var(--muted); }
+  .node { stroke: var(--line); stroke-width: 1; rx: 9; }
+  .neutral { fill: var(--neutral); }
+  .input { fill: var(--input); }
+  .process { fill: var(--process); }
+  .storage { fill: var(--storage); }
+  .external { fill: var(--external); }
+  .risk { fill: var(--risk); }
+  .tree-line { stroke: var(--line); stroke-width: 1.6; fill: none; }
+</style>
+<main>
+  <svg viewBox="0 0 1250 760" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--line)"/>
+      </marker>
+    </defs>
+
+    <!-- 标题 -->
+    <text x="625" y="28" text-anchor="middle" class="title">🌳 长句子拆解树形图（左→右）</text>
+    <text x="625" y="50" text-anchor="middle" class="small">判定：超过 7 个音节（韩文字）= 长句子 → 必须拆解</text>
+
+    <!-- ========== 根部：长句（最左侧） ========== -->
+    <rect x="20" y="330" width="180" height="66" rx="12" class="node input"/>
+    <text x="110" y="352" text-anchor="middle" class="label">【长句】</text>
+    <text x="110" y="370" text-anchor="middle" class="small" style="font-size:10.5px;font-weight:600">그렇지, 정신 차려야지</text>
+    <text x="110" y="384" text-anchor="middle" class="small" style="font-size:10.5px;font-weight:600">/ 주호진 씨도 일하러 온 건데</text>
+
+    <!-- 长句 → 拆解依据 -->
+    <path d="M 200 363 L 250 363" class="tree-line" marker-end="url(#arrow)"/>
+
+    <!-- ========== 拆解依据 ========== -->
+    <rect x="250" y="330" width="170" height="66" rx="12" class="node process"/>
+    <text x="335" y="352" text-anchor="middle" class="label">拆解优先级</text>
+    <text x="335" y="370" text-anchor="middle" class="small">①连接词尾（主）</text>
+    <text x="335" y="384" text-anchor="middle" class="small">②标点（次）③停顿（兜底）</text>
+
+    <!-- 拆解依据 → 短句1（上） / 短句2（下） -->
+    <path d="M 420 340 L 490 200" class="tree-line" marker-end="url(#arrow)"/>
+    <path d="M 420 386 L 490 520" class="tree-line" marker-end="url(#arrow)"/>
+
+    <!-- ========== 短句1（上方） ========== -->
+    <rect x="490" y="150" width="300" height="54" rx="12" class="node storage"/>
+    <text x="640" y="172" text-anchor="middle" class="label">【短句1】그렇지, 정신 차려야지</text>
+    <text x="640" y="190" text-anchor="middle" class="small">拆法：逗号 / 语义停顿</text>
+
+    <!-- 短句1 → 分析项 -->
+    <path d="M 640 204 L 640 240" class="tree-line" marker-end="url(#arrow)"/>
+    <rect x="490" y="240" width="300" height="130" rx="10" class="node neutral"/>
+    <text x="640" y="262" text-anchor="middle" class="label">分析</text>
+    <text x="640" y="284" text-anchor="middle" class="small" style="font-size:12px;text-anchor:start;x:520">背景：有就写（时间/地点等），没有就不写</text>
+    <text x="520" y="302" class="small" style="font-size:12px">谁：省略 / 说话人自己</text>
+    <text x="520" y="320" class="small" style="font-size:12px">什么：无</text>
+    <text x="520" y="338" class="small" style="font-size:12px">干（原形）：정신 차리다（打起精神）</text>
+    <text x="520" y="356" class="small" style="font-size:12px">词尾：-야지</text>
+
+    <!-- 词尾四种形态 -->
+    <path d="M 640 370 L 640 400" class="tree-line" marker-end="url(#arrow)"/>
+    <rect x="490" y="400" width="300" height="64" rx="10" class="node external"/>
+    <text x="640" y="420" text-anchor="middle" class="label">词尾：-야지（四种形态）</text>
+    <text x="640" y="440" text-anchor="middle" class="small" style="font-size:12px">
+      ①加料 <tspan fill="#2ecc71" font-weight="700">✓</tspan>　②接口 <tspan fill="#2ecc71" font-weight="700">✓</tspan>　③收尾 <tspan fill="#2ecc71" font-weight="700">✓</tspan>　④变身 <tspan fill="#e74c3c" text-decoration="line-through">✗</tspan>
+    </text>
+    <text x="640" y="456" text-anchor="middle" class="small">用到的 ✓ 打钩；没用的 — 画横线</text>
+
+    <!-- ========== 短句2（下方） ========== -->
+    <rect x="490" y="470" width="300" height="54" rx="12" class="node storage"/>
+    <text x="640" y="492" text-anchor="middle" class="label">【短句2】주호진 씨도 일하러 온 건데</text>
+    <text x="640" y="510" text-anchor="middle" class="small">拆法：-도 连接词尾（也）</text>
+
+    <!-- 短句2 → 分析项 -->
+    <path d="M 640 524 L 640 560" class="tree-line" marker-end="url(#arrow)"/>
+    <rect x="490" y="560" width="300" height="130" rx="10" class="node neutral"/>
+    <text x="640" y="582" text-anchor="middle" class="label">分析</text>
+    <text x="520" y="604" class="small" style="font-size:12px">背景：有就写（时间/地点等），没有就不写</text>
+    <text x="520" y="622" class="small" style="font-size:12px">谁：주호진 씨</text>
+    <text x="520" y="640" class="small" style="font-size:12px">什么：无 / 略</text>
+    <text x="520" y="658" class="small" style="font-size:12px">干（原形）：일하러 오다（来工作）</text>
+    <text x="520" y="676" class="small" style="font-size:12px">词尾：-ㄴ 건데</text>
+
+    <!-- 词尾四种形态 -->
+    <path d="M 640 690 L 640 720" class="tree-line" marker-end="url(#arrow)"/>
+    <rect x="490" y="720" width="300" height="64" rx="10" class="node external"/>
+    <text x="640" y="740" text-anchor="middle" class="label">词尾：-ㄴ 건데（四种形态）</text>
+    <text x="640" y="760" text-anchor="middle" class="small" style="font-size:12px">
+      ①加料 <tspan fill="#e74c3c" text-decoration="line-through">✗</tspan>　②接口 <tspan fill="#2ecc71" font-weight="700">✓</tspan>　③收尾 <tspan fill="#2ecc71" font-weight="700">✓</tspan>　④变身 <tspan fill="#e74c3c" text-decoration="line-through">✗</tspan>
+    </text>
+    <text x="640" y="776" text-anchor="middle" class="small">用到的 ✓ 打钩；没用的 — 画横线</text>
+
+    <!-- ========== 接口分析：放两个短句中间（左右居中） ========== -->
+    <rect x="860" y="310" width="330" height="110" rx="12" class="node risk"/>
+    <text x="1025" y="336" text-anchor="middle" class="label">接口分析（两短句中间）</text>
+    <text x="1025" y="360" text-anchor="middle" class="small" style="font-size:11.5px">【短句1】그렇지, 정신 차려야지（-야지）</text>
+    <text x="1025" y="380" text-anchor="middle" class="small" style="font-size:12px;font-weight:700">＋ 接口：-도（也）</text>
+    <text x="1025" y="400" text-anchor="middle" class="small" style="font-size:11.5px">【短句2】주호진 씨도 일하러 온 건데（-ㄴ 건데）</text>
+    <text x="1025" y="416" text-anchor="middle" class="small">-도 = "也"（追加说明，并列连接）</text>
+
+    <!-- 接口 ←→ 短句1 / 短句2 -->
+    <path d="M 790 177 L 860 340" class="tree-line" marker-end="url(#arrow)"/>
+    <path d="M 790 497 L 860 370" class="tree-line" marker-end="url(#arrow)"/>
+
+    <!-- 图例 -->
+    <rect x="20" y="600" width="420" height="140" rx="10" class="node neutral"/>
+    <text x="40" y="624" class="label">图例</text>
+    <rect x="40" y="636" width="16" height="16" rx="3" class="input node"/><text x="64" y="649" class="small">长句（根部/输入）</text>
+    <rect x="160" y="636" width="16" height="16" rx="3" class="process node"/><text x="184" y="649" class="small">拆解依据</text>
+    <rect x="300" y="636" width="16" height="16" rx="3" class="storage node"/><text x="324" y="649" class="small">短句</text>
+    <rect x="40" y="662" width="16" height="16" rx="3" class="neutral node"/><text x="64" y="675" class="small">分析项（谁/什么/干/背景）</text>
+    <rect x="300" y="662" width="16" height="16" rx="3" class="external node"/><text x="324" y="675" class="small">词尾（四种形态打钩）</text>
+    <rect x="40" y="688" width="16" height="16" rx="3" class="risk node"/><text x="64" y="701" class="small">接口分析（在短句之间）</text>
+    <text x="40" y="722" class="small">步骤：①拆短句 → ②逐句标谁/什么/干（原形）→ ③词尾打钩 → ④接口分析放中间</text>
+  </svg>
+</main>
