@@ -1,6 +1,24 @@
 {
   "cards": [
     {
+      "topic": "버틸 만할 — 语感辨析",
+      "path": "韩语/词汇/버틸 만할",
+      "level": "L2",
+      "reviewCount": 1,
+      "lastReview": "2026-07-19",
+      "keyInsight": "버티다(扛)+만하다(值得)=值得扛一扛，比'值得'多了层'虽然苦但能扛住'的口语力道",
+      "nextReview": "2026-07-21"
+    },
+    {
+      "topic": "韩语引用句型 -ㄴ다고 하다 四类",
+      "path": "韩语/语法/引用句型",
+      "level": "L2",
+      "reviewCount": 1,
+      "lastReview": "2026-07-19",
+      "keyInsight": "陈述-ㄴ/는다고、命令-라고、邀请-자고、疑问-냐고；缩略-대요/-래요/-재요/-냬요",
+      "nextReview": "2026-07-21"
+    },
+    {
       "topic": "KNN k-近邻算法",
       "domain": "AI/ML",
       "path": "obsidian_nanan_portfolio/📚 理论知识/监督学习/分类算法/KNN-K近邻算法.md",
@@ -166,6 +184,18 @@
       "blindSpots": [
         "余弦相似度计算细节"
       ]
+    },
+    {
+      "topic": "英语口语周回顾 7/28~8/1",
+      "domain": "英语口语",
+      "path": "obsidian_nanan_compound_library/语言库/英语库/与AI对话口语复盘/📅 周回顾_2026-07-28~08-01.md",
+      "level": "L2",
+      "reviewCount": 0,
+      "lastReview": "2026-08-03",
+      "nextReview": "2026-08-05",
+      "lastTest": "说",
+      "keyInsight": "scroll/reach for/流程骨架/pay for/fits you best 等本周重点",
+      "blindSpots": []
     }
   ],
   "lastReviewTime": "2026-08-03T22:41:00+08:00",
