@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>E3-30 一起去看极光</title>
+<style>
+/* ===== 全局样式 ===== */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans SC', 'Noto Sans KR', 'Noto Sans', sans-serif;
+  background: #f5f0e8;
+  color: #333;
+}
+
+/* ===== 页面 ===== */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 14mm 16mm;
+  background: #fff;
+  margin: 0 auto;
+  position: relative;
+  page-break-before: always;
+}
+.page:first-of-type {
+  page-break-before: avoid;
+}
+
+/* ===== 封面 ===== */
+.cover {
+  background: linear-gradient(145deg, #faf8f4, #f5f0e8, #ede6d8, #e8dfce);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cover .lesson-number {
+  font-size: 13px;
+  color: #8b7355;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.cover h1 {
+  font-size: 30px;
+  color: #5c4a3a;
+  margin-bottom: 18px;
+}
+
+.cover .subtitle {
+  font-size: 16px;
+  color: #8b7355;
+  margin-top: 8px;
+}
+
+.cover .divider {
+  width: 60px;
+  height: 2px;
+  background: #c4b998;
+  margin: 15px auto;
+}
+
+.cover .desc {
+  font-size: 13px;
+  color: #8b7355;
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+/* ===== 页眉 ===== */
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #8b7355;
+  border-bottom: 1px solid #e8dfce;
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+}
+
+/* ===== 章节标题 ===== */
+.sec-title {
+  font-size: 14px;
+  color: #8b7355;
+  font-weight: bold;
+  margin: 10px 0 6px;
+}
+
+/* ===== 原文 ===== */
+.kr-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: #1a1a1a;
+  line-height: 1.6;
+  display: block;
+}
+
+.zh-text {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+  display: block;
+  margin-left: 28px;
+}
+
+.en-text {
+  font-size: 11px;
+  color: #999;
+  font-style: italic;
+  line-height: 1.4;
+  display: block;
+  margin-left: 28px;
+}
+
+/* ===== 句子框架标签 ===== */
+.tag-who {
+  color: #2a6f97;
+  font-weight: bold;
+}
+.tag-what {
+  color: #2d6a4f;
+  font-weight: bold;
+}
+.tag-do {
+  color: #a53860;
+  font-weight: bold;
+}
+
+/* ===== 单词网格 ===== */
+.word-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 16px;
+  padding: 5px 0;
+}
+
+.word-item {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.word-item .ko {
+  font-weight: bold;
+}
+.word-item .zh {
+  color: #555;
+  margin-left: 4px;
+}
+.word-item .en {
+  color: #999;
+  font-size: 11px;
+  font-style: italic;
+  margin-left: 4px;
+}
+
+/* ===== 场景练习块 ===== */
+.scene-block {
+  background: #f8f6f2;
+  padding: 10px 12px;
+  border-radius: 4px;
+  margin: 8px 0;
+}
+
+/* ===== 角色标签 ===== */
+.theatre-role {
+  font-size: 11px;
+  display: inline-block;
+  min-width: 70px;
+}
+.theatre-line {
+  line-height: 1.7;
+  margin: 3px 0;
+}
+
+/* ===== 表格 ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+}
+th {
+  background: #c4b998;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #e8dfce;
+  font-size: 12px;
+}
+
+/* ===== 音频按钮 ===== */
+.audio-btn {
+  color: #2a6f97;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 12px;
+  display: inline-block;
+  margin: 4px 0;
+}
+
+/* ===== 页脚 ===== */
+.footer-num {
+  position: absolute;
+  bottom: 10mm;
+  right: 16mm;
+  font-size: 9px;
+  color: #c4b998;
+}
+
+/* ===== 我的额外样式（不冲突） ===== */
+.cover-svg-wrap {
+  margin: 8px 0 15px;
+}
+.cover-kr {
+  display: block;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 22px;
+  color: #7a5e3e;
+  margin-top: 6px;
+}
+.header-left {
+  font-weight: bold;
+}
+.lesson-tag {
+  font-size: 10px;
+  color: #8b7355;
+}
+.detail-section {
+  margin: 6px 0;
+}
+.detail-section .label {
+  font-size: 11px;
+  font-weight: bold;
+  color: #8b7355;
+  margin-bottom: 2px;
+}
+.detail-section .content {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #444;
+}
+.detail-section .content .hl {
+  font-weight: bold;
+  color: #1a1a1a;
+}
+.sentence-box {
+  background: #f8f6f2;
+  border-left: 4px solid #c4b998;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  border-radius: 0 6px 6px 0;
+}
+.sentence-box .sent-kr {
+  font-size: 14px;
+  font-weight: bold;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+.sentence-box .sent-cn {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+}
+.sentence-box .sent-en {
+  font-size: 11px;
+  color: #999;
+  font-style: italic;
+  line-height: 1.4;
+}
+.detail-block {
+  margin: 2px 0;
+}
+.sub-sec-title {
+  font-size: 11px;
+  font-weight: bold;
+  color: #8b7355;
+  margin: 4px 0 1px;
+}
+.pronunciation {
+  font-size: 11px;
+  color: #666;
+  line-height: 1.4;
+}
+.grammar-note {
+  font-size: 11px;
+  color: #444;
+  line-height: 1.4;
+}
+.analysis-tree {
+  font-size: 10px;
+  font-family: monospace;
+  color: #555;
+  line-height: 1.3;
+  margin: 3px 0 3px 10px;
+}
+.word-list {
+  font-size: 12px;
+  line-height: 1.6;
+}
+.word-list .w {
+  font-weight: bold;
+}
+.word-list .m {
+  color: #555;
+}
+.word-list .e {
+  color: #999;
+  font-style: italic;
+  font-size: 11px;
+}
+hr {
+  border: none;
+  border-top: 1px dashed #ddd;
+  margin: 8px 0;
+}
+.exercise-text {
+  font-size: 11px;
+  color: #444;
+  line-height: 1.6;
+  margin: 2px 0;
+}
+.blank-line {
+  border-bottom: 1px solid #999;
+  display: inline-block;
+  min-width: 60px;
+  margin: 0 2px;
+}
+.answer-ref {
+  font-size: 10px;
+  color: #999;
+  margin-top: 2px;
+}
+.green-badge {
+  font-size: 10px;
+  color: #2d6a4f;
+  font-weight: bold;
+}
+.blue-badge {
+  font-size: 10px;
+  color: #2a6f97;
+  font-weight: bold;
+}
+.red-badge {
+  font-size: 10px;
+  color: #a53860;
+  font-weight: bold;
+}
+.diary-blank {
+  margin: 2px 0;
+  font-size: 11px;
+  border-bottom: 1px solid #999;
+  padding-bottom: 2px;
+}
+.page-num-right {
+  position: absolute;
+  top: 14mm;
+  right: 16mm;
+  font-size: 10px;
+  color: #8b7355;
+}
+.summary-line {
+  padding: 3px 0;
+  border-bottom: 1px solid #f0e8dd;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.summary-line .num {
+  display: inline-block;
+  width: 24px;
+  color: #c4b998;
+  font-weight: bold;
+}
+.summary-line .kr {
+  font-weight: bold;
+  display: inline;
+}
+.summary-line .zh {
+  color: #555;
+  display: block;
+  margin-left: 28px;
+  font-size: 12px;
+}
+.summary-line .en {
+  color: #999;
+  font-style: italic;
+  font-size: 11px;
+  display: block;
+  margin-left: 28px;
+}
+.answers-block {
+  margin: 6px 0;
+}
+.answer-item {
+  font-size: 10px;
+  padding: 3px 6px;
+  background: #f8f6f2;
+  border-radius: 3px;
+  border-left: 3px solid #7cb342;
+  margin: 3px 0;
+  line-height: 1.5;
+}
+.vocab-table td:first-child {
+  font-weight: bold;
+}
+.diary-item {
+  margin: 4px 0;
+  padding: 3px 0;
+}
+.diary-prompt {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+.diary-blank-line {
+  font-size: 11px;
+  color: #999;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #ccc;
+  padding: 3px 0;
+  margin: 2px 0;
+}
+.challenge-box {
+  background: #f8f6f2;
+  padding: 10px 12px;
+  border-radius: 4px;
+  margin: 8px 0;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== PAGE 1: COVER ===== -->
+<div class="page cover">
+  <div class="lesson-number">E3-30 · 韩语台词复利笔记</div>
+  <div class="divider"></div>
+  <h1>一起去看极光</h1>
+  <span class="cover-kr">오로라 보러 가요</span>
+  <div class="cover-svg-wrap">
+    <svg width="200" height="120" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#1a1a3e"/>
+          <stop offset="50%" stop-color="#2d2d5e"/>
+          <stop offset="100%" stop-color="#3d2d5e"/>
+        </linearGradient>
+        <linearGradient id="aurora1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="rgba(80,200,120,0)" />
+          <stop offset="30%" stop-color="rgba(80,200,120,0.6)" />
+          <stop offset="60%" stop-color="rgba(50,180,180,0.4)" />
+          <stop offset="100%" stop-color="rgba(100,80,200,0)" />
+        </linearGradient>
+        <linearGradient id="aurora2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="rgba(120,80,200,0)" />
+          <stop offset="40%" stop-color="rgba(120,80,200,0.5)" />
+          <stop offset="70%" stop-color="rgba(60,200,160,0.4)" />
+          <stop offset="100%" stop-color="rgba(60,200,160,0)" />
+        </linearGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <rect width="200" height="120" fill="url(#sky)" rx="8"/>
+      <ellipse cx="160" cy="20" rx="5" ry="5" fill="#fff" opacity="0.8"/>
+      <ellipse cx="140" cy="12" rx="3" ry="3" fill="#fff" opacity="0.5"/>
+      <ellipse cx="180" cy="25" rx="2" ry="2" fill="#fff" opacity="0.3"/>
+      <path d="M20,60 Q60,40 100,55 Q140,70 180,50" stroke="url(#aurora1)" stroke-width="14" fill="none" filter="url(#glow)" opacity="0.8"/>
+      <path d="M30,70 Q70,50 110,65 Q150,80 190,60" stroke="url(#aurora2)" stroke-width="10" fill="none" filter="url(#glow)" opacity="0.6"/>
+      <path d="M25,80 Q65,65 105,78 Q145,90 185,72" stroke="rgba(80,200,120,0.3)" stroke-width="8" fill="none" filter="url(#glow)"/>
+      <rect x="60" y="109" width="80" height="3" rx="1.5" fill="#3d5a3d" opacity="0.5"/>
+      <path d="M40,112 Q50,106 60,112 Q70,106 80,112 Q90,106 100,112 Q110,106 120,112 Q130,106 140,112 Q150,106 160,112" stroke="#3d5a3d" stroke-width="2" fill="none" opacity="0.4"/>
+    </svg>
+  </div>
+  <div class="divider"></div>
+  <div class="subtitle">邀约极光之旅 · 从试探到同行的对话艺术</div>
+  <div class="desc">
+    本课收录20句台词，围绕"邀约看极光"展开跟读与仿写。<br>
+    掌握邀约、希望、拒绝、说服等日常表达。
+  </div>
+  <div class="divider" style="margin-top:25px;width:40px;"></div>
+  <div class="lesson-number" style="margin-top:10px;font-size:11px;">台词精讲 · 逐句应用 · 场景练习</div>
+</div>
+
+<!-- ===== PAGE 2: 台词汇总 ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span>台词汇总</span>
+  </div>
+  <div class="sec-title">📝 本课台词 · 整段音频</div>
+  <div class="audio-btn">🔊 本课完整录音</div>
+
+  <div style="margin-top:8px;">
+    <div class="summary-line"><span class="num">①</span><span class="kr">그러니까 지금 당신 말은...</span><span class="zh">所以你现在意思是说……</span><span class="en">So what you are saying now is...</span></div>
+    <div class="summary-line"><span class="num">②</span><span class="kr">도와주세요!</span><span class="zh">帮帮我！</span><span class="en">Help me!</span></div>
+    <div class="summary-line"><span class="num">③</span><span class="kr">당신이 같이 가 줬으면 좋겠어요</span><span class="zh">我希望你能和我一起去</span><span class="en">I wish you would go with me</span></div>
+    <div class="summary-line"><span class="num">④</span><span class="kr">혹시 내가 부담스러워요?</span><span class="zh">我让你感到负担了吗？</span><span class="en">Am I a burden to you?</span></div>
+    <div class="summary-line"><span class="num">⑤</span><span class="kr">내가 막 사귀자고 협박할까 봐 무서워요?</span><span class="zh">你是怕我会威胁你要和我交往吗？</span><span class="en">Are you scared I will threaten you to date me?</span></div>
+    <div class="summary-line"><span class="num">⑥</span><span class="kr">그런 협박에 넘어가지 않을 자신은 있습니다</span><span class="zh">我有自信不会被那种威胁吓到</span><span class="en">I am confident I won't fall for that kind of threat</span></div>
+    <div class="summary-line"><span class="num">⑦</span><span class="kr">그럼 같이 가요!</span><span class="zh">那一起去吧！</span><span class="en">Then let's go together!</span></div>
+    <div class="summary-line"><span class="num">⑧</span><span class="kr">가면 오로라도 볼 수 있는데?</span><span class="zh">如果去的话还能看到极光呢</span><span class="en">If we go, we can also see the aurora!</span></div>
+    <div class="summary-line"><span class="num">⑨</span><span class="kr">오로라...</span><span class="zh">极光……</span><span class="en">Aurora...</span></div>
+    <div class="summary-line"><span class="num">⑩</span><span class="kr">오로라...</span><span class="zh">极光……</span><span class="en">Aurora...</span></div>
+      </div>
+  <div class="footer-num">台词汇总 1/2</div>
+</div>
+
+<!-- ===== PAGE 2B: 台词汇总（续） ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span>台词汇总（续）</span>
+  </div>
+  <div class="sec-title">📝 本课台词 · 整段音频（续）</div>
+  <div style="margin-top:8px;">
+<div class="summary-line"><span class="num">⑪</span><span class="kr">초록색...</span><span class="zh">绿色……</span><span class="en">Green...</span></div>
+    <div class="summary-line"><span class="num">⑫</span><span class="kr">파란색...</span><span class="zh">蓝色……</span><span class="en">Blue...</span></div>
+    <div class="summary-line"><span class="num">⑬</span><span class="kr">인생이잖아...</span><span class="zh">这就是人生啊……</span><span class="en">That's life, you know...</span></div>
+    <div class="summary-line"><span class="num">⑭</span><span class="kr">오로라!</span><span class="zh">极光！</span><span class="en">Aurora!</span></div>
+    <div class="summary-line"><span class="num">⑮</span><span class="kr">그래요?</span><span class="zh">是吗？</span><span class="en">Is that so?</span></div>
+    <div class="summary-line"><span class="num">⑯</span><span class="kr">그럼 같이 가죠.</span><span class="zh">那一起去吧。</span><span class="en">Then let's go together.</span></div>
+    <div class="summary-line"><span class="num">⑰</span><span class="kr">어차피 난 피할 거 없기로 했고</span><span class="zh">反正我也没什么好躲的</span><span class="en">Anyway, I decided there's nothing to avoid</span></div>
+    <div class="summary-line"><span class="num">⑱</span><span class="kr">간 김엔</span><span class="zh">既然要去</span><span class="en">Since (we're) going anyway</span></div>
+    <div class="summary-line"><span class="num">⑲</span><span class="kr">그 오로라도 보고 싶으니까</span><span class="zh">因为我也想看看那极光</span><span class="en">Since I also want to see that aurora</span></div>
+    <div class="summary-line"><span class="num">⑳</span><span class="kr">그래요! 우리 같이 가서 오로라도 봐요!</span><span class="zh">好啊！我们一起去看看极光吧！</span><span class="en">Okay! Let's go together and see the aurora!</span></div>
+  </div>
+  <div style="margin-top:10px;font-size:11px;color:#8b7355;line-height:1.6;">
+    
+💡 本课重点句型：-아/어 주세요 · -았/었으면 좋겠다 · -스럽다 · -자고 · -ㄹ까 봐 · -(으)면 · -ㄹ 수 있다 · -는데 · -잖아 · -죠 · -기로 하다 · -ㄴ 김에 · -(으)니까 · -아/어서
+  </div>
+  <div class="footer-num">台词汇总 2/2</div>
+</div>
+
+<!-- ===== PAGE 3: 精讲+应用 ① ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="lesson-tag">台词精讲 1/13</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">① 그러니까 지금 당신 말은...</div>
+    <div class="sent-cn">所以你现在意思是说……</div>
+    <div class="sent-en">So what you are saying now is...</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔊 单句音频</div>
+    <audio controls src="file:///www/korean_course/audio/L30_S01.mp3" style="width:100%;height:28px;margin:3px 0;"></audio>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="analysis-tree">【长句】그러니까 지금 당신 말은...<br>
+┌─ 拆解：①语义停顿（兜底）— 未完句，在“말은”处停顿，等待下文<br>
+│<br>
+▼<br>
+【短句1】그러니까 지금 당신 말은...<br>
+ 🗺️背景：지금 — 现在（时间）／ 그러니까 — 所以说（承接上文）<br>
+ 👤<span class="tag-who">谁</span>：당신 — 你<br>
+ 📦<span class="tag-what">什么</span>：말 — 话/意思<br>
+ ✍️<span class="tag-do">干</span>：말이다（原形）— 是……的意思<br>
+ 🔧词尾：-은（强调助词）<br>
+   ①加料 — ②接口 — ③收尾 ✓（省略，话没说完）④变身 ✓（-은 强调助词）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">그러니까</span><span class="zh">— 所以说</span><span class="en">(so/therefore)</span></div>
+      <div class="word-item"><span class="ko">지금</span><span class="zh">— 现在</span><span class="en">(now)</span></div>
+      <div class="word-item"><span class="ko">당신</span><span class="zh">— 你</span><span class="en">(you)</span></div>
+      <div class="word-item"><span class="ko">말</span><span class="zh">— 话/说话</span><span class="en">(words/talk)</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">그러니까 — 意思是说（用以总结或追问对方）· 당신 말은 — 你的意思是</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口</div>
+    <div class="grammar-note"><b>그러니까</b> — 所以说……（承接上文总结或追问对方意思）</div>
+    <div class="grammar-note">讲解：그러니까 相当于中文的“所以说……/也就是说……”，用来总结对方的话或追问对方到底想说什么。</div>
+    <div class="grammar-note">예) 그러니까 지금 무슨 말을 하고 싶은 거예요?（所以你现在想说什么？）</div>
+    <div class="grammar-note">예) 그러니까 같이 가자는 거죠?（所以你的意思是说一起去吧？）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="pronunciation">말은[마른] — ㄹ + ㅇ → 连音  |  그러니까[그러니까] — 无特殊音变</div>
+  </div>
+
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;">
+    <div class="sent-kr" style="font-size:12px;">① 그러니까 지금 당신 말은...</div>
+    <div class="sent-cn" style="font-size:11px;">所以你现在意思是说……</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>请把句中的 '당신(你)' 换成 '너(更亲近)' 或 '선생님(更尊敬)' 重新说一遍<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그러니까 지금 네 말은... / 그러니까 지금 선생님 말씀은...</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>✍️ 仿写改写</b><br>模仿本句句型，用'그러니까'写一句追问对方意思的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그러니까 지금 내가 틀렸다는 말이에요?（所以你现在是说我错了？）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>❓ 提问 / Q&A</b><br>Q: 당신 말은 무슨 뜻이에요? (你这话是什么意思？)<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：그러니까 우리 같이 가자는 말이에요.（就是说我们一起去的意思。）</span></div>
+
+  <div class="footer-num">台词精讲 1/13</div>
+</div>
+
+<!-- ===== PAGE 4: 精讲+应用 ② ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="lesson-tag">台词精讲 2/13</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">② 도와주세요!</div>
+    <div class="sent-cn">帮帮我！</div>
+    <div class="sent-en">Help me!</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔊 单句音频</div>
+    <audio controls src="file:///www/korean_course/audio/L30_S02.mp3" style="width:100%;height:28px;margin:3px 0;"></audio>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">
+      🗺️背景：无（直接开口请求）<br>
+      👤<span class="tag-who">谁</span>：省略（请求对象是“你”）<br>
+      📦<span class="tag-what">什么</span>：无<br>
+      ✍️<span class="tag-do">干</span>：도와주다（原形）— 请帮帮我（돕다帮助 + 주다给/为某人做）<br>
+      🔧词尾：-세요 ①加料 — ②接口 — ③收尾 ✓（해요체·现在·请求）④变身 —
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">도와주다</span><span class="zh">— 帮助</span><span class="en">(help)</span></div>
+      <div class="word-item"><span class="ko">돕다</span><span class="zh">— 帮（原形）</span><span class="en">(to help)</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">도와주세요 — 请帮帮我（请求帮助的敬语表达）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口</div>
+    <div class="grammar-note"><b>-아/어 주세요</b> — 请为我做……（礼貌请求对方为自己做事）</div>
+    <div class="grammar-note">讲解：动词 + -아/어 주다 表示“为某人做某事”，주세요 是敬语请求，相当于中文的“请帮我……”。</div>
+    <div class="grammar-note">예) 이 문제 좀 도와주세요.（请帮我解决这个问题。）</div>
+    <div class="grammar-note">예) 문 좀 열어 주세요.（请帮我开一下门。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="pronunciation">도와주세요[도와주세요] — 无特殊音变</div>
+  </div>
+
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;">
+    <div class="sent-kr" style="font-size:12px;">② 도와주세요!</div>
+    <div class="sent-cn" style="font-size:11px;">帮帮我！</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>请把句中的 '도와주세요(请帮帮我)' 换成非敬语或更正式的表达<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：도와줘（非敬语）/ 도와드릴까요?（我来帮您？）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>✍️ 仿写改写</b><br>模仿本句句型，请求别人帮忙处理文件<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：이 서류 좀 도와주세요.（请帮我处理这份文件。）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>❓ 提问 / Q&A</b><br>Q: 무엇을 도와드릴까요? (需要帮什么忙？)<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：이 짐 좀 들어 주세요.（请帮我拿一下这个行李。）</span></div>
+
+  <div class="footer-num">台词精讲 2/13</div>
+</div>
+
+<!-- ===== PAGE 5: 精讲+应用 ③ ===== -->
+<div class="page" style="padding-top:10mm;padding-bottom:10mm;">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="lesson-tag">台词精讲 3/13</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">③ 당신이 같이 가 줬으면 좋겠어요</div>
+    <div class="sent-cn">我希望你能和我一起去</div>
+    <div class="sent-en">I wish you would go with me</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔊 单句音频</div>
+    <audio controls src="file:///www/korean_course/audio/L30_S03.mp3" style="width:100%;height:28px;margin:3px 0;"></audio>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="analysis-tree">【长句】당신이 같이 가 줬으면 좋겠어요<br>
+┌─ 拆解：①连接词尾（主）— -(으)면 条件（“如果……就好了”的假设句）<br>
+│<br>
+▼<br>
+【短句1】당신이 같이 가 줬으면<br>
+ 👤<span class="tag-who">谁</span>：당신 — 你<br>
+ 📦<span class="tag-what">什么</span>：无<br>
+ ✍️<span class="tag-do">干</span>：가다 + 주다（原形）— 去（为你而去）<br>
+ 🔧词尾：-았으면<br>
+   ①加料 ✓（-았- 假设已完成）②接口 ✓（-(으)면 条件“如果”）③收尾 — ④变身 —<br>
+🔗 接口分析：-았으면（如果……了）＋ -겠-（推测希望）→ 连接两个短句<br>
+【短句2】좋겠어요<br>
+ 👤<span class="tag-who">谁</span>：省略（说话人自己）<br>
+ 📦<span class="tag-what">什么</span>：无<br>
+ ✍️<span class="tag-do">干</span>：좋다（原形）— 好（就好了）<br>
+ 🔧词尾：-겠- + -어요<br>
+   ①加料 ✓（-겠- 推测/希望）②接口 — ③收尾 ✓（-어요 해요체·现在）④变身 —</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">당신</span><span class="zh">— 你</span><span class="en">(you)</span></div>
+      <div class="word-item"><span class="ko">같이</span><span class="zh">— 一起</span><span class="en">(together)</span></div>
+      <div class="word-item"><span class="ko">가다</span><span class="zh">— 去</span><span class="en">(go)</span></div>
+      <div class="word-item"><span class="ko">주다</span><span class="zh">— 给（辅助“为某人做”）</span><span class="en">(give/for)</span></div>
+      <div class="word-item"><span class="ko">좋다</span><span class="zh">— 好</span><span class="en">(good)</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">같이 가다 — 一起去 · 가 줬으면 좋겠다 — 希望（你）能去（直译：如果你去了就好了）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口</div>
+    <div class="grammar-note"><b>-아/어 주다</b> — 为某人做某事（补助动词，给他人带来好处）</div>
+    <div class="grammar-note">讲解：动词 + -아/어 주다 表示动作是为了对方而做，相当于中文的“（帮）你/他做……”。</div>
+    <div class="grammar-note">예) 제가 커피를 사 줬어요.（我给他买了咖啡。）</div>
+    <div class="grammar-note">예) 아이에게 이야기를 읽어 줬어요.（我给孩子读了故事。）</div>
+    <div class="grammar-note"><b>-았/었으면 좋겠다</b> — 要是……就好了（委婉表达希望）</div>
+    <div class="grammar-note">讲解：-았/었으면 좋겠다 相当于中文的“要是……就好了/希望……”，比直说更委婉。</div>
+    <div class="grammar-note">예) 내일 날씨가 좋았으면 좋겠어요.（希望明天天气好。）</div>
+    <div class="grammar-note">예) 다음 휴가에 같이 여행 갔으면 좋겠어요.（希望下次休假能一起去旅行。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="pronunciation">같이[가치] ㅆ+히→紧音化 | 줬으면[줘쓰면] ㅆ+으→连音 | 좋겠어요[조케써요] ㅎ+ㄱ→ㅋ紧音</div>
+  </div>
+
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;">
+    <div class="sent-kr" style="font-size:12px;">③ 당신이 같이 가 줬으면 좋겠어요</div>
+    <div class="sent-cn" style="font-size:11px;">我希望你能和我一起去</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>请把句中的 '당신이(你)' 换成 '우리가(我们)' 或 '선생님이(老师)' 重新说一遍<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：우리가 같이 가 줬으면 좋겠어요. / 선생님이 같이 와 줬으면 좋겠어요.</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>✍️ 仿写改写</b><br>模仿本句句型，写一句"希望明天天气变好"<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：내일 날씨가 좋았으면 좋겠어요.</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>❓ 提问 / Q&A</b><br>Q: 같이 가고 싶어요? (你想一起去吗？)<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：네, 같이 갔으면 좋겠어요.（是的，希望一起去。）</span></div>
+
+  <div class="footer-num">台词精讲 3/13</div>
+</div>
+
+<!-- ===== PAGE 6: 精讲+应用 ④ ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="lesson-tag">台词精讲 4/13</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">④ 혹시 내가 부담스러워요?</div>
+    <div class="sent-cn">我让你感到负担了吗？</div>
+    <div class="sent-en">Am I a burden to you?</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔊 单句音频</div>
+    <audio controls src="file:///www/korean_course/audio/L30_S04.mp3" style="width:100%;height:28px;margin:3px 0;"></audio>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="analysis-tree">【长句】혹시 내가 부담스러워요?<br>
+┌─ 拆解：①语义停顿（兜底）— 혹시 试探副词后自然停顿<br>
+│<br>
+▼<br>
+【短句1】혹시<br>
+ 🗺️背景：혹시 — 难道/也许（试探语气的副词，放句首）<br>
+ 👤<span class="tag-who">谁</span>：—<br>
+ 📦<span class="tag-what">什么</span>：—<br>
+ ✍️<span class="tag-do">干</span>：—<br>
+ 🔧词尾：—（副词，无词尾）<br>
+🔗 接口分析：혹시（难道）直接衔接后面的主谓句，形成试探性疑问<br>
+【短句2】내가 부담스러워요?<br>
+ 👤<span class="tag-who">谁</span>：내가 — 我<br>
+ 📦<span class="tag-what">什么</span>：无<br>
+ ✍️<span class="tag-do">干</span>：부담스럽다（原形）— 觉得有负担<br>
+ 🔧词尾：-어요<br>
+   ①加料 — ②接口 — ③收尾 ✓（-어요 해요체·现在·疑问）④变身 ✓（-스럽다 名词→形容词）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">혹시</span><span class="zh">— 也许/难道</span><span class="en">(by any chance)</span></div>
+      <div class="word-item"><span class="ko">내</span><span class="zh">— 我</span><span class="en">(I)</span></div>
+      <div class="word-item"><span class="ko">부담스럽다</span><span class="zh">— 有负担的</span><span class="en">(burdensome)</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">부담스럽다 — 觉得有负担（부담+스럽다）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口</div>
+    <div class="grammar-note"><b>-스럽다</b> — 令人感到……的（名词 → 形容词后缀）</div>
+    <div class="grammar-note">讲解：名词 + -스럽다 变成“令人觉得……的”形容词，相当于中文的“令人……/让人感到……”。</div>
+    <div class="grammar-note">예) 그 선물이 부담스러워요.（那个礼物让人有负担。）</div>
+    <div class="grammar-note">예) 사랑스러운 강아지예요.（是只很可爱的小狗。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="pronunciation">혹시[혹씨] ㄱ+ㅅ→紧音化 | 부담스러워요[부담스러워요] 无特殊</div>
+  </div>
+
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;">
+    <div class="sent-kr" style="font-size:12px;">④ 혹시 내가 부담스러워요?</div>
+    <div class="sent-cn" style="font-size:11px;">我让你感到负担了吗？</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>请把句中的 '부담스럽다(有负担的)' 换成 '어색하다(尴尬)' 重新说一遍<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：혹시 내가 어색해요?（我让你感到尴尬了吗？）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>✍️ 仿写改写</b><br>模仿本句句型，问对方"这个礼物会让你有负担吗？"<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：혹시 이 선물이 부담스러워요?</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>❓ 提问 / Q&A</b><br>Q: 혹시 내가 너무 자주 전화해서 부담스러워요? (我经常打电话让你有负担吗？)<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：아니요, 오히려 좋아요.（不会，反而很好。）</span></div>
+
+  <div class="footer-num">台词精讲 4/13</div>
+</div>
+
+<!-- ===== PAGE 7: 精讲+应用 ⑤ ===== -->
+<div class="page" style="padding-top:10mm;padding-bottom:10mm;">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="lesson-tag">台词精讲 5/13</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑤ 내가 막 사귀자고 협박할까 봐 무서워요?</div>
+    <div class="sent-cn">你是怕我会威胁你要和我交往吗？</div>
+    <div class="sent-en">Are you scared I will threaten you to date me?</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔊 单句音频</div>
+    <audio controls src="file:///www/korean_course/audio/L30_S05.mp3" style="width:100%;height:28px;margin:3px 0;"></audio>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="analysis-tree">【长句】내가 막 사귀자고 협박할까 봐 무서워요?<br>
+┌─ 拆解：①连接词尾（主）— -자고（引用提议）→ -ㄹ까 봐（担心）两层接口<br>
+│<br>
+▼<br>
+【短句1】내가 막 사귀자고 협박할까 봐<br>
+ 🗺️背景：막 — 随便地/胡乱地<br>
+ 👤<span class="tag-who">谁</span>：내가 — 我<br>
+ 📦<span class="tag-what">什么</span>：无<br>
+ ✍️<span class="tag-do">干</span>：사귀다 + 협박하다（原形）— 交往 + 威胁（威胁说要交往）<br>
+ 🔧词尾：-자고 + -ㄹ까 봐<br>
+   ①加料 — ②接口 ✓（-자고 提议引用 + -ㄹ까 봐 担心）③收尾 — ④变身 —<br>
+🔗 接口分析：-ㄹ까 봐（怕会……）把“威胁”和“害怕”连成一体<br>
+【短句2】무서워요?<br>
+ 👤<span class="tag-who">谁</span>：省略（你）<br>
+ 📦<span class="tag-what">什么</span>：无<br>
+ ✍️<span class="tag-do">干</span>：무섭다（原形）— 害怕<br>
+ 🔧词尾：-어요<br>
+   ①加料 — ②接口 — ③收尾 ✓（-어요 해요체·现在·疑问）④变身 —</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">막</span><span class="zh">— 胡乱地</span><span class="en">(recklessly)</span></div>
+      <div class="word-item"><span class="ko">사귀다</span><span class="zh">— 交往</span><span class="en">(date/go out)</span></div>
+      <div class="word-item"><span class="ko">협박하다</span><span class="zh">— 威胁</span><span class="en">(threaten)</span></div>
+      <div class="word-item"><span class="ko">무섭다</span><span class="zh">— 害怕</span><span class="en">(be scared)</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">사귀자고 협박하다 — 威胁说要交往 · -ㄹ까 봐 무섭다 — 怕会……</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口</div>
+    <div class="grammar-note"><b>-자고</b> — 提议引用“说一起做……”（转述对方/自己的提议）</div>
+    <div class="grammar-note">讲解：动词 + -자고 是引用“提议”的接续形式，相当于中文的“说要一起……/提议……”。</div>
+    <div class="grammar-note">예) 친구가 같이 밥 먹자고 했어요.（朋友说要一起吃饭。）</div>
+    <div class="grammar-note">예) 그가 영화 보자고 했어요.（他说一起看电影。）</div>
+    <div class="grammar-note"><b>-ㄹ까 봐</b> — 怕会……（表达担心/忧虑）</div>
+    <div class="grammar-note">讲解：-ㄹ까 봐 表示“担心会发生……”，相当于中文的“怕……/担心……”。</div>
+    <div class="grammar-note">예) 시험에 떨어질까 봐 무서워요.（我怕考试会不及格。）</div>
+    <div class="grammar-note">예) 비가 올까 봐 우산을 가져왔어요.（怕下雨，带了伞。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="pronunciation">막[막] 无特殊 | 사귀자고[사귀자고] 无特殊 | 협박할까[협빠칼까] ㅂ+ㅎ→ㅍ紧音 | 무서워요[무서워요] 无特殊</div>
+  </div>
+
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;">
+    <div class="sent-kr" style="font-size:12px;">⑤ 내가 막 사귀자고 협박할까 봐 무서워요?</div>
+    <div class="sent-cn" style="font-size:11px;">你是怕我会威胁你要和我交往吗？</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>请把句中的 '협박하다(威胁)' 换成 '화내다(生气)' 重新说一遍<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：내가 막 화낼까 봐 무서워요?（你是怕我会生气吗？）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>✍️ 仿写改写</b><br>模仿本句句型，写"你怕我会哭吗？"<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：내가 울까 봐 무서워요?</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>❓ 提问 / Q&A</b><br>Q: 왜 무서워해요? (为什么害怕？)<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：혼자 두고 갈까 봐 무서워요.（怕被丢下一个人。）</span></div>
+
+  <div class="footer-num">台词精讲 5/13</div>
+</div>
+
+<!-- ===== PAGE 8: 精讲+应用 ⑥ ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="lesson-tag">台词精讲 6/13</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑥ 그런 협박에 넘어가지 않을 자신은 있습니다</div>
+    <div class="sent-cn">我有自信不会被那种威胁吓到</div>
+    <div class="sent-en">I am confident I won't fall for that kind of threat</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔊 单句音频</div>
+    <audio controls src="file:///www/korean_course/audio/L30_S06.mp3" style="width:100%;height:28px;margin:3px 0;"></audio>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="analysis-tree">【长句】그런 협박에 넘어가지 않을 자신은 있습니다<br>
+┌─ 拆解：①语义停顿（兜底）— “넘어가지 않을 자신”（不会上当的自信）整体做宾语<br>
+│<br>
+▼<br>
+【短句1】그런 협박에 넘어가지 않을<br>
+ 🗺️背景：그런 — 那样的（指代前文提到的威胁）<br>
+ 👤<span class="tag-who">谁</span>：省略（我）<br>
+ 📦<span class="tag-what">什么</span>：그런 협박 — 那种威胁<br>
+ ✍️<span class="tag-do">干</span>：넘어가다（原形）— 上钩/被骗（否定 -지 않다）<br>
+ 🔧词尾：-지 않다 + -ㄹ<br>
+   ①加料 — ②接口 — ③收尾 — ④变身 ✓（-지 않다 否定 + -ㄹ 转性→定语）<br>
+🔗 接口分析：-ㄹ（转性定语）把“不会上当”挂到“自信”上<br>
+【短句2】자신은 있습니다<br>
+ 👤<span class="tag-who">谁</span>：省略（我）<br>
+ 📦<span class="tag-what">什么</span>：자신 — 自信（-은 强调）<br>
+ ✍️<span class="tag-do">干</span>：있다（原形）— 有<br>
+ 🔧词尾：-습니다<br>
+   ①加料 — ②接口 — ③收尾 ✓（하십시오체·现在·肯定）④变身 —</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">그런</span><span class="zh">— 那样的</span><span class="en">(such)</span></div>
+      <div class="word-item"><span class="ko">협박</span><span class="zh">— 威胁</span><span class="en">(threat)</span></div>
+      <div class="word-item"><span class="ko">넘어가다</span><span class="zh">— 上钩/被骗</span><span class="en">(fall for)</span></div>
+      <div class="word-item"><span class="ko">자신</span><span class="zh">— 自信</span><span class="en">(confidence)</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">협박에 넘어가다 — 被威胁吓到/上钩 · 자신이 있다 — 有自信/有把握</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口</div>
+    <div class="grammar-note"><b>-ㄹ 자신이 있다</b> — 有把握做……（动词定语形 + 自信）</div>
+    <div class="grammar-note">讲解：动词 + -ㄹ + 자신이 있다 表示“有自信/有把握做某事”，相当于中文的“有把握……/有信心……”。</div>
+    <div class="grammar-note">예) 이번 시험은 합격할 자신 있어요.（这次考试我有把握通过。）</div>
+    <div class="grammar-note">예) 그런 말에 넘어가지 않을 자신 있어요.（我有自信不会被那种话骗到。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="pronunciation">협박에[협빠게] ㅂ+ㅎ→紧音化 | 넘어가지[너머가지] 无特殊 | 않을[아늘] ㅎ+ㅇ→脱落</div>
+  </div>
+
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;">
+    <div class="sent-kr" style="font-size:12px;">⑥ 그런 협박에 넘어가지 않을 자신은 있습니다</div>
+    <div class="sent-cn" style="font-size:11px;">我有自信不会被那种威胁吓到</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>请把句中的 '넘어가다(上钩)' 换成 '속다(被骗)' 重新说一遍<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그런 거짓말에 속지 않을 자신 있어요.（我有自信不会被那种谎言骗到。）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>✍️ 仿写改写</b><br>模仿本句句型，写"我有自信不会迟到"<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：지각하지 않을 자신 있어요.</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>❓ 提问 / Q&A</b><br>Q: 정말 자신 있어요? (真的有自信吗？)<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：네, 절대 넘어가지 않을 자신 있습니다.（是的，我有绝对不被动摇的自信。）</span></div>
+
+  <div class="footer-num">台词精讲 6/13</div>
+</div>
+
+<!-- ===== PAGE 9: 精讲+应用 ⑦ ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="lesson-tag">台词精讲 7/13</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑦ 그럼 같이 가요!</div>
+    <div class="sent-cn">那一起去吧！</div>
+    <div class="sent-en">Then let's go together!</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔊 单句音频</div>
+    <audio controls src="file:///www/korean_course/audio/L30_S07.mp3" style="width:100%;height:28px;margin:3px 0;"></audio>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">
+      🗺️背景：그럼 — 那么/如果那样（承接上文）<br>
+      👤<span class="tag-who">谁</span>：省略（我们）<br>
+      📦<span class="tag-what">什么</span>：无<br>
+      ✍️<span class="tag-do">干</span>：가다（原形）— 去（같이 一起）<br>
+      🔧词尾：-아요 ①加料 — ②接口 — ③收尾 ✓（해요체·现在·提议）④变身 —
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">그럼</span><span class="zh">— 那么/那样的话</span><span class="en">(then)</span></div>
+      <div class="word-item"><span class="ko">같이</span><span class="zh">— 一起</span><span class="en">(together)</span></div>
+      <div class="word-item"><span class="ko">가다</span><span class="zh">— 去</span><span class="en">(go)</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口</div>
+    <div class="grammar-note"><b>-아/어요</b> — 一起……吧（口语提议）</div>
+    <div class="grammar-note">讲解：动词 + -아/어요 用提议语气，相当于中文的“（一起）……吧”，亲切自然。</div>
+    <div class="grammar-note">예) 같이 공원에 가요.（一起去公园吧。）</div>
+    <div class="grammar-note">예) 같이 점심 먹어요.（一起吃午饭吧。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="pronunciation">같이[가치] — ㅆ+히→紧音化</div>
+  </div>
+
+
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;">
+    <div class="sent-kr" style="font-size:12px;">⑦ 그럼 같이 가요!</div>
+    <div class="sent-cn" style="font-size:11px;">那一起去吧！</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>请把句中的 '가요(去吧)' 换成 '가자(非敬语)' 重新说一遍<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그럼 같이 가자!（那一起去吧！非敬语）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>✍️ 仿写改写</b><br>模仿本句句型，写"那一起吃吧！"<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그럼 같이 먹어요!（那一起吃吧！）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>❓ 提问 / Q&A</b><br>Q: 같이 갈래요? (要一起去吗？)<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：네, 같이 가요!（嗯，一起去！）</span></div>
+
+  <div class="footer-num">台词精讲 7/13</div>
+</div>
+
+<!-- ===== PAGE 9B: 精讲+应用 ⑧ ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="lesson-tag">台词精讲 7/13 · 续</span>
+  </div>
+  <div class="sentence-box" style="margin:4px 0 4px;">
+    <div class="sent-kr">⑧ 가면 오로라도 볼 수 있는데?</div>
+    <div class="sent-cn">如果去的话还能看到极光呢</div>
+    <div class="sent-en">If we go, we can also see the aurora!</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔊 单句音频</div>
+    <audio controls src="file:///www/korean_course/audio/L30_S08.mp3" style="width:100%;height:28px;margin:3px 0;"></audio>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="analysis-tree">【长句】가면 오로라도 볼 수 있는데?<br>
+┌─ 拆解：①连接词尾（主）— -(으)면 条件（“如果……”）<br>
+│<br>
+▼<br>
+【短句1】가면<br>
+ 👤<span class="tag-who">谁</span>：省略（我们）<br>
+ 📦<span class="tag-what">什么</span>：无<br>
+ ✍️<span class="tag-do">干</span>：가다（原形）— 去<br>
+ 🔧词尾：-(으)면<br>
+   ①加料 — ②接口 ✓（条件“如果”）③收尾 — ④变身 —<br>
+🔗 接口分析：-(으)면（如果）连接条件与结果<br>
+【短句2】오로라도 볼 수 있는데?<br>
+ 👤<span class="tag-who">谁</span>：省略（我们）<br>
+ 📦<span class="tag-what">什么</span>：오로라 — 极光（-도 也）<br>
+ ✍️<span class="tag-do">干</span>：보다 + 있다（原形）— 看（能看）<br>
+ 🔧词尾：-ㄹ 수 있다 + -는데<br>
+   ①加料 — ②接口 ✓（-는데 委婉提示）③收尾 — ④变身 ✓（-ㄹ 转性→可能形）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">가다</span><span class="zh">— 去</span><span class="en">(go)</span></div>
+      <div class="word-item"><span class="ko">오로라</span><span class="zh">— 极光</span><span class="en">(aurora)</span></div>
+      <div class="word-item"><span class="ko">보다</span><span class="zh">— 看</span><span class="en">(see)</span></div>
+      <div class="word-item"><span class="ko">있다</span><span class="zh">— 有</span><span class="en">(exist)</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口</div>
+    <div class="grammar-note"><b>-(으)면</b> — 如果……（条件）</div>
+    <div class="grammar-note">讲解：-(으)면 表示条件，相当于中文的“如果……就……”。</div>
+    <div class="grammar-note">예) 비가 오면 우산을 가져가요.（如果下雨就带伞。）</div>
+    <div class="grammar-note">예) 시간이 있으면 같이 밥 먹어요.（如果有时间就一起吃饭。）</div>
+    <div class="grammar-note"><b>-ㄹ 수 있다</b> — 能/可以（可能）</div>
+    <div class="grammar-note">讲解：动词 + -ㄹ 수 있다 表示能力或可能，相当于中文的“能……/可以……”。</div>
+    <div class="grammar-note">예) 여기서 바다를 볼 수 있어요.（在这里能看到大海。）</div>
+    <div class="grammar-note">예) 저도 수영할 수 있어요.（我也会游泳。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="pronunciation">있는데[인는데] — 无特殊音变</div>
+  </div>
+
+
+
+
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;">
+    <div class="sent-kr" style="font-size:12px;">⑧ 가면 오로라도 볼 수 있는데?</div>
+    <div class="sent-cn" style="font-size:11px;">如果去的话还能看到极光呢</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>请把句中的 '오로라(极光)' 换成 '별(星星)' 重新说一遍<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：가면 별도 볼 수 있는데?（去的话还能看到星星呢）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>✍️ 仿写改写</b><br>模仿本句句型，写"去的话还能吃到好吃的呢"<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：가면 맛있는 음식도 먹을 수 있는데?（去的话还能吃到好吃的呢）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>❓ 提问 / Q&A</b><br>Q: 오로라를 꼭 봐야 해요? (一定要看极光吗？)<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：네, 꼭 한번 보고 싶어요.（是的，很想看一次。）</span></div>
+
+  <div class="footer-num">台词精讲 7/13 · 续</div>
+</div>
+
+<!-- ===== PAGE 10: 精讲+应用 ⑨⑪⑫ ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="lesson-tag">台词精讲 8/13</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑨ 오로라...</div>
+    <div class="sent-cn">极光……</div>
+    <div class="sent-en">Aurora...</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔊 单句音频</div>
+    <audio controls src="file:///www/korean_course/audio/L30_S09.mp3" style="width:100%;height:28px;margin:3px 0;"></audio>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">
+      🗺️背景：无（被眼前极光吸引，脱口而出的感叹）<br>
+      👤<span class="tag-who">谁</span>：省略（说话人自己）<br>
+      📦<span class="tag-what">什么</span>：오로라 — 极光（⑪ 초록색 绿 ⑫ 파란색 蓝，颜色感叹系列）<br>
+      ✍️<span class="tag-do">干</span>：无（省略句，名词独用表感叹）<br>
+      🔧词尾：无（感叹语气，直接省略）
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">오로라</span><span class="zh">— 极光</span><span class="en">(aurora)</span></div>
+      <div class="word-item"><span class="ko">초록색</span><span class="zh">— 绿色</span><span class="en">(green)</span></div>
+      <div class="word-item"><span class="ko">파란색</span><span class="zh">— 蓝色</span><span class="en">(blue)</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">-색 颜色后缀 — 빨간색(红)/파란색(蓝)/초록색(绿)/노란색(黄)</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口</div>
+    <div class="grammar-note"><b>-색</b> — 颜色后缀（……色）</div>
+    <div class="grammar-note">讲解：名词 + -색 表示“……的颜色”，相当于中文的“……色/……颜色的”。</div>
+    <div class="grammar-note">예) 빨간색 치마가 예뻐요.（红色的裙子很漂亮。）</div>
+    <div class="grammar-note">예) 하늘색 하늘이 참 맑아요.（天蓝色的天空真晴朗。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="pronunciation">오로라[오로라] 无特殊 | 초록색[초록색] 无特殊 | 파란색[파란색] 无特殊</div>
+  </div>
+
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;">
+    <div class="sent-kr" style="font-size:12px;">⑨ 오로라... / ⑪ 초록색... / ⑫ 파란색...</div>
+    <div class="sent-cn" style="font-size:11px;">极光…… / 绿色…… / 蓝色……（颜色感叹系列）</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>请把句中的 '초록색(绿色)' 换成 '보라색(紫色)' 重新说一遍<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：보라색...（紫色……）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>✍️ 仿写改写</b><br>模仿本句型，写一句感叹"极光……真的好美"<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:240px;">&nbsp;</span><br><span class="answer-ref">参考答案：오로라... 정말 예쁘다.（极光……真的好美。）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>❓ 提问 / Q&A</b><br>Q: 무슨 색이 가장 예뻐요? (什么颜色最美？)<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：저는 초록색이 가장 예뻐요.（我觉得绿色最美。）</span></div>
+
+  <div class="footer-num">台词精讲 8/13</div>
+</div>
+
+<!-- ===== PAGE 11: 精讲+应用 ⑬ ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="lesson-tag">台词精讲 9/13</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑬ 인생이잖아...</div>
+    <div class="sent-cn">这就是人生啊……</div>
+    <div class="sent-en">That's life, you know...</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔊 单句音频</div>
+    <audio controls src="file:///www/korean_course/audio/L30_S12.mp3" style="width:100%;height:28px;margin:3px 0;"></audio>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">
+      🗺️背景：无（面对人生感悟时的感叹）<br>
+      👤<span class="tag-who">谁</span>：省略（泛指/说话人自己）<br>
+      📦<span class="tag-what">什么</span>：인생 — 人生<br>
+      ✍️<span class="tag-do">干</span>：인생이다（原形）— 是人生<br>
+      🔧词尾：-잖아 ①加料 — ②接口 — ③收尾 ✓（反问强调）④变身 —
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">인생</span><span class="zh">— 人生</span><span class="en">(life)</span></div>
+      <div class="word-item"><span class="ko">-잖아</span><span class="zh">— “不是……嘛”反问强调</span><span class="en">(you know)</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">인생이잖아 — 这就是人生啊（感叹表达，常用于面对不完美时自我安慰）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口</div>
+    <div class="grammar-note"><b>-잖아(요)</b> — 不是……嘛（反问式强调）</div>
+    <div class="grammar-note">讲解：-잖아요 表示“本来就是这样嘛/难道不是吗”，相当于中文的“不是……嘛”，用于理所当然的肯定。</div>
+    <div class="grammar-note">예) 우리 친구잖아.（我们不是朋友嘛。）</div>
+    <div class="grammar-note">예) 벌써 알려줬잖아요.（不是早就告诉你了吗。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="pronunciation">인생이잖아[인생이자나] — ㅎ+ㅇ→脱落（잖+아→자나）</div>
+  </div>
+
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;">
+    <div class="sent-kr" style="font-size:12px;">⑬ 인생이잖아...</div>
+    <div class="sent-cn" style="font-size:11px;">这就是人生啊……</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>请把句中的 '인생(人生)' 换成 '현실(现实)' 重新说一遍<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：이게 현실이잖아.（这就是现实啊。）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>✍️ 仿写改写</b><br>模仿本句句型，写"这就是缘分啊"<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：이게 인연이잖아.</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>❓ 提问 / Q&A</b><br>Q: 인생이 뭐라고 생각해요? (你认为人生是什么？)<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：원래 다 그런 거잖아요. 좋을 때도 있고 나쁠 때도 있는 거죠.（人生本来就是这样嘛，有好有坏。）</span></div>
+
+  <div class="footer-num">台词精讲 9/13</div>
+</div>
+
+<!-- ===== PAGE 12: 精讲+应用 ⑭⑮ ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="lesson-tag">台词精讲 10/13</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑭ 오로라!</div>
+    <div class="sent-cn">极光！</div>
+    <div class="sent-en">Aurora!</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔊 单句音频</div>
+    <audio controls src="file:///www/korean_course/audio/L30_S13.mp3" style="width:100%;height:28px;margin:3px 0;"></audio>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">
+      🗺️背景：无（突然看见极光时的惊叹）<br>
+      👤<span class="tag-who">谁</span>：省略（说话人自己）<br>
+      📦<span class="tag-what">什么</span>：오로라! — 极光！（感叹对象）<br>
+      ✍️<span class="tag-do">干</span>：无（名词独用感叹句）<br>
+      🔧词尾：无（感叹语气）
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">오로라</span><span class="zh">— 极光</span><span class="en">(aurora)</span></div>
+    </div>
+  </div>
+
+  <hr>
+  <div class="sentence-box" style="margin:6px 0 4px;">
+    <div class="sent-kr">⑮ 그래요?</div>
+    <div class="sent-cn">是吗？</div>
+    <div class="sent-en">Is that so?</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔊 单句音频</div>
+    <audio controls src="file:///www/korean_course/audio/L30_S14.mp3" style="width:100%;height:28px;margin:3px 0;"></audio>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">
+      🗺️背景：无（回应对方的话）<br>
+      👤<span class="tag-who">谁</span>：省略（说话人自己）<br>
+      📦<span class="tag-what">什么</span>：无<br>
+      ✍️<span class="tag-do">干</span>：그렇다（原形）— 那样（-아요 → 그래요）<br>
+      🔧词尾：-아요 ①加料 — ②接口 — ③收尾 ✓（해요체·现在·疑问）④变身 —
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">그래요</span><span class="zh">— 是吗/好吧</span><span class="en">(really/is that so)</span></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;">
+    <div class="sent-kr" style="font-size:12px;">⑭ 오로라! / ⑮ 그래요?</div>
+    <div class="sent-cn" style="font-size:11px;">极光！/ 是吗？</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>请把句⑭中的 '오로라(极光)' 换成 '별(星星)' 重新说一遍<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：별!（星星！）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>✍️ 仿写改写</b><br>模仿句⑮ '그래요?'，用更尊敬的说法回应对方<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그러세요?（是吗？敬语）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>❓ 提问 / Q&A</b><br>Q: 정말 오로라를 봤어요? (真的看到极光了吗？)<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：네, 정말 예뻤어요.（是的，真的很美。）</span></div>
+
+  <div class="footer-num">台词精讲 10/13</div>
+</div>
+
+<!-- ===== PAGE 12B: 精讲+应用 ⑯ ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="lesson-tag">台词精讲 10/13 · 续</span>
+  </div>
+  <div class="sentence-box" style="margin:6px 0 4px;">
+    <div class="sent-kr">⑯ 그럼 같이 가죠.</div>
+    <div class="sent-cn">那一起去吧。</div>
+    <div class="sent-en">Then let's go together.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔊 单句音频</div>
+    <audio controls src="file:///www/korean_course/audio/L30_S15.mp3" style="width:100%;height:28px;margin:3px 0;"></audio>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">
+      🗺️背景：그럼 — 那么（承接上文）<br>
+      👤<span class="tag-who">谁</span>：省略（我们）<br>
+      📦<span class="tag-what">什么</span>：无<br>
+      ✍️<span class="tag-do">干</span>：가다（原形）— 去（같이 一起）<br>
+      🔧词尾：-죠（-지요缩略）①加料 — ②接口 — ③收尾 ✓（共动提议，比-아요更柔和）④变身 —
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">그럼</span><span class="zh">— 那么</span><span class="en">(then)</span></div>
+      <div class="word-item"><span class="ko">같이</span><span class="zh">— 一起</span><span class="en">(together)</span></div>
+      <div class="word-item"><span class="ko">가다</span><span class="zh">— 去</span><span class="en">(go)</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口</div>
+    <div class="grammar-note"><b>-죠</b>（-지요缩略）— 一起……吧（柔和提议）</div>
+    <div class="grammar-note">讲解：动词 + -죠 表示征求同意或柔和提议，相当于中文的“（一起）……吧”。</div>
+    <div class="grammar-note">예) 우리 같이 걷죠.（我们一起散步吧。）</div>
+    <div class="grammar-note">예) 이따가 다시 만나죠.（待会儿再见吧。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="pronunciation">같이[가치] — 紧音化 | 가죠[가죠] — 无特殊音变</div>
+  </div>
+
+
+
+
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;">
+    <div class="sent-kr" style="font-size:12px;">⑯ 그럼 같이 가죠.</div>
+    <div class="sent-cn" style="font-size:11px;">那一起去吧。</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>请把句中的 '가죠(去吧)' 换成 '먹죠(吃吧)' 重新说一遍<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그럼 같이 먹죠.（那一起吃吧。）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>✍️ 仿写改写</b><br>模仿本句句型，写"那我们一起开始吧"<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그래요, 그럼 같이 시작하죠.（好的，那我们一起开始吧。）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>❓ 提问 / Q&A</b><br>Q: 같이 갈까요? (要不要一起去？)<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：네, 그럼 같이 가죠!（好，那一起去吧！）</span></div>
+
+  <div class="footer-num">台词精讲 10/13 · 续</div>
+</div>
+
+<!-- ===== PAGE 13: 精讲+应用 ⑰ ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="lesson-tag">台词精讲 11/13</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑰ 어차피 난 피할 거 없기로 했고</div>
+    <div class="sent-cn">反正我也没什么好躲的</div>
+    <div class="sent-en">Anyway, I decided there's nothing to avoid</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔊 单句音频</div>
+    <audio controls src="file:///www/korean_course/audio/L30_S16.mp3" style="width:100%;height:28px;margin:3px 0;"></audio>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="analysis-tree">【长句】어차피 난 피할 거 없기로 했고<br>
+┌─ 拆解：①连接词尾（主）— -고（并列“而且……”，后半句省略）<br>
+│<br>
+▼<br>
+【短句1】어차피 난 피할 거 없기로 했고<br>
+ 🗺️背景：어차피 — 反正/不管怎样<br>
+ 👤<span class="tag-who">谁</span>：나는 — 我（-는 主题/对比）<br>
+ 📦<span class="tag-what">什么</span>：피할 거 — 要躲的事（-ㄹ 转性定语 + 거 事）<br>
+ ✍️<span class="tag-do">干</span>：피하다 + 없다 + -기로 하다（原形）— 决定没什么好躲的<br>
+ 🔧词尾：-ㄹ 거 + 없- + -기로 + -고<br>
+   ①加料 — ②接口 ✓（-고 并列“而且……”）③收尾 — ④变身 ✓（-ㄹ 转性定语 + -기 名词化）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">어차피</span><span class="zh">— 反正</span><span class="en">(anyway)</span></div>
+      <div class="word-item"><span class="ko">나</span><span class="zh">— 我</span><span class="en">(I)</span></div>
+      <div class="word-item"><span class="ko">피하다</span><span class="zh">— 躲避</span><span class="en">(avoid)</span></div>
+      <div class="word-item"><span class="ko">없기로 하다</span><span class="zh">— 决定不</span><span class="en">(decide not to)</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">어차피 — 反正（表示无论如何结果都一样）· 피할 거 없다 — 没什么好躲的 · -기로 하다 — 决定……</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口</div>
+    <div class="grammar-note"><b>-기로 하다</b> — 决定做……（下定决定）</div>
+    <div class="grammar-note">讲解：动词 + -기로 하다 表示“决定做某事”，相当于中文的“决定……/说好了要……”。</div>
+    <div class="grammar-note">예) 다이어트를 하기로 했어요.（我决定减肥。）</div>
+    <div class="grammar-note">예) 내일 9시에 만나기로 했어요.（我们约好明天9点见。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="pronunciation">없기로[없끼로] — ㅂ+ㄱ→紧音化 | 않을[아늘] — ㅎ+ㅇ→脱落</div>
+  </div>
+
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;">
+    <div class="sent-kr" style="font-size:12px;">⑰ 어차피 난 피할 거 없기로 했고</div>
+    <div class="sent-cn" style="font-size:11px;">反正我也没什么好躲的</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>请把句中的 '피하다(躲)' 换成 '숨다(藏)' 重新说一遍<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：어차피 난 숨을 거 없기로 했고（反正我决定没什么好藏的）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>✍️ 仿写改写</b><br>模仿本句句型，写"反正要做的事，决定现在做"<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:240px;">&nbsp;</span><br><span class="answer-ref">参考答案：어차피 할 일이니까 지금 하기로 했어요.</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>❓ 提问 / Q&A</b><br>Q: 왜 피하지 않기로 했어요? (为什么决定不躲了？)<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：어차피 피해도 소용없으니까요.（反正躲了也没用。）</span></div>
+
+  <div class="footer-num">台词精讲 11/13</div>
+</div>
+
+<!-- ===== PAGE 14: 精讲+应用 ⑱ ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="lesson-tag">台词精讲 12/13</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑱ 간 김엔</div>
+    <div class="sent-cn">既然要去</div>
+    <div class="sent-en">Since (we're) going anyway</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔊 单句音频</div>
+    <audio controls src="file:///www/korean_course/audio/L30_S17.mp3" style="width:100%;height:28px;margin:3px 0;"></audio>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">
+      🗺️背景：无（承接上文“既然要去了”）<br>
+      👤<span class="tag-who">谁</span>：省略（我们）<br>
+      📦<span class="tag-what">什么</span>：无<br>
+      ✍️<span class="tag-do">干</span>：가다（原形）— 去<br>
+      🔧词尾：-ㄴ 김에 ①加料 — ②接口 ✓（“趁……的机会”）③收尾 — ④变身 —
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">가다</span><span class="zh">— 去</span><span class="en">(go)</span></div>
+      <div class="word-item"><span class="ko">김</span><span class="zh">— 契机/机会</span><span class="en">(occasion/moment)</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">-ㄴ 김에 — "趁……的机会/既然……"（利用做某事的机会顺便做另一件事）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口</div>
+    <div class="grammar-note"><b>-ㄴ 김에</b> — 趁……的机会/既然……（顺便做另一件事）</div>
+    <div class="grammar-note">讲解：过去定语 -ㄴ + 김에 表示“趁做某事的机会顺便……”，相当于中文的“既然……顺便……”。</div>
+    <div class="grammar-note">예) 나간 김에 우유도 사 올게요.（既然出去了，顺便买牛奶回来。）</div>
+    <div class="grammar-note">예) 온 김에 커피나 마실까요?（既然来了，要不要喝杯咖啡？）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="pronunciation">김에[기메] — ㅁ+ㅇ→连音</div>
+  </div>
+
+
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;">
+    <div class="sent-kr" style="font-size:12px;">⑱ 간 김엔</div>
+    <div class="sent-cn" style="font-size:11px;">既然要去</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>请把句中的 '가다(去)' 换成 '오다(来)' 重新说一遍<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：온 김에 커피나 마실까요?（既然来了，要不要喝杯咖啡？）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>✍️ 仿写改写</b><br>模仿本句句型，写"既然出去了，顺便买牛奶回来"<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:240px;">&nbsp;</span><br><span class="answer-ref">参考答案：나간 김에 우유도 사 올게요.（既然出去了，顺便买牛奶回来。）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>❓ 提问 / Q&A</b><br>Q: 간 김에 뭐 할 거예요? (既然去了，顺便要做什么？)<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：간 김에 카페도 갈 거예요.（既然去了，顺便也去咖啡馆。）</span></div>
+
+  <div class="footer-num">台词精讲 12/13</div>
+</div>
+
+<!-- ===== PAGE 14B: 精讲+应用 ⑲ ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="lesson-tag">台词精讲 12/13 · 续</span>
+  </div>
+  <div class="sentence-box" style="margin:4px 0 4px;">
+    <div class="sent-kr">⑲ 그 오로라도 보고 싶으니까</div>
+    <div class="sent-cn">因为我也想看看那极光</div>
+    <div class="sent-en">Since I also want to see that aurora</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔊 单句音频</div>
+    <audio controls src="file:///www/korean_course/audio/L30_S18.mp3" style="width:100%;height:28px;margin:3px 0;"></audio>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="analysis-tree">【长句】그 오로라도 보고 싶으니까<br>
+┌─ 拆解：①连接词尾（主）— -(으)니까 原因（“因为……”，主句省略）<br>
+│<br>
+▼<br>
+【短句1】그 오로라도 보고 싶으니까<br>
+ 🗺️背景：无（承接“既然要去”，给出理由）<br>
+ 👤<span class="tag-who">谁</span>：省略（我）<br>
+ 📦<span class="tag-what">什么</span>：그 오로라도 — 那极光也（-도 也）<br>
+ ✍️<span class="tag-do">干</span>：보다 + 싶다（原形）— 想看（-고 싶다 想要）<br>
+ 🔧词尾：-고 싶다 + -(으)니까<br>
+   ①加料 — ②接口 ✓（-(으)니까 原因“因为……”）③收尾 — ④变身 ✓（-고 连接两个动词）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">그</span><span class="zh">— 那个</span><span class="en">(that)</span></div>
+      <div class="word-item"><span class="ko">오로라</span><span class="zh">— 极光</span><span class="en">(aurora)</span></div>
+      <div class="word-item"><span class="ko">보다</span><span class="zh">— 看</span><span class="en">(see)</span></div>
+      <div class="word-item"><span class="ko">싶다</span><span class="zh">— 想</span><span class="en">(want)</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">보고 싶다 — 想看 · -고 싶다 — 想（做）……</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口</div>
+    <div class="grammar-note"><b>-(으)니까</b> — 因为……（原因）</div>
+    <div class="grammar-note">讲解：-(으)니까 表示原因/理由，相当于中文的“因为……”。</div>
+    <div class="grammar-note">예) 비가 오니까 집에 있을게요.（因为下雨，我就待在家里。）</div>
+    <div class="grammar-note">예) 배가 고프니까 같이 먹어요.（因为饿了，一起吃吧。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="pronunciation">싶으니까[시프니까] — ㅂ+ㄱ→ㅍ送气音化</div>
+  </div>
+
+
+
+
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;">
+    <div class="sent-kr" style="font-size:12px;">⑲ 그 오로라도 보고 싶으니까</div>
+    <div class="sent-cn" style="font-size:11px;">因为我也想看看那极光</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>请把句中的 '보고 싶다(想看)' 换成 '가고 싶다(想去)' 重新说一遍<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그 오로라도 가고 싶으니까（因为我也想去那极光）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>✍️ 仿写改写</b><br>模仿本句句型，写"因为我也想尝尝那家店的菜"<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:240px;">&nbsp;</span><br><span class="answer-ref">参考答案：그 식당 음식도 먹어 보고 싶으니까（因为我也想尝尝那家店的菜）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>❓ 提问 / Q&A</b><br>Q: 왜 오로라를 보고 싶어요? (为什么想看极光？)<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：너무 예쁘다고 들었으니까요.（因为听说很美。）</span></div>
+
+  <div class="footer-num">台词精讲 12/13 · 续</div>
+</div>
+
+<!-- ===== PAGE 15: 精讲+应用 ⑳ ===== -->
+<div class="page" style="padding-top:10mm;padding-bottom:10mm;">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="lesson-tag">台词精讲 13/13</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑳ 그래요! 우리 같이 가서 오로라도 봐요!</div>
+    <div class="sent-cn">好啊！我们一起去看看极光吧！</div>
+    <div class="sent-en">Okay! Let's go together and see the aurora!</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔊 单句音频</div>
+    <audio controls src="file:///www/korean_course/audio/L30_S19.mp3" style="width:100%;height:28px;margin:3px 0;"></audio>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="analysis-tree">【长句】그래요! 우리 같이 가서 오로라도 봐요!<br>
+┌─ 拆解：①连接词尾（主）— -아/어서（先后顺序“去了然后……”）②标点（次）— ! 感叹<br>
+│<br>
+▼<br>
+【短句1】그래요!<br>
+ 🗺️背景：无（爽快答应对方的邀约）<br>
+ 👤<span class="tag-who">谁</span>：省略（说话人自己）<br>
+ 📦<span class="tag-what">什么</span>：无<br>
+ ✍️<span class="tag-do">干</span>：그렇다（原形）— 那样（好啊！）<br>
+ 🔧词尾：-아요<br>
+   ①加料 — ②接口 — ③收尾 ✓（해요체·现在·肯定）④变身 —<br>
+🔗 接口分析：-아/어서（然后）把“去”和“看”两个动作连起来<br>
+【短句2】우리 같이 가서 오로라도 봐요!<br>
+ 👤<span class="tag-who">谁</span>：우리 — 我们<br>
+ 📦<span class="tag-what">什么</span>：오로라 — 极光（-도 也）<br>
+ ✍️<span class="tag-do">干</span>：가다 + 보다（原形）— 去 + 看（一起去看看）<br>
+ 🔧词尾：-아/어서 + -아요<br>
+   ①加料 — ②接口 ✓（-아/어서 先后顺序）③收尾 ✓（-아요 提议“一起……吧”）④变身 —</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">그래요</span><span class="zh">— 好啊</span><span class="en">(okay)</span></div>
+      <div class="word-item"><span class="ko">우리</span><span class="zh">— 我们</span><span class="en">(we)</span></div>
+      <div class="word-item"><span class="ko">같이</span><span class="zh">— 一起</span><span class="en">(together)</span></div>
+      <div class="word-item"><span class="ko">가다</span><span class="zh">— 去</span><span class="en">(go)</span></div>
+      <div class="word-item"><span class="ko">오로라</span><span class="zh">— 极光</span><span class="en">(aurora)</span></div>
+      <div class="word-item"><span class="ko">보다</span><span class="zh">— 看</span><span class="en">(see)</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="content" style="font-size:12px;line-height:1.6;">같이 가서 보다 — 一起去看看</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口</div>
+    <div class="grammar-note"><b>-아/어서</b> — ……之后/然后……（连接动作顺序）</div>
+    <div class="grammar-note">讲解：-아/어서 连接两个先后发生的动作，相当于中文的“……之后/然后……”。</div>
+    <div class="grammar-note">예) 밥을 먹어서 산책했어요.（吃完饭然后去散步了。）</div>
+    <div class="grammar-note">예) 약속 장소에 가서 기다릴게요.（我去约定地点等着。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="pronunciation">그래요[그래요] 无特殊 | 같이[가치] 紧音化 | 가서[가서] 无特殊 | 오로라도[오로라도] 无特殊 | 봐요[봐요] 无特殊</div>
+  </div>
+
+  <div class="sub-sec-title" style="font-size:12px;margin-top:6px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;">
+    <div class="sent-kr" style="font-size:12px;">⑳ 그래요! 우리 같이 가서 오로라도 봐요!</div>
+    <div class="sent-cn" style="font-size:11px;">好啊！我们一起去看看极光吧！</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>请把句中的 '오로라(极光)' 换成 '영화(电影)' 重新说一遍<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그래요! 우리 같이 가서 영화도 봐요!（好啊！我们一起去看看电影吧！）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>✍️ 仿写改写</b><br>模仿本句句型，写"我们一起去逛逛市场吧"<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:240px;">&nbsp;</span><br><span class="answer-ref">参考答案：우리 같이 시장에 가서 구경도 해요!</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>❓ 提问 / Q&A</b><br>Q: 같이 갈래요? (要一起去吗？)<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：네, 그래요! 같이 가서 오로라도 봐요!（好啊！一起去看看极光吧！）</span></div>
+
+  <div class="footer-num">台词精讲 13/13</div>
+</div>
+
+<!-- ===== PAGE 16: 重点句型 + 重点单词（同页） ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span>重点句型 · 重点单词</span>
+  </div>
+  <div class="sec-title">📖 重点句型</div>
+  <table>
+    <thead><tr><th>句型</th><th>意思</th><th>本课例句</th></tr></thead>
+    <tbody>
+      <tr><td>-아/어 주세요</td><td>请为我做……</td><td>도와주세요! (请帮帮我！)</td></tr>
+      <tr><td>-았/었으면 좋겠다</td><td>要是……就好了</td><td>당신이 같이 가 줬으면 좋겠어요 (希望你能一起去)</td></tr>
+      <tr><td>-스럽다</td><td>令人感到……</td><td>혹시 내가 부담스러워요? (我让你有负担了吗？)</td></tr>
+      <tr><td>-자고 / -ㄹ까 봐</td><td>提议引用 / 怕会</td><td>사귀자고 협박할까 봐 무서워요? (怕我威胁你交往？)</td></tr>
+      <tr><td>-(으)면 / -ㄹ 수 있다</td><td>如果 / 能</td><td>가면 오로라도 볼 수 있는데? (去的话还能看极光)</td></tr>
+      <tr><td>-잖아(요)</td><td>不是……嘛</td><td>인생이잖아... (这就是人生啊)</td></tr>
+      <tr><td>-죠</td><td>一起……吧</td><td>그럼 같이 가죠. (那一起去吧)</td></tr>
+      <tr><td>-기로 하다</td><td>决定做……</td><td>어차피 난 피할 거 없기로 했고 (我决定没什么好躲的)</td></tr>
+      <tr><td>-ㄴ 김에</td><td>趁……顺便</td><td>간 김엔 (既然要去)</td></tr>
+      <tr><td>-(으)니까 | -아/어서</td><td>因为 / ……之后</td><td>그 오로라도 보고 싶으니까 / 우리 같이 가서 오로라도 봐요!</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-title" style="margin-top:16px;">📖 重点单词</div>
+  <table>
+    <thead><tr><th>单词</th><th>意思</th><th>联想记忆</th></tr></thead>
+    <tbody>
+      <tr><td>오로라</td><td>极光</td><td>🌟 aurora — 极光女神之名</td></tr>
+      <tr><td>부담스럽다</td><td>有负担的</td><td>부담(负担)+스럽다(感到…)→有负担的</td></tr>
+      <tr><td>협박</td><td>威胁</td><td>👉 谐音"吓吧"→威胁</td></tr>
+      <tr><td>넘어가다</td><td>上钩/被骗</td><td>넘다(越过)+가다(去)→被带过去→上钩</td></tr>
+      <tr><td>어차피</td><td>反正</td><td>💡 "어차피" = 不管怎样结果一样</td></tr>
+      <tr><td>인생</td><td>人生</td><td>👤 汉字词"人生"→인생</td></tr>
+      <tr><td>자신</td><td>自信/自己</td><td>💪 자신이 있다 = 有自信</td></tr>
+      <tr><td>그래요</td><td>好啊/是吗</td><td>그렇다(那样)+요→日常万能回应词</td></tr>
+    </tbody>
+  </table>
+  <div class="footer-num">重点句型·重点单词 1/1</div>
+</div>
+
+<!-- ===== PAGE 17: 场景迁移 × 2 ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span>场景练习包</span>
+  </div>
+  <div class="sec-title">🗣️ 场景迁移 ① — 邀约看电影</div>
+  <div class="scene-block">
+    <div class="theatre-line"><span class="theatre-role">A 🟡试探</span>
+<div class="kr-text">그러니까 지금 네 말은, 나랑 같이 영화 보러 가고 싶다는 거야?</div>
+<div class="zh-text">所以你现在意思是说，想和我一起去看电影？</div>
+<div class="en-text">→ So what you're saying is you want to go see a movie with me?</div></div>
+    <div class="theatre-line"><span class="theatre-role">B 🟢真诚</span>
+<div class="kr-text">응, 네가 같이 가 줬으면 좋겠어.</div>
+<div class="zh-text">嗯，希望你能和我一起去。</div>
+<div class="en-text">→ Yeah, I wish you would go with me.</div></div>
+    <div class="theatre-line"><span class="theatre-role">A 🟡逗趣</span>
+<div class="kr-text">혹시 내가 부담스러워? 막 사귀자고 협박할까 봐 무서워?</div>
+<div class="zh-text">我让你有负担了？怕我威胁你交往？</div>
+<div class="en-text">→ Am I a burden? Scared I'll threaten you to date me?</div></div>
+    <div class="theatre-line"><span class="theatre-role">B 🔵自信</span>
+<div class="kr-text">그런 말에 넘어가지 않을 자신 있어. 그래, 같이 가자! 가면 재미있는 영화도 볼 수 있는데!</div>
+<div class="zh-text">我有自信不会被那种话骗到。好，一起去吧！去的话还能看有趣的电影呢！</div>
+<div class="en-text">→ I'm confident I won't fall for that. Okay, let's go! If we go, we can see a fun movie!</div></div>
+    <div class="theatre-line"><span class="theatre-role">A B 🟢开心</span>
+<div class="kr-text">그래! 우리 같이 가서 영화도 봐요!</div>
+<div class="zh-text">好啊！我们一起去看看电影吧！</div>
+<div class="en-text">→ Okay! Let's go together and see a movie!</div></div>
+  </div>
+
+  <div class="sec-title" style="margin-top:14px;">🗣️ 场景迁移 ② — 约同事吃饭</div>
+  <div class="scene-block">
+    <div class="theatre-line"><span class="theatre-role">A 🟢真诚</span>
+<div class="kr-text">그러니까 지금 우리 같이 점심 먹으러 가자는 말이에요.</div>
+<div class="zh-text">所以我的意思是我们一起去吃午饭吧。</div>
+<div class="en-text">→ So what I'm saying is let's go grab lunch together.</div></div>
+    <div class="theatre-line"><span class="theatre-role">B 🟡迟疑</span>
+<div class="kr-text">같이 먹자고요? 혹시 저한테 부탁할 일 있어요?</div>
+<div class="zh-text">一起吃饭吗？难道有事要找我帮忙？</div>
+<div class="en-text">→ You want to eat with me? Do you have something to ask me?</div></div>
+    <div class="theatre-line"><span class="theatre-role">A 🔵自信</span>
+<div class="kr-text">아니요! 그냥 같이 먹었으면 좋겠어서요. 가면 맛있는 음식도 먹을 수 있는데!</div>
+<div class="zh-text">没有啦！只是希望一起吃个饭。去的话还能吃到好吃的呢！</div>
+<div class="en-text">→ No! I just wish we could eat together. If we go, we can eat good food!</div></div>
+    <div class="theatre-line"><span class="theatre-role">B 🟢开心</span>
+<div class="kr-text">그래요! 그럼 같이 가죠. 간 김에 커피도 마셔요!</div>
+<div class="zh-text">好啊！那一起去吧。既然去了顺便喝杯咖啡！</div>
+<div class="en-text">→ Okay! Then let's go together. Since we're going, let's grab coffee too!</div></div>
+  </div>
+  <div class="footer-num">场景迁移 1/1</div>
+</div>
+
+<!-- ===== PAGE 18: 场景日记（单独1页） ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span>场景日记</span>
+  </div>
+  <div class="sec-title">📝 场景日记</div>
+  <div style="font-size:11px;color:#666;margin-bottom:8px;">用本课句型完成下列句子（邀约、旅行、看风景等日常场景）：</div>
+
+  <div class="diary-item">
+    <div class="diary-prompt">① 我决定下周和朋友一起去旅行。</div>
+    <div class="diary-blank-line">_________________________（한국어）</div>
+    <div class="diary-blank-line">_________________________（English）</div>
+  </div>
+  <div class="diary-item">
+    <div class="diary-prompt">② 希望你能和我一起去看电影。</div>
+    <div class="diary-blank-line">_________________________（한국어）</div>
+    <div class="diary-blank-line">_________________________（English）</div>
+  </div>
+  <div class="diary-item">
+    <div class="diary-prompt">③ 反正下雨，不如在家休息吧。</div>
+    <div class="diary-blank-line">_________________________（한국어）</div>
+    <div class="diary-blank-line">_________________________（English）</div>
+  </div>
+  <div class="diary-item">
+    <div class="diary-prompt">④ 既然去了，不如也看看极光吧。</div>
+    <div class="diary-blank-line">_________________________（한국어）</div>
+    <div class="diary-blank-line">_________________________（English）</div>
+  </div>
+  <div class="diary-item">
+    <div class="diary-prompt">⑤ 这就是人生啊，对吧？</div>
+    <div class="diary-blank-line">_________________________（한국어）</div>
+    <div class="diary-blank-line">_________________________（English）</div>
+  </div>
+
+  <div class="sub-sec-title" style="margin-top:14px;">📖 参考答案</div>
+  <div class="answers-block">
+    <div class="answer-item">① 다음 주에 친구랑 여행 가기로 했어요. → I decided to go on a trip with my friend next week. → 我决定下周和朋友一起去旅行。</div>
+    <div class="answer-item">② 나랑 같이 영화 보러 갔으면 좋겠어요. → I wish you would go watch a movie with me. → 希望你能和我一起去看电影。</div>
+    <div class="answer-item">③ 어차피 비가 오니까 집에서 쉬는 게 나아요. → Since it's raining anyway, it's better to rest at home. → 反正下雨，不如在家休息吧。</div>
+    <div class="answer-item">④ 간 김에 오로라도 보자. → Since we're going, let's also see the aurora. → 既然去了，不如也看看极光吧。</div>
+    <div class="answer-item">⑤ 이게 바로 인생이잖아요, 그렇죠? → This is life, isn't it? → 这就是人生啊，对吧？</div>
+  </div>
+  <div class="footer-num">场景日记 1/1</div>
+</div>
+
+<!-- ===== PAGE 19: 口语挑战（单独1页） ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span>口语挑战</span>
+  </div>
+  <div class="sec-title">🎤 口语挑战</div>
+  <div class="challenge-box">
+    <div style="font-size:12px;font-weight:bold;color:#8b7355;margin-bottom:4px;">🎯 不看原文，用今天学的句型完成下列句子（各说一遍，约30秒）</div>
+    <div style="font-size:11px;color:#666;">试着用 -아/어 주세요, -았/었으면 좋겠다, -잖아, -기로 하다, -ㄴ 김에 等句型。</div>
+  </div>
+
+  <div class="diary-item">
+    <div class="diary-prompt">① 用“请帮我……”句型，向朋友借一本书。</div>
+    <div class="diary-blank-line">_________________________（한국어）</div>
+    <div class="diary-blank-line">_________________________（English）</div>
+  </div>
+  <div class="diary-item">
+    <div class="diary-prompt">② 用“要是……就好了”句型，说希望周末天气好。</div>
+    <div class="diary-blank-line">_________________________（한국어）</div>
+    <div class="diary-blank-line">_________________________（English）</div>
+  </div>
+  <div class="diary-item">
+    <div class="diary-prompt">③ 用“不是……嘛”句型，说“我们是朋友嘛”。</div>
+    <div class="diary-blank-line">_________________________（한국어）</div>
+    <div class="diary-blank-line">_________________________（English）</div>
+  </div>
+  <div class="diary-item">
+    <div class="diary-prompt">④ 用“决定……”句型，说决定明天早点起床。</div>
+    <div class="diary-blank-line">_________________________（한국어）</div>
+    <div class="diary-blank-line">_________________________（English）</div>
+  </div>
+  <div class="diary-item">
+    <div class="diary-prompt">⑤ 用“既然……顺便……”句型，说既然去超市顺便买水果。</div>
+    <div class="diary-blank-line">_________________________（한국어）</div>
+    <div class="diary-blank-line">_________________________（English）</div>
+  </div>
+
+  <div class="sub-sec-title" style="margin-top:14px;">📖 参考答案</div>
+  <div class="answers-block">
+    <div class="answer-item">① 책 좀 빌려 주세요. → Please lend me a book. → 请借我一本书。</div>
+    <div class="answer-item">② 주말에 날씨가 좋았으면 좋겠어요. → I wish the weather would be nice this weekend. → 希望周末天气好。</div>
+    <div class="answer-item">③ 우리 친구잖아. → We're friends, aren't we? → 我们是朋友嘛。</div>
+    <div class="answer-item">④ 내일 일찍 일어나기로 했어요. → I decided to get up early tomorrow. → 我决定明天早点起床。</div>
+    <div class="answer-item">⑤ 마트에 가는 김에 과일도 사요. → Since I'm going to the mart, I'll buy some fruit too. → 既然去超市顺便买水果。</div>
+  </div>
+  <div class="footer-num">口语挑战 1/1</div>
+</div>
+
+</body>
+</html>
