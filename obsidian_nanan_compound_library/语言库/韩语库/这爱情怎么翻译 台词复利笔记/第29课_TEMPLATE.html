@@ -100,52 +100,49 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 
 <!-- ===== PAGE 1: COVER ===== -->
 <div class="page cover">
-  <div class="lesson-number">E3-30 · 韩语台词复利笔记</div>
+  <div class="lesson-number">E3-29 · 韩语台词复利笔记</div>
   <div class="divider"></div>
-  <h1>一起去看极光</h1>
-  <span class="cover-kr">오로라 보러 가요</span>
+  <h1>你是能让我冷静下来的人</h1>
+  <span class="cover-kr">나를 진정시켜줄 사람</span>
   <div class="cover-svg-wrap">
-    <svg width="220" height="130" viewBox="0 0 220 130" xmlns="http://www.w3.org/2000/svg">
+        <svg width="220" height="130" viewBox="0 0 220 130" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#0d0d2e"/>
-          <stop offset="60%" stop-color="#1a1a4e"/>
-          <stop offset="100%" stop-color="#2a1a3e"/>
+        <linearGradient id="night" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#12122e"/>
+          <stop offset="55%" stop-color="#23234f"/>
+          <stop offset="100%" stop-color="#3a2a3e"/>
         </linearGradient>
-        <linearGradient id="aurora1" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="rgba(60,220,120,0)"/>
-          <stop offset="30%" stop-color="rgba(60,220,120,0.65)"/>
-          <stop offset="65%" stop-color="rgba(40,190,190,0.45)"/>
-          <stop offset="100%" stop-color="rgba(80,60,200,0)"/>
-        </linearGradient>
-        <linearGradient id="aurora2" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="rgba(100,60,200,0)"/>
-          <stop offset="40%" stop-color="rgba(100,60,200,0.5)"/>
-          <stop offset="75%" stop-color="rgba(50,200,150,0.4)"/>
-          <stop offset="100%" stop-color="rgba(50,200,150,0)"/>
-        </linearGradient>
-        <filter id="glow"><feGaussianBlur stdDeviation="3.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <radialGradient id="warm" cx="50%" cy="60%" r="55%">
+          <stop offset="0%" stop-color="rgba(255,180,110,0.5)"/>
+          <stop offset="100%" stop-color="rgba(255,180,110,0)"/>
+        </radialGradient>
+        <filter id="glow"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
       </defs>
-      <rect width="220" height="130" fill="url(#sky)" rx="10"/>
-      <circle cx="170" cy="18" r="4" fill="#fff" opacity="0.9"/>
-      <circle cx="145" cy="10" r="2.5" fill="#fff" opacity="0.6"/>
-      <circle cx="195" cy="25" r="1.8" fill="#fff" opacity="0.4"/>
-      <circle cx="30" cy="20" r="1.5" fill="#fff" opacity="0.5"/>
-      <circle cx="55" cy="8" r="2" fill="#fff" opacity="0.4"/>
-      <circle cx="80" cy="15" r="1.2" fill="#fff" opacity="0.3"/>
-      <path d="M10,58 Q55,38 100,53 Q148,68 210,45" stroke="url(#aurora1)" stroke-width="16" fill="none" filter="url(#glow)" opacity="0.85"/>
-      <path d="M15,72 Q60,52 105,67 Q155,82 215,60" stroke="url(#aurora2)" stroke-width="11" fill="none" filter="url(#glow)" opacity="0.65"/>
-      <path d="M20,84 Q65,70 110,80 Q158,92 215,74" stroke="rgba(60,220,120,0.28)" stroke-width="9" fill="none" filter="url(#glow)"/>
-      <rect x="55" y="118" width="110" height="4" rx="2" fill="#2d4a2d" opacity="0.55"/>
-      <path d="M35,122 Q50,114 65,122 Q80,114 95,122 Q110,114 125,122 Q140,114 155,122 Q170,114 185,122" stroke="#2d4a2d" stroke-width="2.5" fill="none" opacity="0.45"/>
-      <ellipse cx="110" cy="126" rx="8" ry="2" fill="#1a3a1a" opacity="0.3"/>
+      <rect width="220" height="130" fill="url(#night)" rx="10"/>
+      <circle cx="170" cy="16" r="3.5" fill="#fff" opacity="0.9"/>
+      <circle cx="140" cy="10" r="2" fill="#fff" opacity="0.6"/>
+      <circle cx="195" cy="24" r="1.6" fill="#fff" opacity="0.4"/>
+      <circle cx="30" cy="18" r="1.4" fill="#fff" opacity="0.5"/>
+      <circle cx="60" cy="8" r="1.8" fill="#fff" opacity="0.4"/>
+      <rect width="220" height="130" fill="url(#warm)"/>
+      <!-- 灯 -->
+      <line x1="110" y1="46" x2="110" y2="58" stroke="#8b7355" stroke-width="2"/>
+      <path d="M96,58 h28 l-4,6 h-20 z" fill="#ffd9a0" filter="url(#glow)"/>
+      <ellipse cx="110" cy="72" rx="30" ry="16" fill="rgba(255,200,130,0.18)"/>
+      <!-- 两个人依偎剪影 -->
+      <ellipse cx="88" cy="100" rx="14" ry="18" fill="#2a2a4a"/>
+      <ellipse cx="120" cy="100" rx="14" ry="18" fill="#38385c"/>
+      <circle cx="88" cy="78" r="9" fill="#2a2a4a"/>
+      <circle cx="120" cy="78" r="9" fill="#38385c"/>
+      <line x1="98" y1="84" x2="110" y2="84" stroke="#55557c" stroke-width="3"/>
+      <!-- 地面 -->
+      <rect x="40" y="120" width="140" height="4" rx="2" fill="#3a3a2a" opacity="0.5"/>
     </svg>
   </div>
   <div class="divider"></div>
-  <div class="subtitle">邀约极光之旅 · 从试探到同行的对话艺术</div>
+  <div class="subtitle">冷静沉稳的陪伴 · 关于安心的表达</div>
   <div class="desc">
-    本课收录20句台词，围绕"邀约看极光"展开对话练习。<br>
-    掌握邀约、希望、担忧、说服等日常表达。
+    本课收录6句台词，围绕“能让我冷静下来的人”展开对话练习。<br>掌握条件句、推测、祈使等日常安抚与安心表达。
   </div>
   <div class="divider" style="margin-top:25px;width:40px;"></div>
   <div class="lesson-number" style="margin-top:10px;font-size:11px;">台词精讲 · 逐句应用 · 场景练习</div>
@@ -154,40 +151,26 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 <!-- ===== PAGE 2: 台词汇总 ===== -->
 <div class="page">
   <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
     <span>台词汇总</span>
   </div>
   <div class="sec-title">📝 本课台词 · 整段音频</div>
-  <a href="https://nannan2026.cn/korean/audio/L30_full.mp3" class="audio-btn" target="_blank">🔊 听整段录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_full.mp3" class="audio-btn" target="_blank">🔊 听整段录音（点击打开播放）</a>
   <div>
-    <div class="summary-line"><span class="num">①</span><span class="kr">그러니까 지금 당신 말은...</span><span class="zh">所以你现在意思是说……</span><span class="en">So what you are saying now is...</span></div>
-    <div class="summary-line"><span class="num">②</span><span class="kr">도와주세요!</span><span class="zh">帮帮我！</span><span class="en">Help me!</span></div>
-    <div class="summary-line"><span class="num">③</span><span class="kr">당신이 같이 가 줬으면 좋겠어요</span><span class="zh">我希望你能和我一起去</span><span class="en">I wish you would go with me</span></div>
-    <div class="summary-line"><span class="num">④</span><span class="kr">혹시 내가 부담스러워요?</span><span class="zh">我让你感到负担了吗？</span><span class="en">Am I a burden to you?</span></div>
-    <div class="summary-line"><span class="num">⑤</span><span class="kr">내가 막 사귀자고 협박할까 봐 무서워요?</span><span class="zh">你是怕我会威胁你要和我交往吗？</span><span class="en">Are you scared I will threaten you to date me?</span></div>
-    <div class="summary-line"><span class="num">⑥</span><span class="kr">그런 협박에 넘어가지 않을 자신은 있습니다</span><span class="zh">我有自信不会被那种威胁吓到</span><span class="en">I am confident I won't fall for that kind of threat</span></div>
-    <div class="summary-line"><span class="num">⑦</span><span class="kr">그럼 같이 가요!</span><span class="zh">那一起去吧！</span><span class="en">Then let's go together!</span></div>
-    <div class="summary-line"><span class="num">⑧</span><span class="kr">가면 오로라도 볼 수 있는데?</span><span class="zh">如果去的话还能看到极光呢</span><span class="en">If we go, we can also see the aurora!</span></div>
-    <div class="summary-line"><span class="num">⑨</span><span class="kr">오로라...</span><span class="zh">极光……</span><span class="en">Aurora...</span></div>
-    <div class="summary-line"><span class="num">⑩</span><span class="kr">오로라...</span><span class="zh">极光……</span><span class="en">Aurora...</span></div>
-    <div class="summary-line"><span class="num">⑪</span><span class="kr">초록색...</span><span class="zh">绿色……</span><span class="en">Green...</span></div>
-    <div class="summary-line"><span class="num">⑫</span><span class="kr">파란색...</span><span class="zh">蓝色……</span><span class="en">Blue...</span></div>
-    <div class="summary-line"><span class="num">⑬</span><span class="kr">인생이잖아...</span><span class="zh">这就是人生啊……</span><span class="en">That's life, you know...</span></div>
-    <div class="summary-line"><span class="num">⑭</span><span class="kr">오로라!</span><span class="zh">极光！</span><span class="en">Aurora!</span></div>
-    <div class="summary-line"><span class="num">⑮</span><span class="kr">그래요?</span><span class="zh">是吗？</span><span class="en">Is that so?</span></div>
-    <div class="summary-line"><span class="num">⑯</span><span class="kr">그럼 같이 가죠.</span><span class="zh">那一起去吧。</span><span class="en">Then let's go together.</span></div>
-    <div class="summary-line"><span class="num">⑰</span><span class="kr">어차피 난 피할 거 없기로 했고</span><span class="zh">反正我也没什么好躲的</span><span class="en">Anyway, I decided there's nothing to avoid</span></div>
-    <div class="summary-line"><span class="num">⑱</span><span class="kr">간 김엔</span><span class="zh">既然要去</span><span class="en">Since (we're) going anyway</span></div>
-    <div class="summary-line"><span class="num">⑲</span><span class="kr">그 오로라도 보고 싶으니까</span><span class="zh">因为我也想看看那极光</span><span class="en">Since I also want to see that aurora</span></div>
-    <div class="summary-line"><span class="num">⑳</span><span class="kr">그래요! 우리 같이 가서 오로라도 봐요!</span><span class="zh">好啊！我们一起去看看极光吧！</span><span class="en">Okay! Let's go together and see the aurora!</span></div>
-  </div>
+    <div class="summary-line"><span class="num">1</span><span class="kr">냉정하고 차분하게 나를 진정시켜줄 사람이 옆에 있으면</span><span class="zh">如果有个冷静又沉稳地能让我平静下来的人在身边的话</span><span class="en">If there's a person next to me who can calmly and coolly soothe me</span></div>
+    <div class="summary-line"><span class="num">2</span><span class="kr">어떨 것 같아요?</span><span class="zh">（你觉得）会怎么样呢？</span><span class="en">What do you think it would be like?</span></div>
+    <div class="summary-line"><span class="num">3</span><span class="kr">그 사람이 마침 외국어도 잘하면 외국에 나가서도 안심이 될 거예요, 그쵸?</span><span class="zh">那个人碰巧外语也好的话，去国外也能放心了，对吧？</span><span class="en">If that person happens to be good at foreign languages too, even going abroad would be reassuring, right?</span></div>
+    <div class="summary-line"><span class="num">4</span><span class="kr">그런 사람이 옆에 있으면 버틸 만할 것 같은데</span><span class="zh">那种人在身边的话，好像还能撑得住</span><span class="en">With that kind of person by my side, I think I could endure it</span></div>
+    <div class="summary-line"><span class="num">5</span><span class="kr">어떻게 생각해요?</span><span class="zh">你怎么想？</span><span class="en">What do you think?</span></div>
+    <div class="summary-line"><span class="num">6</span><span class="kr">사모인 씨, 내가 알아듣게 얘기해요.</span><span class="zh">思慕仁小姐，说我能听懂的话吧。</span><span class="en">Ms. Samoin, speak so that I can understand.</span></div>
+
   <div class="footer-num">台词汇总</div>
 </div>
 
 <!-- ===== PAGE 3: 精讲+应用 ① ===== -->
 <div class="page compact-page">
   <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
     <span class="lesson-tag">台词精讲 1/13</span>
   </div>
   <div class="sentence-box">
@@ -219,7 +202,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       </div>
     </div>
   </div>
-  <a href="https://nannan2026.cn/korean/audio/L30_S01.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_S01.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
     <div class="sub-sec-title">📍 单词</div>
     <div class="word-grid">
@@ -258,7 +241,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 <!-- ===== PAGE 4: 精讲+应用 ② ===== -->
 <div class="page">
   <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
     <span class="lesson-tag">台词精讲 2/13</span>
   </div>
   <div class="sentence-box">
@@ -280,7 +263,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       </div>
     </div>
   </div>
-  <a href="https://nannan2026.cn/korean/audio/L30_S02.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_S02.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
     <div class="sub-sec-title">📍 单词</div>
     <div class="word-grid">
@@ -318,7 +301,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 <!-- ===== PAGE 5: 精讲+应用 ③ ===== -->
 <div class="page compact-page">
   <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
     <span class="lesson-tag">台词精讲 3/13</span>
   </div>
   <div class="sentence-box">
@@ -348,7 +331,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       </div>
     </div>
   </div>
-  <a href="https://nannan2026.cn/korean/audio/L30_S03.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_S03.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
     <div class="sub-sec-title">📍 单词</div>
     <div class="word-grid">
@@ -388,7 +371,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 <!-- ===== PAGE 6: 精讲+应用 ④ ===== -->
 <div class="page">
   <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
     <span class="lesson-tag">台词精讲 4/13</span>
   </div>
   <div class="sentence-box">
@@ -410,7 +393,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       </div>
     </div>
   </div>
-  <a href="https://nannan2026.cn/korean/audio/L30_S04.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_S04.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
     <div class="sub-sec-title">📍 单词</div>
     <div class="word-grid">
@@ -445,7 +428,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 <!-- ===== PAGE 7: 精讲+应用 ⑤ ===== -->
 <div class="page">
   <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
     <span class="lesson-tag">台词精讲 5/13</span>
   </div>
   <div class="sentence-box">
@@ -474,7 +457,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       </div>
     </div>
   </div>
-  <a href="https://nannan2026.cn/korean/audio/L30_S05.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_S05.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
     <div class="sub-sec-title">📍 单词</div>
     <div class="word-grid">
@@ -513,7 +496,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 <!-- ===== PAGE 8: 精讲+应用 ⑥ ===== -->
 <div class="page">
   <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
     <span class="lesson-tag">台词精讲 6/13</span>
   </div>
   <div class="sentence-box">
@@ -542,7 +525,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       </div>
     </div>
   </div>
-  <a href="https://nannan2026.cn/korean/audio/L30_S06.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_S06.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
     <div class="sub-sec-title">📍 单词</div>
     <div class="word-grid">
@@ -581,7 +564,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 <!-- ===== PAGE 9: 精讲+应用 ⑦⑧ ===== -->
 <div class="page breath-page">
   <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
     <span class="lesson-tag">台词精讲 7/13</span>
   </div>
   <div class="sentence-box">
@@ -603,7 +586,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       </div>
     </div>
   </div>
-  <a href="https://nannan2026.cn/korean/audio/L30_S07.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_S07.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
     <div class="sub-sec-title">📍 单词</div>
     <div class="word-grid">
@@ -651,7 +634,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       </div>
     </div>
   </div>
-  <a href="https://nannan2026.cn/korean/audio/L30_S08.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_S08.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
     <div class="sub-sec-title">📍 单词</div>
     <div class="word-grid">
@@ -686,7 +669,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 <!-- ===== PAGE 10: 精讲+应用 ⑨⑪⑫ ===== -->
 <div class="page breath-page">
   <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
     <span class="lesson-tag">台词精讲 8/13</span>
   </div>
   <!-- ⑨⑩同句，合并 -->
@@ -708,7 +691,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       </div>
     </div>
   </div>
-  <a href="https://nannan2026.cn/korean/audio/L30_S09.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_S09.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
     <div class="sub-sec-title">📍 单词</div>
     <div class="word-grid">
@@ -739,7 +722,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       </div>
     </div>
   </div>
-  <a href="https://nannan2026.cn/korean/audio/L30_S10.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_S10.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
     <div class="sub-sec-title">📍 单词</div>
     <div class="word-grid">
@@ -765,7 +748,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       </div>
     </div>
   </div>
-  <a href="https://nannan2026.cn/korean/audio/L30_S11.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_S11.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
     <div class="sub-sec-title">📍 单词</div>
     <div class="word-grid">
@@ -784,7 +767,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 <!-- ===== PAGE 11: 精讲+应用 ⑬⑭⑮ ===== -->
 <div class="page breath-page">
   <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
     <span class="lesson-tag">台词精讲 9/13</span>
   </div>
   <div class="sentence-box">
@@ -804,7 +787,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       </div>
     </div>
   </div>
-  <a href="https://nannan2026.cn/korean/audio/L30_S12.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_S12.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
     <div class="sub-sec-title">📍 单词</div>
     <div class="word-grid">
@@ -844,7 +827,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       </div>
     </div>
   </div>
-  <a href="https://nannan2026.cn/korean/audio/L30_S13.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_S13.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
     <div class="sub-sec-title">🔧 句型/接口：名词! — 惊叹/呼喊</div>
     <div class="grammar-note">讲解：单独呼喊名词，配合 ! 表示强烈惊叹或呼喊，感情色彩强烈</div>
@@ -868,7 +851,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       </div>
     </div>
   </div>
-  <a href="https://nannan2026.cn/korean/audio/L30_S14.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_S14.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
     <div class="sub-sec-title">📍 单词</div>
     <div class="word-grid">
@@ -893,7 +876,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 <!-- ===== PAGE 12: 精讲+应用 ⑯ ===== -->
 <div class="page">
   <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
     <span class="lesson-tag">台词精讲 10/13</span>
   </div>
   <div class="sentence-box">
@@ -915,7 +898,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       </div>
     </div>
   </div>
-  <a href="https://nannan2026.cn/korean/audio/L30_S15.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_S15.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
     <div class="sub-sec-title">📍 单词</div>
     <div class="word-grid">
@@ -948,7 +931,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 <!-- ===== PAGE 13: 精讲+应用 ⑰ ===== -->
 <div class="page">
   <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
     <span class="lesson-tag">台词精讲 11/13</span>
   </div>
   <div class="sentence-box">
@@ -971,7 +954,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       </div>
     </div>
   </div>
-  <a href="https://nannan2026.cn/korean/audio/L30_S16.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_S16.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
     <div class="sub-sec-title">📍 单词</div>
     <div class="word-grid">
@@ -1010,7 +993,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 <!-- ===== PAGE 14: 精讲+应用 ⑱⑲ ===== -->
 <div class="page breath-page">
   <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
     <span class="lesson-tag">台词精讲 12/13</span>
   </div>
   <div class="sentence-box">
@@ -1029,7 +1012,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       </div>
     </div>
   </div>
-  <a href="https://nannan2026.cn/korean/audio/L30_S17.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_S17.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
     <div class="sub-sec-title">📍 单词</div>
     <div class="word-grid">
@@ -1077,7 +1060,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       </div>
     </div>
   </div>
-  <a href="https://nannan2026.cn/korean/audio/L30_S18.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_S18.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
     <div class="sub-sec-title">📍 单词</div>
     <div class="word-grid">
@@ -1108,7 +1091,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 <!-- ===== PAGE 15: 精讲+应用 ⑳ (两页均衡) ===== -->
 <div class="page">
   <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
     <span class="lesson-tag">台词精讲 13/13</span>
   </div>
   <div class="sentence-box">
@@ -1144,7 +1127,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       </div>
     </div>
   </div>
-  <a href="https://nannan2026.cn/korean/audio/L30_S19.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <a href="https://nannan2026.cn/korean/audio/L29_S19.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
     <div class="sub-sec-title">📍 单词</div>
     <div class="word-grid">
@@ -1172,7 +1155,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 </div>
   <div class="page" style="padding-top:12mm;">
   <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
     <span class="lesson-tag">台词精讲 13/13 · 应用</span>
   </div>
   <hr style="margin-bottom:8px;">
@@ -1190,7 +1173,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 <!-- ===== PAGE 16: 重点句型 + 重点单词（同页）===== -->
 <div class="page">
   <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
     <span>重点句型 · 重点单词</span>
   </div>
   <div class="sec-title">⭐ 重点句型</div>
@@ -1270,7 +1253,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 <!-- ===== PAGE 17: 场景练习包 — 场景迁移 ===== -->
 <div class="page">
   <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
     <span>🎬 场景练习包</span>
   </div>
   <div class="sec-title">🗣️ 场景迁移 · 对话剧场</div>
@@ -1362,7 +1345,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 <!-- ===== PAGE 18: 场景日记 ===== -->
 <div class="page">
   <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
     <span>📝 场景日记</span>
   </div>
   <div class="sec-title">📝 场景日记 · 用今天的句型写下来</div>

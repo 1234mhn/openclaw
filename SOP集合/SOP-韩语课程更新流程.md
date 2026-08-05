@@ -2,8 +2,10 @@
 
 > 触发词：「加课」「更新新课」「第X课」
 > 页面地址：https://nannan2026.cn/korean/
-> 🏆 **标准模板：`/root/.openclaw/workspace/korean_course/课程模板_lesson30.html`（2026-08-01 定为课程标准模板）**
+> 🏆 **标准模板（新版复利笔记PDF版）：`/root/.openclaw/workspace/obsidian_nanan_compound_library/语言库/韩语库/这爱情怎么翻译 台词复利笔记/课程模板_lesson30_final.html`（2026-08-05 定为课程标准模板）**
+> 定稿PDF：`.../第30课_复利笔记_定稿.pdf`（23页）
 > 模板参考：`/root/.openclaw/workspace/korean_course/课程模板说明.md`
+> 🔴 **词尾四种规则（2026-08-05 用户敲定）**：①加料②接口③收尾④变身 —— 用到的**只打✓，✓后不加任何内容**；没用到**整个标签文字中间画删除线**（`<s>①加料 —</s>`）
 > 页面源码：`/root/.openclaw/workspace/korean_course/index.html`
 >
 > 🔴 **铁律1：严禁手动编辑HTML！** 所有代码修改必须 spawn Claude Code 去执行

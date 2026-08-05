@@ -6,7 +6,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans:wght@400;700&display=swap');
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Noto Sans SC', 'Noto Sans KR', 'Noto Sans', sans-serif; background: #ffffff; color: #333; }
+body { font-family: 'Noto Sans SC', 'Noto Sans KR', 'Noto Sans', sans-serif; background: #f5f0e8; color: #333; }
 .page { width: 210mm; min-height: 297mm; padding: 14mm 16mm; background: #fff; margin: 0 auto; position: relative; page-break-before: always; }
 .page:first-of-type { page-break-before: avoid; }
 .cover { background: linear-gradient(145deg, #faf8f4, #f5f0e8, #ede6d8, #e8dfce); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
@@ -18,7 +18,7 @@ body { font-family: 'Noto Sans SC', 'Noto Sans KR', 'Noto Sans', sans-serif; bac
 .header-bar { display: flex; justify-content: space-between; font-size: 10px; color: #8b7355; border-bottom: 1px solid #e8dfce; padding-bottom: 4px; margin-bottom: 10px; }
 .header-left { font-weight: bold; }
 .lesson-tag { font-size: 10px; color: #8b7355; }
-.sec-title { font-size: 14px; color: #8b7355; font-weight: bold; margin: 6px 0 4px; }
+.sec-title { font-size: 14px; color: #8b7355; font-weight: bold; margin: 10px 0 6px; }
 .sub-sec-title { font-size: 11px; font-weight: bold; color: #8b7355; margin: 6px 0 2px; }
 .kr-text { font-size: 14px; font-weight: bold; color: #1a1a1a; line-height: 1.6; }
 .zh-text { font-size: 13px; color: #555; line-height: 1.5; }
@@ -35,7 +35,7 @@ body { font-family: 'Noto Sans SC', 'Noto Sans KR', 'Noto Sans', sans-serif; bac
 table { width: 100%; border-collapse: collapse; margin: 8px 0; }
 th { background: #c4b998; color: #fff; padding: 6px 10px; font-size: 12px; }
 td { padding: 6px 10px; border-bottom: 1px solid #e8dfce; font-size: 12px; }
-.audio-btn { color: #2a6f97; text-decoration: underline; cursor: pointer; font-size: 12px; display: inline-block; margin: 2px 0 0; }
+.audio-btn { color: #2a6f97; text-decoration: underline; cursor: pointer; font-size: 12px; display: inline-block; margin: 4px 0; }
 .footer-num { position: absolute; bottom: 10mm; right: 16mm; font-size: 9px; color: #c4b998; }
 .cover-kr { display: block; font-family: 'Noto Sans KR', sans-serif; font-size: 22px; color: #7a5e3e; margin-top: 6px; }
 .cover-svg-wrap { margin: 8px 0 15px; }
@@ -48,52 +48,16 @@ td { padding: 6px 10px; border-bottom: 1px solid #e8dfce; font-size: 12px; }
 .analysis-tree { font-size: 10px; font-family: monospace; color: #555; line-height: 1.5; margin: 4px 0 4px 8px; background: #fafafa; border-left: 2px solid #e8dfce; padding: 4px 8px; }
 .exercise-text { font-size: 11px; color: #444; line-height: 1.6; margin: 4px 0; }
 .answer-ref { font-size: 10px; color: #999; margin-top: 2px; }
-.summary-line { padding: 1px 0; border-bottom: 1px solid #f0e8dd; font-size: 11px; line-height: 1.35; }
-.summary-line .num { display: inline; width: auto; color: #c4b998; font-weight: bold; margin-right: 2px; }
-.summary-line .kr { font-weight: bold; display: inline; margin-left: 0; }
-.summary-line .zh { color: #555; display: block; margin-left: 22px; font-size: 11px; }
-.summary-line .en { color: #999; font-style: italic; font-size: 10px; display: block; margin-left: 22px; }
+.summary-line { padding: 3px 0; border-bottom: 1px solid #f0e8dd; font-size: 12px; line-height: 1.5; }
+.summary-line .num { display: inline-block; width: 24px; color: #c4b998; font-weight: bold; }
+.summary-line .kr { font-weight: bold; display: block; margin-left: 28px; }
+.summary-line .zh { color: #555; display: block; margin-left: 28px; font-size: 12px; }
+.summary-line .en { color: #999; font-style: italic; font-size: 11px; display: block; margin-left: 28px; }
 .page-num-right { position: absolute; top: 14mm; right: 16mm; font-size: 10px; color: #8b7355; }
 hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 .answer-item { font-size: 10px; padding: 3px 6px; background: #f8f6f2; border-radius: 3px; border-left: 3px solid #7cb342; margin: 3px 0; line-height: 1.5; }
 .diary-blank-line { font-size: 11px; color: #999; letter-spacing: 1px; border-bottom: 1px solid #ccc; padding: 3px 0; margin: 2px 0; }
 .challenge-box { background: #f8f6f2; padding: 10px 12px; border-radius: 4px; margin: 8px 0; }
-.sf-card { background: #faf7f2; border-radius: 4px; padding: 8px 12px; margin: 5px 0; border: 1px solid #e8dfce; }
-.sf-card-title { font-size: 11px; font-weight: bold; color: #5c4a3a; margin-bottom: 5px; padding-bottom: 3px; border-bottom: 1px solid #e8dfce; }
-.sf-row { font-size: 11px; line-height: 1.7; display: flex; align-items: baseline; }
-.sf-label { min-width: 54px; color: #8b7355; flex-shrink: 0; font-size: 10px; }
-.sf-value { flex: 1; color: #444; }
-.sf-endings { font-size: 10px; color: #555; margin-top: 4px; display: flex; gap: 10px; flex-wrap: wrap; background: #f0ede8; padding: 3px 6px; border-radius: 3px; }
-.sf-link { font-size: 10px; color: #7a6a55; margin-top: 4px; font-style: italic; padding-top: 3px; border-top: 1px dashed #ddd; }
-.sf-detail { font-size: 10.5px; color: #5c4a3a; margin-top: 4px; line-height: 1.6; padding: 4px 8px; background: #fbf7ef; border-left: 3px solid #c4873a; border-radius: 3px; }
-/* Compact layout: moderate compression for single-sentence pages to avoid orphan lines */
-.compact-page .sentence-box { padding: 8px 12px; margin-bottom: 6px; }
-.compact-page .sf-card { padding: 6px 10px; margin: 4px 0; }
-.compact-page .sf-card-title { margin-bottom: 4px; padding-bottom: 2px; }
-.compact-page .sf-row { line-height: 1.55; }
-.compact-page .sf-endings { margin-top: 3px; padding: 2px 5px; gap: 7px; }
-.compact-page .sf-link { margin-top: 3px; padding-top: 2px; }
-.compact-page .detail-block { margin: 3px 0; }
-.compact-page .sub-sec-title { margin: 4px 0 1px; }
-.compact-page .word-grid { padding: 4px 0; gap: 1px 13px; }
-.compact-page .grammar-note { line-height: 1.5; }
-.compact-page hr { margin: 4px 0; }
-.compact-page .exercise-text { margin: 3px 0; line-height: 1.52; }
-.compact-page .answer-ref { margin-top: 1px; }
-/* Breath layout: expanded spacing for multi-sentence pages so content spreads across both PDF pages evenly */
-.breath-page .sentence-box { padding: 12px 14px; margin-bottom: 10px; }
-.breath-page .sf-card { padding: 9px 12px; margin: 6px 0; }
-.breath-page .sf-card-title { margin-bottom: 6px; padding-bottom: 4px; }
-.breath-page .sf-row { line-height: 1.85; }
-.breath-page .sf-endings { margin-top: 6px; padding: 4px 7px; gap: 12px; }
-.breath-page .sf-link { margin-top: 6px; padding-top: 4px; }
-.breath-page .detail-block { margin: 6px 0; }
-.breath-page .sub-sec-title { margin: 8px 0 3px; }
-.breath-page .word-grid { padding: 8px 0; gap: 3px 16px; }
-.breath-page .grammar-note { line-height: 1.7; }
-.breath-page hr { margin: 8px 0; }
-.breath-page .exercise-text { margin: 6px 0; line-height: 1.7; }
-.breath-page .answer-ref { margin-top: 3px; }
 </style>
 </head>
 <body>
@@ -181,11 +145,12 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
     <div class="summary-line"><span class="num">⑲</span><span class="kr">그 오로라도 보고 싶으니까</span><span class="zh">因为我也想看看那极光</span><span class="en">Since I also want to see that aurora</span></div>
     <div class="summary-line"><span class="num">⑳</span><span class="kr">그래요! 우리 같이 가서 오로라도 봐요!</span><span class="zh">好啊！我们一起去看看极光吧！</span><span class="en">Okay! Let's go together and see the aurora!</span></div>
   </div>
+  <div style="margin-top:10px;font-size:11px;color:#8b7355;line-height:1.6;">💡 本课重点句型：그러니까 · -아/어 주세요 · -았/었으면 좋겠다 · -ㄹ까 봐 · -ㄹ 자신이 있다 · -면 -ㄹ 수 있는데 · -잖아(요) · -죠 · -기로 하다 · -는 김에 · -고 싶으니까 · -아서</div>
   <div class="footer-num">台词汇总</div>
 </div>
 
 <!-- ===== PAGE 3: 精讲+应用 ① ===== -->
-<div class="page compact-page">
+<div class="page">
   <div class="header-bar">
     <span class="header-left">第30课 · 一起去看极光</span>
     <span class="lesson-tag">台词精讲 1/13</span>
@@ -197,27 +162,31 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">📐 句子框架</div>
-    <div>
-      <div class="sf-card">
-        <div class="sf-card-title">短句1：그러니까</div>
-        <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">（无）</span></div>
-        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value">（省略，听话方）</span></div>
-        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value">（无）</span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value">（话没说完，省略谓语）</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-니까</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
-        <div class="sf-link">🔗 接口：그러니까 引导下一短句，表示"所以/也就是说"</div>
-      </div>
-      <div class="sf-card">
-        <div class="sf-card-title">短句2：지금 당신 말은...</div>
-        <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">지금（现在）</span></div>
-        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value"><span class="tag-who">당신（你）</span></span></div>
-        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">말（话/意思）</span></span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">말이다（是…的意思）</span>（省略，话未说完）</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-은</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span><s>③收尾 —</s></span><span>④变身 ✓</span></div>
-      </div>
-    </div>
+    <div class="analysis-tree">【长句】그러니까 지금 당신 말은...
+
+【短句1】그러니까 — 连接副词，引出追问/总结
+ 🗺️背景：（无）
+ 👤谁：（省略，听话方）
+ 📦什么：（无）
+ ✍️干：（话没说完，省略谓语）
+ 🔧词尾：-니까
+   ①加料—
+   ②接口✓
+   ③收尾—
+   ④变身—
+
+🔗 接口：그러니까 引导下一短句，表示"所以/也就是说"
+
+【短句2】지금 당신 말은...
+ 🗺️背景：지금（现在）
+ 👤谁：<span class="tag-who">당신（你）</span>
+ 📦什么：<span class="tag-what">말（话/意思）</span>
+ ✍️干：<span class="tag-do">말이다（是…的意思）</span>（省略，话未说完）
+ 🔧词尾：-은
+   ①加料—
+   ②接口—
+   ③收尾—
+   ④变身✓（体言化强调助词）</div>
   </div>
   <a href="https://nannan2026.cn/korean/audio/L30_S01.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
@@ -268,17 +237,16 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">📐 句子框架</div>
-    <div>
-      <div class="sf-card">
-        <div class="sf-card-title">② 도와주세요!</div>
-        <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">（无）</span></div>
-        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value">（省略，说话人自己呼叫）</span></div>
-        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value">（无）</span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">돕다（帮助）</span> ← 원형</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아/어 주세요</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
-      </div>
-    </div>
+    <div class="analysis-tree">
+ 🗺️背景：（无）
+ 👤谁：（省略，说话人自己呼叫）
+ 📦什么：（无）
+ ✍️干：<span class="tag-do">돕다（帮助）</span>← 원형
+ 🔧词尾：-아/어 주세요
+   ①加料—
+   ②接口—
+   ③收尾✓（请求终结）
+   ④变身—</div>
   </div>
   <a href="https://nannan2026.cn/korean/audio/L30_S02.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
@@ -288,10 +256,6 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       <div class="word-item"><span class="ko">도와주다</span><span class="zh">— 帮（某人）</span><span class="en">to help (someone)</span></div>
       <div class="word-item"><span class="ko">-세요</span><span class="zh">— 请……</span><span class="en">please (polite request)</span></div>
     </div>
-  </div>
-  <div class="detail-block">
-    <div class="sub-sec-title">💬 短语</div>
-    <div class="grammar-note">도움을 주다 — 给予帮助 · 도움을 받다 — 接受帮助 · 도와주세요 — 请帮帮我（固定请求）</div>
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">🔧 句型/接口：-아/어 주세요 — "请帮我……"</div>
@@ -316,7 +280,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 </div>
 
 <!-- ===== PAGE 5: 精讲+应用 ③ ===== -->
-<div class="page compact-page">
+<div class="page">
   <div class="header-bar">
     <span class="header-left">第30课 · 一起去看极光</span>
     <span class="lesson-tag">台词精讲 3/13</span>
@@ -328,25 +292,29 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">📐 句子框架</div>
-    <div>
-      <div class="sf-card">
-        <div class="sf-card-title">短句1：당신이 같이 가 줬으면</div>
-        <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">같이（一起）</span></div>
-        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value"><span class="tag-who">당신이（你）</span></span></div>
-        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value">（无）</span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">가 주다（帮着去）</span> ← 원형 가다+주다</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-았으면</span></div>
-        <div class="sf-endings"><span>①加料 ✓</span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
-        <div class="sf-link">🔗 -았/었으면 连接短句2 좋겠어요（希望……就好了）</div>
-      </div>
-      <div class="sf-card">
-        <div class="sf-card-title">短句2：좋겠어요</div>
-        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value">（说话人，省略）</span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">좋다（好）</span> ← 원형</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-겠어요</span></div>
-        <div class="sf-endings"><span>①加料 ✓</span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
-      </div>
-    </div>
+    <div class="analysis-tree">【长句】당신이 같이 가 줬으면 좋겠어요
+
+【短句1】당신이 같이 가 줬으면
+ 🗺️背景：같이（一起）
+ 👤谁：<span class="tag-who">당신이（你）</span>
+ 📦什么：（无）
+ ✍️干：<span class="tag-do">가 주다（帮着去）</span>← 원형 가다+주다
+ 🔧词尾：-았으면
+   ①加料✓（-았- 过去/假设）
+   ②接口✓（-으면 连接条件）
+   ③收尾—
+   ④变身—
+
+🔗 接口：-았/었으면 连接【短句2】좋겠어요（希望……就好了）
+
+【短句2】좋겠어요
+ 👤谁：（说话人，省略）
+ ✍️干：<span class="tag-do">좋다（好）</span>← 원형
+ 🔧词尾：-겠어요
+   ①加料✓（-겠- 主观意愿/期望）
+   ②接口—
+   ③收尾✓
+   ④变身—</div>
   </div>
   <a href="https://nannan2026.cn/korean/audio/L30_S03.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
@@ -398,17 +366,16 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">📐 句子框架</div>
-    <div>
-      <div class="sf-card">
-        <div class="sf-card-title">④ 혹시 내가 부담스러워요?</div>
-        <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">혹시（会不会/该不会）</span></div>
-        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value"><span class="tag-who">내가（我）</span></span></div>
-        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value">（无）</span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">부담스럽다（让人感到负担）</span> ← 원형</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아요（疑问）</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
-      </div>
-    </div>
+    <div class="analysis-tree">
+ 🗺️背景：혹시（会不会/该不会）
+ 👤谁：<span class="tag-who">내가（我）</span>
+ 📦什么：（无）
+ ✍️干：<span class="tag-do">부담스럽다（让人感到负担）</span>← 원형
+ 🔧词尾：-아요（疑问）
+   ①加料—
+   ②接口—
+   ③收尾✓（해요体疑问）
+   ④变身—</div>
   </div>
   <a href="https://nannan2026.cn/korean/audio/L30_S04.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
@@ -455,24 +422,28 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">📐 句子框架</div>
-    <div>
-      <div class="sf-card">
-        <div class="sf-card-title">短句1：내가 막 사귀자고 협박할까 봐</div>
-        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value"><span class="tag-who">내가（我）</span></span></div>
-        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">사귀자고（交往提议）</span></span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">협박하다（威胁）</span> ← 원형</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-ㄹ까 봐</span></div>
-        <div class="sf-endings"><span>①加料 ✓</span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span>④变身 ✓</span></div>
-        <div class="sf-link">🔗 -ㄹ까 봐 连接担忧/恐惧的内容</div>
-      </div>
-      <div class="sf-card">
-        <div class="sf-card-title">短句2：무서워요?</div>
-        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value">（省略，听话方）</span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">무섭다（害怕）</span> ← 원형</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아요</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
-      </div>
-    </div>
+    <div class="analysis-tree">【长句】내가 막 사귀자고 협박할까 봐 무서워요?
+
+【短句1】내가 막 사귀자고 협박할까 봐
+ 👤谁：<span class="tag-who">내가（我）</span>
+ 📦什么：<span class="tag-what">사귀자고（交往提议）</span>
+ ✍️干：<span class="tag-do">협박하다（威胁）</span>← 원형
+ 🔧词尾：-ㄹ까 봐
+   ①加料✓（-ㄹ 推量）
+   ②接口✓（봐 连接结果）
+   ③收尾—
+   ④变身✓（-ㄹ 定语转化）
+
+🔗 接口：-ㄹ까 봐 连接担忧/恐惧的内容
+
+【短句2】무서워요?
+ 👤谁：（省略，听话方）
+ ✍️干：<span class="tag-do">무섭다（害怕）</span>← 원형
+ 🔧词尾：-아요
+   ①加料—
+   ②接口—
+   ③收尾✓（疑问）
+   ④变身—</div>
   </div>
   <a href="https://nannan2026.cn/korean/audio/L30_S05.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
@@ -483,10 +454,6 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       <div class="word-item"><span class="ko">협박하다</span><span class="zh">— 威胁</span><span class="en">to threaten</span></div>
       <div class="word-item"><span class="ko">무섭다</span><span class="zh">— 害怕/可怕</span><span class="en">to be scared</span></div>
     </div>
-  </div>
-  <div class="detail-block">
-    <div class="sub-sec-title">💬 短语</div>
-    <div class="grammar-note">사귀자고 하다 — 提议交往 · 협박에 무섭다 — 被威胁吓到 · 막 ~하다 — 随便就……（日常口语）</div>
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">🔧 句型/接口：-(으)ㄹ까 봐 — "怕……/担心……"</div>
@@ -523,24 +490,28 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">📐 句子框架</div>
-    <div>
-      <div class="sf-card">
-        <div class="sf-card-title">短句1：그런 협박에 넘어가지 않을（定语修饰 자신）</div>
-        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">그런 협박에（那种威胁）</span></span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">넘어가지 않다（不屈服）</span> ← 원형</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-ㄹ（定语形）</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span><s>③收尾 —</s></span><span>④变身 ✓</span></div>
-        <div class="sf-link">🔗 -ㄹ 修饰后方名词 자신（自信/把握）</div>
-      </div>
-      <div class="sf-card">
-        <div class="sf-card-title">短句2：자신은 있습니다</div>
-        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value">（说话人，省略）</span></div>
-        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">자신은（自信）</span></span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">있다（有）</span> ← 원형</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-습니다</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
-      </div>
-    </div>
+    <div class="analysis-tree">【长句】그런 협박에 넘어가지 않을 자신은 있습니다
+
+【短句1】그런 협박에 넘어가지 않을（定语修饰자신）
+ 📦什么：<span class="tag-what">그런 협박에（那种威胁）</span>
+ ✍️干：<span class="tag-do">넘어가지 않다（不屈服）</span>← 원형
+ 🔧词尾：-ㄹ（定语形）
+   ①加料—
+   ②接口—
+   ③收尾—
+   ④变身✓（定语转化修饰자신）
+
+🔗 -ㄹ 接口：修饰后方名词 자신（自信/把握）
+
+【短句2】자신은 있습니다
+ 👤谁：（说话人，省略）
+ 📦什么：<span class="tag-what">자신은（自信）</span>
+ ✍️干：<span class="tag-do">있다（有）</span>← 원형
+ 🔧词尾：-습니다
+   ①加料—
+   ②接口—
+   ③收尾✓（합쇼体正式）
+   ④变身—</div>
   </div>
   <a href="https://nannan2026.cn/korean/audio/L30_S06.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
@@ -551,10 +522,6 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       <div class="word-item"><span class="ko">넘어가다</span><span class="zh">— 上当/被迷惑</span><span class="en">to fall for</span></div>
       <div class="word-item"><span class="ko">자신</span><span class="zh">— 自信/把握</span><span class="en">confidence</span></div>
     </div>
-  </div>
-  <div class="detail-block">
-    <div class="sub-sec-title">💬 短语</div>
-    <div class="grammar-note">협박에 넘어가다 — 被威胁吓倒/上当 · 자신이 있다 — 有把握/有自信 · 자신이 없다 — 没把握</div>
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">🔧 句型/接口：-ㄹ 자신이 있다 — "有……的自信/把握"</div>
@@ -579,7 +546,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 </div>
 
 <!-- ===== PAGE 9: 精讲+应用 ⑦⑧ ===== -->
-<div class="page breath-page">
+<div class="page">
   <div class="header-bar">
     <span class="header-left">第30课 · 一起去看极光</span>
     <span class="lesson-tag">台词精讲 7/13</span>
@@ -591,17 +558,16 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">📐 句子框架</div>
-    <div>
-      <div class="sf-card">
-        <div class="sf-card-title">⑦ 그럼 같이 가요!</div>
-        <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">그럼（那么，承接上文）</span></div>
-        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value">（省略，我们）</span></div>
-        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value">（无）</span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">가다（去）</span> ← 원형</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아요</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
-      </div>
-    </div>
+    <div class="analysis-tree">
+ 🗺️背景：그럼（那么，承接上文）
+ 👤谁：（省略，我们）
+ 📦什么：（无）
+ ✍️干：<span class="tag-do">가다（去）</span>← 원형
+ 🔧词尾：-아요
+   ①加料—
+   ②接口—
+   ③收尾✓（해요体，提议/邀约语气）
+   ④变身—</div>
   </div>
   <a href="https://nannan2026.cn/korean/audio/L30_S07.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
@@ -611,10 +577,6 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       <div class="word-item"><span class="ko">같이</span><span class="zh">— 一起</span><span class="en">together</span></div>
       <div class="word-item"><span class="ko">가다</span><span class="zh">— 去</span><span class="en">to go</span></div>
     </div>
-  </div>
-  <div class="detail-block">
-    <div class="sub-sec-title">💬 短语</div>
-    <div class="grammar-note">같이 가다 — 一起去（邀约固定搭配） · 그럼 같이 가요 — 那就一起去吧（常用邀约句）</div>
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">🔧 句型/接口：그럼 …(아/어)요! — "那就……吧！"</div>
@@ -634,22 +596,26 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">📐 句子框架</div>
-    <div>
-      <div class="sf-card">
-        <div class="sf-card-title">短句1：가면（如果去的话）</div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">가다（去）</span> ← 원형</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-면</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
-        <div class="sf-link">🔗 -면 连接条件句和结果句</div>
-      </div>
-      <div class="sf-card">
-        <div class="sf-card-title">短句2：오로라도 볼 수 있는데?</div>
-        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">오로라도（极光也）</span></span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">보다（看）</span> ← 원형</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-ㄹ 수 있는데</span></div>
-        <div class="sf-endings"><span>①加料 ✓</span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span>④变身 ✓</span></div>
-      </div>
-    </div>
+    <div class="analysis-tree">【长句】가면 오로라도 볼 수 있는데?
+
+【短句1】가면（如果去的话）
+ ✍️干：<span class="tag-do">가다（去）</span>← 원형
+ 🔧词尾：-면
+   ①加料—
+   ②接口✓（条件连接）
+   ③收尾—
+   ④变身—
+
+🔗 -면 连接条件句和结果句
+
+【短句2】오로라도 볼 수 있는데?
+ 📦什么：<span class="tag-what">오로라도（极光也）</span>
+ ✍️干：<span class="tag-do">보다（看）</span>← 원형
+ 🔧词尾：-ㄹ 수 있는데
+   ①加料✓（-ㄹ 수 있다 能力可能）
+   ②接口—
+   ③收尾✓（-는데 带提议/余韵）
+   ④变身✓（-ㄹ 定语）</div>
   </div>
   <a href="https://nannan2026.cn/korean/audio/L30_S08.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
@@ -660,10 +626,6 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       <div class="word-item"><span class="ko">보다</span><span class="zh">— 看</span><span class="en">to see</span></div>
       <div class="word-item"><span class="ko">볼 수 있다</span><span class="zh">— 能看到</span><span class="en">can see</span></div>
     </div>
-  </div>
-  <div class="detail-block">
-    <div class="sub-sec-title">💬 短语</div>
-    <div class="grammar-note">오로라를 보다 — 看极光 · 오로라도 보다 — 顺便看极光（도=也，表附带） · 볼 수 있다 — 可以看到（能力可能搭配）</div>
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">🔧 句型/接口：-(으)면 -ㄹ 수 있는데 — "如果……就能……呢"</div>
@@ -684,7 +646,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 </div>
 
 <!-- ===== PAGE 10: 精讲+应用 ⑨⑪⑫ ===== -->
-<div class="page breath-page">
+<div class="page">
   <div class="header-bar">
     <span class="header-left">第30课 · 一起去看极光</span>
     <span class="lesson-tag">台词精讲 8/13</span>
@@ -697,16 +659,16 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">📐 句子框架</div>
-    <div>
-      <div class="sf-card">
-        <div class="sf-card-title">⑨⑩ 오로라...</div>
-        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">오로라（极光）</span></span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value">（省略，感叹/喃喃自语）</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">（无词尾，名词单独出现 + 省略号表示情绪停顿）</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
-        <div class="sf-link">备注：⑨⑩同句，台词汇总中保留两条，精讲合并为一次讲解。</div>
-      </div>
-    </div>
+    <div class="analysis-tree">
+ 📦什么：<span class="tag-what">오로라（极光）</span>
+ ✍️干：（省略，感叹/喃喃自语）
+ 🔧词尾：（无词尾，名词单独出现 + 省略号表示情绪停顿）
+   ①加料—
+   ②接口—
+   ③收尾—
+   ④变身—
+
+备注：⑨⑩同句，台词汇总中保留两条，精讲合并为一次讲解。</div>
   </div>
   <a href="https://nannan2026.cn/korean/audio/L30_S09.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
@@ -729,15 +691,14 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">📐 句子框架</div>
-    <div>
-      <div class="sf-card">
-        <div class="sf-card-title">⑪ 초록색...</div>
-        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">초록색（绿色）</span></span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value">（省略）</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">（无词尾，名词单독출현）</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
-      </div>
-    </div>
+    <div class="analysis-tree">
+ 📦什么：<span class="tag-what">초록색（绿色）</span>
+ ✍️干：（省略）
+ 🔧词尾：（无词尾，名词单独出现）
+   ①加料—
+   ②接口—
+   ③收尾—
+   ④变身—</div>
   </div>
   <a href="https://nannan2026.cn/korean/audio/L30_S10.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
@@ -755,15 +716,14 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">📐 句子框架</div>
-    <div>
-      <div class="sf-card">
-        <div class="sf-card-title">⑫ 파란색...</div>
-        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">파란색（蓝色）</span></span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value">（省略）</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">（无词尾，名词单독出현）</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
-      </div>
-    </div>
+    <div class="analysis-tree">
+ 📦什么：<span class="tag-what">파란색（蓝色）</span>
+ ✍️干：（省略）
+ 🔧词尾：（无词尾，名词单독出현）
+   ①加料—
+   ②接口—
+   ③收尾—
+   ④变身—</div>
   </div>
   <a href="https://nannan2026.cn/korean/audio/L30_S11.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
@@ -782,7 +742,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 </div>
 
 <!-- ===== PAGE 11: 精讲+应用 ⑬⑭⑮ ===== -->
-<div class="page breath-page">
+<div class="page">
   <div class="header-bar">
     <span class="header-left">第30课 · 一起去看极光</span>
     <span class="lesson-tag">台词精讲 9/13</span>
@@ -794,15 +754,14 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">📐 句子框架</div>
-    <div>
-      <div class="sf-card">
-        <div class="sf-card-title">⑬ 인생이잖아...</div>
-        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">인생（人生）</span></span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">이다（是）</span> ← 원형</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-이잖아</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
-      </div>
-    </div>
+    <div class="analysis-tree">
+ 📦什么：<span class="tag-what">인생（人生）</span>
+ ✍️干：<span class="tag-do">이다（是）</span>← 원형
+ 🔧词尾：-이잖아
+   ①加料—
+   ②接口—
+   ③收尾✓（-잖아 感叹终结，不是嘛）
+   ④变身—</div>
   </div>
   <a href="https://nannan2026.cn/korean/audio/L30_S12.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
@@ -811,10 +770,6 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       <div class="word-item"><span class="ko">인생</span><span class="zh">— 人生</span><span class="en">life</span></div>
       <div class="word-item"><span class="ko">-잖아(요)</span><span class="zh">— 不是嘛/你知道的</span><span class="en">you know</span></div>
     </div>
-  </div>
-  <div class="detail-block">
-    <div class="sub-sec-title">💬 短语</div>
-    <div class="grammar-note">인생이잖아요 — 这就是人生嘛（感叹固定表达） · 인생이다 — 这就是人生（感叹说法）</div>
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">🔧 句型/接口：-잖아(요) — "不是嘛/你知道的"</div>
@@ -834,15 +789,12 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">📐 句子框架</div>
-    <div>
-      <div class="sf-card">
-        <div class="sf-card-title">⑭ 오로라!</div>
-        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">오로라（极光）</span></span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value">（省略，惊叹句）</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">（无，! 感叹）</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
-      </div>
-    </div>
+    <div class="analysis-tree">
+ 📦什么：<span class="tag-what">오로라（极光）</span> ✍️干：（省略，惊叹句） 🔧词尾：（无，!感叹）
+ ①加料—
+ ②接口—
+ ③收尾—
+ ④变身—</div>
   </div>
   <a href="https://nannan2026.cn/korean/audio/L30_S13.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
@@ -859,14 +811,13 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">📐 句子框架</div>
-    <div>
-      <div class="sf-card">
-        <div class="sf-card-title">⑮ 그래요?</div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">그렇다（那样）</span> ← 원형（그러다/그렇다）</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아요（疑问）</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
-      </div>
-    </div>
+    <div class="analysis-tree">
+ ✍️干：<span class="tag-do">그렇다（那样）</span>← 원형（그러다/그렇다）
+ 🔧词尾：-아요（疑问）
+   ①加料—
+   ②接口—
+   ③收尾✓（해요体疑问）
+   ④变身—</div>
   </div>
   <a href="https://nannan2026.cn/korean/audio/L30_S14.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
@@ -903,17 +854,16 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">📐 句子框架</div>
-    <div>
-      <div class="sf-card">
-        <div class="sf-card-title">⑯ 그럼 같이 가죠.</div>
-        <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">그럼（那么，承接上文）</span></div>
-        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value">（省略，我们）</span></div>
-        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value">（无）</span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">가다（去）</span> ← 원형</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-죠</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
-      </div>
-    </div>
+    <div class="analysis-tree">
+ 🗺️背景：그럼（那么，承接上文）
+ 👤谁：（省略，我们）
+ 📦什么：（无）
+ ✍️干：<span class="tag-do">가다（去）</span>← 원형
+ 🔧词尾：-죠
+   ①加料—
+   ②接口—
+   ③收尾✓（-죠 柔和提议/确认，比-요 更温和）
+   ④变身—</div>
   </div>
   <a href="https://nannan2026.cn/korean/audio/L30_S15.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
@@ -958,18 +908,24 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">📐 句子框架</div>
-    <div>
-      <div class="sf-card">
-        <div class="sf-card-title">短句1：어차피 난 피할 거 없기로 했고</div>
-        <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">어차피（反正）</span></div>
-        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value"><span class="tag-who">난（我=나는）</span></span></div>
-        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">피할 거（要躲的事）</span></span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">없기로 하다（决定没有/不……）</span> ← 원형</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-었고</span></div>
-        <div class="sf-endings"><span>①加料 ✓</span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
-        <div class="sf-link">中间词尾：피할 -ㄹ 定语④✓ · 없기로 -기로 决定②✓ · 했 -았- 过去①✓ · -고 连接②✓</div>
-      </div>
-    </div>
+    <div class="analysis-tree">【长句】어차피 난 피할 거 없기로 했고
+
+【短句1】어차피 난 피할 거 없기로 했고
+ 🗺️背景：어차피（反正）
+ 👤谁：<span class="tag-who">난（我=나는）</span>
+ 📦什么：<span class="tag-what">피할 거（要躲的事）</span>
+ ✍️干：<span class="tag-do">없기로 하다（决定没有/不……）</span>← 원형
+ 🔧词尾：-었고
+   ①加料✓（-었- 过去完成）
+   ②接口✓（-고 并列连接后续）
+   ③收尾—
+   ④变身—
+
+中间词尾拆解：
+ • 피할 — 피하다의 -ㄹ 定语 ④变身✓
+ • 없기로 — 없다+-기로（以……为目标/决定）②接口✓
+ • 했 — 하다過去 ①加料✓
+ • -고 连接下文 ②接口✓</div>
   </div>
   <a href="https://nannan2026.cn/korean/audio/L30_S16.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
@@ -980,10 +936,6 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       <div class="word-item"><span class="ko">없다</span><span class="zh">— 没有</span><span class="en">not exist</span></div>
       <div class="word-item"><span class="ko">-기로 하다</span><span class="zh">— 决定……</span><span class="en">decide to</span></div>
     </div>
-  </div>
-  <div class="detail-block">
-    <div class="sub-sec-title">💬 短语</div>
-    <div class="grammar-note">피할 거 없다 — 没什么好躲的（固定搭配） · 어차피 ~기로 했다 — 反正已经决定……</div>
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">🔧 句型/接口：-기로 하다 — "决定……"</div>
@@ -1008,7 +960,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 </div>
 
 <!-- ===== PAGE 14: 精讲+应用 ⑱⑲ ===== -->
-<div class="page breath-page">
+<div class="page">
   <div class="header-bar">
     <span class="header-left">第30课 · 一起去看极光</span>
     <span class="lesson-tag">台词精讲 12/13</span>
@@ -1020,14 +972,13 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">📐 句子框架</div>
-    <div>
-      <div class="sf-card">
-        <div class="sf-card-title">⑱ 간 김엔</div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">가다（去）</span> ← 원형</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-ㄴ 김에(는)</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span>④变身 ✓</span></div>
-      </div>
-    </div>
+    <div class="analysis-tree">
+ ✍️干：<span class="tag-do">가다（去）</span>← 원형
+ 🔧词尾：-ㄴ 김에(는)
+   ①加料—
+   ②接口✓（顺便/趁机连接）
+   ③收尾—
+   ④变身✓（-ㄴ 定语转化）</div>
   </div>
   <a href="https://nannan2026.cn/korean/audio/L30_S17.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
@@ -1036,10 +987,6 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       <div class="word-item"><span class="ko">김에</span><span class="zh">— 趁着/顺便</span><span class="en">while at it</span></div>
       <div class="word-item"><span class="ko">가다</span><span class="zh">— 去</span><span class="en">to go</span></div>
     </div>
-  </div>
-  <div class="detail-block">
-    <div class="sub-sec-title">💬 短语</div>
-    <div class="grammar-note">간 김에(는) — 既然去了/趁去（已去后顺便） · 가는 김에 — 趁去的时候（去的途中顺便）</div>
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">🔧 句型/接口：-는/ㄴ 김에 — "顺便/趁着……"</div>
@@ -1059,23 +1006,27 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">📐 句子框架</div>
-    <div>
-      <div class="sf-card">
-        <div class="sf-card-title">短句1：그 오로라도 보고 싶-</div>
-        <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">그（那）</span></div>
-        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value">（省略，说话人）</span></div>
-        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">오로라도（极光也）</span></span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">보다（看）</span> ← 원형</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-고 싶-</span></div>
-        <div class="sf-endings"><span>①加料 ✓</span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
-        <div class="sf-link">🔗 -으니까 连接原因</div>
-      </div>
-      <div class="sf-card">
-        <div class="sf-card-title">短句2（原因词尾）：-으니까</div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-으니까</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
-      </div>
-    </div>
+    <div class="analysis-tree">【长句】그 오로라도 보고 싶으니까
+
+【短句1】그 오로라도 보고 싶-
+ 🗺️背景：그（那）
+ 👤谁：（省略，说话人）
+ 📦什么：<span class="tag-what">오로라도（极光也）</span>
+ ✍️干：<span class="tag-do">보다（看）</span>← 원형
+ 🔧词尾：-고 싶-
+   ①加料✓（想要/愿望）
+   ②接口✓（-고 连接싶다）
+   ③收尾—
+   ④变身—
+
+🔗 -으니까 连接原因
+
+【短句2 - 原因词尾】-으니까
+ 🔧词尾：-으니까
+   ①加料—
+   ②接口✓（原因/理由连接）
+   ③收尾—
+   ④变身—</div>
   </div>
   <a href="https://nannan2026.cn/korean/audio/L30_S18.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
@@ -1105,7 +1056,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   <div class="footer-num">台词精讲 12/13</div>
 </div>
 
-<!-- ===== PAGE 15: 精讲+应用 ⑳ (两页均衡) ===== -->
+<!-- ===== PAGE 15: 精讲+应用 ⑳ ===== -->
 <div class="page">
   <div class="header-bar">
     <span class="header-left">第30课 · 一起去看极光</span>
@@ -1118,31 +1069,38 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="detail-block">
     <div class="sub-sec-title">📐 句子框架</div>
-    <div>
-      <div class="sf-card">
-        <div class="sf-card-title">短句1：그래요!（回应，独立感叹）</div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">그렇다（是这样）</span> ← 원형</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아요</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
-        <div class="sf-link">🔗 感叹后进入提议句</div>
-      </div>
-      <div class="sf-card">
-        <div class="sf-card-title">短句2：우리 같이 가서</div>
-        <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">같이（一起）</span></div>
-        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value"><span class="tag-who">우리（我们）</span></span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">가다（去）</span> ← 원형</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아서</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
-        <div class="sf-link">🔗 -아서 连接短句3，表示"去了然后"</div>
-      </div>
-      <div class="sf-card">
-        <div class="sf-card-title">短句3：오로라도 봐요!</div>
-        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">오로라도（极光也）</span></span></div>
-        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">보다（看）</span> ← 원형</span></div>
-        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아요</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
-      </div>
-    </div>
+    <div class="analysis-tree">【长句】그래요! 우리 같이 가서 오로라도 봐요!
+
+【短句1】그래요!（回应，独立感叹）
+ ✍️干：<span class="tag-do">그렇다（是这样）</span>← 원형
+ 🔧词尾：-아요
+   ①加料—
+   ②接口—
+   ③收尾✓
+   ④变身—
+
+🔗 感叹后进入提议句
+
+【短句2】우리 같이 가서
+ 👤谁：<span class="tag-who">우리（我们）</span>
+ 🗺️背景：같이（一起）
+ ✍️干：<span class="tag-do">가다（去）</span>← 원형
+ 🔧词尾：-아서
+   ①加料—
+   ②接口✓（顺序连接"去了然后"）
+   ③收尾—
+   ④变身—
+
+🔗 -아서 连接【短句3】表示"去了然后"
+
+【短句3】오로라도 봐요!
+ 📦什么：<span class="tag-what">오로라도（极光也）</span>
+ ✍️干：<span class="tag-do">보다（看）</span>← 원형
+ 🔧词尾：-아요
+   ①加料—
+   ②接口—
+   ③收尾✓（提议）
+   ④变身—</div>
   </div>
   <a href="https://nannan2026.cn/korean/audio/L30_S19.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
   <div class="detail-block">
@@ -1155,10 +1113,6 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
     </div>
   </div>
   <div class="detail-block">
-    <div class="sub-sec-title">💬 短语</div>
-    <div class="grammar-note">같이 가서 봐요 — 一起去看吧（邀约固定表达） · 그래요! 같이 X해요 — 好啊！一起做X吧</div>
-  </div>
-  <div class="detail-block">
     <div class="sub-sec-title">🔧 句型/接口：-아/어서 — "做了……然后"（顺序连接）</div>
     <div class="grammar-note">讲解：动词+-아/어서，表示动作的先后顺序，相当于"……然后……"，前后动作有因果或顺序关系</div>
     <div class="grammar-note">예) 씻어서 자요.（洗漱了然后睡觉。）</div>
@@ -1168,22 +1122,15 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
     <div class="sub-sec-title">🎵 음변현상</div>
     <div class="grammar-note">가서[가서] — 无音变 / 봐요[봐요] — 보+아→봐 축약（ㅗ+아=와 合并）</div>
   </div>
-  <div class="footer-num">台词精讲 13/13</div>
-</div>
-  <div class="page" style="padding-top:12mm;">
-  <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
-    <span class="lesson-tag">台词精讲 13/13 · 应用</span>
-  </div>
-  <hr style="margin-bottom:8px;">
+  <hr>
   <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
-  <div class="sentence-box" style="margin:6px 0;padding:8px 12px;">
-    <div class="sent-kr" style="font-size:13px;">⑳ 그래요! 우리 같이 가서 오로라도 봐요!</div>
-    <div class="sent-cn" style="font-size:12px;">好啊！我们一起去看看极光吧！</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:12px;">⑳ 그래요! 우리 같이 가서 오로라도 봐요!</div>
+    <div class="sent-cn" style="font-size:11px;">好啊！我们一起去看看极光吧！</div>
   </div>
   <div class="exercise-text"><b>🔄 换词练习</b><br>把 '오로라도 봐요' 换成 '사진도 찍어요(也拍个照)' 重新说<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：그래요! 우리 같이 가서 사진도 찍어요!（好啊！我们一起去拍个照吧！）</span></div>
-  <div class="exercise-text" style="margin-top:8px;"><b>✍️ 仿写改写</b><br>用 …가서 …봐요/해요 写一句邀约同行的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：같이 카페 가서 커피 마셔요.（一起去咖啡厅喝咖啡吧。）</span></div>
-  <div class="exercise-text" style="margin-top:8px;"><b>❓ 提问 / Q&A</b><br>Q: 진짜 같이 가는 거예요?（真的要一起去吗？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">참고：그래요! 우리 같이 가서 오로라도 봐요!（好啊！我们一起去看看极光！）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写</b><br>用 …가서 …봐요/해요 写一句邀约同行的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：같이 카페 가서 커피 마셔요.（一起去咖啡厅喝咖啡吧。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 提问 / Q&A</b><br>Q: 진짜 같이 가는 거예요?（真的要一起去吗？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">참고：그래요! 우리 같이 가서 오로라도 봐요!（好啊！我们一起去看看极光！）</span></div>
   <div class="footer-num">台词精讲 13/13</div>
 </div>
 
@@ -1273,87 +1220,33 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
     <span class="header-left">第30课 · 一起去看极光</span>
     <span>🎬 场景练习包</span>
   </div>
-  <div class="sec-title">🗣️ 场景迁移 · 对话剧场</div>
+  <div class="sec-title">🗣️ 场景迁移</div>
 
-  <div class="scene-block" style="margin-bottom:8px;">
-    <div style="font-size:11px;color:#8b7355;font-weight:bold;margin-bottom:5px;">场景① · 邀约朋友一起去旅行</div>
-
-    <div style="margin:1.5px 0;">
-      <div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">다음 달에 여행 가는 김에 같이 가죠!</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">下个月既然要去旅行，一起去吧！</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Since we're going on a trip next month, let's go together!</div>
-    </div>
-    <div style="margin:1.5px 0;">
-      <div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">같이요? 저 때문에 부담스럽지 않아요?</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">一起？我不会给你造成负担吗？</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Together? Won't I be a burden to you?</div>
-    </div>
-    <div style="margin:1.5px 0;">
-      <div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">전혀요! 솔직히 당신이 같이 가 줬으면 좋겠어요.</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">完全不！说实话，我希望你能一起去。</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Not at all! Honestly, I wish you would come with me.</div>
-    </div>
-    <div style="margin:1.5px 0;">
-      <div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">가면 오로라도 볼 수 있다고 했죠?</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">说去了还能看到极光，是吗？</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">You said if we go, we can also see the aurora, right?</div>
-    </div>
-    <div style="margin:1.5px 0;">
-      <div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">맞아요! 그래서 같이 가서 오로라도 봐요!</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">没错！所以一起去看极光吧！</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Exactly! So let's go together and see the aurora!</div>
-    </div>
-    <div style="margin:1.5px 0;">
-      <div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">그럼 같이 가죠!</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">那一起去吧！</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Then let's go together!</div>
-    </div>
+  <div class="scene-block" style="margin-bottom:14px;">
+    <div style="font-size:11px;color:#8b7355;font-weight:bold;margin-bottom:6px;">场景① · 邀约朋友一起去旅行</div>
+    <div style="font-size:13px;font-weight:bold;line-height:1.7;">다음 달에 여행 가는 김에 같이 가죠!</div>
+    <div style="font-size:12px;color:#555;margin-left:2px;line-height:1.6;">下个月既然要去旅行，一起去吧！</div>
+    <div style="font-size:11px;color:#999;font-style:italic;margin-left:2px;line-height:1.5;">Since we're going on a trip next month, let's go together!</div>
   </div>
 
-  <div class="scene-block" style="margin-bottom:8px;">
-    <div style="font-size:11px;color:#8b7355;font-weight:bold;margin-bottom:5px;">场景② · 向朋友表达希望对方陪自己</div>
+  <div class="scene-block" style="margin-bottom:14px;">
+    <div style="font-size:11px;color:#8b7355;font-weight:bold;margin-bottom:6px;">场景② · 向朋友表达希望对方陪自己</div>
+    <div style="font-size:13px;font-weight:bold;line-height:1.7;">혹시 네가 같이 와 줬으면 좋겠어. 무서울까 봐.</div>
+    <div style="font-size:12px;color:#555;margin-left:2px;line-height:1.6;">要是你能陪我来就好了，怕我会害怕。</div>
+    <div style="font-size:11px;color:#999;font-style:italic;margin-left:2px;line-height:1.5;">I wish you would come with me. I'm scared I might be frightened.</div>
+  </div>
 
-    <div style="margin:1.5px 0;">
-      <div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">저... 당신이 같이 와 줬으면 좋겠어요.</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">那个……我希望你能陪我一起来。</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Um... I wish you would come with me.</div>
-    </div>
-    <div style="margin:1.5px 0;">
-      <div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">혹시 내가 부담스러워요?</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">我让你感到负担了吗？</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Am I a burden to you?</div>
-    </div>
-    <div style="margin:1.5px 0;">
-      <div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">아니요! 같이 가면 재미있을 것 같아서요.</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">不是！就是觉得一起去会很有意思。</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">No! I just thought it'd be fun if we went together.</div>
-    </div>
-    <div style="margin:1.5px 0;">
-      <div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">내가 막 사귀자고 협박할까 봐 무서워요?</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">你是怕我会威胁你要和我交往吗？</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Are you scared I'd threaten you to date me?</div>
-    </div>
-    <div style="margin:1.5px 0;">
-      <div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">그런 협박에 넘어가지 않을 자신은 있어요!</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">我有自信不会被那种威胁吓到！</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">I'm confident I won't fall for that kind of threat!</div>
-    </div>
-    <div style="margin:1.5px 0;">
-      <div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">그럼 어차피 피할 거 없으니까 같이 가요!</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">那反正也没什么好躲的，一起去吧！</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Then since there's nothing to avoid anyway, let's go!</div>
+  <div class="sec-title" style="margin-top:16px;">🎤 口语挑战</div>
+  <div class="challenge-box">
+    <div style="font-size:12px;color:#555;line-height:1.8;">
+      不看原文，用今天学的句型说一段30秒的话（自由发挥）<br>
+      <span style="font-size:11px;color:#8b7355;">提示：我邀约朋友 → 对方担心 → 我有自信 → 说服ta → 一起出发</span><br><br>
+      可以用到的句型：<br>
+      · 같이 가 줬으면 좋겠어요 — 希望你能和我去<br>
+      · -ㄹ까 봐 무서워요? — 你是怕……吗？<br>
+      · 자신 있어요 — 我有把握<br>
+      · -기로 했어요 — 我决定了……<br>
+      · 같이 가서 봐요! — 一起去看吧！
     </div>
   </div>
   <div class="footer-num">场景练习包 1/2</div>
@@ -1406,22 +1299,8 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
     <div class="answer-item">④ 간 김엔 오로라도 보고 싶으니까요. / Since we're going, I also want to see the aurora.</div>
     <div class="answer-item">⑤ 그래요! 우리 같이 가서 오로라도 봐요! / Okay! Let's go together and see the aurora!</div>
   </div>
-<div class="sec-title" style="margin-top:16px;">🎤 口语挑战</div>
-  <div class="challenge-box">
-    <div style="font-size:12px;color:#555;line-height:1.8;">
-      不看原文，用今天学的句型说一段30秒的话（自由发挥）<br>
-      <span style="font-size:11px;color:#8b7355;">提示：我邀约朋友 → 对方担心 → 我有自信 → 说服ta → 一起出发</span><br><br>
-      可以用到的句型：<br>
-      · 같이 가 줬으면 좋겠어요 — 希望你能和我去<br>
-      · -ㄹ까 봐 무서워요? — 你是怕……吗？<br>
-      · 자신 있어요 — 我有把握<br>
-      · -기로 했어요 — 我决定了……<br>
-      · 같이 가서 봐요! — 一起去看吧！
-    </div>
-  </div>
   <div class="footer-num">场景练习包 2/2</div>
 </div>
-
 
 </body>
 </html>

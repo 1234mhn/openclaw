@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>E3-29 你是能让我冷静下来的人</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans:wght@400;700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', 'Noto Sans KR', 'Noto Sans', sans-serif; background: #ffffff; color: #333; }
+.page { width: 210mm; min-height: 297mm; padding: 14mm 16mm; background: #fff; margin: 0 auto; position: relative; page-break-before: always; }
+.page:first-of-type { page-break-before: avoid; }
+.cover { background: linear-gradient(145deg, #faf8f4, #f5f0e8, #ede6d8, #e8dfce); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.cover .lesson-number { font-size: 13px; color: #8b7355; letter-spacing: 2px; margin-bottom: 10px; }
+.cover h1 { font-size: 30px; color: #5c4a3a; margin-bottom: 18px; }
+.cover .subtitle { font-size: 16px; color: #8b7355; margin-top: 8px; }
+.cover .divider { width: 60px; height: 2px; background: #c4b998; margin: 15px auto; }
+.cover .desc { font-size: 13px; color: #8b7355; margin-top: 20px; line-height: 1.6; }
+.header-bar { display: flex; justify-content: space-between; font-size: 10px; color: #8b7355; border-bottom: 1px solid #e8dfce; padding-bottom: 4px; margin-bottom: 10px; }
+.header-left { font-weight: bold; }
+.lesson-tag { font-size: 10px; color: #8b7355; }
+.sec-title { font-size: 14px; color: #8b7355; font-weight: bold; margin: 6px 0 4px; }
+.sub-sec-title { font-size: 11px; font-weight: bold; color: #8b7355; margin: 6px 0 2px; }
+.kr-text { font-size: 14px; font-weight: bold; color: #1a1a1a; line-height: 1.6; }
+.zh-text { font-size: 13px; color: #555; line-height: 1.5; }
+.en-text { font-size: 11px; color: #999; font-style: italic; line-height: 1.4; }
+.tag-who { color: #2a6f97; font-weight: bold; }
+.tag-what { color: #2d6a4f; font-weight: bold; }
+.tag-do { color: #a53860; font-weight: bold; }
+.word-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; padding: 6px 0; }
+.word-item { font-size: 12px; line-height: 1.6; }
+.word-item .ko { font-weight: bold; }
+.word-item .zh { color: #555; margin-left: 4px; }
+.word-item .en { color: #999; font-size: 11px; font-style: italic; margin-left: 4px; }
+.scene-block { background: #f8f6f2; padding: 10px 12px; border-radius: 4px; margin: 8px 0; }
+table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+th { background: #c4b998; color: #fff; padding: 6px 10px; font-size: 12px; }
+td { padding: 6px 10px; border-bottom: 1px solid #e8dfce; font-size: 12px; }
+.audio-btn { color: #2a6f97; text-decoration: underline; cursor: pointer; font-size: 12px; display: inline-block; margin: 2px 0 0; }
+.footer-num { position: absolute; bottom: 10mm; right: 16mm; font-size: 9px; color: #c4b998; }
+.cover-kr { display: block; font-family: 'Noto Sans KR', sans-serif; font-size: 22px; color: #7a5e3e; margin-top: 6px; }
+.cover-svg-wrap { margin: 8px 0 15px; }
+.sentence-box { background: #f8f6f2; border-left: 4px solid #c4b998; padding: 10px 14px; margin-bottom: 8px; border-radius: 0 6px 6px 0; }
+.sentence-box .sent-kr { font-size: 14px; font-weight: bold; color: #1a1a1a; line-height: 1.6; }
+.sentence-box .sent-cn { font-size: 13px; color: #555; line-height: 1.5; }
+.sentence-box .sent-en { font-size: 11px; color: #999; font-style: italic; line-height: 1.4; }
+.detail-block { margin: 4px 0; }
+.grammar-note { font-size: 11px; color: #444; line-height: 1.6; }
+.exercise-text { font-size: 11px; color: #444; line-height: 1.6; margin: 4px 0; }
+.answer-ref { font-size: 10px; color: #999; margin-top: 2px; }
+.summary-line { padding: 1px 0; border-bottom: 1px solid #f0e8dd; font-size: 11px; line-height: 1.35; }
+.summary-line .num { display: inline; width: auto; color: #c4b998; font-weight: bold; margin-right: 2px; }
+.summary-line .kr { font-weight: bold; display: inline; margin-left: 0; }
+.summary-line .zh { color: #555; display: block; margin-left: 22px; font-size: 11px; }
+.summary-line .en { color: #999; font-style: italic; font-size: 10px; display: block; margin-left: 22px; }
+.page-num-right { position: absolute; top: 14mm; right: 16mm; font-size: 10px; color: #8b7355; }
+hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
+.answer-item { font-size: 10px; padding: 3px 6px; background: #f8f6f2; border-radius: 3px; border-left: 3px solid #7cb342; margin: 3px 0; line-height: 1.5; }
+.diary-blank-line { font-size: 11px; color: #999; letter-spacing: 1px; border-bottom: 1px solid #ccc; padding: 3px 0; margin: 2px 0; }
+.challenge-box { background: #f8f6f2; padding: 10px 12px; border-radius: 4px; margin: 8px 0; }
+.sf-card { background: #faf7f2; border-radius: 4px; padding: 8px 12px; margin: 5px 0; border: 1px solid #e8dfce; }
+.sf-card-title { font-size: 11px; font-weight: bold; color: #5c4a3a; margin-bottom: 5px; padding-bottom: 3px; border-bottom: 1px solid #e8dfce; }
+.sf-row { font-size: 11px; line-height: 1.7; display: flex; align-items: baseline; }
+.sf-label { min-width: 54px; color: #8b7355; flex-shrink: 0; font-size: 10px; }
+.sf-value { flex: 1; color: #444; }
+.sf-endings { font-size: 10px; color: #555; margin-top: 4px; display: flex; gap: 10px; flex-wrap: wrap; background: #f0ede8; padding: 3px 6px; border-radius: 3px; }
+.sf-link { font-size: 10px; color: #7a6a55; margin-top: 4px; font-style: italic; padding-top: 3px; border-top: 1px dashed #ddd; }
+.compact-page .sentence-box { padding: 8px 12px; margin-bottom: 6px; }
+.compact-page .sf-card { padding: 6px 10px; margin: 4px 0; }
+.compact-page .sf-card-title { margin-bottom: 4px; padding-bottom: 2px; }
+.compact-page .sf-row { line-height: 1.55; }
+.compact-page .sf-endings { margin-top: 3px; padding: 2px 5px; gap: 7px; }
+.compact-page .sf-link { margin-top: 3px; padding-top: 2px; }
+.compact-page .detail-block { margin: 3px 0; }
+.compact-page .sub-sec-title { margin: 4px 0 1px; }
+.compact-page .word-grid { padding: 4px 0; gap: 1px 13px; }
+.compact-page .grammar-note { line-height: 1.5; }
+.compact-page hr { margin: 4px 0; }
+.compact-page .exercise-text { margin: 3px 0; line-height: 1.52; }
+.compact-page .answer-ref { margin-top: 1px; }
+.breath-page .sentence-box { padding: 12px 14px; margin-bottom: 10px; }
+.breath-page .sf-card { padding: 9px 12px; margin: 6px 0; }
+.breath-page .sf-card-title { margin-bottom: 6px; padding-bottom: 4px; }
+.breath-page .sf-row { line-height: 1.85; }
+.breath-page .sf-endings { margin-top: 6px; padding: 4px 7px; gap: 12px; }
+.breath-page .sf-link { margin-top: 6px; padding-top: 4px; }
+.breath-page .detail-block { margin: 6px 0; }
+.breath-page .sub-sec-title { margin: 8px 0 3px; }
+.breath-page .word-grid { padding: 8px 0; gap: 3px 16px; }
+.breath-page .grammar-note { line-height: 1.7; }
+.breath-page hr { margin: 8px 0; }
+.breath-page .exercise-text { margin: 6px 0; line-height: 1.7; }
+.breath-page .answer-ref { margin-top: 3px; }
+</style>
+</head>
+<body>
+<!-- PAGE 1: COVER -->
+<div class="page cover">
+  <div class="lesson-number">E3-29 · 韩语台词复利笔记</div>
+  <div class="divider"></div>
+  <h1>你是能让我冷静下来的人</h1>
+  <span class="cover-kr">나를 진정시켜줄 사람</span>
+  <div class="cover-svg-wrap">
+    <svg width="220" height="140" viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="lg" cx="50%" cy="40%" r="55%">
+          <stop offset="0%" stop-color="#ffe499" stop-opacity="0.95"/>
+          <stop offset="45%" stop-color="#ffb347" stop-opacity="0.45"/>
+          <stop offset="100%" stop-color="#ff8800" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="ns" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#08071a"/>
+          <stop offset="65%" stop-color="#12103a"/>
+          <stop offset="100%" stop-color="#1e1428"/>
+        </linearGradient>
+        <filter id="gw"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <rect width="220" height="140" fill="url(#ns)" rx="10"/>
+      <circle cx="28" cy="14" r="1" fill="#fff" opacity="0.7"/>
+      <circle cx="58" cy="9" r="1.3" fill="#fff" opacity="0.5"/>
+      <circle cx="95" cy="7" r="0.9" fill="#fff" opacity="0.6"/>
+      <circle cx="140" cy="11" r="1.1" fill="#fff" opacity="0.45"/>
+      <circle cx="178" cy="6" r="1.2" fill="#fff" opacity="0.55"/>
+      <circle cx="198" cy="19" r="0.8" fill="#fff" opacity="0.5"/>
+      <circle cx="48" cy="24" r="0.7" fill="#fff" opacity="0.4"/>
+      <circle cx="118" cy="18" r="0.9" fill="#fff" opacity="0.5"/>
+      <circle cx="160" cy="23" r="0.7" fill="#fff" opacity="0.35"/>
+      <rect x="0" y="118" width="220" height="22" fill="#100814" rx="0"/>
+      <rect x="50" y="110" width="120" height="14" rx="5" fill="#2a1e30"/>
+      <rect x="55" y="102" width="110" height="10" rx="3" fill="#3a2840"/>
+      <rect x="107" y="54" width="6" height="55" rx="3" fill="#6a4e2a"/>
+      <ellipse cx="110" cy="50" rx="20" ry="9" fill="#8a6030" opacity="0.9"/>
+      <polygon points="90,50 130,50 124,72 96,72" fill="#c8963c" opacity="0.88"/>
+      <ellipse cx="110" cy="68" rx="52" ry="32" fill="url(#lg)" opacity="0.55" filter="url(#gw)"/>
+      <ellipse cx="110" cy="68" rx="28" ry="18" fill="url(#lg)" opacity="0.35"/>
+      <ellipse cx="82" cy="100" rx="9" ry="12" fill="#0e0612"/>
+      <circle cx="82" cy="86" r="8" fill="#0e0612"/>
+      <rect x="73" y="92" width="18" height="16" rx="4" fill="#0e0612"/>
+      <ellipse cx="104" cy="100" rx="8" ry="11" fill="#0e0612"/>
+      <circle cx="102" cy="85" r="7" fill="#0e0612"/>
+      <rect x="95" y="91" width="15" height="15" rx="4" fill="#0e0612"/>
+      <ellipse cx="93" cy="93" rx="26" ry="16" fill="#ffcc55" opacity="0.06"/>
+    </svg>
+  </div>
+  <div class="divider"></div>
+  <div class="subtitle">冷静沉稳的陪伴 · 关于安心的表达</div>
+  <div class="desc">本课收录6句台词，围绕"希望有人在身边"展开。<br>掌握陪伴、条件、推测等日常表达。</div>
+  <div class="divider" style="margin-top:25px;width:40px;"></div>
+  <div class="lesson-number" style="margin-top:10px;font-size:11px;">台词精讲 · 逐句应用 · 场景练习</div>
+</div>
+<!-- PAGE 2: 台词汇总 -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
+    <span>台词汇总</span>
+  </div>
+  <div class="sec-title">📝 本课台词 · 整段音频</div>
+  <a href="https://nannan2026.cn/korean/audio/L29_full.mp3" class="audio-btn" target="_blank">🔊 听整段录音（点击打开播放）</a>
+  <div style="margin-top:8px;">
+    <div class="summary-line"><span class="num">①</span><span class="kr">냉정하고 차분하게 나를 진정시켜줄 사람이 옆에 있으면</span><span class="zh">如果有个冷静又沉稳地能让我平静下来的人在身边的话</span><span class="en">If there's a person next to me who can calmly and coolly soothe me</span></div>
+    <div class="summary-line"><span class="num">②</span><span class="kr">어떨 것 같아요?</span><span class="zh">（你觉得）会怎么样呢？</span><span class="en">What do you think it would be like?</span></div>
+    <div class="summary-line"><span class="num">③</span><span class="kr">그 사람이 마침 외국어도 잘하면 외국에 나가서도 안심이 될 거예요, 그쵸?</span><span class="zh">那个人碰巧外语也好的话，去国外也能放心了，对吧？</span><span class="en">If that person happens to be good at foreign languages too, even going abroad would be reassuring, right?</span></div>
+    <div class="summary-line"><span class="num">④</span><span class="kr">그런 사람이 옆에 있으면 버틸 만할 것 같은데</span><span class="zh">那种人在身边的话，好像还能撑得住</span><span class="en">With that kind of person by my side, I think I could endure it</span></div>
+    <div class="summary-line"><span class="num">⑤</span><span class="kr">어떻게 생각해요?</span><span class="zh">你怎么想？</span><span class="en">What do you think?</span></div>
+    <div class="summary-line"><span class="num">⑥</span><span class="kr">사모인 씨, 내가 알아듣게 얘기해요.</span><span class="zh">思慕仁小姐，说我能听懂的话吧。</span><span class="en">Ms. Samoin, speak so that I can understand.</span></div>
+  </div>
+
+  <div class="sec-title" style="margin-top:20px;">⭐ 本课重点句型速览</div>
+  <table>
+    <tr><th>句型</th><th>意思</th><th>本课例句</th></tr>
+    <tr><td>-고</td><td>又……又……（并列）</td><td>냉정하고 차분하게</td></tr>
+    <tr><td>-(으)면</td><td>如果……（条件）</td><td>옆에 있으면 / 잘하면</td></tr>
+    <tr><td>-(으)ㄹ 것 같다</td><td>好像会……（推测）</td><td>어떨 것 같아요?</td></tr>
+    <tr><td>-(으)ㄹ 거예요</td><td>会……的（将来/推断）</td><td>안심이 될 거예요</td></tr>
+    <tr><td>-(으)ㄹ 만하다</td><td>值得/足以/撑得住</td><td>버틸 만할 것 같은데</td></tr>
+    <tr><td>-게</td><td>以便……/让……地（目的）</td><td>알아듣게 얘기해요</td></tr>
+    <tr><td>그쵸?</td><td>对吧/是吧？（确认）</td><td>안심이 될 거예요, 그쵸?</td></tr>
+  </table>
+
+  <div class="sec-title" style="margin-top:16px;">🔑 本课核心词汇</div>
+  <div class="word-grid" style="gap:4px 16px;padding:6px 0;">
+    <div class="word-item"><span class="ko">냉정하다</span><span class="zh">— 冷静</span></div>
+    <div class="word-item"><span class="ko">차분하다</span><span class="zh">— 沉稳/沉着</span></div>
+    <div class="word-item"><span class="ko">진정시키다</span><span class="zh">— 使镇定/安抚</span></div>
+    <div class="word-item"><span class="ko">버티다</span><span class="zh">— 撑住/坚持</span></div>
+    <div class="word-item"><span class="ko">안심</span><span class="zh">— 安心/放心</span></div>
+    <div class="word-item"><span class="ko">알아듣다</span><span class="zh">— 听懂</span></div>
+    <div class="word-item"><span class="ko">마침</span><span class="zh">— 碰巧/恰好</span></div>
+    <div class="word-item"><span class="ko">얘기하다</span><span class="zh">— 说话/讲话</span></div>
+  </div>
+  <div class="footer-num">台词汇总</div>
+</div>
+<!-- PAGE 3: 台词精讲 1/6 -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
+    <span class="lesson-tag">台词精讲 1/6</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">① 냉정하고 차분하게 나를 진정시켜줄 사람이 옆에 있으면</div>
+    <div class="sent-cn">如果有个冷静又沉稳地能让我平静下来的人在身边的话</div>
+    <div class="sent-en">If there's a person next to me who can calmly and coolly soothe me</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div>
+      <div class="sf-card">
+        <div class="sf-card-title">修饰部：냉정하고 차분하게 나를 진정시켜줄</div>
+        <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">（无）</span></div>
+        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value">（省略，泛指某人）</span></div>
+        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">나를（我，宾语）</span></span></div>
+        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">냉정하다+차분하다+진정시키다</span></span></div>
+        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-고 / -게 / -ㄹ</span></div>
+        <div class="sf-endings"><span>①加料 ✓</span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span>④变身 ✓</span></div>
+        <div class="sf-link">🔗 -고 并列两个形容词；-게 作方式副词；-ㄹ 定语变身修饰后方名词 사람</div>
+      </div>
+      <div class="sf-card">
+        <div class="sf-card-title">主句：사람이 옆에 있으면</div>
+        <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">옆에（身边）</span></div>
+        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value"><span class="tag-who">사람이（人）</span></span></div>
+        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">있다（有/在）</span></span></div>
+        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-으면</span></div>
+        <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+        <div class="sf-link">🔗 -으면 条件接口，引出后续结果（句②어떨 것 같아요?）</div>
+      </div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L29_S01.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">냉정하다</span><span class="zh">— 冷静</span><span class="en">cool-headed</span></div>
+      <div class="word-item"><span class="ko">차분하다</span><span class="zh">— 沉稳/沉着</span><span class="en">calm, composed</span></div>
+      <div class="word-item"><span class="ko">진정시키다</span><span class="zh">— 使镇定/安慰</span><span class="en">calm down, soothe</span></div>
+      <div class="word-item"><span class="ko">옆</span><span class="zh">— 旁边</span><span class="en">side, next to</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">나를 진정시키다 — 让我冷静下来（动宾，진정시키다 使役动词）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：① -고 "又……又……"；② -면 "如果……"</div>
+    <div class="grammar-note">-고 连接两个形容词/动词，表示并列"而且/又……又……"：냉정하고 차분하게（冷静又沉稳地）</div>
+    <div class="grammar-note">예) 착하고 성실한 사람이에요. — 是个又善良又认真的人。</div>
+    <div class="grammar-note">-(으)면 表条件假设"如果……"：있으면（如果有的话）</div>
+    <div class="grammar-note">예) 시간이 있으면 같이 가요. — 如果有时间，一起去吧。</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">냉정하고[냉정하고] 无特殊 | 차분하게[차분하게] 无特殊 | 있으면[이쓰면] ㅆ末音+으→连音</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '차분하게(沉稳地)' 换成 '조용하게(安静地)' 重新说一遍<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考：냉정하고 조용하게 나를 진정시켜줄 사람이 옆에 있으면...</span></div>
+  <div class="exercise-text"><b>✍️ 仿写改写</b><br>用 -고 连接两个形容词，描述你理想中的人<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考：따뜻하고 재미있는 사람이 옆에 있으면 좋겠어요.（温暖又有趣的人在身边就好了。）</span></div>
+  <div class="exercise-text"><b>❓ 提问 / Q&A</b><br>Q: 어떤 사람이 옆에 있으면 힘이 날 것 같아요?（什么样的人在身边会有力量？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考：냉정하고 차분하게 진정시켜줄 사람이 있으면 힘이 날 것 같아요.</span></div>
+  <div class="footer-num">台词精讲 1/6</div>
+</div>
+<!-- PAGE 4: 台词精讲 2/6 -->
+<div class="page breath-page">
+  <div class="header-bar">
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
+    <span class="lesson-tag">台词精讲 2/6</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">② 어떨 것 같아요?</div>
+    <div class="sent-cn">（你觉得）会怎么样呢？</div>
+    <div class="sent-en">What do you think it would be like?</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div>
+      <div class="sf-card">
+        <div class="sf-card-title">② 어떨 것 같아요?</div>
+        <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">（承接句①的假设情境）</span></div>
+        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value">（省略，听话方的感受）</span></div>
+        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value">（无）</span></div>
+        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">어떻다（怎么样）</span></span></div>
+        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-ㄹ 것 같다</span></div>
+        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+      </div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L29_S02.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">어떻다</span><span class="zh">— 怎么样</span><span class="en">how is it</span></div>
+      <div class="word-item"><span class="ko">같다</span><span class="zh">— 好像/感觉</span><span class="en">seems like</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">어떨 것 같아요? — 你觉得会怎么样？（推测疑问的固定表达，邀请对方想象）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-ㄹ 것 같다 "好像会……"（推测）</div>
+    <div class="grammar-note">讲解：动词/形容词词干 + -(으)ㄹ 것 같다，表示说话人对未来或假设情境的主观推测，"好像会……"</div>
+    <div class="grammar-note">예) 오늘 바쁠 것 같아요. — 今天好像会很忙。</div>
+    <div class="grammar-note">예) 그 영화가 재미있을 것 같아요. — 那部电影应该会很有趣。</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">어떨[어떨] 无特殊 | 같아요[가타요] — 같의 末音 ㅌ+아→[타] 连音（ㅌ流音化连读）</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '어떨 것 같아요?' 改成确定语气 '어떨 것 같은데요'（带余韵，不那么强迫性）<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：냉정하고 차분한 사람이 옆에 있으면 어떨 것 같은데요.（有那样的人在身边的话好像会怎样的。）</span></div>
+  <div class="exercise-text"><b>✍️ 仿写改写</b><br>用 -ㄹ 것 같다 推测某件事的结果<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그 사람이 있으면 안심이 될 것 같아요.（那个人在的话好像会放心。）</span></div>
+  <div class="exercise-text"><b>❓ 提问 / Q&A</b><br>Q: 혼자 있는 것과 누군가 옆에 있는 것 중 어떤 게 더 좋아요?（一个人待着和有人陪在身边，哪个更好？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：진정시켜줄 사람이 옆에 있는 게 더 좋을 것 같아요.（有能让我冷静下来的人在身边好像更好。）</span></div>
+  <div class="footer-num">台词精讲 2/6</div>
+</div>
+<!-- PAGE 5: 台词精讲 3/6 -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
+    <span class="lesson-tag">台词精讲 3/6</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">③ 그 사람이 마침 외국어도 잘하면 외국에 나가서도 안심이 될 거예요, 그쵸?</div>
+    <div class="sent-cn">那个人碰巧外语也好的话，去国外也能放心了，对吧？</div>
+    <div class="sent-en">If that person happens to be good at foreign languages too, even going abroad would be reassuring, right?</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div>
+      <div class="sf-card">
+        <div class="sf-card-title">条件句：그 사람이 마침 외국어도 잘하면</div>
+        <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">마침（碰巧）</span></div>
+        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value"><span class="tag-who">그 사람이（那人）</span></span></div>
+        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">외국어도（外语也）</span></span></div>
+        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">잘하다（擅长）</span></span></div>
+        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-면</span></div>
+        <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+      </div>
+      <div class="sf-card">
+        <div class="sf-card-title">结果句：외국에 나가서도 안심이 될 거예요, 그쵸?</div>
+        <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">외국에（国外）</span></div>
+        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">나가다 → 안심이 되다</span></span></div>
+        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아서도 / -ㄹ 거예요</span></div>
+        <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+        <div class="sf-link">🔗 -아서도 顺接延伸（去了+也）；-ㄹ 거예요 将来推断收尾；그쵸? 寻求确认</div>
+      </div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L29_S03.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">마침</span><span class="zh">— 碰巧/恰好</span><span class="en">coincidentally</span></div>
+      <div class="word-item"><span class="ko">외국어</span><span class="zh">— 外语</span><span class="en">foreign language</span></div>
+      <div class="word-item"><span class="ko">잘하다</span><span class="zh">— 擅长/做得好</span><span class="en">be good at</span></div>
+      <div class="word-item"><span class="ko">나가다</span><span class="zh">— 出去/前往</span><span class="en">go out</span></div>
+      <div class="word-item"><span class="ko">안심</span><span class="zh">— 安心/放心</span><span class="en">relief, peace of mind</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">외국어를 잘하다 — 擅长外语 · 안심이 되다 — 变得放心/令人安心</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：① -도 "也"；② -ㄹ 거예요 "会……的"；③ 그쵸? "对吧？"</div>
+    <div class="grammar-note">-도 在已有条件上再加一条，强调"连这个也……"：외국어도（外语也）/ 나가서도（出去也）</div>
+    <div class="grammar-note">-(으)ㄹ 거예요 表将来推测"会……的"：안심이 될 거예요（会放心的）</div>
+    <div class="grammar-note">그쵸? 是 그렇죠? 的口语缩写，"对吧/是吧？"，说完话后寻求对方确认。</div>
+    <div class="grammar-note">예) 거기가 더 가깝죠? — 那里更近对吧？</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">잘하면[잘하면] 无特殊 | 나가서도[나가서도] 无特殊 | 거예요[거예요] 无特殊</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '외국어도 잘하면(外语也好)' 换成 '요리도 잘하면(厨艺也好)' 重新说<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考：그 사람이 마침 요리도 잘하면 집에서도 안심이 될 거예요.</span></div>
+  <div class="exercise-text"><b>✍️ 仿写改写</b><br>用 -도 + -ㄹ 거예요 写一句"如果……也好的话，……也会……"<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考：성격도 좋으면 같이 있는 게 편할 거예요.（性格也好的话，在一起会很轻松。）</span></div>
+  <div class="exercise-text"><b>❓ 提问 / Q&A</b><br>Q: 왜 외국어를 잘하는 게 중요해요?（外语好为什么重要？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考：외국에 나가서도 안심이 될 거잖아요.（去国外也能放心嘛。）</span></div>
+  <div class="footer-num">台词精讲 3/6</div>
+</div>
+<!-- PAGE 6: 台词精讲 4/6 -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
+    <span class="lesson-tag">台词精讲 4/6</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">④ 그런 사람이 옆에 있으면 버틸 만할 것 같은데</div>
+    <div class="sent-cn">那种人在身边的话，好像还能撑得住</div>
+    <div class="sent-en">With that kind of person by my side, I think I could endure it</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div>
+      <div class="sf-card">
+        <div class="sf-card-title">条件句：그런 사람이 옆에 있으면</div>
+        <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">옆에（身边）</span></div>
+        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value"><span class="tag-who">그런 사람이（那样的人）</span></span></div>
+        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">있다（在）</span></span></div>
+        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-으면</span></div>
+        <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+      </div>
+      <div class="sf-card">
+        <div class="sf-card-title">结果句：버틸 만할 것 같은데</div>
+        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value">（省略，说话人自己）</span></div>
+        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">버티다（撑住）</span></span></div>
+        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-ㄹ 만하다 + -ㄹ 것 같다</span></div>
+        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+        <div class="sf-link">备注：버틸 만할 것 같은데 — 两个句型叠加：-ㄹ 만하다（值得/足以）+ -ㄹ 것 같다（推测），语气更柔和</div>
+      </div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L29_S04.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">그런</span><span class="zh">— 那样的</span><span class="en">that kind of, such</span></div>
+      <div class="word-item"><span class="ko">버티다</span><span class="zh">— 撑住/坚持</span><span class="en">endure, withstand</span></div>
+      <div class="word-item"><span class="ko">만하다</span><span class="zh">— 值得/足以</span><span class="en">worth, worthy</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">버틸 만하다 — 撑得住（动词原形 버티다 + -ㄹ 만하다）· 힘든 일을 버티다 — 撑过艰难的事</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-ㄹ 만하다 "值得/足以/撑得住"</div>
+    <div class="grammar-note">讲解：动词词干 + -(으)ㄹ 만하다，表示某件事在程度上勉强能做到，或值得去做，相当于"还行/撑得住/值得……"</div>
+    <div class="grammar-note">예) 이 책은 읽을 만해요. — 这本书值得一读。</div>
+    <div class="grammar-note">예) 힘들지만 버틸 만해요. — 虽然辛苦，但还撑得住。</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">버틸[버틸] 无特殊 | 만할[만할] 无特殊 | 같은데[가튼데] — 같의 ㅌ+은→[튼] 连音</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:12px;">④ 그런 사람이 옆에 있으면 버틸 만할 것 같은데</div>
+    <div class="sent-cn" style="font-size:11px;">那种人在身边的话，好像还能撑得住</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '버틸 만하다(撑得住)' 换成 '견딜 만하다(熬得过)' 重新表达<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考：그런 사람이 옆에 있으면 견딜 만할 것 같은데.</span></div>
+  <div class="exercise-text"><b>✍️ 仿写改写</b><br>用 -ㄹ 만하다 写一句"……还撑得住/值得做"的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考：많이 힘들지만 해 볼 만해요.（虽然很辛苦但值得一试。）</span></div>
+  <div class="exercise-text"><b>❓ 提问 / Q&A</b><br>Q: 혼자서는 너무 힘드죠?（一个人太辛苦了吧？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考：그런 사람이 옆에 있으면 버틸 만할 것 같은데요.</span></div>
+  <div class="footer-num">台词精讲 4/6</div>
+</div>
+<!-- PAGE 7: 台词精讲 5/6 -->
+<div class="page breath-page">
+  <div class="header-bar">
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
+    <span class="lesson-tag">台词精讲 5/6</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑤ 어떻게 생각해요?</div>
+    <div class="sent-cn">你怎么想？</div>
+    <div class="sent-en">What do you think?</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div>
+      <div class="sf-card">
+        <div class="sf-card-title">⑤ 어떻게 생각해요?</div>
+        <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">어떻게（怎么样地）</span></div>
+        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value">（省略，听话方）</span></div>
+        <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value">（省略，指上文内容）</span></div>
+        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">생각하다（想/思考）</span></span></div>
+        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아요（疑问）</span></div>
+        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+      </div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L29_S05.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">어떻게</span><span class="zh">— 怎么/如何</span><span class="en">how</span></div>
+      <div class="word-item"><span class="ko">생각하다</span><span class="zh">— 想/思考</span><span class="en">think</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">어떻게 생각해요? — 你怎么看/怎么想？（常用询问意见的固定句式）</div>
+    <div class="grammar-note">생각을 말하다 — 说出想法 · 생각이 있다 — 有想法 · 생각이 없다 — 没想法</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：어떻게 생각해요? "你怎么看？"（征询意见）</div>
+    <div class="grammar-note">讲解：어떻게（怎么样地）+ 생각하다（想），固定句式，用于征求对方对某事的看法或意见。</div>
+    <div class="grammar-note">예) 이 제안에 대해 어떻게 생각해요? — 对这个提议你怎么看？</div>
+    <div class="grammar-note">예) 제 생각은 어때요? — 你觉得我的想法怎么样？</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">생각해요[생가캐요] — 각+해→[가캐]，ㄱ末音 + ㅎ → 激音化 [ㅋ]</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '어떻게 생각해요?(你怎么想)' 换成 '어떤 것 같아요?(感觉怎么样)' 表达更口语化的询问<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그런 사람이 옆에 있으면 어떤 것 같아요?</span></div>
+  <div class="exercise-text"><b>✍️ 仿写改写</b><br>用 어떻게 생각해요? 写一句询问朋友对某人看法的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그 사람에 대해서 어떻게 생각해요?（你对那个人怎么看？）</span></div>
+  <div class="exercise-text"><b>❓ 提问 / Q&A</b><br>Q: 아까 얘기 들었는데 의견이 있어요?（刚才听了那些，你有什么意见？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：어떻게 생각하는지 잘 모르겠어요.（不太确定该怎么想。）</span></div>
+  <div class="footer-num">台词精讲 5/6</div>
+</div>
+<!-- PAGE 8: 台词精讲 6/6 -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
+    <span class="lesson-tag">台词精讲 6/6</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑥ 사모인 씨, 내가 알아듣게 얘기해요.</div>
+    <div class="sent-cn">思慕仁小姐，说我能听懂的话吧。</div>
+    <div class="sent-en">Ms. Samoin, speak so that I can understand.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div>
+      <div class="sf-card">
+        <div class="sf-card-title">目的状语：내가 알아듣게</div>
+        <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">（无）</span></div>
+        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value"><span class="tag-who">내가（我）</span></span></div>
+        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">알아듣다（听懂）</span></span></div>
+        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-게</span></div>
+        <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+        <div class="sf-link">🔗 -게 作目的/方式副词，修饰后方动词 얘기해요（以…的方式说话）</div>
+      </div>
+      <div class="sf-card">
+        <div class="sf-card-title">主句：(사모인 씨) 얘기해요.</div>
+        <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value"><span class="tag-who">사모인 씨（思慕仁，被叫话方）</span></span></div>
+        <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">얘기하다（说话/讲）</span></span></div>
+        <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아요（礼貌命令/请求）</span></div>
+        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+      </div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L29_S06.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">사모인</span><span class="zh">— 思慕仁（人名）</span><span class="en">Samoin (name)</span></div>
+      <div class="word-item"><span class="ko">씨</span><span class="zh">— 先生/小姐</span><span class="en">Mr./Ms. (honorific)</span></div>
+      <div class="word-item"><span class="ko">알아듣다</span><span class="zh">— 听懂</span><span class="en">understand by hearing</span></div>
+      <div class="word-item"><span class="ko">얘기하다</span><span class="zh">— 说话/讲话</span><span class="en">talk, speak</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">알아듣게 얘기하다 — 说让人听得懂的话（目的动词搭配）· 말을 알아듣다 — 听懂话</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-게 "以便……/让……地"（目的/方式）</div>
+    <div class="grammar-note">讲解：动词词干 + -게，表示目的或方式，"以便……达到……的程度"，让后面的行为达到某个效果。</div>
+    <div class="grammar-note">예) 아이가 알아듣게 말해 주세요. — 请说孩子能听懂的话。</div>
+    <div class="grammar-note">예) 잘 보이게 크게 써 주세요. — 请写大一点让人能看清楚。</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">알아듣게[아라듣께] — 알아→[아라] ㄹ+아 连音；듣게→[듣께] ㄷ末音+게 경음화</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:12px;">⑥ 사모인 씨, 내가 알아듣게 얘기해요.</div>
+    <div class="sent-cn" style="font-size:11px;">思慕仁小姐，说我能听懂的话吧。</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '알아듣게(让我听懂地)' 换成 '이해하게(让我理解地)' 重新请求<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考：내가 이해하게 얘기해요.（说我能理解的话。）</span></div>
+  <div class="exercise-text"><b>✍️ 仿写改写</b><br>用 -게 + 얘기하다/말하다 写一句请求对方以某种方式说话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考：천천히 알아듣게 말해 주세요.（请慢慢说让我能听懂。）</span></div>
+  <div class="exercise-text"><b>❓ 提问 / Q&A</b><br>Q: 무슨 말인지 잘 모르겠어요.（不太明白你说什么。）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考：내가 알아듣게 얘기해 줄게요.（我来说你能听懂的。）</span></div>
+  <div class="footer-num">台词精讲 6/6</div>
+</div>
+<!-- PAGE 9: 重点句型 + 重点单词 -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
+    <span>重点句型 · 重点单词</span>
+  </div>
+  <div class="sec-title">⭐ 重点句型</div>
+  <table>
+    <tr><th>句型</th><th>意思</th><th>本课例句</th></tr>
+    <tr><td>-고</td><td>又……又……（并列）</td><td>냉정하고 차분하게</td></tr>
+    <tr><td>-(으)ㄹ 것 같다</td><td>好像会……（推测）</td><td>어떨 것 같아요?</td></tr>
+    <tr><td>-(으)면</td><td>如果……（条件）</td><td>옆에 있으면 / 잘하면</td></tr>
+    <tr><td>-도</td><td>也（添加）</td><td>외국어도 / 나가서도</td></tr>
+    <tr><td>-(으)ㄹ 거예요</td><td>会……的（将来/推断）</td><td>안심이 될 거예요</td></tr>
+    <tr><td>-(으)ㄹ 만하다</td><td>值得/足以/撑得住</td><td>버틸 만할 것 같은데</td></tr>
+    <tr><td>-게</td><td>以便……/让……地（目的/方式）</td><td>알아듣게 얘기해요</td></tr>
+    <tr><td>그쵸?</td><td>对吧/是吧？（确认）</td><td>안심이 될 거예요, 그쵸?</td></tr>
+  </table>
+  <div class="sec-title" style="margin-top:14px;">📚 重点单词</div>
+  <table>
+    <tr><th>单词</th><th>意思</th><th>联想记忆</th></tr>
+    <tr><td>냉정하다</td><td>冷静</td><td>冷(냉)+정(情)→情绪冷却下来；↔ 흥분하다（激动）</td></tr>
+    <tr><td>차분하다</td><td>沉稳/沉着</td><td>차(沉)+분(分)→心情平静分明；搭配：차분한 목소리（沉稳的声音）</td></tr>
+    <tr><td>진정시키다</td><td>使镇定/安抚</td><td>진정(鎭靜)+시키다(使)→使安静；↔ 흥분시키다（使激动）</td></tr>
+    <tr><td>버티다</td><td>撑住/坚持</td><td>形象：人撑着不倒；搭配：끝까지 버티다（撑到最后）</td></tr>
+    <tr><td>알아듣다</td><td>听懂</td><td>알다(知道)+듣다(听)→听了之后知道；↔ 못 알아듣다（没听懂）</td></tr>
+    <tr><td>안심</td><td>安心/放心</td><td>安(안)+心(심)→汉字直读；搭配：안심이 되다（变得放心）</td></tr>
+  </table>
+  <div class="footer-num">重点回顾</div>
+</div>
+<!-- PAGE 10: 场景迁移 -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
+    <span>🎬 场景练习包</span>
+  </div>
+  <div class="sec-title">🗣️ 场景迁移 · 对话剧场</div>
+
+  <div class="scene-block" style="margin-bottom:8px;">
+    <div style="font-size:11px;color:#8b7355;font-weight:bold;margin-bottom:5px;">场景① · 希望对方陪伴自己、安抚情绪</div>
+    <div style="margin:1.5px 0;"><div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">나 요즘 많이 힘들어서, 옆에 있어 줄 사람이 필요해.</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">我最近很辛苦，需要一个能陪在身边的人。</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;">I've been struggling lately. I need someone to be by my side.</div>
+    </div>
+    <div style="margin:1.5px 0;"><div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">냉정하고 차분하게 진정시켜줄 사람이 옆에 있으면 어떨 것 같아?</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">有个冷静沉稳地能让你平静下来的人在身边，你觉得会怎么样？</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;">If someone calm and steady were by your side to soothe you, what do you think it'd be like?</div>
+    </div>
+    <div style="margin:1.5px 0;"><div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">그런 사람이 있으면 버틸 만할 것 같아. 근데 어디 있어, 그런 사람이?</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">有那样的人的话好像还能撑下去。可是那样的人在哪儿呢？</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;">I think I could endure with that kind of person. But where would I find someone like that?</div>
+    </div>
+    <div style="margin:1.5px 0;"><div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">마침 내가 그런 거 잘하거든. 어떻게 생각해?</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">碰巧我擅长这个呢。你怎么想？</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;">Coincidentally, I happen to be good at that. What do you think?</div>
+    </div>
+    <div style="margin:1.5px 0;"><div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">내가 알아듣게 좀 더 자세히 얘기해요!</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">说我能听懂的，再详细说说！</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;">Speak so I can understand — tell me more!</div>
+    </div>
+    <div style="margin:1.5px 0;"><div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">그러니까, 내가 옆에 있어 줄게요. 안심이 될 거예요, 그쵸?</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">就是说，我会陪在你身边。会放心的，对吧？</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;">What I mean is, I'll be by your side. That'll put you at ease, right?</div>
+    </div>
+  </div>
+  <div class="scene-block">
+    <div style="font-size:11px;color:#8b7355;font-weight:bold;margin-bottom:5px;">场景② · 向朋友描述心中理想的陪伴</div>
+    <div style="margin:1.5px 0;"><div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">나는 마침 외국어도 잘하는 사람이 옆에 있으면 좋겠어.</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">我希望能有个碰巧外语也好的人在身边。</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;">I'd love to have someone who happens to be good at foreign languages by my side.</div>
+    </div>
+    <div style="margin:1.5px 0;"><div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">왜요? 외국에 나가서도 안심이 될 거라서요?</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">为什么？是因为去国外也能放心吗？</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;">Why? Because you'd feel at ease even going abroad?</div>
+    </div>
+    <div style="margin:1.5px 0;"><div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">맞아요! 외국어도 잘하면 외국에 나가서도 안심이 될 거예요, 그쵸?</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">没错！外语好的话去国外也能放心了，对吧？</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;">Exactly! If they're good at foreign languages, going abroad would be reassuring too, right?</div>
+    </div>
+    <div style="margin:1.5px 0;"><div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">그런 사람이 옆에 있으면 진짜 버틸 만할 것 같네요.</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">那样的人在身边的话，真的好像能撑得住呢。</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;">With that kind of person around, it really does seem manageable.</div>
+    </div>
+    <div style="margin:1.5px 0;"><div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">어떻게 생각해요, 그런 사람 찾을 수 있을까요?</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">你怎么想，能找到那样的人吗？</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;">What do you think — can such a person be found?</div>
+    </div>
+    <div style="margin:1.5px 0;"><div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">내가 알아듣게 얘기해 드릴게요 — 그 사람이 바로 저예요!</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">我来说你能听懂的话——那个人就是我！</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;">Let me say it so you understand — that person is me!</div>
+    </div>
+  </div>
+  <div class="footer-num">场景练习包 1/2</div>
+</div>
+<!-- PAGE 11: 场景日记 + 口语挑战 -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第29课 · 你是能让我冷静下来的人</span>
+    <span>📝 场景日记</span>
+  </div>
+  <div class="sec-title">📝 场景日记 · 用今天的句型写下来</div>
+  <div style="font-size:11px;color:#8b7355;margin-bottom:10px;">每句中文提示下面写两行：第一行韩语，第二行英语</div>
+
+  <div style="margin:8px 0;">
+    <div style="font-size:12px;font-weight:bold;">① 如果有个冷静沉稳的人在身边，我觉得会很放心。</div>
+    <div class="diary-blank-line">________________（한국어）</div>
+    <div class="diary-blank-line">________________（English）</div>
+  </div>
+  <div style="margin:10px 0;">
+    <div style="font-size:12px;font-weight:bold;">② 那个人碰巧外语也很好，去国外也能放心了。</div>
+    <div class="diary-blank-line">________________（한국어）</div>
+    <div class="diary-blank-line">________________（English）</div>
+  </div>
+  <div style="margin:10px 0;">
+    <div style="font-size:12px;font-weight:bold;">③ 那样的人在身边的话，好像还能撑得住。</div>
+    <div class="diary-blank-line">________________（한국어）</div>
+    <div class="diary-blank-line">________________（English）</div>
+  </div>
+  <div style="margin:10px 0;">
+    <div style="font-size:12px;font-weight:bold;">④ 你怎么想？说我能听懂的话吧。</div>
+    <div class="diary-blank-line">________________（한국어）</div>
+    <div class="diary-blank-line">________________（English）</div>
+  </div>
+  <div style="margin:10px 0;">
+    <div style="font-size:12px;font-weight:bold;">⑤ 有那样的人在身边，会怎么样呢？</div>
+    <div class="diary-blank-line">________________（한국어）</div>
+    <div class="diary-blank-line">________________（English）</div>
+  </div>
+
+  <div style="margin-top:18px;padding:8px 12px;background:#f8f6f2;border-radius:4px;border-left:3px solid #c4b998;">
+    <div style="font-size:10px;color:#8b7355;font-weight:bold;margin-bottom:4px;">参考答案</div>
+    <div class="answer-item">① 냉정하고 차분한 사람이 옆에 있으면 안심이 될 것 같아요. / I think I'd feel at ease if a calm and steady person were by my side.</div>
+    <div class="answer-item">② 그 사람이 마침 외국어도 잘해서 외국에 나가서도 안심이 됐어요. / That person happened to be good at foreign languages, so I was at ease even abroad.</div>
+    <div class="answer-item">③ 그런 사람이 옆에 있으면 버틸 만할 것 같은데요. / I think I could endure it if that kind of person were by my side.</div>
+    <div class="answer-item">④ 어떻게 생각해요? 내가 알아듣게 얘기해요. / What do you think? Speak so I can understand.</div>
+    <div class="answer-item">⑤ 그런 사람이 옆에 있으면 어떨 것 같아요? / What do you think it'd be like to have that kind of person by your side?</div>
+  </div>
+
+  <div class="sec-title" style="margin-top:16px;">🎤 口语挑战</div>
+  <div class="challenge-box">
+    <div style="font-size:12px;color:#555;line-height:1.8;">
+      不看原文，用今天学的句型说一段30秒的话（自由发挥）<br>
+      <span style="font-size:11px;color:#8b7355;">提示：描述你希望的陪伴 → 那个人的特点 → 有他/她在会怎样 → 问对方意见</span><br><br>
+      可以用到的句型：<br>
+      · -고 차분하게 진정시켜줄 사람 — 冷静又沉稳地安慰我的人<br>
+      · 외국어도 잘하면 — 外语也好的话<br>
+      · 버틸 만할 것 같은데 — 好像还能撑得住<br>
+      · 어떻게 생각해요? — 你怎么想？<br>
+      · 내가 알아듣게 얘기해요 — 说我能听懂的话
+    </div>
+  </div>
+  <div class="footer-num">场景练习包 2/2</div>
+</div>
+
+</body>
+</html>

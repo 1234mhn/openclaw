@@ -18,7 +18,7 @@ body { font-family: 'Noto Sans SC', 'Noto Sans KR', 'Noto Sans', sans-serif; bac
 .header-bar { display: flex; justify-content: space-between; font-size: 10px; color: #8b7355; border-bottom: 1px solid #e8dfce; padding-bottom: 4px; margin-bottom: 10px; }
 .header-left { font-weight: bold; }
 .lesson-tag { font-size: 10px; color: #8b7355; }
-.sec-title { font-size: 14px; color: #8b7355; font-weight: bold; margin: 6px 0 4px; }
+.sec-title { font-size: 14px; color: #8b7355; font-weight: bold; margin: 10px 0 6px; }
 .sub-sec-title { font-size: 11px; font-weight: bold; color: #8b7355; margin: 6px 0 2px; }
 .kr-text { font-size: 14px; font-weight: bold; color: #1a1a1a; line-height: 1.6; }
 .zh-text { font-size: 13px; color: #555; line-height: 1.5; }
@@ -35,7 +35,7 @@ body { font-family: 'Noto Sans SC', 'Noto Sans KR', 'Noto Sans', sans-serif; bac
 table { width: 100%; border-collapse: collapse; margin: 8px 0; }
 th { background: #c4b998; color: #fff; padding: 6px 10px; font-size: 12px; }
 td { padding: 6px 10px; border-bottom: 1px solid #e8dfce; font-size: 12px; }
-.audio-btn { color: #2a6f97; text-decoration: underline; cursor: pointer; font-size: 12px; display: inline-block; margin: 2px 0 0; }
+.audio-btn { color: #2a6f97; text-decoration: underline; cursor: pointer; font-size: 12px; display: inline-block; margin: 4px 0; }
 .footer-num { position: absolute; bottom: 10mm; right: 16mm; font-size: 9px; color: #c4b998; }
 .cover-kr { display: block; font-family: 'Noto Sans KR', sans-serif; font-size: 22px; color: #7a5e3e; margin-top: 6px; }
 .cover-svg-wrap { margin: 8px 0 15px; }
@@ -48,11 +48,11 @@ td { padding: 6px 10px; border-bottom: 1px solid #e8dfce; font-size: 12px; }
 .analysis-tree { font-size: 10px; font-family: monospace; color: #555; line-height: 1.5; margin: 4px 0 4px 8px; background: #fafafa; border-left: 2px solid #e8dfce; padding: 4px 8px; }
 .exercise-text { font-size: 11px; color: #444; line-height: 1.6; margin: 4px 0; }
 .answer-ref { font-size: 10px; color: #999; margin-top: 2px; }
-.summary-line { padding: 1px 0; border-bottom: 1px solid #f0e8dd; font-size: 11px; line-height: 1.35; }
-.summary-line .num { display: inline; width: auto; color: #c4b998; font-weight: bold; margin-right: 2px; }
-.summary-line .kr { font-weight: bold; display: inline; margin-left: 0; }
-.summary-line .zh { color: #555; display: block; margin-left: 22px; font-size: 11px; }
-.summary-line .en { color: #999; font-style: italic; font-size: 10px; display: block; margin-left: 22px; }
+.summary-line { padding: 3px 0; border-bottom: 1px solid #f0e8dd; font-size: 12px; line-height: 1.5; }
+.summary-line .num { display: inline-block; width: 24px; color: #c4b998; font-weight: bold; }
+.summary-line .kr { font-weight: bold; display: block; margin-left: 28px; }
+.summary-line .zh { color: #555; display: block; margin-left: 28px; font-size: 12px; }
+.summary-line .en { color: #999; font-style: italic; font-size: 11px; display: block; margin-left: 28px; }
 .page-num-right { position: absolute; top: 14mm; right: 16mm; font-size: 10px; color: #8b7355; }
 hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 .answer-item { font-size: 10px; padding: 3px 6px; background: #f8f6f2; border-radius: 3px; border-left: 3px solid #7cb342; margin: 3px 0; line-height: 1.5; }
@@ -65,7 +65,6 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
 .sf-value { flex: 1; color: #444; }
 .sf-endings { font-size: 10px; color: #555; margin-top: 4px; display: flex; gap: 10px; flex-wrap: wrap; background: #f0ede8; padding: 3px 6px; border-radius: 3px; }
 .sf-link { font-size: 10px; color: #7a6a55; margin-top: 4px; font-style: italic; padding-top: 3px; border-top: 1px dashed #ddd; }
-.sf-detail { font-size: 10.5px; color: #5c4a3a; margin-top: 4px; line-height: 1.6; padding: 4px 8px; background: #fbf7ef; border-left: 3px solid #c4873a; border-radius: 3px; }
 /* Compact layout: moderate compression for single-sentence pages to avoid orphan lines */
 .compact-page .sentence-box { padding: 8px 12px; margin-bottom: 6px; }
 .compact-page .sf-card { padding: 6px 10px; margin: 4px 0; }
@@ -181,6 +180,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
     <div class="summary-line"><span class="num">⑲</span><span class="kr">그 오로라도 보고 싶으니까</span><span class="zh">因为我也想看看那极光</span><span class="en">Since I also want to see that aurora</span></div>
     <div class="summary-line"><span class="num">⑳</span><span class="kr">그래요! 우리 같이 가서 오로라도 봐요!</span><span class="zh">好啊！我们一起去看看极光吧！</span><span class="en">Okay! Let's go together and see the aurora!</span></div>
   </div>
+  <div style="margin-top:10px;font-size:11px;color:#8b7355;line-height:1.6;">💡 本课重点句型：그러니까 · -아/어 주세요 · -았/었으면 좋겠다 · -ㄹ까 봐 · -ㄹ 자신이 있다 · -면 -ㄹ 수 있는데 · -잖아(요) · -죠 · -기로 하다 · -는 김에 · -고 싶으니까 · -아서</div>
   <div class="footer-num">台词汇总</div>
 </div>
 
@@ -205,7 +205,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value">（无）</span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value">（话没说完，省略谓语）</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-니까</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 ✓（-니까 表示原因，引导后续）</span><span>③收尾 —</span><span>④变身 —</span></div>
         <div class="sf-link">🔗 接口：그러니까 引导下一短句，表示"所以/也就是说"</div>
       </div>
       <div class="sf-card">
@@ -215,7 +215,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">말（话/意思）</span></span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">말이다（是…的意思）</span>（省略，话未说完）</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-은</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span><s>③收尾 —</s></span><span>④变身 ✓</span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 —</span><span>③收尾 —</span><span>④变身 ✓（体言化强调助词）</span></div>
       </div>
     </div>
   </div>
@@ -276,7 +276,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value">（无）</span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">돕다（帮助）</span> ← 원형</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아/어 주세요</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 —</span><span>③收尾 ✓（请求终结）</span><span>④变身 —</span></div>
       </div>
     </div>
   </div>
@@ -336,7 +336,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value">（无）</span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">가 주다（帮着去）</span> ← 원형 가다+주다</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-았으면</span></div>
-        <div class="sf-endings"><span>①加料 ✓</span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 ✓（-았- 过去/假设）</span><span>②接口 ✓（-으면 连接条件）</span><span>③收尾 —</span><span>④变身 —</span></div>
         <div class="sf-link">🔗 -았/었으면 连接短句2 좋겠어요（希望……就好了）</div>
       </div>
       <div class="sf-card">
@@ -344,7 +344,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value">（说话人，省略）</span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">좋다（好）</span> ← 원형</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-겠어요</span></div>
-        <div class="sf-endings"><span>①加料 ✓</span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 ✓（-겠- 主观意愿/期望）</span><span>②接口 —</span><span>③收尾 ✓（해요体终结）</span><span>④变身 —</span></div>
       </div>
     </div>
   </div>
@@ -406,7 +406,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value">（无）</span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">부담스럽다（让人感到负担）</span> ← 원형</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아요（疑问）</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 —</span><span>③收尾 ✓（해요体疑问）</span><span>④变身 —</span></div>
       </div>
     </div>
   </div>
@@ -462,7 +462,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">사귀자고（交往提议）</span></span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">협박하다（威胁）</span> ← 원형</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-ㄹ까 봐</span></div>
-        <div class="sf-endings"><span>①加料 ✓</span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span>④变身 ✓</span></div>
+        <div class="sf-endings"><span>①加料 ✓（-ㄹ 推量）</span><span>②接口 ✓（봐 连接结果）</span><span>③收尾 —</span><span>④变身 ✓（-ㄹ 定语转化）</span></div>
         <div class="sf-link">🔗 -ㄹ까 봐 连接担忧/恐惧的内容</div>
       </div>
       <div class="sf-card">
@@ -470,7 +470,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value">（省略，听话方）</span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">무섭다（害怕）</span> ← 원형</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아요</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 —</span><span>③收尾 ✓（疑问）</span><span>④变身 —</span></div>
       </div>
     </div>
   </div>
@@ -529,7 +529,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">그런 협박에（那种威胁）</span></span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">넘어가지 않다（不屈服）</span> ← 원형</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-ㄹ（定语形）</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span><s>③收尾 —</s></span><span>④变身 ✓</span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 —</span><span>③收尾 —</span><span>④变身 ✓（定语转化修饰 자신）</span></div>
         <div class="sf-link">🔗 -ㄹ 修饰后方名词 자신（自信/把握）</div>
       </div>
       <div class="sf-card">
@@ -538,7 +538,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">자신은（自信）</span></span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">있다（有）</span> ← 원형</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-습니다</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 —</span><span>③收尾 ✓（합쇼体正式）</span><span>④变身 —</span></div>
       </div>
     </div>
   </div>
@@ -599,7 +599,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value">（无）</span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">가다（去）</span> ← 원형</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아요</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 —</span><span>③收尾 ✓（해요体，提议/邀约语气）</span><span>④变身 —</span></div>
       </div>
     </div>
   </div>
@@ -639,7 +639,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-card-title">短句1：가면（如果去的话）</div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">가다（去）</span> ← 원형</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-면</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 ✓（条件连接）</span><span>③收尾 —</span><span>④变身 —</span></div>
         <div class="sf-link">🔗 -면 连接条件句和结果句</div>
       </div>
       <div class="sf-card">
@@ -647,7 +647,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">오로라도（极光也）</span></span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">보다（看）</span> ← 원형</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-ㄹ 수 있는데</span></div>
-        <div class="sf-endings"><span>①加料 ✓</span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span>④变身 ✓</span></div>
+        <div class="sf-endings"><span>①加料 ✓（-ㄹ 수 있다 能力可能）</span><span>②接口 —</span><span>③收尾 ✓（-는데 带提议/余韵）</span><span>④变身 ✓（-ㄹ 定语）</span></div>
       </div>
     </div>
   </div>
@@ -703,7 +703,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">오로라（极光）</span></span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value">（省略，感叹/喃喃自语）</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">（无词尾，名词单独出现 + 省略号表示情绪停顿）</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 —</span><span>③收尾 —</span><span>④变身 —</span></div>
         <div class="sf-link">备注：⑨⑩同句，台词汇总中保留两条，精讲合并为一次讲解。</div>
       </div>
     </div>
@@ -735,7 +735,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">초록색（绿色）</span></span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value">（省略）</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">（无词尾，名词单독출현）</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 —</span><span>③收尾 —</span><span>④变身 —</span></div>
       </div>
     </div>
   </div>
@@ -761,7 +761,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">파란색（蓝色）</span></span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value">（省略）</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">（无词尾，名词单독出현）</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 —</span><span>③收尾 —</span><span>④变身 —</span></div>
       </div>
     </div>
   </div>
@@ -800,7 +800,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">인생（人生）</span></span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">이다（是）</span> ← 원형</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-이잖아</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 —</span><span>③收尾 ✓（-잖아 感叹终结，不是嘛）</span><span>④变身 —</span></div>
       </div>
     </div>
   </div>
@@ -840,7 +840,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">오로라（极光）</span></span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value">（省略，惊叹句）</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">（无，! 感叹）</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 —</span><span>③收尾 —</span><span>④变身 —</span></div>
       </div>
     </div>
   </div>
@@ -864,7 +864,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-card-title">⑮ 그래요?</div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">그렇다（那样）</span> ← 원형（그러다/그렇다）</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아요（疑问）</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 —</span><span>③收尾 ✓（해요体疑问）</span><span>④变身 —</span></div>
       </div>
     </div>
   </div>
@@ -911,7 +911,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value">（无）</span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">가다（去）</span> ← 원형</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-죠</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 —</span><span>③收尾 ✓（-죠 柔和提议/确认，比 -요 更温和）</span><span>④变身 —</span></div>
       </div>
     </div>
   </div>
@@ -966,7 +966,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">피할 거（要躲的事）</span></span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">없기로 하다（决定没有/不……）</span> ← 원형</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-었고</span></div>
-        <div class="sf-endings"><span>①加料 ✓</span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 ✓（-었- 过去完成）</span><span>②接口 ✓（-고 并列连接后续）</span><span>③收尾 —</span><span>④变身 —</span></div>
         <div class="sf-link">中间词尾：피할 -ㄹ 定语④✓ · 없기로 -기로 决定②✓ · 했 -았- 过去①✓ · -고 连接②✓</div>
       </div>
     </div>
@@ -1025,7 +1025,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-card-title">⑱ 간 김엔</div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">가다（去）</span> ← 원형</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-ㄴ 김에(는)</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span>④变身 ✓</span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 ✓（顺便/趁机连接）</span><span>③收尾 —</span><span>④变身 ✓（-ㄴ 定语转化）</span></div>
       </div>
     </div>
   </div>
@@ -1067,13 +1067,13 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">오로라도（极光也）</span></span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">보다（看）</span> ← 원형</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-고 싶-</span></div>
-        <div class="sf-endings"><span>①加料 ✓</span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 ✓（想要/愿望）</span><span>②接口 ✓（-고 连接싶다）</span><span>③收尾 —</span><span>④变身 —</span></div>
         <div class="sf-link">🔗 -으니까 连接原因</div>
       </div>
       <div class="sf-card">
         <div class="sf-card-title">短句2（原因词尾）：-으니까</div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-으니까</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 ✓（原因/理由连接）</span><span>③收尾 —</span><span>④变身 —</span></div>
       </div>
     </div>
   </div>
@@ -1105,8 +1105,8 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   <div class="footer-num">台词精讲 12/13</div>
 </div>
 
-<!-- ===== PAGE 15: 精讲+应用 ⑳ (两页均衡) ===== -->
-<div class="page">
+<!-- ===== PAGE 15: 精讲+应用 ⑳ ===== -->
+<div class="page compact-page">
   <div class="header-bar">
     <span class="header-left">第30课 · 一起去看极光</span>
     <span class="lesson-tag">台词精讲 13/13</span>
@@ -1123,7 +1123,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-card-title">短句1：그래요!（回应，独立感叹）</div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">그렇다（是这样）</span> ← 원형</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아요</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 —</span><span>③收尾 ✓（해요体终结）</span><span>④变身 —</span></div>
         <div class="sf-link">🔗 感叹后进入提议句</div>
       </div>
       <div class="sf-card">
@@ -1132,7 +1132,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value"><span class="tag-who">우리（我们）</span></span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">가다（去）</span> ← 원형</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아서</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 ✓（顺序连接"去了然后"）</span><span>③收尾 —</span><span>④变身 —</span></div>
         <div class="sf-link">🔗 -아서 连接短句3，表示"去了然后"</div>
       </div>
       <div class="sf-card">
@@ -1140,7 +1140,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
         <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">오로라도（极光也）</span></span></div>
         <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">보다（看）</span> ← 원형</span></div>
         <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아요</span></div>
-        <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+        <div class="sf-endings"><span>①加料 —</span><span>②接口 —</span><span>③收尾 ✓（提议）</span><span>④变身 —</span></div>
       </div>
     </div>
   </div>
@@ -1168,22 +1168,15 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
     <div class="sub-sec-title">🎵 음변현상</div>
     <div class="grammar-note">가서[가서] — 无音变 / 봐요[봐요] — 보+아→봐 축약（ㅗ+아=와 合并）</div>
   </div>
-  <div class="footer-num">台词精讲 13/13</div>
-</div>
-  <div class="page" style="padding-top:12mm;">
-  <div class="header-bar">
-    <span class="header-left">第30课 · 一起去看极光</span>
-    <span class="lesson-tag">台词精讲 13/13 · 应用</span>
-  </div>
-  <hr style="margin-bottom:8px;">
+  <hr>
   <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
-  <div class="sentence-box" style="margin:6px 0;padding:8px 12px;">
-    <div class="sent-kr" style="font-size:13px;">⑳ 그래요! 우리 같이 가서 오로라도 봐요!</div>
-    <div class="sent-cn" style="font-size:12px;">好啊！我们一起去看看极光吧！</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:12px;">⑳ 그래요! 우리 같이 가서 오로라도 봐요!</div>
+    <div class="sent-cn" style="font-size:11px;">好啊！我们一起去看看极光吧！</div>
   </div>
   <div class="exercise-text"><b>🔄 换词练习</b><br>把 '오로라도 봐요' 换成 '사진도 찍어요(也拍个照)' 重新说<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：그래요! 우리 같이 가서 사진도 찍어요!（好啊！我们一起去拍个照吧！）</span></div>
-  <div class="exercise-text" style="margin-top:8px;"><b>✍️ 仿写改写</b><br>用 …가서 …봐요/해요 写一句邀约同行的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：같이 카페 가서 커피 마셔요.（一起去咖啡厅喝咖啡吧。）</span></div>
-  <div class="exercise-text" style="margin-top:8px;"><b>❓ 提问 / Q&A</b><br>Q: 진짜 같이 가는 거예요?（真的要一起去吗？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">참고：그래요! 우리 같이 가서 오로라도 봐요!（好啊！我们一起去看看极光！）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写</b><br>用 …가서 …봐요/해요 写一句邀约同行的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：같이 카페 가서 커피 마셔요.（一起去咖啡厅喝咖啡吧。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 提问 / Q&A</b><br>Q: 진짜 같이 가는 거예요?（真的要一起去吗？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">참고：그래요! 우리 같이 가서 오로라도 봐요!（好啊！我们一起去看看极光！）</span></div>
   <div class="footer-num">台词精讲 13/13</div>
 </div>
 
@@ -1275,85 +1268,85 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
   </div>
   <div class="sec-title">🗣️ 场景迁移 · 对话剧场</div>
 
-  <div class="scene-block" style="margin-bottom:8px;">
-    <div style="font-size:11px;color:#8b7355;font-weight:bold;margin-bottom:5px;">场景① · 邀约朋友一起去旅行</div>
+  <div class="scene-block" style="margin-bottom:10px;">
+    <div style="font-size:11px;color:#8b7355;font-weight:bold;margin-bottom:6px;">场景① · 邀约朋友一起去旅行</div>
 
-    <div style="margin:1.5px 0;">
+    <div style="margin:4px 0 3px;">
       <div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">다음 달에 여행 가는 김에 같이 가죠!</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">下个月既然要去旅行，一起去吧！</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Since we're going on a trip next month, let's go together!</div>
+      <div style="font-size:13px;font-weight:bold;margin-left:14px;line-height:1.6;">다음 달에 여행 가는 김에 같이 가죠!</div>
+      <div style="font-size:12px;color:#555;margin-left:14px;line-height:1.5;">下个月既然要去旅行，一起去吧！</div>
+      <div style="font-size:11px;color:#999;font-style:italic;margin-left:14px;line-height:1.4;">Since we're going on a trip next month, let's go together!</div>
     </div>
-    <div style="margin:1.5px 0;">
+    <div style="margin:4px 0 3px;">
       <div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">같이요? 저 때문에 부담스럽지 않아요?</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">一起？我不会给你造成负担吗？</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Together? Won't I be a burden to you?</div>
+      <div style="font-size:13px;font-weight:bold;margin-left:14px;line-height:1.6;">같이요? 저 때문에 부담스럽지 않아요?</div>
+      <div style="font-size:12px;color:#555;margin-left:14px;line-height:1.5;">一起？我不会给你造成负担吗？</div>
+      <div style="font-size:11px;color:#999;font-style:italic;margin-left:14px;line-height:1.4;">Together? Won't I be a burden to you?</div>
     </div>
-    <div style="margin:1.5px 0;">
+    <div style="margin:4px 0 3px;">
       <div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">전혀요! 솔직히 당신이 같이 가 줬으면 좋겠어요.</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">完全不！说实话，我希望你能一起去。</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Not at all! Honestly, I wish you would come with me.</div>
+      <div style="font-size:13px;font-weight:bold;margin-left:14px;line-height:1.6;">전혀요! 솔직히 당신이 같이 가 줬으면 좋겠어요.</div>
+      <div style="font-size:12px;color:#555;margin-left:14px;line-height:1.5;">完全不！说实话，我希望你能一起去。</div>
+      <div style="font-size:11px;color:#999;font-style:italic;margin-left:14px;line-height:1.4;">Not at all! Honestly, I wish you would come with me.</div>
     </div>
-    <div style="margin:1.5px 0;">
+    <div style="margin:4px 0 3px;">
       <div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">가면 오로라도 볼 수 있다고 했죠?</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">说去了还能看到极光，是吗？</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">You said if we go, we can also see the aurora, right?</div>
+      <div style="font-size:13px;font-weight:bold;margin-left:14px;line-height:1.6;">가면 오로라도 볼 수 있다고 했죠?</div>
+      <div style="font-size:12px;color:#555;margin-left:14px;line-height:1.5;">说去了还能看到极光，是吗？</div>
+      <div style="font-size:11px;color:#999;font-style:italic;margin-left:14px;line-height:1.4;">You said if we go, we can also see the aurora, right?</div>
     </div>
-    <div style="margin:1.5px 0;">
+    <div style="margin:4px 0 3px;">
       <div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">맞아요! 그래서 같이 가서 오로라도 봐요!</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">没错！所以一起去看极光吧！</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Exactly! So let's go together and see the aurora!</div>
+      <div style="font-size:13px;font-weight:bold;margin-left:14px;line-height:1.6;">맞아요! 그래서 같이 가서 오로라도 봐요!</div>
+      <div style="font-size:12px;color:#555;margin-left:14px;line-height:1.5;">没错！所以一起去看极光吧！</div>
+      <div style="font-size:11px;color:#999;font-style:italic;margin-left:14px;line-height:1.4;">Exactly! So let's go together and see the aurora!</div>
     </div>
-    <div style="margin:1.5px 0;">
+    <div style="margin:4px 0 3px;">
       <div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">그럼 같이 가죠!</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">那一起去吧！</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Then let's go together!</div>
+      <div style="font-size:13px;font-weight:bold;margin-left:14px;line-height:1.6;">그럼 같이 가죠!</div>
+      <div style="font-size:12px;color:#555;margin-left:14px;line-height:1.5;">那一起去吧！</div>
+      <div style="font-size:11px;color:#999;font-style:italic;margin-left:14px;line-height:1.4;">Then let's go together!</div>
     </div>
   </div>
 
-  <div class="scene-block" style="margin-bottom:8px;">
-    <div style="font-size:11px;color:#8b7355;font-weight:bold;margin-bottom:5px;">场景② · 向朋友表达希望对方陪自己</div>
+  <div class="scene-block" style="margin-bottom:10px;">
+    <div style="font-size:11px;color:#8b7355;font-weight:bold;margin-bottom:6px;">场景② · 向朋友表达希望对方陪自己</div>
 
-    <div style="margin:1.5px 0;">
+    <div style="margin:4px 0 3px;">
       <div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">저... 당신이 같이 와 줬으면 좋겠어요.</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">那个……我希望你能陪我一起来。</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Um... I wish you would come with me.</div>
+      <div style="font-size:13px;font-weight:bold;margin-left:14px;line-height:1.6;">저... 당신이 같이 와 줬으면 좋겠어요.</div>
+      <div style="font-size:12px;color:#555;margin-left:14px;line-height:1.5;">那个……我希望你能陪我一起来。</div>
+      <div style="font-size:11px;color:#999;font-style:italic;margin-left:14px;line-height:1.4;">Um... I wish you would come with me.</div>
     </div>
-    <div style="margin:1.5px 0;">
+    <div style="margin:4px 0 3px;">
       <div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">혹시 내가 부담스러워요?</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">我让你感到负担了吗？</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Am I a burden to you?</div>
+      <div style="font-size:13px;font-weight:bold;margin-left:14px;line-height:1.6;">혹시 내가 부담스러워요?</div>
+      <div style="font-size:12px;color:#555;margin-left:14px;line-height:1.5;">我让你感到负担了吗？</div>
+      <div style="font-size:11px;color:#999;font-style:italic;margin-left:14px;line-height:1.4;">Am I a burden to you?</div>
     </div>
-    <div style="margin:1.5px 0;">
+    <div style="margin:4px 0 3px;">
       <div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">아니요! 같이 가면 재미있을 것 같아서요.</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">不是！就是觉得一起去会很有意思。</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">No! I just thought it'd be fun if we went together.</div>
+      <div style="font-size:13px;font-weight:bold;margin-left:14px;line-height:1.6;">아니요! 같이 가면 재미있을 것 같아서요.</div>
+      <div style="font-size:12px;color:#555;margin-left:14px;line-height:1.5;">不是！就是觉得一起去会很有意思。</div>
+      <div style="font-size:11px;color:#999;font-style:italic;margin-left:14px;line-height:1.4;">No! I just thought it'd be fun if we went together.</div>
     </div>
-    <div style="margin:1.5px 0;">
+    <div style="margin:4px 0 3px;">
       <div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">내가 막 사귀자고 협박할까 봐 무서워요?</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">你是怕我会威胁你要和我交往吗？</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Are you scared I'd threaten you to date me?</div>
+      <div style="font-size:13px;font-weight:bold;margin-left:14px;line-height:1.6;">내가 막 사귀자고 협박할까 봐 무서워요?</div>
+      <div style="font-size:12px;color:#555;margin-left:14px;line-height:1.5;">你是怕我会威胁你要和我交往吗？</div>
+      <div style="font-size:11px;color:#999;font-style:italic;margin-left:14px;line-height:1.4;">Are you scared I'd threaten you to date me?</div>
     </div>
-    <div style="margin:1.5px 0;">
+    <div style="margin:4px 0 3px;">
       <div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">그런 협박에 넘어가지 않을 자신은 있어요!</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">我有自信不会被那种威胁吓到！</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">I'm confident I won't fall for that kind of threat!</div>
+      <div style="font-size:13px;font-weight:bold;margin-left:14px;line-height:1.6;">그런 협박에 넘어가지 않을 자신은 있어요!</div>
+      <div style="font-size:12px;color:#555;margin-left:14px;line-height:1.5;">我有自信不会被那种威胁吓到！</div>
+      <div style="font-size:11px;color:#999;font-style:italic;margin-left:14px;line-height:1.4;">I'm confident I won't fall for that kind of threat!</div>
     </div>
-    <div style="margin:1.5px 0;">
+    <div style="margin:4px 0 3px;">
       <div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
-      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">그럼 어차피 피할 거 없으니까 같이 가요!</div>
-      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">那反正也没什么好躲的，一起去吧！</div>
-      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Then since there's nothing to avoid anyway, let's go!</div>
+      <div style="font-size:13px;font-weight:bold;margin-left:14px;line-height:1.6;">그럼 어차피 피할 거 없으니까 같이 가요!</div>
+      <div style="font-size:12px;color:#555;margin-left:14px;line-height:1.5;">那反正也没什么好躲的，一起去吧！</div>
+      <div style="font-size:11px;color:#999;font-style:italic;margin-left:14px;line-height:1.4;">Then since there's nothing to avoid anyway, let's go!</div>
     </div>
   </div>
   <div class="footer-num">场景练习包 1/2</div>
@@ -1406,7 +1399,15 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
     <div class="answer-item">④ 간 김엔 오로라도 보고 싶으니까요. / Since we're going, I also want to see the aurora.</div>
     <div class="answer-item">⑤ 그래요! 우리 같이 가서 오로라도 봐요! / Okay! Let's go together and see the aurora!</div>
   </div>
-<div class="sec-title" style="margin-top:16px;">🎤 口语挑战</div>
+  <div class="footer-num">场景练习包 2/2</div>
+</div>
+
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第30课 · 一起去看极光</span>
+    <span>🎤 口语挑战</span>
+  </div>
+  <div class="sec-title" style="margin-top:16px;">🎤 口语挑战</div>
   <div class="challenge-box">
     <div style="font-size:12px;color:#555;line-height:1.8;">
       不看原文，用今天学的句型说一段30秒的话（自由发挥）<br>
@@ -1419,7 +1420,7 @@ hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
       · 같이 가서 봐요! — 一起去看吧！
     </div>
   </div>
-  <div class="footer-num">场景练习包 2/2</div>
+  <div class="footer-num">口语挑战 1/1</div>
 </div>
 
 
