@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>E3-25 特好的机会</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans:wght@400;700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', 'Noto Sans KR', 'Noto Sans', sans-serif; background: #ffffff; color: #333; }
+.page { width: 210mm; min-height: 297mm; padding: 14mm 16mm; background: #fff; margin: 0 auto; position: relative; page-break-before: always; }
+.page:first-of-type { page-break-before: avoid; }
+.cover { background: linear-gradient(145deg, #faf8f4, #f5f0e8, #ede6d8, #e8dfce); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.cover .lesson-number { font-size: 13px; color: #8b7355; letter-spacing: 2px; margin-bottom: 10px; }
+.cover h1 { font-size: 30px; color: #5c4a3a; margin-bottom: 18px; }
+.cover .subtitle { font-size: 16px; color: #8b7355; margin-top: 8px; }
+.cover .divider { width: 60px; height: 2px; background: #c4b998; margin: 15px auto; }
+.cover .desc { font-size: 13px; color: #8b7355; margin-top: 20px; line-height: 1.6; }
+.header-bar { display: flex; justify-content: space-between; font-size: 10px; color: #8b7355; border-bottom: 1px solid #e8dfce; padding-bottom: 4px; margin-bottom: 10px; }
+.header-left { font-weight: bold; }
+.lesson-tag { font-size: 10px; color: #8b7355; }
+.sec-title { font-size: 14px; color: #8b7355; font-weight: bold; margin: 6px 0 4px; }
+.sub-sec-title { font-size: 11px; font-weight: bold; color: #8b7355; margin: 6px 0 2px; }
+.kr-text { font-size: 14px; font-weight: bold; color: #1a1a1a; line-height: 1.6; }
+.zh-text { font-size: 13px; color: #555; line-height: 1.5; }
+.en-text { font-size: 11px; color: #999; font-style: italic; line-height: 1.4; }
+.tag-who { color: #2a6f97; font-weight: bold; }
+.tag-what { color: #2d6a4f; font-weight: bold; }
+.tag-do { color: #a53860; font-weight: bold; }
+.word-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; padding: 6px 0; }
+.word-item { font-size: 12px; line-height: 1.6; }
+.word-item .ko { font-weight: bold; }
+.word-item .zh { color: #555; margin-left: 4px; }
+.word-item .en { color: #999; font-size: 11px; font-style: italic; margin-left: 4px; }
+.scene-block { background: #f8f6f2; padding: 10px 12px; border-radius: 4px; margin: 8px 0; }
+table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+th { background: #c4b998; color: #fff; padding: 6px 10px; font-size: 12px; }
+td { padding: 6px 10px; border-bottom: 1px solid #e8dfce; font-size: 12px; }
+.audio-btn { color: #2a6f97; text-decoration: underline; cursor: pointer; font-size: 12px; display: inline-block; margin: 2px 0 0; }
+.footer-num { position: absolute; bottom: 10mm; right: 16mm; font-size: 9px; color: #c4b998; }
+.cover-kr { display: block; font-family: 'Noto Sans KR', sans-serif; font-size: 22px; color: #7a5e3e; margin-top: 6px; }
+.cover-svg-wrap { margin: 8px 0 15px; }
+.sentence-box { background: #f8f6f2; border-left: 4px solid #c4b998; padding: 10px 14px; margin-bottom: 8px; border-radius: 0 6px 6px 0; }
+.sentence-box .sent-kr { font-size: 14px; font-weight: bold; color: #1a1a1a; line-height: 1.6; }
+.sentence-box .sent-cn { font-size: 13px; color: #555; line-height: 1.5; }
+.sentence-box .sent-en { font-size: 11px; color: #999; font-style: italic; line-height: 1.4; }
+.detail-block { margin: 4px 0; }
+.grammar-note { font-size: 11px; color: #444; line-height: 1.6; }
+.exercise-text { font-size: 11px; color: #444; line-height: 1.6; margin: 4px 0; }
+.answer-ref { font-size: 10px; color: #999; margin-top: 2px; }
+.summary-line { padding: 1px 0; border-bottom: 1px solid #f0e8dd; font-size: 11px; line-height: 1.35; }
+.summary-line .num { display: inline; width: auto; color: #c4b998; font-weight: bold; margin-right: 2px; }
+.summary-line .kr { font-weight: bold; display: inline; margin-left: 0; }
+.summary-line .zh { color: #555; display: block; margin-left: 22px; font-size: 11px; }
+.summary-line .en { color: #999; font-style: italic; font-size: 10px; display: block; margin-left: 22px; }
+.page-num-right { position: absolute; top: 14mm; right: 16mm; font-size: 10px; color: #8b7355; }
+hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
+.answer-item { font-size: 10px; padding: 3px 6px; background: #f8f6f2; border-radius: 3px; border-left: 3px solid #7cb342; margin: 3px 0; line-height: 1.5; }
+.diary-blank-line { font-size: 11px; color: #999; letter-spacing: 1px; border-bottom: 1px solid #ccc; padding: 3px 0; margin: 2px 0; }
+.challenge-box { background: #f8f6f2; padding: 10px 12px; border-radius: 4px; margin: 8px 0; }
+.sf-card { background: #faf7f2; border-radius: 4px; padding: 8px 12px; margin: 5px 0; border: 1px solid #e8dfce; }
+.sf-card-title { font-size: 11px; font-weight: bold; color: #5c4a3a; margin-bottom: 5px; padding-bottom: 3px; border-bottom: 1px solid #e8dfce; }
+.sf-row { font-size: 11px; line-height: 1.7; display: flex; align-items: baseline; }
+.sf-label { min-width: 54px; color: #8b7355; flex-shrink: 0; font-size: 10px; }
+.sf-value { flex: 1; color: #444; }
+.sf-endings { font-size: 10px; color: #555; margin-top: 4px; display: flex; gap: 10px; flex-wrap: wrap; background: #f0ede8; padding: 3px 6px; border-radius: 3px; }
+.sf-link { font-size: 10px; color: #7a6a55; margin-top: 4px; font-style: italic; padding-top: 3px; border-top: 1px dashed #ddd; }
+.sf-detail { font-size: 10.5px; color: #5c4a3a; margin-top: 4px; line-height: 1.6; padding: 4px 8px; background: #fbf7ef; border-left: 3px solid #c4873a; border-radius: 3px; }
+.compact-page .sentence-box { padding: 8px 12px; margin-bottom: 6px; }
+.compact-page .sf-card { padding: 6px 10px; margin: 4px 0; }
+.compact-page .sf-card-title { margin-bottom: 4px; padding-bottom: 2px; }
+.compact-page .sf-row { line-height: 1.55; }
+.compact-page .sf-endings { margin-top: 3px; padding: 2px 5px; gap: 7px; }
+.compact-page .sf-link { margin-top: 3px; padding-top: 2px; }
+.compact-page .detail-block { margin: 3px 0; }
+.compact-page .sub-sec-title { margin: 4px 0 1px; }
+.compact-page .word-grid { padding: 4px 0; gap: 1px 13px; }
+.compact-page .grammar-note { line-height: 1.5; }
+.compact-page hr { margin: 4px 0; }
+.compact-page .exercise-text { margin: 3px 0; line-height: 1.52; }
+.compact-page .answer-ref { margin-top: 1px; }
+.breath-page .sentence-box { padding: 12px 14px; margin-bottom: 10px; }
+.breath-page .sf-card { padding: 9px 12px; margin: 6px 0; }
+.breath-page .sf-card-title { margin-bottom: 6px; padding-bottom: 4px; }
+.breath-page .sf-row { line-height: 1.85; }
+.breath-page .sf-endings { margin-top: 6px; padding: 4px 7px; gap: 12px; }
+.breath-page .sf-link { margin-top: 6px; padding-top: 4px; }
+.breath-page .detail-block { margin: 6px 0; }
+.breath-page .sub-sec-title { margin: 8px 0 3px; }
+.breath-page .word-grid { padding: 8px 0; gap: 3px 16px; }
+.breath-page .grammar-note { line-height: 1.7; }
+.breath-page hr { margin: 8px 0; }
+.breath-page .exercise-text { margin: 6px 0; line-height: 1.7; }
+.breath-page .answer-ref { margin-top: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ===== PAGE 1: COVER ===== -->
+<div class="page cover">
+  <div class="lesson-number">E3-25 · 韩语台词复利笔记</div>
+  <div class="divider"></div>
+  <h1>特好的机会</h1>
+  <span class="cover-kr">되게 좋은 기회였거든요</span>
+  <div class="cover-svg-wrap">
+    <svg width="220" height="130" viewBox="0 0 220 130" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="bg25" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#f5ede0"/>
+          <stop offset="60%" stop-color="#e8d9c8"/>
+          <stop offset="100%" stop-color="#d4c4b0"/>
+        </linearGradient>
+        <linearGradient id="gold25" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#d4a843"/>
+          <stop offset="100%" stop-color="#b8872a"/>
+        </linearGradient>
+      </defs>
+      <rect width="220" height="130" fill="url(#bg25)" rx="10"/>
+      <!-- 道路/机会通道 -->
+      <path d="M110,125 L60,50 L110,50 L160,50 Z" fill="#c8baa8" opacity="0.4"/>
+      <line x1="110" y1="125" x2="85" y2="50" stroke="#b8a898" stroke-width="1" stroke-dasharray="4,3"/>
+      <line x1="110" y1="125" x2="135" y2="50" stroke="#b8a898" stroke-width="1" stroke-dasharray="4,3"/>
+      <!-- 黄金钥匙（机会象征） -->
+      <circle cx="110" cy="38" r="12" fill="none" stroke="url(#gold25)" stroke-width="2.5"/>
+      <circle cx="110" cy="38" r="6" fill="none" stroke="url(#gold25)" stroke-width="2"/>
+      <rect x="120" y="36" width="18" height="4" rx="2" fill="url(#gold25)"/>
+      <rect x="132" y="40" width="4" height="5" rx="1" fill="url(#gold25)"/>
+      <rect x="126" y="40" width="4" height="4" rx="1" fill="url(#gold25)"/>
+      <!-- 节目/舞台灯光 -->
+      <path d="M60,18 L75,45 L85,45 Z" fill="#e8c870" opacity="0.35"/>
+      <path d="M160,18 L145,45 L135,45 Z" fill="#e8c870" opacity="0.35"/>
+      <circle cx="60" cy="16" r="5" fill="#e8c870" opacity="0.7"/>
+      <circle cx="160" cy="16" r="5" fill="#e8c870" opacity="0.7"/>
+      <!-- 人物轮廓（两人对话） -->
+      <circle cx="78" cy="85" r="7" fill="#8b7355" opacity="0.65"/>
+      <rect x="72" y="93" width="12" height="18" rx="4" fill="#8b7355" opacity="0.6"/>
+      <circle cx="142" cy="85" r="7" fill="#7a5e3e" opacity="0.65"/>
+      <rect x="136" y="93" width="12" height="18" rx="4" fill="#7a5e3e" opacity="0.6"/>
+      <!-- 对话泡泡 -->
+      <rect x="88" y="78" width="44" height="18" rx="5" fill="#fff" opacity="0.7"/>
+      <polygon points="88,86 82,90 92,90" fill="#fff" opacity="0.7"/>
+      <text x="110" y="91" text-anchor="middle" font-size="9" fill="#8b7355" font-family="serif">기회!</text>
+      <!-- 地平线装饰 -->
+      <rect x="0" y="118" width="220" height="12" fill="#c8baa8" opacity="0.4" rx="0"/>
+    </svg>
+  </div>
+  <div class="divider"></div>
+  <div class="subtitle">机会来了要抓住 · 被辞退的遗憾</div>
+  <div class="desc">
+    本课收录12句台词，围绕"特好的机会"展开对话练习。<br>
+    掌握劝说、转述、感叹、遗憾等日常表达。
+  </div>
+  <div class="divider" style="margin-top:25px;width:40px;"></div>
+  <div class="lesson-number" style="margin-top:10px;font-size:11px;">台词精讲 · 逐句应用 · 场景练习</div>
+</div>
+
+<!-- ===== PAGE 2: 台词汇总 ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第25课 · 特好的机会</span>
+    <span>台词汇总</span>
+  </div>
+  <div class="sec-title">📝 本课台词 · 整段音频</div>
+  <a href="https://nannan2026.cn/korean/audio/L25_full.mp3" class="audio-btn" target="_blank">🔊 听整段录音（点击打开播放）</a>
+  <div>
+    <div class="summary-line"><span class="num">①</span><span class="kr">그냥 딴 일 찾지 말고 그 프로그램 하세요</span><span class="zh">别找别的工作了，就做那个节目吧</span><span class="en">Don't look for another job, just do that show.</span></div>
+    <div class="summary-line"><span class="num">②</span><span class="kr">용우 말 들어 보니까</span><span class="zh">听龙佑那么一说</span><span class="en">Listening to Yong-woo...</span></div>
+    <div class="summary-line"><span class="num">③</span><span class="kr">아직도 통역사 못 찾아서 난리라던데</span><span class="zh">听说还没找到翻译，正闹得不可开交</span><span class="en">I heard they're still scrambling because they can't find an interpreter.</span></div>
+    <div class="summary-line"><span class="num">④</span><span class="kr">알아요</span><span class="zh">我知道</span><span class="en">I know.</span></div>
+    <div class="summary-line"><span class="num">⑤</span><span class="kr">지금도 같이 할 수 없냐고 계속 연락 오니까</span><span class="zh">现在也一直来联系，问能不能一起做</span><span class="en">They keep contacting me asking if I can do it together now.</span></div>
+    <div class="summary-line"><span class="num">⑥</span><span class="kr">그래요?</span><span class="zh">是吗？</span><span class="en">Is that so?</span></div>
+    <div class="summary-line"><span class="num">⑦</span><span class="kr">좋겠다</span><span class="zh">真好啊</span><span class="en">That'd be nice.</span></div>
+    <div class="summary-line"><span class="num">⑧</span><span class="kr">난 잘렸는데</span><span class="zh">可我被辞退了</span><span class="en">But I got fired.</span></div>
+    <div class="summary-line"><span class="num">⑨</span><span class="kr">자폭으로 날렸다더니 뭐, 아쉬운가 봐요?</span><span class="zh">听说他是用自爆的方式把自己作掉的，看来是觉得可惜吧？</span><span class="en">They say he self-destructed and got himself fired—guess he regrets it?</span></div>
+    <div class="summary-line"><span class="num">⑩</span><span class="kr">아쉽죠</span><span class="zh">是挺可惜的</span><span class="en">Yeah, it's a shame.</span></div>
+    <div class="summary-line"><span class="num">⑪</span><span class="kr">되게 좋은 기회였거든요</span><span class="zh">因为那真是个很好的机会</span><span class="en">Because it was a really great opportunity.</span></div>
+    <div class="summary-line"><span class="num">⑫</span><span class="kr">이미지 변신하는 데</span><span class="zh">在形象转型方面</span><span class="en">For transforming his image.</span></div>
+  </div>
+  <div style="margin-top:10px;">
+    <div class="sec-title">⭐ 重点句型速览</div>
+    <table>
+      <tr><th>句型</th><th>意思</th><th>本课例句</th></tr>
+      <tr><td>-지 말고</td><td>不要…而是（劝说转向）</td><td>딴 일 찾지 말고</td></tr>
+      <tr><td>-아/어 보니까</td><td>试了一下发现…</td><td>들어 보니까</td></tr>
+      <tr><td>-라던데</td><td>听说…/据说是…</td><td>난리라던데</td></tr>
+      <tr><td>-냐고</td><td>问能不能…（间接引用疑问）</td><td>할 수 없냐고</td></tr>
+      <tr><td>-다더니</td><td>听说…结果/原来</td><td>날렸다더니</td></tr>
+      <tr><td>-거든요</td><td>要知道…（解释背景）</td><td>기회였거든요</td></tr>
+    </table>
+    <div class="sec-title" style="margin-top:6px;">📌 核心词汇</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">통역사</span><span class="zh">— 口译员/翻译</span><span class="en">interpreter</span></div>
+      <div class="word-item"><span class="ko">잘리다</span><span class="zh">— 被辞退/被裁</span><span class="en">be fired</span></div>
+      <div class="word-item"><span class="ko">자폭</span><span class="zh">— 自爆/自毁</span><span class="en">self-destruction</span></div>
+      <div class="word-item"><span class="ko">아쉽다</span><span class="zh">— 可惜/遗憾</span><span class="en">regrettable</span></div>
+      <div class="word-item"><span class="ko">기회</span><span class="zh">— 机会</span><span class="en">opportunity</span></div>
+      <div class="word-item"><span class="ko">변신</span><span class="zh">— 变身/转型</span><span class="en">transformation</span></div>
+    </div>
+  </div>
+  <div class="footer-num">台词汇总</div>
+</div>
+
+<!-- ===== PAGE 3: 精讲 ① ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第25课 · 特好的机会</span>
+    <span class="lesson-tag">台词精讲 1/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">① 그냥 딴 일 찾지 말고 그 프로그램 하세요</div>
+    <div class="sent-cn">别找别的工作了，就做那个节目吧</div>
+    <div class="sent-en">Don't look for another job, just do that show.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">短句1：그냥 딴 일 찾지 말고</div>
+      <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">그냥（就/只管）</span></div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">딴 일（别的工作）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">찾다（找）</span> ← 원형</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-지 말고（否定命令+连接）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+      <div class="sf-link">🔗 -지 말고 连接"不做A"→"做B"的转向结构</div>
+    </div>
+    <div class="sf-card">
+      <div class="sf-card-title">短句2：그 프로그램 하세요</div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">그 프로그램（那个节目）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">하다（做）</span> ← 원형</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-세요（敬语命令/建议收尾）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L25_S01.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">그냥</span><span class="zh">— 就/干脆</span><span class="en">just, simply</span></div>
+      <div class="word-item"><span class="ko">딴 일</span><span class="zh">— 别的工作/其他事</span><span class="en">other work</span></div>
+      <div class="word-item"><span class="ko">찾다</span><span class="zh">— 找</span><span class="en">to look for</span></div>
+      <div class="word-item"><span class="ko">말고</span><span class="zh">— 不要…而是</span><span class="en">instead of</span></div>
+      <div class="word-item"><span class="ko">프로그램</span><span class="zh">— 节目/程序</span><span class="en">program/show</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">딴 일 찾지 말고 — 别找别的工作（固定劝说搭配） ｜ 그냥 ~하세요 — 就……吧（简单直接的建议）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-지 말고 — "不要…而是"（劝说转向）</div>
+    <div class="grammar-note">讲解：动词+-지 말다(否定命令)+-고(连接)，表"不要做A，而是做B"，语气比直接命令更柔和，常用于建议转换方向。</div>
+    <div class="grammar-note">예) 울지 말고 웃어요.（别哭了，笑一个吧。）</div>
+    <div class="grammar-note">예) 걱정하지 말고 쉬어요.（别担心，好好休息。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">찾지 → [찯찌] 紧音化（ㅈ+ㅈ→ㅉ） ｜ 말고 → [말고] 无特殊 ｜ 하세요 → [하세요] 无特殊</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:12px;">① 그냥 딴 일 찾지 말고 그 프로그램 하세요</div>
+    <div class="sent-cn" style="font-size:11px;">别找别的工作了，就做那个节目吧</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '프로그램 하세요（做节目）' 换成 '오디션 보세요（去试镜）' 重新建议<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그냥 딴 일 찾지 말고 오디션 보세요.（别找别的工作了，就去试镜吧。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写</b><br>用 -지 말고 写一句劝朋友转换方向的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：포기하지 말고 계속해요.（别放弃，继续吧。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 提问 / Q&A</b><br>Q: 다른 일을 찾을까요?（要去找别的工作吗？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：그냥 딴 일 찾지 말고 그 프로그램 하세요.（别找别的了，就做那个节目吧。）</span></div>
+  <div class="footer-num">台词精讲 1/12</div>
+</div>
+
+<!-- ===== PAGE 4: 精讲 ② ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第25课 · 特好的机会</span>
+    <span class="lesson-tag">台词精讲 2/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">② 용우 말 들어 보니까</div>
+    <div class="sent-cn">听龙佑那么一说</div>
+    <div class="sent-en">Listening to Yong-woo...</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">② 용우 말 들어 보니까</div>
+      <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">용우（龙佑，人名）</span></div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">말（话）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">듣다（听）+ 보다（试）</span> ← 원형</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아 보니까（试做后发现，接口）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+      <div class="sf-link">备注：此句未完，后接省略——"听了龙佑说的之后（发现）……"，留白让听者意会</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L25_S02.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">용우</span><span class="zh">— 龙佑（人名）</span><span class="en">Yong-woo (name)</span></div>
+      <div class="word-item"><span class="ko">말</span><span class="zh">— 话/说的话</span><span class="en">words, speech</span></div>
+      <div class="word-item"><span class="ko">듣다</span><span class="zh">— 听</span><span class="en">to listen</span></div>
+      <div class="word-item"><span class="ko">-아/어 보다</span><span class="zh">— 试着做</span><span class="en">try doing</span></div>
+      <div class="word-item"><span class="ko">-(으)니까</span><span class="zh">— 因为/发现</span><span class="en">because/since</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">말 들어 보다 — 听听看 ｜ 들어 보니까 — 听了一下发现…（固定搭配）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-아/어 보니까 — "试了一下发现…"</div>
+    <div class="grammar-note">讲解：动词+-아/어 보다（试着做）+-(으)니까（发现），合成"试着做了之后发现……"，类似英语"Having tried, I found that..."</div>
+    <div class="grammar-note">예) 직접 해 보니까 어렵지 않아요.（亲自试了一下发现不难。）</div>
+    <div class="grammar-note">예) 먹어 보니까 맛있어요.（尝了一口发现很好吃。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">들어 → [드러] 无特殊连音 ｜ 보니까 → [보니까] 无特殊</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:12px;">② 용우 말 들어 보니까</div>
+    <div class="sent-cn" style="font-size:11px;">听龙佑那么一说</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '용우 말（龙佑说的话）' 换成 '선생님 말씀（老师说的话）' 重新说<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：선생님 말씀 들어 보니까.（听了老师说的之后……）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写</b><br>用 -아/어 보니까 写一句"试了一下才发现"的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：한번 해 보니까 생각보다 쉬웠어요.（试了一下发现比想象中容易。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 提问 / Q&A</b><br>Q: 그 사람 말이 맞는 것 같아요?（那个人说的感觉对吗？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：용우 말 들어 보니까 맞는 것 같아요.（听龙佑那么一说，感觉没错。）</span></div>
+  <div class="footer-num">台词精讲 2/12</div>
+</div>
+
+<!-- ===== PAGE 5: 精讲 ③ ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第25课 · 特好的机会</span>
+    <span class="lesson-tag">台词精讲 3/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">③ 아직도 통역사 못 찾아서 난리라던데</div>
+    <div class="sent-cn">听说还没找到翻译，正闹得不可开交</div>
+    <div class="sent-en">I heard they're still scrambling because they can't find an interpreter.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">短句1：아직도 통역사 못 찾아서</div>
+      <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">아직도（到现在还）</span></div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">통역사（翻译/口译员）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">찾다（找）</span> ← 원형（못 = 客观否定）</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아서（原因接口）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+      <div class="sf-link">🔗 -아서 连接原因和结果，引出短句2</div>
+    </div>
+    <div class="sf-card">
+      <div class="sf-card-title">短句2：난리라던데</div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">난리（乱套/混乱）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">이다（是）</span> ← 원형</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-라던데（传闻转述收尾）</span></div>
+      <div class="sf-endings"><span>①加料 ✓</span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span>④变身 ✓</span></div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L25_S03.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">아직도</span><span class="zh">— 到现在还/仍然</span><span class="en">still/even now</span></div>
+      <div class="word-item"><span class="ko">통역사</span><span class="zh">— 口译员/翻译</span><span class="en">interpreter</span></div>
+      <div class="word-item"><span class="ko">못</span><span class="zh">— 未能/没能</span><span class="en">cannot/fail to</span></div>
+      <div class="word-item"><span class="ko">난리</span><span class="zh">— 乱套/混乱</span><span class="en">chaos/commotion</span></div>
+      <div class="word-item"><span class="ko">-라던데</span><span class="zh">— 听说/据说</span><span class="en">I heard that...</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">통역사를 못 찾다 — 找不到翻译 ｜ 난리가 나다 — 乱成一团 ｜ -라던데 — 听说是…（传闻引述）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-라던데 — "听说…/据说是…"</div>
+    <div class="grammar-note">讲解：-라던데 是间接引用过去时-더라的引述形，表传达听说/传闻的内容，语气为"话是这么说的/我是这么听到的"。</div>
+    <div class="grammar-note">예) 그분은 의사라던데요.（听说那位是医生。）</div>
+    <div class="grammar-note">예) 내일 비가 온다던데요.（听说明天要下雨。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">아직도 → [아직또] 紧音化（ㄱ+ㄷ→ㄲ+ㄸ） ｜ 찾아서 → [차자서] 连音 ｜ 난리라던데 → [날리라던데] 鼻音化（ㄴ+ㄹ→ㄹ+ㄹ）</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:12px;">③ 아직도 통역사 못 찾아서 난리라던데</div>
+    <div class="sent-cn" style="font-size:11px;">听说还没找到翻译，正闹得不可开交</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '난리라던데（乱套了）' 换成 '힘들다던데（很辛苦/很难）' 重新转述<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：아직도 통역사 못 찾아서 힘들다던데.（听说还没找到翻译，很辛苦。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写</b><br>用 -라던데 写一句转述听说的消息<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：그 식당이 닫았다던데요.（听说那家餐厅关门了。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 提问 / Q&A</b><br>Q: 그 방송국이 통역사를 구했어요?（那个电视台找到翻译了吗？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">참고：아직도 못 찾아서 난리라던데요.（听说还没找到，正乱成一团。）</span></div>
+  <div class="footer-num">台词精讲 3/12</div>
+</div>
+
+<!-- ===== PAGE 6: 精讲 ④⑤ 合并 ===== -->
+<div class="page breath-page">
+  <div class="header-bar">
+    <span class="header-left">第25课 · 特好的机会</span>
+    <span class="lesson-tag">台词精讲 4/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">④ 알아요</div>
+    <div class="sent-cn">我知道</div>
+    <div class="sent-en">I know.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">④ 알아요</div>
+      <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value">（省略，说话人）</span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">알다（知道）</span> ← 원형（ㄹ不规则）</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아요（敬语收尾，ㄹ脱落）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+      <div class="sf-link">备注：알다(ㄹ不规则) → 알+아요时ㄹ脱落 → 알아요[아라요]</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L25_S04.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">알다</span><span class="zh">— 知道/了解</span><span class="en">to know</span></div>
+      <div class="word-item"><span class="ko">알아요</span><span class="zh">— 知道（敬语体）</span><span class="en">I know</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：알다 ㄹ不规则活用</div>
+    <div class="grammar-note">讲解：알다(知道)以ㄹ结尾，接元音开头的词尾时ㄹ脱落：알+아요→알아요[아라요]。同类：살다→살아요 / 만들다→만들어요。</div>
+    <div class="grammar-note">예) 그 길을 알아요?（你知道那条路吗？）</div>
+    <div class="grammar-note">예) 알겠어요.（知道了。[겠=意志确认]）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">알아요 → [아라요] ㄹ脱落+连音（알→아 + 아요→라요）</div>
+  </div>
+  <hr>
+  <div class="sentence-box" style="margin:8px 0 4px;">
+    <div class="sent-kr">⑤ 지금도 같이 할 수 없냐고 계속 연락 오니까</div>
+    <div class="sent-cn">现在也一直来联系，问能不能一起做</div>
+    <div class="sent-en">They keep contacting me asking if I can do it together now.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">短句1：지금도 같이 할 수 없냐고（间接引用疑问）</div>
+      <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">지금도（现在也）</span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">할 수 없다（不能做）</span> ← 원형</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-냐고（间接引用疑问接口）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span>④变身 ✓</span></div>
+      <div class="sf-link">🔗 -냐고 转述"问能否…"的引用内容，连接短句2</div>
+    </div>
+    <div class="sf-card">
+      <div class="sf-card-title">短句2：계속 연락 오니까</div>
+      <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">계속（一直/持续）</span></div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">연락（联系）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">오다（来）</span> ← 원형</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-(으)니까（原因接口）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L25_S05.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">지금도</span><span class="zh">— 现在也</span><span class="en">even now</span></div>
+      <div class="word-item"><span class="ko">같이</span><span class="zh">— 一起</span><span class="en">together</span></div>
+      <div class="word-item"><span class="ko">할 수 없다</span><span class="zh">— 做不到/不能</span><span class="en">cannot do</span></div>
+      <div class="word-item"><span class="ko">계속</span><span class="zh">— 继续/一直</span><span class="en">continuously</span></div>
+      <div class="word-item"><span class="ko">연락</span><span class="zh">— 联系</span><span class="en">contact</span></div>
+      <div class="word-item"><span class="ko">-냐고</span><span class="zh">— 问是否…</span><span class="en">asking whether...</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-냐고 — 间接引用疑问"问能否…"</div>
+    <div class="grammar-note">讲解：动词现在时+-냐고，表示转述"问是否…"。같이 할 수 없냐고="（问）能不能一起做"，加계속 연락 오니까="因为一直来联系问这个"。</div>
+    <div class="grammar-note">예) 어디 가냐고 물어봤어요.（问了要去哪里。）</div>
+    <div class="grammar-note">예) 언제 오냐고 했어요.（问了什么时候来。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">없냐고 → [엄냐고] ㅂ→ㅁ鼻音化（ㅂ+ㄴ→ㅁ+ㄴ） ｜ 연락 → [열락] ㄴ→ㄹ鼻音化</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用（④⑤）</div>
+  <div class="exercise-text"><b>🔄 换词练习 (⑤)</b><br>把 '연락 오니까（来联系）' 换成 '문자 오니까（来发信息）' 重新说<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：지금도 같이 할 수 없냐고 계속 문자 오니까.（因为还一直发信息问能不能一起做。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写 (⑤)</b><br>用 -냐고 写一句转述别人问你的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：언제 오냐고 자꾸 물어봐요.（一直问我什么时候来。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 提问 / Q&A (④)</b><br>Q: 지금 상황이 어렵다는 거 알아요?（知道现在情况很困难吗？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">참고：알아요.（我知道。）</span></div>
+  <div class="footer-num">台词精讲 4/12</div>
+</div>
+
+<!-- ===== PAGE 7: 精讲 ⑥⑦ 合并 ===== -->
+<div class="page breath-page">
+  <div class="header-bar">
+    <span class="header-left">第25课 · 特好的机会</span>
+    <span class="lesson-tag">台词精讲 5/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑥ 그래요?</div>
+    <div class="sent-cn">是吗？</div>
+    <div class="sent-en">Is that so?</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">⑥ 그래요?</div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">그렇다（那样/是）</span> ← 원형（여不规则）</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아요（疑问收尾，그렇→그래）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+      <div class="sf-link">备注：그래요는 语调决定含义：升调=惊讶"是吗？" / 降调=肯定"是的"</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L25_S06.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">그렇다</span><span class="zh">— 那样/是的</span><span class="en">to be so</span></div>
+      <div class="word-item"><span class="ko">그래요</span><span class="zh">— 是吗/是的</span><span class="en">is that so / yes</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：그래요? — "是吗？"（여不规则）</div>
+    <div class="grammar-note">讲解：그렇다(那样)是여不规则动词，接-아요时→그래요。此处升调疑问，表示听到消息后的惊讶/好奇。</div>
+    <div class="grammar-note">예) 그래요? 몰랐어요.（是吗？我不知道。）</div>
+    <div class="grammar-note">예) 그래요? 그럼 빨리 가야겠네요.（是吗？那得快点去了。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">그래요 → [그래요] 元音缩合（그렇+아요→그래요），无其他音变</div>
+  </div>
+  <hr>
+  <div class="sentence-box" style="margin:8px 0 4px;">
+    <div class="sent-kr">⑦ 좋겠다</div>
+    <div class="sent-cn">真好啊</div>
+    <div class="sent-en">That'd be nice.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">⑦ 좋겠다</div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">좋다（好）</span> ← 원형</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-겠다（感叹推测终结）</span></div>
+      <div class="sf-endings"><span>①加料 ✓</span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+      <div class="sf-link">备注：此处-겠-不表意志，而是对他人好事的感叹羡慕语气</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L25_S07.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">좋다</span><span class="zh">— 好</span><span class="en">good</span></div>
+      <div class="word-item"><span class="ko">-겠-</span><span class="zh">— 推测/感叹</span><span class="en">expressing guess/feeling</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">좋겠다 — 真好/真羡慕（固定感叹表达） ｜ 부럽다 — 羡慕（更直接）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-겠다 — 感叹语气（此处≠意志）</div>
+    <div class="grammar-note">讲解：좋겠다 = 좋다+-겠-+-다。此处-겠-表说话人对他人事情的感叹/羡慕，相当于"真叫人羡慕""真好啊"，不是"将来会好"。</div>
+    <div class="grammar-note">예) 여름 방학이라 좋겠다.（暑假啊，真好。）</div>
+    <div class="grammar-note">예) 맛있겠다.（看起来真好吃。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">좋겠다 → [조켓따] ㅎ弱化+激音化（ㅎ+ㄱ→ㅋ）+紧音化（ㄷ后→ㄸ）</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用（⑥⑦）</div>
+  <div class="exercise-text"><b>🔄 换词练习 (⑦)</b><br>把 '좋겠다（真好）' 换成 '재미있겠다（真有趣）' 重新感叹<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：재미있겠다.（看起来真有趣/真叫人羡慕。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写 (⑦)</b><br>用 -겠다 写一句对朋友好事的感叹<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：여행을 간다고요? 부럽겠다.（要去旅行？真叫人羡慕。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 提问 / Q&A (⑥)</b><br>Q: 제작팀이 계속 연락한다고 했어요.（说制作组一直联系。）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">참고：그래요? 좋겠다.（是吗？真好啊。）</span></div>
+  <div class="footer-num">台词精讲 5/12</div>
+</div>
+
+<!-- ===== PAGE 8: 精讲 ⑧ ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第25课 · 特好的机会</span>
+    <span class="lesson-tag">台词精讲 6/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑧ 난 잘렸는데</div>
+    <div class="sent-cn">可我被辞退了</div>
+    <div class="sent-en">But I got fired.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">⑧ 난 잘렸는데</div>
+      <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value"><span class="tag-who">난（我=나는，缩略）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">잘리다（被辞退/被裁）</span> ← 원형</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-었는데（过去时+转折/背景收尾）</span></div>
+      <div class="sf-endings"><span>①加料 ✓</span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+      <div class="sf-link">备注：-는데 此处表对比"你那么好…可我被裁了"，语气含暗示对方意会</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L25_S08.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">나(난)</span><span class="zh">— 我（나는的缩略）</span><span class="en">I (me)</span></div>
+      <div class="word-item"><span class="ko">잘리다</span><span class="zh">— 被裁/被辞退</span><span class="en">to be fired/cut</span></div>
+      <div class="word-item"><span class="ko">-리-</span><span class="zh">— 被动词尾</span><span class="en">passive suffix</span></div>
+      <div class="word-item"><span class="ko">-는데</span><span class="zh">— …呢/…但是（背景/转折）</span><span class="en">but/though (contrast)</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">잘리다 — 被辞退（자르다裁+被动-리-） ｜ 난 잘렸는데 — 我可是被裁了（转折含意）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-는데/-(으)ㄴ데 — "…呢/…但"（转折/背景）</div>
+    <div class="grammar-note">讲解：과거형+는데，表"……但是/……呢"的转折或背景陈述。此处"我被裁了"与前文"他们还在联系你"形成对比，语气含蓄委婉。</div>
+    <div class="grammar-note">예) 나도 가고 싶은데 못 가.（我也想去但去不了。）</div>
+    <div class="grammar-note">예) 시간이 없는데 어떡해요?（没时间了怎么办？）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">잘렸는데 → [잘렌는데] ㅆ→ㄴ 鼻音化（ㅅ末音+ㄴ） ｜ 난 → [난] 나는의缩略</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:12px;">⑧ 난 잘렸는데</div>
+    <div class="sent-cn" style="font-size:11px;">可我被辞退了</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '잘렸는데（被裁了）' 换成 '못 갔는데（没去成）' 重新说<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：난 못 갔는데.（可我没去成呢。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写</b><br>用 난 ~는데 写一句表达自己对比处境的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：난 아직 모르는데 너는 다 아는구나.（我还什么都不知道，你全知道了。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 提问 / Q&A</b><br>Q: 그 방송이 계속 되는 건가요?（那档节目还在继续吗？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">참고：계속 되는가 본데, 난 잘렸는데.（看来还在继续，但我被裁了。）</span></div>
+  <div class="footer-num">台词精讲 6/12</div>
+</div>
+
+<!-- ===== PAGE 9: 精讲 ⑨ ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第25课 · 特好的机会</span>
+    <span class="lesson-tag">台词精讲 7/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑨ 자폭으로 날렸다더니 뭐, 아쉬운가 봐요?</div>
+    <div class="sent-cn">听说他是用自爆的方式把自己作掉的，看来是觉得可惜吧？</div>
+    <div class="sent-en">They say he self-destructed and got himself fired—guess he regrets it?</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">短句1：자폭으로 날렸다더니（引述传闻）</div>
+      <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">자폭으로（用自爆的方式）</span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">날리다（搞砸/挥霍）</span> ← 원형</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-았다더니（过去+传闻引述，接口）</span></div>
+      <div class="sf-endings"><span>①加料 ✓</span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span>④变身 ✓</span></div>
+      <div class="sf-link">🔗 -다더니 引述传闻并与现状对比，连接短句2</div>
+    </div>
+    <div class="sf-card">
+      <div class="sf-card-title">短句2：뭐, 아쉬운가 봐요?</div>
+      <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">뭐（嘛，语气词）</span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">아쉽다（可惜）</span> ← 원형（ㅂ不规则）</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-(으)ㄴ가 보다（推测收尾）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span>④变身 ✓</span></div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L25_S09.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">자폭</span><span class="zh">— 自爆/自毁</span><span class="en">self-destruction</span></div>
+      <div class="word-item"><span class="ko">날리다</span><span class="zh">— 搞砸/挥霍</span><span class="en">to blow/mess up</span></div>
+      <div class="word-item"><span class="ko">아쉽다</span><span class="zh">— 可惜/遗憾</span><span class="en">regrettable</span></div>
+      <div class="word-item"><span class="ko">뭐</span><span class="zh">— 嘛（语气词）</span><span class="en">well / I mean</span></div>
+      <div class="word-item"><span class="ko">-(으)ㄴ가 보다</span><span class="zh">— 看来是…</span><span class="en">it seems/looks like</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">자폭으로 날리다 — 用自爆的方式搞砸 ｜ 아쉬운가 봐요 — 看来是觉得可惜（推测）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-다더니 — "听说…结果/原来"</div>
+    <div class="grammar-note">讲解：-다더니 = -다고 하더니的缩略，引述传闻并与当下现实对比。"听说自爆搞砸了，可现在看来还觉得可惜"——传闻+对比现状，语气带一点讽刺。</div>
+    <div class="grammar-note">예) 비가 온다더니 안 오네요.（说会下雨结果没下。）</div>
+    <div class="grammar-note">예) 바쁘다더니 잘 오셨네요.（说很忙，结果还是来了。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">날렸다더니 → [날렫따더니] 紧音化（ㄷ+ㄷ→ㄸ） ｜ 아쉬운가 → [아쉬운가] ㅂ不规则（아쉽→아쉬우）</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:12px;">⑨ 자폭으로 날렸다더니 뭐, 아쉬운가 봐요?</div>
+    <div class="sent-cn" style="font-size:11px;">听说他是用自爆的方式把自己作掉的，看来是觉得可惜吧？</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '아쉬운가 봐요（看来觉得可惜）' 换成 '후회하나 봐요（看来后悔了）' 重新推测<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：자폭으로 날렸다더니 뭐, 후회하나 봐요?（听说自爆搞砸了，看来后悔了？）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写</b><br>用 -다더니 写一句"听说…结果看来…"的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：안 온다더니 왔네요.（说不来结果来了。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 提问 / Q&A</b><br>Q: 그 사람은 왜 그렇게 됐대요?（听说那个人为什么落到那步？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">참고：자폭으로 날렸다더니 뭐, 아쉬운가 봐요.（听说是用自爆的方式搞砸的，看来是觉得可惜了。）</span></div>
+  <div class="footer-num">台词精讲 7/12</div>
+</div>
+
+<!-- ===== PAGE 10: 精讲 ⑩ ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第25课 · 特好的机会</span>
+    <span class="lesson-tag">台词精讲 8/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑩ 아쉽죠</div>
+    <div class="sent-cn">是挺可惜的</div>
+    <div class="sent-en">Yeah, it's a shame.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">⑩ 아쉽죠</div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">아쉽다（可惜）</span> ← 원형（ㅂ不规则）</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-죠（-지요缩略，当然/确认收尾）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+      <div class="sf-link">备注：-죠 此处表"当然可惜啊"，对对方推测的肯定确认，语气含"还用说吗"</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L25_S10.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">아쉽다</span><span class="zh">— 可惜/遗憾</span><span class="en">to be a shame</span></div>
+      <div class="word-item"><span class="ko">-죠</span><span class="zh">— 当然/是吧（确认）</span><span class="en">right? / of course</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">아쉽죠 — 当然可惜啊（肯定对方猜测） ｜ 아쉬워요 — 很可惜（陈述）｜ 아쉽지 않아요 — 不可惜</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-죠 — "……吧/当然"（确认/提议）</div>
+    <div class="grammar-note">讲解：-죠=-지요的缩略，多重用法：①确认"不是吗" ②当然"可不是嘛" ③提议"…吧"。此处아쉽죠="当然可惜啊"，是对方推测后的自我肯定。</div>
+    <div class="grammar-note">예) 맛있죠?（好吃吧？）</div>
+    <div class="grammar-note">예) 알겠죠?（知道了吧？）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">아쉽죠 → [아쉽쬬] 紧音化（ㅂ+ㅈ→ㅉ）</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:12px;">⑩ 아쉽죠</div>
+    <div class="sent-cn" style="font-size:11px;">是挺可惜的</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '아쉽죠（可惜）' 换成 '힘들죠（难吧/累吧）' 重新确认<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：힘들죠.（累/难吧，当然了。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写</b><br>用 -죠 写一句对他人处境的确认感叹<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：그럴 때는 속상하죠.（那种时候当然很难受。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 提问 / Q&A</b><br>Q: 아쉬운가 봐요?（看来觉得可惜吧？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">참고：아쉽죠.（当然可惜啊。）</span></div>
+  <div class="footer-num">台词精讲 8/12</div>
+</div>
+
+<!-- ===== PAGE 11: 精讲 ⑪ ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第25课 · 特好的机会</span>
+    <span class="lesson-tag">台词精讲 9/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑪ 되게 좋은 기회였거든요</div>
+    <div class="sent-cn">因为那真是个很好的机会</div>
+    <div class="sent-en">Because it was a really great opportunity.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">⑪ 되게 좋은 기회였거든요</div>
+      <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">되게（非常）</span></div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">좋은 기회（好机会）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">이다（是）</span> ← 원형</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-었거든요（过去时+解释理由收尾）</span></div>
+      <div class="sf-endings"><span>①加料 ✓</span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span>④变身 ✓</span></div>
+      <div class="sf-link">中间层：되게 좋은 — 되게(副词)+좋다(形容词)+-은(定语④)修饰기회</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L25_S11.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">되게</span><span class="zh">— 非常/特别</span><span class="en">really, very</span></div>
+      <div class="word-item"><span class="ko">좋다</span><span class="zh">— 好</span><span class="en">good</span></div>
+      <div class="word-item"><span class="ko">기회</span><span class="zh">— 机会</span><span class="en">opportunity</span></div>
+      <div class="word-item"><span class="ko">-거든요</span><span class="zh">— 要知道…（解释理由）</span><span class="en">you see / it's because</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">되게 좋다 — 特别好/非常好 ｜ 좋은 기회 — 好机会 ｜ ~였거든요 — 是…的呢（解释背景）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-거든요 — "要知道…/是因为…"</div>
+    <div class="grammar-note">讲解：-거든요是解释理由的终结语尾，功能：说话人向对方说明某事实，含"事情是这样的/你有所不知"的语感，语气像"告诉你原因"。此处：因为那是个特别好的机会（你可能不知道有多好）。</div>
+    <div class="grammar-note">예) 내일 시험이 있거든요.（明天有考试呢，你不知道。）</div>
+    <div class="grammar-note">예) 지금 바쁘거든요.（我现在很忙，你有所不知。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">되게 → [되게] 无特殊 ｜ 기회였거든요 → [기회였거든요] 无特殊音变</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:12px;">⑪ 되게 좋은 기회였거든요</div>
+    <div class="sent-cn" style="font-size:11px;">因为那真是个很好的机会</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '되게 좋은 기회（很好的机会）' 换成 '정말 중요한 프로젝트（很重要的项目）' 重新说<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：정말 중요한 프로젝트였거든요.（因为那是个真的很重要的项目。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写</b><br>用 -거든요 写一句向别人解释理由的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：사실 그게 오래된 꿈이었거든요.（其实那是个由来已久的梦想，你有所不知。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 提问 / Q&A</b><br>Q: 왜 그렇게 아쉬워요?（为什么那么可惜？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">참고：되게 좋은 기회였거든요.（因为那真是个很好的机会，你有所不知。）</span></div>
+  <div class="footer-num">台词精讲 9/12</div>
+</div>
+
+<!-- ===== PAGE 12: 精讲 ⑫ ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第25课 · 特好的机会</span>
+    <span class="lesson-tag">台词精讲 10/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑫ 이미지 변신하는 데</div>
+    <div class="sent-cn">在形象转型方面</div>
+    <div class="sent-en">For transforming his image.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">⑫ 이미지 변신하는 데</div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">이미지（形象）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">변신하다（变身/转型）</span> ← 원형</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-는 데（定语+依存名词"方面/用途"）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span><s>③收尾 —</s></span><span>④变身 ✓</span></div>
+      <div class="sf-link">备注：此句为未完句，实际意思"这是转型用的好机会"，说一半留白，听者意会完整句义</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L25_S12.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">이미지</span><span class="zh">— 形象</span><span class="en">image</span></div>
+      <div class="word-item"><span class="ko">변신</span><span class="zh">— 变身/转型</span><span class="en">transformation</span></div>
+      <div class="word-item"><span class="ko">변신하다</span><span class="zh">— 进行转型</span><span class="en">to transform</span></div>
+      <div class="word-item"><span class="ko">-는 데</span><span class="zh">— 在…方面/用于…</span><span class="en">in terms of/for</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">이미지 변신 — 形象转型（固定搭配） ｜ -는 데 좋다 — 在…方面很好 ｜ -는 데 쓰다 — 用于…</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-는 데 — "在…方面/用于…"</div>
+    <div class="grammar-note">讲解：冠形形-는 + 依存名词데，表"某方面/某用途"，后常接좋다/쓰다/필요하다等。注意：-는 데（名词+空格）= 在…方面；-는데（连词无空格）= 转折"但"。两者书写有别。</div>
+    <div class="grammar-note">예) 공부하는 데 좋아요.（学习方面很好用。）</div>
+    <div class="grammar-note">예) 이것은 뭐 하는 데 써요?（这个用于做什么的？）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">변신하는 → [변시나는] ㅎ弱化（ㅎ在元音间弱化为不发音，신+하→시나） ｜ 이미지 → [이미지] 无特殊</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:12px;">⑫ 이미지 변신하는 데</div>
+    <div class="sent-cn" style="font-size:11px;">在形象转型方面</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '이미지 변신하는 데（形象转型方面）' 换成 '외국어 배우는 데（学外语方面）' 重新说<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：외국어 배우는 데 좋은 기회였거든요.（在学外语方面是个很好的机会。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写</b><br>用 -는 데 좋다 写一句说明某物用途的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고：이 앱은 발음 연습하는 데 좋아요.（这个APP用于练习发音很好。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 提问 / Q&A</b><br>Q: 그 프로그램이 왜 좋은 기회였어요?（那档节目为什么是好机会？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">참고：이미지 변신하는 데 좋은 기회였거든요.（因为在形象转型方面是个很好的机会。）</span></div>
+  <div class="footer-num">台词精讲 10/12</div>
+</div>
+
+<!-- ===== PAGE 13: 重点句型 + 重点单词 ===== -->
+<div class="page breath-page">
+  <div class="header-bar">
+    <span class="header-left">第25课 · 特好的机会</span>
+    <span class="lesson-tag">重点句型 · 重点单词</span>
+  </div>
+
+  <div class="sub-sec-title">⭐ 重点句型</div>
+  <table class="pattern-table">
+    <thead><tr><th>句型</th><th>含义</th><th>例句</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>-지 말고 ~하세요</td>
+        <td>别…，去做…（命令对方换行动）</td>
+        <td>딴 일 찾지 말고 그 프로그램 하세요.<br>别找别的工作，去做那档节目吧。</td>
+      </tr>
+      <tr>
+        <td>-아/어 보니까</td>
+        <td>（试着）做了之后发现（引出结论）</td>
+        <td>말 들어 보니까 좋은 기회네요.<br>听了一下，发现是个好机会。</td>
+      </tr>
+      <tr>
+        <td>-냐고 계속 연락 오다</td>
+        <td>一直来联系问说…（间接引语+动作）</td>
+        <td>같이 할 수 없냐고 계속 연락 와요.<br>一直来联系问能不能一起做。</td>
+      </tr>
+      <tr>
+        <td>-다더니 뭐, -가 봐요?</td>
+        <td>你不是说…，怎么，好像…？（质疑反问）</td>
+        <td>자폭으로 날렸다더니 뭐, 아쉬운가 봐요?<br>你不是说自己搞砸了，怎么，好像也挺遗憾的？</td>
+      </tr>
+      <tr>
+        <td>-거든요</td>
+        <td>是因为…/你有所不知（解释理由）</td>
+        <td>되게 좋은 기회였거든요.<br>因为那真是个很好的机会。</td>
+      </tr>
+      <tr>
+        <td>-는 데（空格）좋다/쓰다</td>
+        <td>在…方面好/用于…</td>
+        <td>이미지 변신하는 데 좋은 기회예요.<br>在形象转型方面是个好机会。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="sub-sec-title" style="margin-top:16px;">📚 重点单词</div>
+  <div class="word-grid" style="grid-template-columns: repeat(3, 1fr); gap: 8px;">
+    <div class="word-item"><span class="ko">딴 일</span><span class="zh">— 别的工作</span><span class="en">other work</span><div class="memory-aid">🧠 딴 = 其他</div></div>
+    <div class="word-item"><span class="ko">통역사</span><span class="zh">— 口译员</span><span class="en">interpreter</span><div class="memory-aid">🧠 通+译+师</div></div>
+    <div class="word-item"><span class="ko">난리</span><span class="zh">— 一团乱/骚动</span><span class="en">chaos</span><div class="memory-aid">🧠 난리치다=大闹</div></div>
+    <div class="word-item"><span class="ko">잘리다</span><span class="zh">— 被炒鱿鱼</span><span class="en">get fired/cut</span><div class="memory-aid">🧠 자르다的被动</div></div>
+    <div class="word-item"><span class="ko">자폭</span><span class="zh">— 自爆/自搞砸</span><span class="en">self-destruction</span><div class="memory-aid">🧠 自+爆</div></div>
+    <div class="word-item"><span class="ko">아쉽다</span><span class="zh">— 遗憾/可惜</span><span class="en">regrettable</span><div class="memory-aid">🧠 아쉬움=遗憾感</div></div>
+    <div class="word-item"><span class="ko">되게</span><span class="zh">— 非常（口语）</span><span class="en">really, very</span><div class="memory-aid">🧠 =정말口语版</div></div>
+    <div class="word-item"><span class="ko">기회</span><span class="zh">— 机会</span><span class="en">opportunity</span><div class="memory-aid">🧠 機+會</div></div>
+    <div class="word-item"><span class="ko">이미지 변신</span><span class="zh">— 形象转型</span><span class="en">image transformation</span><div class="memory-aid">🧠 image+變身</div></div>
+  </div>
+  <div class="footer-num">重点句型 · 重点单词</div>
+</div>
+
+<!-- ===== PAGE 14: 场景迁移 ===== -->
+<div class="page breath-page">
+  <div class="header-bar">
+    <span class="header-left">第25课 · 特好的机会</span>
+    <span class="lesson-tag">场景迁移</span>
+  </div>
+
+  <div class="sec-title">🎭 场景迁移 — 错过机会·惋惜·鼓励</div>
+  <div class="grammar-note" style="margin-bottom:10px;">把本课台词迁移到新场景。以下两组对话，主题分别为"工作机会的错失"与"鼓励朋友重新出发"。</div>
+
+  <!-- 对话 A -->
+  <div class="scene-block">
+    <div class="sub-sec-title">📍 对话 A — 工作机会错失</div>
+    <table style="width:100%;border-collapse:collapse;margin:6px 0;">
+      <tr>
+        <td style="width:42px;font-size:11px;color:#8b7355;font-weight:bold;padding:3px 4px;vertical-align:top;">A</td>
+        <td style="font-size:12px;padding:3px 4px;vertical-align:top;">
+          그냥 다른 팀 찾지 말고 이 프로젝트 계속하세요.<br>
+          别去找别的团队了，继续做这个项目吧。<br>
+          <span style="font-style:italic;color:#999;">Just don't look for another team — keep working on this project.</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-size:11px;color:#8b7355;font-weight:bold;padding:3px 4px;vertical-align:top;">B</td>
+        <td style="font-size:12px;padding:3px 4px;vertical-align:top;">
+          지금도 같이 하고 싶냐고 계속 연락 오니까요.<br>
+          因为一直有人联系问我还想不想一起做。<br>
+          <span style="font-style:italic;color:#999;">Because they keep contacting me asking if I still want to work together.</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-size:11px;color:#8b7355;font-weight:bold;padding:3px 4px;vertical-align:top;">A</td>
+        <td style="font-size:12px;padding:3px 4px;vertical-align:top;">
+          그래요? 그럼 해보세요.<br>
+          是吗？那就试试吧。<br>
+          <span style="font-style:italic;color:#999;">Really? Then go for it.</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-size:11px;color:#8b7355;font-weight:bold;padding:3px 4px;vertical-align:top;">B</td>
+        <td style="font-size:12px;padding:3px 4px;vertical-align:top;">
+          되게 좋은 기회인 것 같아서요.<br>
+          因为感觉是个非常好的机会。<br>
+          <span style="font-style:italic;color:#999;">I think it's a really good opportunity.</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-size:11px;color:#8b7355;font-weight:bold;padding:3px 4px;vertical-align:top;">A</td>
+        <td style="font-size:12px;padding:3px 4px;vertical-align:top;">
+          실력 올리는 데도 도움이 될 거예요.<br>
+          在提升实力方面也会有帮助的。<br>
+          <span style="font-style:italic;color:#999;">It'll help you grow your skills too.</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 对话 B -->
+  <div class="scene-block" style="margin-top:10px;">
+    <div class="sub-sec-title">📍 对话 B — 鼓励朋友重新出发</div>
+    <table style="width:100%;border-collapse:collapse;margin:6px 0;">
+      <tr>
+        <td style="width:42px;font-size:11px;color:#8b7355;font-weight:bold;padding:3px 4px;vertical-align:top;">A</td>
+        <td style="font-size:12px;padding:3px 4px;vertical-align:top;">
+          그 오디션 못 봤다더니 뭐, 아쉬운가 봐요?<br>
+          你不是说没能参加那个试镜，怎么，好像还挺遗憾的？<br>
+          <span style="font-style:italic;color:#999;">You said you couldn't make the audition — looks like you're pretty regretful about it?</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-size:11px;color:#8b7355;font-weight:bold;padding:3px 4px;vertical-align:top;">B</td>
+        <td style="font-size:12px;padding:3px 4px;vertical-align:top;">
+          아쉽죠. 되게 좋은 기회였거든요.<br>
+          当然遗憾啊。因为那真是个很好的机会。<br>
+          <span style="font-style:italic;color:#999;">Of course I am. Because it was a really great opportunity.</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-size:11px;color:#8b7355;font-weight:bold;padding:3px 4px;vertical-align:top;">A</td>
+        <td style="font-size:12px;padding:3px 4px;vertical-align:top;">
+          이미지 변신하는 데 좋겠다 싶었겠어요.<br>
+          一定觉得在形象转型方面很有帮助吧。<br>
+          <span style="font-style:italic;color:#999;">You must have thought it'd be great for transforming your image.</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-size:11px;color:#8b7355;font-weight:bold;padding:3px 4px;vertical-align:top;">B</td>
+        <td style="font-size:12px;padding:3px 4px;vertical-align:top;">
+          맞아요. 그래도 또 다른 기회 찾아볼게요.<br>
+          对。不过我会继续找别的机会的。<br>
+          <span style="font-style:italic;color:#999;">Right. But I'll look for another chance.</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-size:11px;color:#8b7355;font-weight:bold;padding:3px 4px;vertical-align:top;">A</td>
+        <td style="font-size:12px;padding:3px 4px;vertical-align:top;">
+          통역사 자리도 아직 못 찾았다던데, 그것도 기회가 될 수 있어요.<br>
+          听说口译员的位置还没找到，那也可以成为一个机会。<br>
+          <span style="font-style:italic;color:#999;">I heard the interpreter position hasn't been filled yet — that could be an opportunity too.</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-size:11px;color:#8b7355;font-weight:bold;padding:3px 4px;vertical-align:top;">B</td>
+        <td style="font-size:12px;padding:3px 4px;vertical-align:top;">
+          알아요. 한번 알아볼게요.<br>
+          知道了。我去了解一下。<br>
+          <span style="font-style:italic;color:#999;">I know. I'll look into it.</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="footer-num">场景迁移</div>
+</div>
+
+<!-- ===== PAGE 15: 场景日记 + 口语挑战 ===== -->
+<div class="page breath-page">
+  <div class="header-bar">
+    <span class="header-left">第25课 · 特好的机会</span>
+    <span class="lesson-tag">场景日记 · 口语挑战</span>
+  </div>
+
+  <div class="sec-title">📝 场景日记 — 用本课句型写日记</div>
+  <div class="grammar-note" style="margin-bottom:8px;">根据提示，先用韩语写，再写英语。参考答案在最下方。</div>
+
+  <div class="scene-block" style="padding:10px 14px;">
+    <div class="sub-sec-title">① 今天有人跟我说别想其他的，集中做手头的工作。</div>
+    <div style="border-bottom:1px solid #d9cfbf;min-height:22px;margin:4px 0;">&nbsp;</div>
+    <div style="border-bottom:1px solid #d9cfbf;min-height:18px;margin:4px 0;font-size:10px;color:#bbb;font-style:italic;">&nbsp;</div>
+
+    <div class="sub-sec-title" style="margin-top:10px;">② 我听了他的话之后，觉得确实是个机会。</div>
+    <div style="border-bottom:1px solid #d9cfbf;min-height:22px;margin:4px 0;">&nbsp;</div>
+    <div style="border-bottom:1px solid #d9cfbf;min-height:18px;margin:4px 0;font-size:10px;color:#bbb;font-style:italic;">&nbsp;</div>
+
+    <div class="sub-sec-title" style="margin-top:10px;">③ 但我还是有点遗憾，因为那是个非常好的机会。</div>
+    <div style="border-bottom:1px solid #d9cfbf;min-height:22px;margin:4px 0;">&nbsp;</div>
+    <div style="border-bottom:1px solid #d9cfbf;min-height:18px;margin:4px 0;font-size:10px;color:#bbb;font-style:italic;">&nbsp;</div>
+
+    <div class="sub-sec-title" style="margin-top:10px;">④ 对方一直来联系问我能不能重新加入。</div>
+    <div style="border-bottom:1px solid #d9cfbf;min-height:22px;margin:4px 0;">&nbsp;</div>
+    <div style="border-bottom:1px solid #d9cfbf;min-height:18px;margin:4px 0;font-size:10px;color:#bbb;font-style:italic;">&nbsp;</div>
+
+    <div class="sub-sec-title" style="margin-top:10px;">⑤ 这对形象转型方面是个很好的机会。</div>
+    <div style="border-bottom:1px solid #d9cfbf;min-height:22px;margin:4px 0;">&nbsp;</div>
+    <div style="border-bottom:1px solid #d9cfbf;min-height:18px;margin:4px 0;font-size:10px;color:#bbb;font-style:italic;">&nbsp;</div>
+  </div>
+
+  <div class="sub-sec-title" style="margin-top:10px;font-size:10px;color:#8b7355;">📎 参考答案（遮住后自查）</div>
+  <div class="answer-ref" style="font-size:10px;line-height:1.7;background:#f8f6f2;padding:8px 12px;border-radius:4px;margin-top:4px;">
+    ① 그냥 딴 일 찾지 말고 이 일 하세요. / Just do this work and don't look for other things.<br>
+    ② 말 들어 보니까 좋은 기회인 것 같아요. / After hearing it, I think it's a good opportunity.<br>
+    ③ 아쉽죠. 되게 좋은 기회였거든요. / It's a shame. Because it was a really great opportunity.<br>
+    ④ 다시 같이 할 수 없냐고 계속 연락 오거든요. / They keep contacting me asking if I can join again.<br>
+    ⑤ 이미지 변신하는 데 좋은 기회예요. / It's a good opportunity for transforming my image.
+  </div>
+
+  <div class="sec-title" style="margin-top:16px;">🎤 口语挑战</div>
+  <div class="grammar-note" style="margin-bottom:6px;">以下场景，不看笔记，用韩语说出来。</div>
+  <div class="scene-block">
+    <div style="font-size:12px;line-height:1.9;">
+      <b>挑战 1</b> 告诉朋友：别找别的工作了，继续做这个节目。<br>
+      <b>挑战 2</b> 解释为什么遗憾：因为那真是个很好的机会。<br>
+      <b>挑战 3</b> 说明那个机会的价值：在形象转型方面。<br>
+      <b>挑战 4</b> 描述对方一直来联系的情况：问能不能一起做。<br>
+      <b>挑战 5</b> 用 -다더니 뭐, -가 봐요? 质疑朋友（你不是说自己搞砸了，好像也挺遗憾的？）
+    </div>
+  </div>
+
+  <a href="https://nannan2026.cn/korean/audio/L25_full.mp3" class="audio-btn" target="_blank" style="margin-top:10px;display:inline-block;">🔊 完整课程录音（点击打开播放）</a>
+  <div class="footer-num">场景日记 · 口语挑战</div>
+</div>
+
+</body>
+</html>

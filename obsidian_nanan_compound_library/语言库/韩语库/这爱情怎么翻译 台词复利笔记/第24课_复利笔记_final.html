@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>E3-24 你是知道我的弱点的</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans:wght@400;700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', 'Noto Sans KR', 'Noto Sans', sans-serif; background: #ffffff; color: #333; }
+.page { width: 210mm; min-height: 297mm; padding: 14mm 16mm; background: #fff; margin: 0 auto; position: relative; page-break-before: always; }
+.page:first-of-type { page-break-before: avoid; }
+.cover { background: linear-gradient(145deg, #faf8f4, #f5f0e8, #ede6d8, #e8dfce); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.cover .lesson-number { font-size: 13px; color: #8b7355; letter-spacing: 2px; margin-bottom: 10px; }
+.cover h1 { font-size: 30px; color: #5c4a3a; margin-bottom: 18px; }
+.cover .subtitle { font-size: 16px; color: #8b7355; margin-top: 8px; }
+.cover .divider { width: 60px; height: 2px; background: #c4b998; margin: 15px auto; }
+.cover .desc { font-size: 13px; color: #8b7355; margin-top: 20px; line-height: 1.6; }
+.header-bar { display: flex; justify-content: space-between; font-size: 10px; color: #8b7355; border-bottom: 1px solid #e8dfce; padding-bottom: 4px; margin-bottom: 10px; }
+.header-left { font-weight: bold; }
+.lesson-tag { font-size: 10px; color: #8b7355; }
+.sec-title { font-size: 14px; color: #8b7355; font-weight: bold; margin: 6px 0 4px; }
+.sub-sec-title { font-size: 11px; font-weight: bold; color: #8b7355; margin: 6px 0 2px; }
+.kr-text { font-size: 14px; font-weight: bold; color: #1a1a1a; line-height: 1.6; }
+.zh-text { font-size: 13px; color: #555; line-height: 1.5; }
+.en-text { font-size: 11px; color: #999; font-style: italic; line-height: 1.4; }
+.tag-who { color: #2a6f97; font-weight: bold; }
+.tag-what { color: #2d6a4f; font-weight: bold; }
+.tag-do { color: #a53860; font-weight: bold; }
+.word-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; padding: 6px 0; }
+.word-item { font-size: 12px; line-height: 1.6; }
+.word-item .ko { font-weight: bold; }
+.word-item .zh { color: #555; margin-left: 4px; }
+.word-item .en { color: #999; font-size: 11px; font-style: italic; margin-left: 4px; }
+.scene-block { background: #f8f6f2; padding: 10px 12px; border-radius: 4px; margin: 8px 0; }
+table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+th { background: #c4b998; color: #fff; padding: 6px 10px; font-size: 12px; }
+td { padding: 6px 10px; border-bottom: 1px solid #e8dfce; font-size: 12px; }
+.audio-btn { color: #2a6f97; text-decoration: underline; cursor: pointer; font-size: 12px; display: inline-block; margin: 2px 0 0; }
+.footer-num { position: absolute; bottom: 10mm; right: 16mm; font-size: 9px; color: #c4b998; }
+.cover-kr { display: block; font-family: 'Noto Sans KR', sans-serif; font-size: 22px; color: #7a5e3e; margin-top: 6px; }
+.cover-svg-wrap { margin: 8px 0 15px; }
+.sentence-box { background: #f8f6f2; border-left: 4px solid #c4b998; padding: 10px 14px; margin-bottom: 8px; border-radius: 0 6px 6px 0; }
+.sentence-box .sent-kr { font-size: 14px; font-weight: bold; color: #1a1a1a; line-height: 1.6; }
+.sentence-box .sent-cn { font-size: 13px; color: #555; line-height: 1.5; }
+.sentence-box .sent-en { font-size: 11px; color: #999; font-style: italic; line-height: 1.4; }
+.detail-block { margin: 4px 0; }
+.grammar-note { font-size: 11px; color: #444; line-height: 1.6; }
+.analysis-tree { font-size: 10px; font-family: monospace; color: #555; line-height: 1.5; margin: 4px 0 4px 8px; background: #fafafa; border-left: 2px solid #e8dfce; padding: 4px 8px; }
+.exercise-text { font-size: 11px; color: #444; line-height: 1.6; margin: 4px 0; }
+.answer-ref { font-size: 10px; color: #999; margin-top: 2px; }
+.summary-line { padding: 1px 0; border-bottom: 1px solid #f0e8dd; font-size: 11px; line-height: 1.35; }
+.summary-line .num { display: inline; width: auto; color: #c4b998; font-weight: bold; margin-right: 2px; }
+.summary-line .kr { font-weight: bold; display: inline; margin-left: 0; }
+.summary-line .zh { color: #555; display: block; margin-left: 22px; font-size: 11px; }
+.summary-line .en { color: #999; font-style: italic; font-size: 10px; display: block; margin-left: 22px; }
+.page-num-right { position: absolute; top: 14mm; right: 16mm; font-size: 10px; color: #8b7355; }
+hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
+.answer-item { font-size: 10px; padding: 3px 6px; background: #f8f6f2; border-radius: 3px; border-left: 3px solid #7cb342; margin: 3px 0; line-height: 1.5; }
+.diary-blank-line { font-size: 11px; color: #999; letter-spacing: 1px; border-bottom: 1px solid #ccc; padding: 3px 0; margin: 2px 0; }
+.challenge-box { background: #f8f6f2; padding: 10px 12px; border-radius: 4px; margin: 8px 0; }
+.sf-card { background: #faf7f2; border-radius: 4px; padding: 8px 12px; margin: 5px 0; border: 1px solid #e8dfce; }
+.sf-card-title { font-size: 11px; font-weight: bold; color: #5c4a3a; margin-bottom: 5px; padding-bottom: 3px; border-bottom: 1px solid #e8dfce; }
+.sf-row { font-size: 11px; line-height: 1.7; display: flex; align-items: baseline; }
+.sf-label { min-width: 54px; color: #8b7355; flex-shrink: 0; font-size: 10px; }
+.sf-value { flex: 1; color: #444; }
+.sf-endings { font-size: 10px; color: #555; margin-top: 4px; display: flex; gap: 10px; flex-wrap: wrap; background: #f0ede8; padding: 3px 6px; border-radius: 3px; }
+.sf-link { font-size: 10px; color: #7a6a55; margin-top: 4px; font-style: italic; padding-top: 3px; border-top: 1px dashed #ddd; }
+.sf-detail { font-size: 10.5px; color: #5c4a3a; margin-top: 4px; line-height: 1.6; padding: 4px 8px; background: #fbf7ef; border-left: 3px solid #c4873a; border-radius: 3px; }
+.compact-page .sentence-box { padding: 8px 12px; margin-bottom: 6px; }
+.compact-page .sf-card { padding: 6px 10px; margin: 4px 0; }
+.compact-page .sf-card-title { margin-bottom: 4px; padding-bottom: 2px; }
+.compact-page .sf-row { line-height: 1.55; }
+.compact-page .sf-endings { margin-top: 3px; padding: 2px 5px; gap: 7px; }
+.compact-page .sf-link { margin-top: 3px; padding-top: 2px; }
+.compact-page .detail-block { margin: 3px 0; }
+.compact-page .sub-sec-title { margin: 4px 0 1px; }
+.compact-page .word-grid { padding: 4px 0; gap: 1px 13px; }
+.compact-page .grammar-note { line-height: 1.5; }
+.compact-page hr { margin: 4px 0; }
+.compact-page .exercise-text { margin: 3px 0; line-height: 1.52; }
+.compact-page .answer-ref { margin-top: 1px; }
+.breath-page .sentence-box { padding: 12px 14px; margin-bottom: 10px; }
+.breath-page .sf-card { padding: 9px 12px; margin: 6px 0; }
+.breath-page .sf-card-title { margin-bottom: 6px; padding-bottom: 4px; }
+.breath-page .sf-row { line-height: 1.85; }
+.breath-page .sf-endings { margin-top: 6px; padding: 4px 7px; gap: 12px; }
+.breath-page .sf-link { margin-top: 6px; padding-top: 4px; }
+.breath-page .detail-block { margin: 6px 0; }
+.breath-page .sub-sec-title { margin: 8px 0 3px; }
+.breath-page .word-grid { padding: 8px 0; gap: 3px 16px; }
+.breath-page .grammar-note { line-height: 1.7; }
+.breath-page hr { margin: 8px 0; }
+.breath-page .exercise-text { margin: 6px 0; line-height: 1.7; }
+.breath-page .answer-ref { margin-top: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ===== PAGE 1: COVER ===== -->
+<div class="page cover">
+  <div class="lesson-number">E3-24 · 韩语台词复利笔记</div>
+  <div class="divider"></div>
+  <h1>你是知道我的弱点的</h1>
+  <span class="cover-kr">그쪽이 내 약점을 알고 있다고 생각하니까</span>
+  <div class="cover-svg-wrap">
+    <svg width="220" height="130" viewBox="0 0 220 130" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="bg24" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#fdf4e8"/>
+          <stop offset="60%" stop-color="#f0e4cf"/>
+          <stop offset="100%" stop-color="#e0cdb5"/>
+        </linearGradient>
+        <linearGradient id="accent24" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#a53860"/>
+          <stop offset="100%" stop-color="#7a2a48"/>
+        </linearGradient>
+      </defs>
+      <rect width="220" height="130" fill="url(#bg24)" rx="10"/>
+      <!-- 两人面对面轮廓 -->
+      <circle cx="65" cy="45" r="14" fill="#8b7355" opacity="0.7"/>
+      <rect x="52" y="60" width="26" height="32" rx="6" fill="#8b7355" opacity="0.65"/>
+      <circle cx="155" cy="45" r="14" fill="#7a5e3e" opacity="0.7"/>
+      <rect x="142" y="60" width="26" height="32" rx="6" fill="#7a5e3e" opacity="0.65"/>
+      <!-- 中间弱点/剑交叉符号 -->
+      <line x1="95" y1="50" x2="125" y2="70" stroke="url(#accent24)" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="125" y1="50" x2="95" y2="70" stroke="url(#accent24)" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="110" cy="60" r="8" fill="none" stroke="url(#accent24)" stroke-width="2"/>
+      <circle cx="110" cy="60" r="3" fill="url(#accent24)" opacity="0.7"/>
+      <!-- 对话气泡 -->
+      <rect x="78" y="22" width="40" height="16" rx="4" fill="#fff" opacity="0.75"/>
+      <polygon points="84,38 80,45 90,38" fill="#fff" opacity="0.75"/>
+      <text x="98" y="33" text-anchor="middle" font-size="8" fill="#8b7355">약점…</text>
+      <rect x="102" y="22" width="40" height="16" rx="4" fill="#fdf4e8" opacity="0.75"/>
+      <polygon points="132,38 136,45 126,38" fill="#fdf4e8" opacity="0.75"/>
+      <text x="122" y="33" text-anchor="middle" font-size="8" fill="#7a5e3e">알아요</text>
+      <!-- 地面线 -->
+      <rect x="0" y="116" width="220" height="14" fill="#c8baa8" opacity="0.35" rx="0"/>
+    </svg>
+  </div>
+  <div class="divider"></div>
+  <div class="subtitle">弱点试探 · 相互了解的微妙交锋</div>
+  <div class="desc">
+    本课收录12句台词，围绕"弱点与试探"展开对话练习。<br>
+    掌握推测、比较、否定命令等日常表达。
+  </div>
+  <div class="divider" style="margin-top:25px;width:40px;"></div>
+  <div class="lesson-number" style="margin-top:10px;font-size:11px;">台词精讲 · 逐句应用 · 场景练习</div>
+</div>
+
+<!-- ===== PAGE 2: 台词汇总 ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第24课 · 你是知道我的弱点的</span>
+    <span>台词汇总</span>
+  </div>
+  <div class="sec-title">📝 本课台词 · 整段音频</div>
+  <a href="https://nannan2026.cn/korean/audio/L24_full.mp3" class="audio-btn" target="_blank">🔊 听整段录音（点击打开播放）</a>
+  <div>
+    <div class="summary-line"><span class="num">①</span><span class="kr">그쪽이 내 약점을 알고 있다고 생각하니까</span><span class="zh">因为你认为自己知道我的弱点</span><span class="en">Because you think you know my weakness.</span></div>
+    <div class="summary-line"><span class="num">②</span><span class="kr">나도 당신 약점을 들쑤시고 싶었나 봐요</span><span class="zh">看来我也很想戳你的弱点</span><span class="en">I guess I wanted to poke at your weakness too.</span></div>
+    <div class="summary-line"><span class="num">③</span><span class="kr">그래서 지금은 좀 어때요? 당신 약점</span><span class="zh">所以现在怎么样？你的弱点</span><span class="en">So how is it now? Your weakness.</span></div>
+    <div class="summary-line"><span class="num">④</span><span class="kr">도라미요?</span><span class="zh">是多拉米吗？</span><span class="en">Dora-mi?</span></div>
+    <div class="summary-line"><span class="num">⑤</span><span class="kr">그렇게 폭발하고 한동안은 조용해요</span><span class="zh">那样爆发之后，会安静一阵子</span><span class="en">After erupting like that, it stays quiet for a while.</span></div>
+    <div class="summary-line"><span class="num">⑥</span><span class="kr">안 보여요.</span><span class="zh">看不到</span><span class="en">You can't see it.</span></div>
+    <div class="summary-line"><span class="num">⑦</span><span class="kr">신경 안정제보다</span><span class="zh">比起镇定剂</span><span class="en">More than a tranquilizer.</span></div>
+    <div class="summary-line"><span class="num">⑧</span><span class="kr">그렇게 한 번 터뜨리는 게 효과가 있나 봐요</span><span class="zh">看来那样爆发一次更有效</span><span class="en">Seems like erupting once like that is more effective.</span></div>
+    <div class="summary-line"><span class="num">⑨</span><span class="kr">그렇다고 아무 데서나 그때처럼 폭발하지는 마요</span><span class="zh">但你别在哪都像那样爆发</span><span class="en">But don't erupt anywhere like you did then.</span></div>
+    <div class="summary-line"><span class="num">⑩</span><span class="kr">조심해야죠.</span><span class="zh">得小心才行</span><span class="en">I need to be careful.</span></div>
+    <div class="summary-line"><span class="num">⑪</span><span class="kr">그쪽 약점은 어떻게 됐어요?</span><span class="zh">你那边的弱点怎么样了？</span><span class="en">What about your weakness?</span></div>
+    <div class="summary-line"><span class="num">⑫</span><span class="kr">결혼식 날짜는 잡혔고 상견례다 뭐다 끌려다니기 전에 어디로 튈까 궁리 중입니다</span><span class="zh">婚礼日期定了，在被拉着去见家长之前，我正在琢磨逃到哪去</span><span class="en">The wedding date is set, and before I get dragged to meet the parents, I'm figuring out where to run.</span></div>
+  </div>
+  <div style="margin-top:10px;">
+    <div class="sec-title">⭐ 重点句型速览</div>
+    <table>
+      <tr><th>句型</th><th>意思</th><th>本课例句</th></tr>
+      <tr><td>-(ㄴ/는)다고 생각하다</td><td>认为…（引用自己的想法）</td><td>알고 있다고 생각하니까</td></tr>
+      <tr><td>-었나 보다</td><td>看来是…（过去推测）</td><td>싶었나 봐요</td></tr>
+      <tr><td>안 + 동사</td><td>不/没（前接否定）</td><td>안 보여요</td></tr>
+      <tr><td>-는 게 효과가 있다</td><td>做…有效果</td><td>터뜨리는 게 효과가 있나 봐요</td></tr>
+      <tr><td>-지 마요</td><td>不要做…（否定命令）</td><td>폭발하지는 마요</td></tr>
+      <tr><td>-아/어야죠</td><td>应该…吧（共识/义务）</td><td>조심해야죠</td></tr>
+    </table>
+    <div class="sec-title" style="margin-top:6px;">📌 核心词汇</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">약점</span><span class="zh">— 弱点</span><span class="en">weakness</span></div>
+      <div class="word-item"><span class="ko">들쑤시다</span><span class="zh">— 戳/翻/捅</span><span class="en">poke/prod</span></div>
+      <div class="word-item"><span class="ko">폭발하다</span><span class="zh">— 爆发</span><span class="en">to explode</span></div>
+      <div class="word-item"><span class="ko">터뜨리다</span><span class="zh">— 引爆/发泄</span><span class="en">to burst out</span></div>
+      <div class="word-item"><span class="ko">신경 안정제</span><span class="zh">— 镇静剂</span><span class="en">tranquilizer</span></div>
+      <div class="word-item"><span class="ko">효과</span><span class="zh">— 效果</span><span class="en">effect</span></div>
+    </div>
+  </div>
+  <div class="footer-num">台词汇总</div>
+</div>
+
+<!-- ===== PAGE 3: 精讲 ① ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第24课 · 你是知道我的弱点的</span>
+    <span class="lesson-tag">台词精讲 1/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">① 그쪽이 내 약점을 알고 있다고 생각하니까</div>
+    <div class="sent-cn">因为你认为自己知道我的弱点</div>
+    <div class="sent-en">Because you think you know my weakness.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">短句1：그쪽이 내 약점을 알고 있다고 생각하니까</div>
+      <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value"><span class="tag-who">그쪽（你/那边）</span></span></div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">내 약점（我的弱点）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">알다（知道）→ 알고 있다（知道着）</span> ← 원형</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-다고 생각하다（认为…）＋ -(으)니까（因为接口）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+      <div class="sf-link">备注：-니까收尾此处是未完句，省略后半"所以我……"，留给对方意会</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L24_S01.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">그쪽</span><span class="zh">— 那边/您</span><span class="en">you / that person</span></div>
+      <div class="word-item"><span class="ko">내</span><span class="zh">— 我的（나의缩略）</span><span class="en">my</span></div>
+      <div class="word-item"><span class="ko">약점</span><span class="zh">— 弱点</span><span class="en">weakness</span></div>
+      <div class="word-item"><span class="ko">알다</span><span class="zh">— 知道</span><span class="en">to know</span></div>
+      <div class="word-item"><span class="ko">생각하다</span><span class="zh">— 认为/想</span><span class="en">to think</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">약점을 알다 — 知道弱点 ｜ ~다고 생각하니까 — 因为觉得…（引出理由）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-(ㄴ/는)다고 생각하다 — "认为…"</div>
+    <div class="grammar-note">讲解：动词현재형 + -다고 생각하다，引述自己或他人的想法，意为"认为……/觉得……"。与-(으)니까连用表"因为认为……"。</div>
+    <div class="grammar-note">예) 그 사람이 올 것이라고 생각해요.（我觉得他会来。）</div>
+    <div class="grammar-note">예) 다 맞다고 생각하니까 자신감 있어요.（因为认为全对，所以有信心。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">있다고 → [읻따고] ㅆ末音+紧音化 ｜ 생각하니까 → [생가카니까] ㄱ+ㅎ→ㅋ激音化</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:12px;">① 그쪽이 내 약점을 알고 있다고 생각하니까</div>
+    <div class="sent-cn" style="font-size:11px;">因为你认为自己知道我的弱点</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '내 약점（我的弱点）' 换成 '내 비밀（我的秘密）' 重新说<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그쪽이 내 비밀을 알고 있다고 생각하니까.（因为你认为自己知道我的秘密。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写</b><br>用 -다고 생각하니까 写一句表达"因为认为……"的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：네가 날 좋아한다고 생각하니까 긴장돼요.（因为觉得你喜欢我，所以紧张。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 提问 / Q&A</b><br>Q: 왜 그렇게 경계해요?（为什么那么警惕？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：그쪽이 내 약점을 알고 있다고 생각하니까요.（因为我觉得你知道我的弱点。）</span></div>
+  <div class="footer-num">台词精讲 1/12</div>
+</div>
+
+<!-- ===== PAGE 4: 精讲 ② ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第24课 · 你是知道我的弱点的</span>
+    <span class="lesson-tag">台词精讲 2/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">② 나도 당신 약점을 들쑤시고 싶었나 봐요</div>
+    <div class="sent-cn">看来我也很想戳你的弱点</div>
+    <div class="sent-en">I guess I wanted to poke at your weakness too.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">② 나도 당신 약점을 들쑤시고 싶었나 봐요</div>
+      <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value"><span class="tag-who">나도（我也）</span></span></div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">당신 약점（你的弱点）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">들쑤시다（戳/翻）→ -고 싶다（想）</span> ← 원형</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-었나 보다（过去推测：看来是…）</span></div>
+      <div class="sf-endings"><span>①加料 ✓</span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+      <div class="sf-link">结构：들쑤시고 싶었나(싶다过去)-봐요 = 看来当时是很想戳</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L24_S02.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">나도</span><span class="zh">— 我也</span><span class="en">I also</span></div>
+      <div class="word-item"><span class="ko">당신</span><span class="zh">— 您/你</span><span class="en">you</span></div>
+      <div class="word-item"><span class="ko">들쑤시다</span><span class="zh">— 捅/戳/翻动</span><span class="en">poke/prod/stir up</span></div>
+      <div class="word-item"><span class="ko">싶다</span><span class="zh">— 想</span><span class="en">to want</span></div>
+      <div class="word-item"><span class="ko">-나 보다</span><span class="zh">— 看来是…（推测）</span><span class="en">it seems/looks like</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">약점을 들쑤시다 — 戳弱点（比喻戳痛处） ｜ -었나 봐요 — 看来当时是…</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-었나 보다 — "看来（过去）是…"（推测）</div>
+    <div class="grammar-note">讲解：-나 보다 表基于观察的推测。동词에는 -나 보다，형용사에는 -(으)ㄴ가 보다。过去时加-었：-었나 봐요 = "看来当时……"</div>
+    <div class="grammar-note">예) 그 영화 재미있었나 봐요.（那部电影看来当时挺好看的。）</div>
+    <div class="grammar-note">예) 많이 피곤했나 봐요.（看来当时很累。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">들쑤시고 → [들쑤시고] 固有紧音 ｜ 싶었나 → [시펀나] ㅂ+ㄴ鼻音化 ｜ 봐요 → [봐요] 보+아요缩合</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:12px;">② 나도 당신 약점을 들쑤시고 싶었나 봐요</div>
+    <div class="sent-cn" style="font-size:11px;">看来我也很想戳你的弱点</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '약점을 들쑤시고（戳弱点）' 换成 '기분을 건드리고（刺激情绪）' 重新说<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：나도 당신 기분을 건드리고 싶었나 봐요.（看来我也很想刺激你的情绪。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写</b><br>用 -었나 봐요 写一句对过去状态的推测<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그 말이 많이 상처가 됐었나 봐요.（看来那句话当时很伤人。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 提问 / Q&A</b><br>Q: 왜 그런 말을 했어요?（为什么说了那种话？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：나도 당신 약점을 들쑤시고 싶었나 봐요.（看来我也想戳你的弱点了。）</span></div>
+  <div class="footer-num">台词精讲 2/12</div>
+</div>
+
+<!-- ===== PAGE 5: 精讲 ③ ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第24课 · 你是知道我的弱点的</span>
+    <span class="lesson-tag">台词精讲 3/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">③ 그래서 지금은 좀 어때요? 당신 약점</div>
+    <div class="sent-cn">所以现在怎么样？你的弱点</div>
+    <div class="sent-en">So how is it now? Your weakness.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">③ 그래서 지금은 좀 어때요?</div>
+      <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">그래서（所以/那么） ｜ 지금은（现在）</span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">어떻다（怎么样）</span> ← 원형（여不规则→어때요）</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아요（疑问收尾）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+      <div class="sf-link">口语技巧：主句"어때요"先说，然后补充话题"당신 약점"，是口语中常见的后补结构</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L24_S03.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">그래서</span><span class="zh">— 所以/那么</span><span class="en">so / therefore</span></div>
+      <div class="word-item"><span class="ko">지금</span><span class="zh">— 现在</span><span class="en">now</span></div>
+      <div class="word-item"><span class="ko">좀</span><span class="zh">— 有点/稍微</span><span class="en">a little / a bit</span></div>
+      <div class="word-item"><span class="ko">어떻다</span><span class="zh">— 怎么样</span><span class="en">how is/how about</span></div>
+      <div class="word-item"><span class="ko">당신</span><span class="zh">— 您/你</span><span class="en">you</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">지금은 어때요? — 现在怎么样？（常用询问句） ｜ 좀 어떻다 — 有点怎么样</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：어때요? — "怎么样？"（여不规则）</div>
+    <div class="grammar-note">讲解：어떻다(怎么样)는 여不规则，接-아요时：어떻+아요→어때요。是韩语中最高频的日常问句之一，用于询问状态、感受、进展。지금은+어때요="现在怎么样了？"，-은 有对比强调"现在"与之前的语感。</div>
+    <div class="grammar-note">예) 요즘 기분은 어때요?（最近心情怎么样？）</div>
+    <div class="grammar-note">예) 그 일은 지금 어때요?（那件事现在怎么样了？）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">어때요 → [어때요] 元音缩合（어떠+해요→어때요） ｜ 약점 → [약쩜] ㄱ+ㅈ紧音化</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:12px;">③ 그래서 지금은 좀 어때요? 당신 약점</div>
+    <div class="sent-cn" style="font-size:11px;">所以现在怎么样？你的弱点</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '당신 약점（你的弱点）' 换成 '그 상처（那个伤）' 重新追问<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그래서 지금은 좀 어때요? 그 상처.（所以现在怎么样了？那个伤。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写</b><br>用 지금은 어때요? 写一句询问某事现状的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그래서 지금은 좀 어때요? 그쪽 일.（那么现在怎么样了？你那边的事。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 提问 / Q&A</b><br>Q: 예전에 문제가 있다고 했잖아요.（你之前说有问题的。）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：그래서 지금은 좀 어때요?（所以现在怎么样了？）</span></div>
+  <div class="footer-num">台词精讲 3/12</div>
+</div>
+
+<!-- ===== PAGE 6: 精讲 ④⑤ 合并 ===== -->
+<div class="page breath-page">
+  <div class="header-bar">
+    <span class="header-left">第24课 · 你是知道我的弱点的</span>
+    <span class="lesson-tag">台词精讲 4/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">④ 도라미요?</div>
+    <div class="sent-cn">是多拉米吗？</div>
+    <div class="sent-en">Dora-mi?</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">④ 도라미요?</div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">도라미（多拉米，剧中人物名）</span></span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-요（升调疑问确认）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+      <div class="sf-link">语调：升调=惊讶/确认"是多拉米吗？"，语气试探，表示猜测对方弱点是她</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L24_S04.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">도라미</span><span class="zh">— 多拉米（人名）</span><span class="en">Dora-mi (character name)</span></div>
+      <div class="word-item"><span class="ko">-요</span><span class="zh">— 敬语疑问终结语尾</span><span class="en">polite question ending</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：[名词/人名]+요? — "是…吗？"（简短确认疑问）</div>
+    <div class="grammar-note">讲解：名词/人名直接加-요，升调念出，构成最简洁的确认疑问句，相当于"是……吗？"或"你是说……？"。语气含试探和推测。常用于对方提到某信息后反问确认。</div>
+    <div class="grammar-note">예) 철수요? 그 사람이요?（哲秀？那个人？）</div>
+    <div class="grammar-note">예) 내일요? 그럼 일찍 와요.（明天？那就早点来。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">도라미요 → [도라미요] 无特殊音变</div>
+  </div>
+  <hr>
+  <div class="sentence-box" style="margin:8px 0 4px;">
+    <div class="sent-kr">⑤ 그렇게 폭발하고 한동안은 조용해요</div>
+    <div class="sent-cn">那样爆发之后，会安静一阵子</div>
+    <div class="sent-en">After erupting like that, it stays quiet for a while.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">短句1：그렇게 폭발하고 ／ 短句2：한동안은 조용해요</div>
+      <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">그렇게（那样地） ｜ 한동안은（一阵子）</span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">폭발하다（爆发）→-고 连接 ｜ 조용하다（安静）</span></span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+      <div class="sf-link">🔗 -고 表时间先后，连接"爆发"与"安静"两个短句</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L24_S05.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">그렇게</span><span class="zh">— 那样地</span><span class="en">like that</span></div>
+      <div class="word-item"><span class="ko">폭발하다</span><span class="zh">— 爆发</span><span class="en">to explode/burst out</span></div>
+      <div class="word-item"><span class="ko">한동안</span><span class="zh">— 一段时间/一阵子</span><span class="en">for a while</span></div>
+      <div class="word-item"><span class="ko">조용하다</span><span class="zh">— 安静</span><span class="en">to be quiet/calm</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">폭발하고 나서 — 爆发之后 ｜ 한동안은 조용하다 — 一段时间内安静</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-고 — "…之后/并且"（时间先后连接）</div>
+    <div class="grammar-note">讲解：动词+-고，表时间顺序"做了A之后（做B）"，或并列"A并且B"。此处폭발하고="爆发之后"，引出之后的结果"安静"。</div>
+    <div class="grammar-note">예) 밥을 먹고 산책해요.（吃完饭之后散步。）</div>
+    <div class="grammar-note">예) 울고 나서 좀 나아졌어요.（哭了之后好了一些。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">폭발하고 → [폭빨하고] ㄱ+ㅂ紧音化 ｜ 조용해요 → [조용해요] 无特殊</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用（④⑤）</div>
+  <div class="exercise-text"><b>🔄 换词练习 (⑤)</b><br>把 '조용해요（安静）' 换成 '괜찮아져요（好起来了）' 重新说<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그렇게 폭발하고 한동안은 괜찮아져요.（那样爆发之后，会有一阵子好起来。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写 (⑤)</b><br>用 -고 한동안은 写一句"A之后一阵子会B"的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그렇게 울고 한동안은 편해요.（那样哭了之后，会有一阵子轻松。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 提问 / Q&A (④)</b><br>Q: 그쪽 약점이 도라미예요?（你的弱点是多拉米吗？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：도라미요?（多拉米？）</span></div>
+  <div class="footer-num">台词精讲 4/12</div>
+</div>
+
+<!-- ===== PAGE 7: 精讲 ⑥⑦ 合并 ===== -->
+<div class="page breath-page">
+  <div class="header-bar">
+    <span class="header-left">第24课 · 你是知道我的弱点的</span>
+    <span class="lesson-tag">台词精讲 5/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑥ 안 보여요.</div>
+    <div class="sent-cn">看不到</div>
+    <div class="sent-en">You can't see it.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">⑥ 안 보여요.</div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">보이다（显现/被看见）</span> ← 원형（보다的被动形）</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">안 + -아요（否定+敬语收尾）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+      <div class="sf-link">语境：弱点（다라미）"看不到了"，言下之意爆发后弱点暂时消失了</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L24_S06.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">안</span><span class="zh">— 不/没（否定副词）</span><span class="en">not (negative)</span></div>
+      <div class="word-item"><span class="ko">보이다</span><span class="zh">— 被看见/显现</span><span class="en">to be seen/visible</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">안 보이다 — 看不见/不出现 ｜ 잘 보이다 — 清晰可见 ｜ 보이기 시작하다 — 开始出现</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：안 + 동사/형용사 — "不/没…"（前置否定）</div>
+    <div class="grammar-note">讲解：안是否定副词，放在谓词前，意为"不/没"。与不같이 쓰다: 안 먹어요=不吃。보이다是보다(看)的被动形，"被看见/显现"。안 보여요="不被看见"→"看不到"。</div>
+    <div class="grammar-note">예) 별이 안 보여요.（看不到星星。）</div>
+    <div class="grammar-note">예) 아직 안 왔어요.（还没来。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">보여요 → [보여요] 无特殊音变</div>
+  </div>
+  <hr>
+  <div class="sentence-box" style="margin:8px 0 4px;">
+    <div class="sent-kr">⑦ 신경 안정제보다</div>
+    <div class="sent-cn">比起镇定剂</div>
+    <div class="sent-en">More than a tranquilizer.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">⑦ 신경 안정제보다（未完句）</div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">신경 안정제（镇静剂）</span></span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-보다（比较助词"比…"）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+      <div class="sf-link">未完句技巧：只说"比镇静剂……"，后半"更有效/更好"省略，由语境补充，制造幽默轻松感</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L24_S07.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">신경</span><span class="zh">— 神经</span><span class="en">nerve</span></div>
+      <div class="word-item"><span class="ko">안정제</span><span class="zh">— 镇静剂</span><span class="en">sedative/tranquilizer</span></div>
+      <div class="word-item"><span class="ko">-보다</span><span class="zh">— 比（比较助词）</span><span class="en">than (comparative)</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">신경 안정제 — 镇静剂（固定搭配） ｜ X보다 더 좋다 — 比X更好</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-보다 — "比…"（比较助词）</div>
+    <div class="grammar-note">讲解：名词+-보다表比较基准，意为"比……更"。常与더(更)搭配使用：X보다 Y가 더……="Y比X更……"。此句省略了比较结果，是韩语口语中的留白技巧。</div>
+    <div class="grammar-note">예) 커피보다 차가 더 좋아요.（比咖啡更喜欢茶。）</div>
+    <div class="grammar-note">예) 어제보다 오늘이 더 더워요.（今天比昨天更热。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">신경 안정제 → [신경 안정제] 무특수 ｜ 안정제보다 → [안정제보다] 无特殊</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用（⑥⑦）</div>
+  <div class="exercise-text"><b>🔄 换词练习 (⑦)</b><br>把 '신경 안정제보다（比镇静剂）' 换成 '수면제보다（比安眠药）' 重新说<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：수면제보다（더 효과가 있나 봐요）.（比安眠药（还更有效呢）。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写 (⑦)</b><br>用 -보다 写一句比较两个事物的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：약보다 휴식이 더 효과적이에요.（比药物，休息更有效。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 提问 / Q&A (⑥)</b><br>Q: 지금은 弱점이 안 보여요?（现在弱点不出现了吗？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：안 보여요.（看不到了。）</span></div>
+  <div class="footer-num">台词精讲 5/12</div>
+</div>
+
+<!-- ===== PAGE 8: 精讲 ⑧ ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第24课 · 你是知道我的弱点的</span>
+    <span class="lesson-tag">台词精讲 6/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑧ 그렇게 한 번 터뜨리는 게 효과가 있나 봐요</div>
+    <div class="sent-cn">看来那样爆发一次更有效</div>
+    <div class="sent-en">Seems like erupting once like that is more effective.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">短句1：그렇게 한 번 터뜨리는 게 ／ 短句2：효과가 있나 봐요</div>
+      <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">그렇게（那样） ｜ 한 번（一次）</span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">터뜨리다（引爆/发泄）</span> ← 원형 / 효과가 있다（有效）</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-는 게（动词名词化） + -나 봐요（推测）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span>④变身 ✓</span></div>
+      <div class="sf-link">🔗 터뜨리는 게 = 터뜨리다(현재형冠形)+것이(依存名词)→名词化，作句子主语</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L24_S08.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">한 번</span><span class="zh">— 一次</span><span class="en">once/one time</span></div>
+      <div class="word-item"><span class="ko">터뜨리다</span><span class="zh">— 引爆/爆发/发泄</span><span class="en">to burst/let out</span></div>
+      <div class="word-item"><span class="ko">효과</span><span class="zh">— 效果</span><span class="en">effect/result</span></div>
+      <div class="word-item"><span class="ko">-는 게</span><span class="zh">— 做…这件事（名词化）</span><span class="en">the act of doing</span></div>
+      <div class="word-item"><span class="ko">있나 보다</span><span class="zh">— 看来是有…</span><span class="en">seems to have</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">한 번 터뜨리다 — 爆发一次 ｜ 효과가 있다 — 有效果 ｜ 효과가 없다 — 没效果</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-는 게 — "做…这件事"（动词名词化）</div>
+    <div class="grammar-note">讲解：冠形形-는 + 依存名词것+이 → -는 게，把动词短语名词化，作主语或补语。터뜨리는 게="爆发这件事"，之后接效果判断。</div>
+    <div class="grammar-note">예) 걷는 게 건강에 좋아요.（走路对健康好。）</div>
+    <div class="grammar-note">예) 말하는 게 더 쉬워요.（说话比较容易。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音변현상</div>
+    <div class="grammar-note">터뜨리는 → [터뜨리는] 固有紧音 ｜ 있나 → [인나] ㅆ→ㄴ鼻音化 ｜ 봐요 → [봐요] 无特殊</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:12px;">⑧ 그렇게 한 번 터뜨리는 게 효과가 있나 봐요</div>
+    <div class="sent-cn" style="font-size:11px;">看来那样爆发一次更有效</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '터뜨리는 게（爆发这件事）' 换成 '울어버리는 게（大哭一场）' 重新说<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그렇게 한 번 울어버리는 게 효과가 있나 봐요.（看来那样大哭一场更有效。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写</b><br>用 -는 게 효과가 있다 写一句"做…有效"的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：직접 말하는 게 효과가 있어요.（直接说出来更有效。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 提问 / Q&A</b><br>Q: 폭발해도 괜찮아요?（爆发也没关系吗？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：그렇게 한 번 터뜨리는 게 효과가 있나 봐요.（看来那样爆发一次更有效。）</span></div>
+  <div class="footer-num">台词精讲 6/12</div>
+</div>
+
+<!-- ===== PAGE 9: 精讲 ⑨ ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第24课 · 你是知道我的弱点的</span>
+    <span class="lesson-tag">台词精讲 7/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑨ 그렇다고 아무 데서나 그때처럼 폭발하지는 마요</div>
+    <div class="sent-cn">但你别在哪都像那样爆发</div>
+    <div class="sent-en">But don't erupt anywhere like you did then.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">短句1：그렇다고 ／ 短句2：아무 데서나 그때처럼 폭발하지는 마요</div>
+      <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">그렇다고（虽说如此） ｜ 아무 데서나（无论哪里）</span></div>
+      <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">그때처럼（像那时一样）</span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">폭발하다（爆发）</span> ← 원형</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-지 마요（否定命令收尾）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+      <div class="sf-link">逻辑：그렇다고(先承认有效) + 但 → 别到处乱爆发（-지는 마요强调对比）</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L24_S09.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">그렇다고</span><span class="zh">— 虽说如此/话虽如此</span><span class="en">even so / that said</span></div>
+      <div class="word-item"><span class="ko">아무 데서나</span><span class="zh">— 无论哪里/到处</span><span class="en">anywhere / wherever</span></div>
+      <div class="word-item"><span class="ko">그때처럼</span><span class="zh">— 像那时一样</span><span class="en">like that time</span></div>
+      <div class="word-item"><span class="ko">폭발하다</span><span class="zh">— 爆发</span><span class="en">to explode</span></div>
+      <div class="word-item"><span class="ko">말다</span><span class="zh">— 不要/别</span><span class="en">don't/stop</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">아무 데서나 ~하다 — 随处/到处做某事 ｜ -지 마요 — 不要做…（温和否定命令）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-지 마요 — "不要…"（否定命令）</div>
+    <div class="grammar-note">讲解：动词+-지 말다+-아요 = -지 마요，表禁止或劝告"不要做……"。말다的-아요形 = 마요。-지는 마요中"는"有对比强调：别"到处"爆发（但有些场合可以）。</div>
+    <div class="grammar-note">예) 걱정하지 마요.（别担心。）</div>
+    <div class="grammar-note">예) 아무 데서나 큰소리로 전화하지 마요.（别随处大声打电话。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音변현상</div>
+    <div class="grammar-note">그렇다고 → [그럭따고] 紧音化 ｜ 폭발하지는 → [폭빨하지는] ㄱ+ㅂ紧音化 ｜ 마요 → [마요] 말+아요缩略</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:12px;">⑨ 그렇다고 아무 데서나 그때처럼 폭발하지는 마요</div>
+    <div class="sent-cn" style="font-size:11px;">但你别在哪都像那样爆发</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '폭발하지는 마요（别爆发）' 换成 '울지는 마요（别哭）' 重新劝告<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그렇다고 아무 데서나 그때처럼 울지는 마요.（话虽如此，别随处像那时那样哭。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写</b><br>用 그렇다고 -지는 마요 写一句"话虽如此，但别…"<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：그렇다고 아무한테나 다 말하지는 마요.（话虽如此，别对谁都说。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 提问 / Q&A</b><br>Q: 그럼 폭발해도 돼요?（那爆发也可以吗？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：그렇다고 아무 데서나 폭발하지는 마요.（话虽如此，别随处爆发。）</span></div>
+  <div class="footer-num">台词精讲 7/12</div>
+</div>
+
+<!-- ===== PAGE 10: 精讲 ⑩⑪ 합병 ===== -->
+<div class="page breath-page">
+  <div class="header-bar">
+    <span class="header-left">第24课 · 你是知道我的弱点的</span>
+    <span class="lesson-tag">台词精讲 8/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑩ 조심해야죠.</div>
+    <div class="sent-cn">得小心才行</div>
+    <div class="sent-en">I need to be careful.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">⑩ 조심해야죠.</div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">조심하다（小心/注意）</span> ← 원형</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-아야죠（应该…吧/当然要…）</span></div>
+      <div class="sf-endings"><span>①加料 ✓</span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+      <div class="sf-link">语气：回应对方劝告，表示"是啊，确实应该注意"，带有自我确认和顺应对方的语感</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L24_S10.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">조심하다</span><span class="zh">— 小心/注意</span><span class="en">to be careful</span></div>
+      <div class="word-item"><span class="ko">-아야죠</span><span class="zh">— 应该…吧（-아야지요缩略）</span><span class="en">should/ought to</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-아/어야죠 — "应该…吧/当然要…"</div>
+    <div class="grammar-note">讲解：-아야지요的缩略形。由三部分组成：-아야（应该/必须）+-지（自我确认）+-요（敬语）。整体意思"应该……吧/当然要……"，表达理所当然的义务或共识。类似英语"I'd better / I should"。</div>
+    <div class="grammar-note">예) 건강을 위해 운동해야죠.（为了健康当然要运动。）</div>
+    <div class="grammar-note">예) 일찍 일어나야죠.（应该早点起床。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变현상</div>
+    <div class="grammar-note">조심해야죠 → [조시매야죠] ㅎ弱化，해→[해], 실제 발음时하→아 경향</div>
+  </div>
+  <hr>
+  <div class="sentence-box" style="margin:8px 0 4px;">
+    <div class="sent-kr">⑪ 그쪽 약점은 어떻게 됐어요?</div>
+    <div class="sent-cn">你那边的弱点怎么样了？</div>
+    <div class="sent-en">What about your weakness?</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">⑪ 그쪽 약점은 어떻게 됐어요?</div>
+      <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">그쪽（你那边）</span></div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">약점（弱点）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">어떻게 되다（变得怎样/如何了）</span> ← 원형</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-었어요（过去时疑问收尾）</span></div>
+      <div class="sf-endings"><span>①加料 ✓</span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④변신 —</s></span></div>
+      <div class="sf-link">结构呼应：与③句"그래서 지금은 좀 어때요? 당신 약점"形成镜像对话，一问一答的节奏</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L24_S11.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 단어</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">그쪽</span><span class="zh">— 那边/您</span><span class="en">your side / you</span></div>
+      <div class="word-item"><span class="ko">약점</span><span class="zh">— 弱点</span><span class="en">weakness</span></div>
+      <div class="word-item"><span class="ko">어떻게 되다</span><span class="zh">— 变得怎样</span><span class="en">what happened to</span></div>
+      <div class="word-item"><span class="ko">됐어요</span><span class="zh">— 变成了/怎样了</span><span class="en">turned out / became</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">어떻게 됐어요? — 变得怎样了？（万能追问句） ｜ 결국 어떻게 됐어요? — 最终怎么了？</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：어떻게 되다 — "变得怎样/结果如何"</div>
+    <div class="grammar-note">讲解：어떻게(怎么)+되다(成为/变成)，是询问某事进展或最终结果的惯用搭配。됐어요=되었어요(过去完成)。应用范围极广，任何"结果/进展"类追问都可用。</div>
+    <div class="grammar-note">예) 면접은 어떻게 됐어요?（面试怎么样了？）</div>
+    <div class="grammar-note">예) 그 계획은 어떻게 됐어요?（那个计划怎么样了？）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变현상</div>
+    <div class="grammar-note">어떻게 → [어떠케] 격음화（ㅎ+ㄱ→ㅋ） ｜ 됐어요 → [돼써요] 元音缩합</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 응용（⑩⑪）</div>
+  <div class="exercise-text"><b>🔄 换词练습 (⑪)</b><br>把 '약점은 어떻게 됐어요（弱点怎么了）' 换成 '그 문제는 어떻게 됐어요（那个问题怎么了）'<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고答案：그쪽 그 문제는 어떻게 됐어요?（你那边的那个问题怎么样了？）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写 (⑩)</b><br>用 -아야죠 写一句表达"当然应该"的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고答案：열심히 해야죠.（当然应该努力。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ Q&A (⑩)</b><br>Q: 앞으로는 더 조심할 거예요?（以后会更注意吗？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">참고答案：조심해야죠.（当然得小心。）</span></div>
+  <div class="footer-num">台词精讲 8/12</div>
+</div>
+
+<!-- ===== PAGE 11: 精讲 ⑫ ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第24课 · 你是知道我的弱点的</span>
+    <span class="lesson-tag">台词精讲 9/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑫ 결혼식 날짜는 잡혔고 상견례다 뭐다 끌려다니기 전에 어디로 튈까 궁리 중입니다</div>
+    <div class="sent-cn">婚礼日期定了，在被拉着去见家长之前，我正在琢磨逃到哪去</div>
+    <div class="sent-en">The wedding date is set, and before I get dragged to meet the parents, I'm figuring out where to run.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架（长句拆解）</div>
+    <div class="sf-card">
+      <div class="sf-card-title">短句1：결혼식 날짜는 잡혔고</div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">결혼식 날짜（婚礼日期）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">잡히다（被定下）</span> ← 원형（잡다的被动形）</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-고（并列/先后接口）</span></div>
+      <div class="sf-endings"><span>①加料 ✓</span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④변身 —</s></span></div>
+      <div class="sf-link">🔗 -고 连接短句1（日期定了）与短句2~3（接下来的事）</div>
+    </div>
+    <div class="sf-card">
+      <div class="sf-card-title">短句2：상견례다 뭐다 끌려다니기 전에</div>
+      <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">상견례다 뭐다（见家长啊什么的，표현：列举多事）</span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">끌려다니다（被拉来拉去）</span> ← 원형</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-기 전에（在做…之前，接口）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span>④변身 ✓</span></div>
+    </div>
+    <div class="sf-card">
+      <div class="sf-card-title">短句3：어디로 튈까 궁리 중입니다</div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">어디로 튈까（逃到哪里呢）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">궁리하다（琢磨/想方设法）</span> → 궁리 중</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-중입니다（正在…中，收尾）</span></div>
+      <div class="sf-endings"><span>①加료 ✓</span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④변身 —</s></span></div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L24_S12.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 단어</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">결혼식</span><span class="zh">— 婚礼</span><span class="en">wedding ceremony</span></div>
+      <div class="word-item"><span class="ko">날짜</span><span class="zh">— 日期</span><span class="en">date</span></div>
+      <div class="word-item"><span class="ko">잡히다</span><span class="zh">— 被定下（잡다被动形）</span><span class="en">be set/fixed</span></div>
+      <div class="word-item"><span class="ko">상견례</span><span class="zh">— 见家长/双方家庭见面</span><span class="en">family meeting (pre-wedding)</span></div>
+      <div class="word-item"><span class="ko">끌려다니다</span><span class="zh">— 被拖着到处跑</span><span class="en">be dragged around</span></div>
+      <div class="word-item"><span class="ko">궁리</span><span class="zh">— 思索/琢磨</span><span class="en">figuring out</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-기 전에 — "在做…之前"</div>
+    <div class="grammar-note">讲解：动词原形+-기（名词化）+-전에(之前)，表示"在某动作发生之前"。전(前)是汉字词"前"。常用于提前准备/抢先行动的表达。</div>
+    <div class="grammar-note">예) 자기 전에 이를 닦아요.（睡觉之前刷牙。）</div>
+    <div class="grammar-note">예) 떠나기 전에 전화해요.（出发之前打电话。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音변현상</div>
+    <div class="grammar-note">잡혔고 → [자펃꼬] ㅂ+ㅎ→ㅍ激音化+ㄱ→ㄲ紧音化 ｜ 끌려다니기 → [끌려다니기] 无特殊</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 응용</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:11px;">⑫ 결혼식 날짜는 잡혔고 … 어디로 튈까 궁리 중입니다</div>
+    <div class="sent-cn" style="font-size:11px;">婚礼日期定了，… 正在琢磨逃到哪去</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '어디로 튈까（逃到哪里）' 换成 '어떻게 피할까（怎么避开）' 重新说<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고答案：끌려다니기 전에 어떻게 피할까 궁리 중입니다.（被拖去之前，正在琢磨怎么躲。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写改写</b><br>用 -기 전에 写一句"在…之前要先做"的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">참고答案：회의 시작하기 전에 자료를 챙겨야 해요.（开会之前要把资料备好。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ Q&A</b><br>Q: 결혼 준비 잘 돼 가요?（婚礼准备顺利吗？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">참고答案：날짜는 잡혔고, 끌려다니기 전에 어디로 튈까 궁리 중입니다.（日期定了，被拖着跑之前，正在想逃到哪去。）</span></div>
+  <div class="footer-num">台词精讲 9/12</div>
+</div>
+
+<!-- ===== PAGE 12: 精讲后补 ③的应用变完整页，⑩独立页 ===== -->
+<!-- 注：上文 ④⑤ 合并为4/12，⑥⑦合并为5/12，⑩⑪合并为8/12 -->
+<!-- 补足 10/12、11/12、12/12 三页，内容分别对应⑤应用扩展、⑦应用扩展、综合巩固 -->
+
+<!-- ===== PAGE 12: 精讲 10/12 — 台词⑤⑥ 扩展应用 ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第24课 · 你是知道我的弱点的</span>
+    <span class="lesson-tag">台词精讲 10/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑤ 그렇게 폭발하고 한동안은 조용해요 <span style="color:#c4b998;font-size:12px;">· 复习</span></div>
+    <div class="sent-cn">那样爆发之后，会安静一阵子</div>
+    <div class="sent-en">After erupting like that, it stays quiet for a while.</div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L24_S05.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <hr>
+  <div class="sub-sec-title">⑤ 深化练习</div>
+  <div class="exercise-text"><b>🔄 场景扩展1：</b><br>朋友发脾气了，你来安慰ta，用⑤句型说明"爆发完会安静一阵子"<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:280px;">&nbsp;</span><br><span class="answer-ref">참고：걱정 마. 그렇게 폭발하고 한동안은 조용해질 거야.（别担心，那样爆发完会安静一阵子的。）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>✍️ 扩展造句：</b><br>把 '폭발하고（爆发之后）' 换成 '크게 싸우고（大吵一架之后）' 造新句<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:280px;">&nbsp;</span><br><span class="answer-ref">참고：그렇게 크게 싸우고 한동안은 조용해요.（那样大吵一架之后，会安静一阵子。）</span></div>
+  <hr>
+  <div class="sentence-box" style="margin-top:10px;">
+    <div class="sent-kr">⑥ 안 보여요. <span style="color:#c4b998;font-size:12px;">· 복습</span></div>
+    <div class="sent-cn">看不到</div>
+    <div class="sent-en">You can't see it.</div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L24_S06.mp3" class="audio-btn" target="_blank">🔊 听这句录음（점击打开播放）</a>
+  <div class="sub-sec-title" style="margin-top:6px;">⑥ 深화练习</div>
+  <div class="exercise-text"><b>🔄 场景扩展：</b><br>用 '안 보여요' 造句，说一件看不见/找不到的事<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:280px;">&nbsp;</span><br><span class="answer-ref">참고：열쇠가 안 보여요. 어디에 있어요?（找不到钥匙了，在哪？）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>❓ 对话扩展：</b><br>Q: 그 징후가 아직도 보여요?（那个征兆还出现吗？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:250px;">&nbsp;</span><br><span class="answer-ref">참고：아니요, 이제 안 보여요.（不，现在看不到了。）</span></div>
+  <hr>
+  <div class="sub-sec-title">🔗 ⑤⑥连读口语练习</div>
+  <div class="grammar-note">试连接⑤⑥造完整语段：「그렇게 폭발하고 한동안은 ＿＿」→「그래서 지금은 ＿＿」</div>
+  <div class="exercise-text"><span style="border-bottom:1px solid #999;display:inline-block;min-width:300px;">&nbsp;</span><br><span class="answer-ref">참고：그렇게 폭발하고 한동안은 조용해요. 그래서 지금은 안 보여요.（那样爆发之后会安静一阵，所以现在看不到了。）</span></div>
+  <div class="footer-num">台词精讲 10/12</div>
+</div>
+
+<!-- ===== PAGE 13: 精讲 11/12 — 台词⑦⑧ 扩展应用 ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第24课 · 你是知道我的弱点的</span>
+    <span class="lesson-tag">台词精讲 11/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">⑦ 신경 안정제보다 <span style="color:#c4b998;font-size:12px;">· 복습</span></div>
+    <div class="sent-cn">比起镇定剂</div>
+    <div class="sent-en">More than a tranquilizer.</div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L24_S07.mp3" class="audio-btn" target="_blank">🔊 听这句录음（점击打开播放）</a>
+  <div class="sub-sec-title" style="margin-top:5px;">⑦ 深化练习</div>
+  <div class="exercise-text"><b>🔄 场景扩展：</b><br>把留白补完整，说"比镇静剂还管用"<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:280px;">&nbsp;</span><br><span class="answer-ref">참고：신경 안정제보다 더 효과가 있어요.（比镇静剂还更有效。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>✍️ 仿写：</b><br>用 -보다 더 좋아요 说一个"比XX更好"<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:280px;">&nbsp;</span><br><span class="answer-ref">참고：운동이 다이어트 약보다 더 좋아요.（运动比减肥药更好。）</span></div>
+  <hr>
+  <div class="sentence-box" style="margin-top:8px;">
+    <div class="sent-kr">⑧ 그렇게 한 번 터뜨리는 게 효과가 있나 봐요 <span style="color:#c4b998;font-size:12px;">· 복습</span></div>
+    <div class="sent-cn">看来那样爆发一次更有效</div>
+    <div class="sent-en">Seems like erupting once like that is more effective.</div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L24_S08.mp3" class="audio-btn" target="_blank">🔊 听这句录음（점击打开播放）</a>
+  <div class="sub-sec-title" style="margin-top:5px;">⑧ 深화练习</div>
+  <div class="exercise-text"><b>🔄 场景扩展：</b><br>把 '터뜨리는 게（爆发这件事）' 换成 '이야기하는 게（聊这件事）' 造新句<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:280px;">&nbsp;</span><br><span class="answer-ref">참고：그렇게 한 번 이야기하는 게 효과가 있나 봐요.（看来那样聊一次更有效。）</span></div>
+  <div class="exercise-text" style="margin-top:5px;"><b>❓ 对话扩展：</b><br>Q: 화를 내는 게 오히려 나쁘지 않을까요?（生气反而不是更不好吗？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:250px;">&nbsp;</span><br><span class="answer-ref">참고：그렇게 한 번 터뜨리는 게 효과가 있나 봐요. 신경 안정제보다 낫겠어요.（看来那样爆发一次更有效，说不定比镇静剂还好。）</span></div>
+  <hr>
+  <div class="sub-sec-title">🔗 ⑦⑧ 连读：未完句+推测组合</div>
+  <div class="grammar-note">连读练习：用「신경 안정제보다」引发铺垫，再接「그렇게 한 번 터뜨리는 게 효과가 있나 봐요」</div>
+  <div class="exercise-text"><b>完整说这两句：</b><br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:300px;">&nbsp;</span><br><span class="answer-ref">참고：신경 안정제보다… 그렇게 한 번 터뜨리는 게 효과가 있나 봐요.（比起镇静剂……那样爆发一次看来更有效。）</span></div>
+  <div class="footer-num">台词精讲 11/12</div>
+</div>
+
+<!-- ===== PAGE 14: 精讲 12/12 — ①②③ 综合巩固 ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第24课 · 你是知道我的弱点的</span>
+    <span class="lesson-tag">台词精讲 12/12</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">① 그쪽이 내 약점을 알고 있다고 생각하니까 <span style="color:#c4b998;font-size:12px;">· 综合巩固</span></div>
+    <div class="sent-cn">因为你认为自己知道我的弱点</div>
+    <div class="sent-en">Because you think you know my weakness.</div>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">② 나도 당신 약점을 들쑤시고 싶었나 봐요</div>
+    <div class="sent-cn">看来我也很想戳你的弱点</div>
+    <div class="sent-en">I guess I wanted to poke at your weakness too.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔗 ①② 对话逻辑：弱点的"相互试探"</div>
+    <div class="grammar-note">①句：A说"因为我觉得你知道我的弱点"→暗示"所以我才戒备/反击"。②句：A接着说"看来我也想戳你的弱点"→自我反省式承认。两句连在一起构成一段自我剖白的微妙独白，是本课最精彩的情感层次。</div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L24_S01.mp3" class="audio-btn" target="_blank">🔊 ①录音</a>&nbsp;&nbsp;
+  <a href="https://nannan2026.cn/korean/audio/L24_S02.mp3" class="audio-btn" target="_blank">🔊 ②录音</a>
+  <hr>
+  <div class="sub-sec-title">🏆 12句综合口语挑战</div>
+  <div class="grammar-note" style="margin-bottom:6px;">不看原文，把今天12句按顺序练说一遍，重点打卡：</div>
+  <div style="font-size:11px;color:#555;line-height:1.8;">
+    <div>① -다고 생각하니까（因为认为……）</div>
+    <div>② -었나 봐요（看来当时……）</div>
+    <div>③ 지금은 어때요?（现在怎么样了？）</div>
+    <div>④ [人名]+요?（是……吗？）</div>
+    <div>⑤ -고 한동안은（……之后一阵子……）</div>
+    <div>⑥ 안 보여요（看不到了）</div>
+    <div>⑦ -보다（比……）</div>
+    <div>⑧ -는 게 효과가 있나 봐요（……这件事看来有效）</div>
+    <div>⑨ 그렇다고 -지는 마요（话虽如此别……）</div>
+    <div>⑩ -아야죠（当然应该……）</div>
+    <div>⑪ 어떻게 됐어요?（怎么样了？）</div>
+    <div>⑫ -기 전에（在……之前）</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title">❓ 综合 Q&A 挑战</div>
+  <div class="exercise-text"><b>Q: 지금 그쪽 약점은 어떻게 됐어요?（你那边的弱点怎么了？）</b><br>A（用⑤⑥连答）: <span style="border-bottom:1px solid #999;display:inline-block;min-width:280px;">&nbsp;</span><br><span class="answer-ref">참고：그렇게 한 번 폭발하고 한동안은 조용해요. 지금은 안 보여요.（那样爆发后安静了一阵，现在看不到了。）</span></div>
+  <div class="exercise-text" style="margin-top:6px;"><b>Q: 결혼 준비 어떻게 됐어요?（婚礼准备怎么样了？）</b><br>A（用⑫）: <span style="border-bottom:1px solid #999;display:inline-block;min-width:280px;">&nbsp;</span><br><span class="answer-ref">참고：날짜는 잡혔고 끌려다니기 전에 어디로 튈까 궁리 중입니다.（日期定了，被拖去跑之前正在想逃哪里。）</span></div>
+  <div class="footer-num">台词精讲 12/12</div>
+</div>
+
+<!-- ===== PAGE 15: 重点句型 + 重点单词 ===== -->
+<div class="page breath-page">
+  <div class="header-bar">
+    <span class="header-left">第24课 · 你是知道我的弱点的</span>
+    <span class="lesson-tag">重点句型 · 重点单词</span>
+  </div>
+
+  <div class="sub-sec-title">⭐ 重点句型</div>
+  <table>
+    <thead><tr><th>句型</th><th>含义</th><th>本课例句</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>-(ㄴ/는)다고 생각하다</td>
+        <td>认为……（引用想法）</td>
+        <td>알고 있다고 생각하니까<br>因为认为你知道我的弱点</td>
+      </tr>
+      <tr>
+        <td>-었나 봐요</td>
+        <td>看来当时是……（过去推测）</td>
+        <td>들쑤시고 싶었나 봐요<br>看来我当时想戳你的弱点</td>
+      </tr>
+      <tr>
+        <td>-는 게 효과가 있다</td>
+        <td>做……有效（名词化+效果判断）</td>
+        <td>터뜨리는 게 효과가 있나 봐요<br>那样爆发一次看来更有效</td>
+      </tr>
+      <tr>
+        <td>그렇다고 -지는 마요</td>
+        <td>话虽如此，别……（先承认后劝止）</td>
+        <td>그렇다고 아무 데서나 폭발하지는 마요<br>话虽如此，别随处爆发</td>
+      </tr>
+      <tr>
+        <td>-아/어야죠</td>
+        <td>应该……吧（理所当然的义务）</td>
+        <td>조심해야죠<br>当然应该小心</td>
+      </tr>
+      <tr>
+        <td>-기 전에</td>
+        <td>在……之前</td>
+        <td>끌려다니기 전에<br>被拖着跑之前</td>
+      </tr>
+      <tr>
+        <td>어떻게 됐어요?</td>
+        <td>变得怎样了/结果如何</td>
+        <td>그쪽 약점은 어떻게 됐어요?<br>你那边的弱点怎么样了？</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="sub-sec-title" style="margin-top:14px;">📚 重点单词</div>
+  <div class="word-grid" style="grid-template-columns: repeat(3, 1fr); gap: 8px 12px;">
+    <div class="word-item"><span class="ko">약점</span><span class="zh">— 弱点</span><span class="en">weakness</span><br><span style="font-size:10px;color:#999;">🧠 弱+點（汉字词）</span></div>
+    <div class="word-item"><span class="ko">들쑤시다</span><span class="zh">— 戳/翻/捅</span><span class="en">poke/stir up</span><br><span style="font-size:10px;color:#999;">🧠 戳痛处的画面感</span></div>
+    <div class="word-item"><span class="ko">폭발하다</span><span class="zh">— 爆发</span><span class="en">to explode</span><br><span style="font-size:10px;color:#999;">🧠 爆+발(发)</span></div>
+    <div class="word-item"><span class="ko">터뜨리다</span><span class="zh">— 引爆/发泄</span><span class="en">to burst out</span><br><span style="font-size:10px;color:#999;">🧠 主动版폭발，人为引发</span></div>
+    <div class="word-item"><span class="ko">효과</span><span class="zh">— 效果</span><span class="en">effect/result</span><br><span style="font-size:10px;color:#999;">🧠 效+果（汉字词）</span></div>
+    <div class="word-item"><span class="ko">조심하다</span><span class="zh">— 小心/注意</span><span class="en">to be careful</span><br><span style="font-size:10px;color:#999;">🧠 조심조심=小心翼翼</span></div>
+    <div class="word-item"><span class="ko">상견례</span><span class="zh">— 见家长仪式</span><span class="en">meeting families</span><br><span style="font-size:10px;color:#999;">🧠 相見禮（汉字词）</span></div>
+    <div class="word-item"><span class="ko">궁리하다</span><span class="zh">— 琢磨/想法子</span><span class="en">to figure out</span><br><span style="font-size:10px;color:#999;">🧠 窮理，想到底</span></div>
+    <div class="word-item"><span class="ko">한동안</span><span class="zh">— 一段时间</span><span class="en">for a while</span><br><span style="font-size:10px;color:#999;">🧠 한(一)+동안(期间)</span></div>
+  </div>
+  <div class="footer-num">重点句型 · 重点单词</div>
+</div>
+
+<!-- ===== PAGE 16: 场景迁移 ===== -->
+<div class="page breath-page">
+  <div class="header-bar">
+    <span class="header-left">第24课 · 你是知道我的弱点的</span>
+    <span class="lesson-tag">场景迁移</span>
+  </div>
+
+  <div class="sec-title">🎭 场景迁移 — 试探·弱点·相互了解</div>
+  <div class="grammar-note" style="margin-bottom:8px;">把本课台词迁移到新场景。以下两组对话，主题分别为"了解对方弱点"与"爆发后的自我疏导"。</div>
+
+  <!-- 对话 A -->
+  <div class="scene-block">
+    <div class="sub-sec-title">📍 对话 A — 了解对方的"软肋"</div>
+    <div style="margin:6px 0;">
+      <div style="margin:5px 0;">
+        <span style="font-size:11px;color:#a53860;font-weight:bold;">🍊 A：</span>
+        <div class="kr-text" style="font-size:12px;">너 약점이 뭔지 내가 알 것 같아.</div>
+        <div class="zh-text" style="font-size:11px;">我好像知道你的弱点是什么。</div>
+        <div class="en-text">I think I know what your weakness is.</div>
+      </div>
+      <div style="margin:5px 0;">
+        <span style="font-size:11px;color:#2a6f97;font-weight:bold;">🥝 B：</span>
+        <div class="kr-text" style="font-size:12px;">그쪽이 내 약점을 알고 있다고 생각하니까 좀 불편해요.</div>
+        <div class="zh-text" style="font-size:11px;">因为觉得你知道我的弱点，所以有点不舒服。</div>
+        <div class="en-text">Because I think you know my weakness, I feel a bit uneasy.</div>
+      </div>
+      <div style="margin:5px 0;">
+        <span style="font-size:11px;color:#a53860;font-weight:bold;">🍊 A：</span>
+        <div class="kr-text" style="font-size:12px;">나도 당신 약점을 들쑤시고 싶었나 봐요. 미안해요.</div>
+        <div class="zh-text" style="font-size:11px;">看来我也是想戳你的弱点，对不起。</div>
+        <div class="en-text">Looks like I wanted to poke at your weakness too. I'm sorry.</div>
+      </div>
+      <div style="margin:5px 0;">
+        <span style="font-size:11px;color:#2a6f97;font-weight:bold;">🥝 B：</span>
+        <div class="kr-text" style="font-size:12px;">그래서 지금은 좀 어때요? 그 마음.</div>
+        <div class="zh-text" style="font-size:11px;">那现在怎么样了？那种心情。</div>
+        <div class="en-text">So how is it now? That feeling.</div>
+      </div>
+      <div style="margin:5px 0;">
+        <span style="font-size:11px;color:#a53860;font-weight:bold;">🍊 A：</span>
+        <div class="kr-text" style="font-size:12px;">어떻게 됐어요, 뭐. 안 보여요 지금은.</div>
+        <div class="zh-text" style="font-size:11px;">也就那样了，现在看不到了。</div>
+        <div class="en-text">Well, it's resolved. I don't see it anymore.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 对话 B -->
+  <div class="scene-block" style="margin-top:10px;">
+    <div class="sub-sec-title">📍 对话 B — 爆发后的疏导对话</div>
+    <div style="margin:6px 0;">
+      <div style="margin:5px 0;">
+        <span style="font-size:11px;color:#a53860;font-weight:bold;">🍊 A：</span>
+        <div class="kr-text" style="font-size:12px;">오늘 회의 때 그렇게 화내서 괜찮아요?</div>
+        <div class="zh-text" style="font-size:11px;">今天开会时那样发火，没事吧？</div>
+        <div class="en-text">Are you okay after getting so angry in today's meeting?</div>
+      </div>
+      <div style="margin:5px 0;">
+        <span style="font-size:11px;color:#2a6f97;font-weight:bold;">🥝 B：</span>
+        <div class="kr-text" style="font-size:12px;">그렇게 한 번 터뜨리는 게 효과가 있나 봐요. 신경 안정제보다 나은 것 같아요.</div>
+        <div class="zh-text" style="font-size:11px;">那样爆发一次看来更有效，感觉比镇静剂还好。</div>
+        <div class="en-text">Seems like venting once like that actually works. Better than a tranquilizer.</div>
+      </div>
+      <div style="margin:5px 0;">
+        <span style="font-size:11px;color:#a53860;font-weight:bold;">🍊 A：</span>
+        <div class="kr-text" style="font-size:12px;">그렇다고 아무 데서나 그때처럼 폭발하지는 마요.</div>
+        <div class="zh-text" style="font-size:11px;">话虽如此，别随处像那样爆发啊。</div>
+        <div class="en-text">Even so, don't just explode anywhere like that.</div>
+      </div>
+      <div style="margin:5px 0;">
+        <span style="font-size:11px;color:#2a6f97;font-weight:bold;">🥝 B：</span>
+        <div class="kr-text" style="font-size:12px;">조심해야죠. 그래도 한동안은 조용해질 거예요.</div>
+        <div class="zh-text" style="font-size:11px;">当然得小心。不过一阵子会安静的。</div>
+        <div class="en-text">I need to be careful. But it should be quiet for a while.</div>
+      </div>
+      <div style="margin:5px 0;">
+        <span style="font-size:11px;color:#a53860;font-weight:bold;">🍊 A：</span>
+        <div class="kr-text" style="font-size:12px;">다음에 그러기 전에 저한테 먼저 말해요.</div>
+        <div class="zh-text" style="font-size:11px;">下次在那之前先跟我说。</div>
+        <div class="en-text">Next time, tell me before it happens.</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-num">场景迁移</div>
+</div>
+
+<!-- ===== PAGE 17: 场景日记 + 口语挑战 ===== -->
+<div class="page breath-page">
+  <div class="header-bar">
+    <span class="header-left">第24课 · 你是知道我的弱点的</span>
+    <span class="lesson-tag">场景日记 · 口语挑战</span>
+  </div>
+
+  <div class="sec-title">📝 场景日记</div>
+  <div class="grammar-note" style="margin-bottom:8px;">根据中文提示，用韩语和英语各写一句，练习输出。</div>
+
+  <div style="margin-bottom:12px;">
+    <div class="exercise-text"><b>① 你知道我喜欢你——那就是我的弱点。</b></div>
+    <div class="diary-blank-line">___________________________________________（한국어）</div>
+    <div class="diary-blank-line">___________________________________________（English）</div>
+  </div>
+  <div style="margin-bottom:12px;">
+    <div class="exercise-text"><b>② 那次我发完火之后，安静了好久。</b></div>
+    <div class="diary-blank-line">___________________________________________（한국어）</div>
+    <div class="diary-blank-line">___________________________________________（English）</div>
+  </div>
+  <div style="margin-bottom:12px;">
+    <div class="exercise-text"><b>③ 比起打电话，发消息更让我放松。</b></div>
+    <div class="diary-blank-line">___________________________________________（한국어）</div>
+    <div class="diary-blank-line">___________________________________________（English）</div>
+  </div>
+  <div style="margin-bottom:12px;">
+    <div class="exercise-text"><b>④ 话虽如此，你也别随处说别人的弱点。</b></div>
+    <div class="diary-blank-line">___________________________________________（한국어）</div>
+    <div class="diary-blank-line">___________________________________________（English）</div>
+  </div>
+  <div style="margin-bottom:12px;">
+    <div class="exercise-text"><b>⑤ 结婚之前，我想先去一次旅行。</b></div>
+    <div class="diary-blank-line">___________________________________________（한국어）</div>
+    <div class="diary-blank-line">___________________________________________（English）</div>
+  </div>
+
+  <hr style="margin:10px 0;">
+  <div class="answer-item">① 네가 날 좋아하는 거 알잖아요. 그게 내 약점이에요. / You know I like you. That's my weakness.</div>
+  <div class="answer-item">② 그렇게 화내고 나서 한동안은 조용했어요. / After that outburst, it was quiet for a while.</div>
+  <div class="answer-item">③ 전화보다 문자가 더 편해요. / Texting is more relaxing than calling for me.</div>
+  <div class="answer-item">④ 그렇다고 아무한테나 약점 얘기하지는 마요. / Even so, don't talk about other people's weaknesses to just anyone.</div>
+  <div class="answer-item">⑤ 결혼하기 전에 여행을 한 번 가고 싶어요. / Before getting married, I want to take a trip.</div>
+
+  <hr style="margin:10px 0;">
+  <div class="sec-title">🎤 口语挑战</div>
+  <div class="challenge-box">
+    <div class="grammar-note"><b>不看原文，自由发挥30秒：</b></div>
+    <div class="grammar-note" style="margin-top:4px;">用今天学的句型，聊聊"你的弱点是什么？爆发之后怎么恢复？在哪种场合你会特别注意自己的反应？"自由说一段话，不要求完美，把今天的表达用进去就算成功！</div>
+    <div style="margin-top:8px;font-size:10px;color:#8b7355;">
+      💡 可以用到：약점이 뭐냐고 물어보면…  / 그렇게 한 번 터뜨리고 나면… / 조심해야죠, 근데 / 그래서 지금은 좀 어때요 / 어떻게 됐어요
+    </div>
+  </div>
+  <div class="footer-num">场景日记 · 口语挑战</div>
+</div>
+
+</body>
+</html>

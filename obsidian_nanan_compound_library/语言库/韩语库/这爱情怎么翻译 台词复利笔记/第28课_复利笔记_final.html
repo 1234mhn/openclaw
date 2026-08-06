@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>E3-28 一眼看穿</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans:wght@400;700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', 'Noto Sans KR', 'Noto Sans', sans-serif; background: #ffffff; color: #333; }
+.page { width: 210mm; min-height: 297mm; padding: 14mm 16mm; background: #fff; margin: 0 auto; position: relative; page-break-before: always; }
+.page:first-of-type { page-break-before: avoid; }
+.cover { background: linear-gradient(145deg, #faf8f4, #f5f0e8, #ede6d8, #e8dfce); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.cover .lesson-number { font-size: 13px; color: #8b7355; letter-spacing: 2px; margin-bottom: 10px; }
+.cover h1 { font-size: 30px; color: #5c4a3a; margin-bottom: 18px; }
+.cover .subtitle { font-size: 16px; color: #8b7355; margin-top: 8px; }
+.cover .divider { width: 60px; height: 2px; background: #c4b998; margin: 15px auto; }
+.cover .desc { font-size: 13px; color: #8b7355; margin-top: 20px; line-height: 1.6; }
+.header-bar { display: flex; justify-content: space-between; font-size: 10px; color: #8b7355; border-bottom: 1px solid #e8dfce; padding-bottom: 4px; margin-bottom: 10px; }
+.header-left { font-weight: bold; }
+.lesson-tag { font-size: 10px; color: #8b7355; }
+.sec-title { font-size: 14px; color: #8b7355; font-weight: bold; margin: 6px 0 4px; }
+.sub-sec-title { font-size: 11px; font-weight: bold; color: #8b7355; margin: 6px 0 2px; }
+.kr-text { font-size: 14px; font-weight: bold; color: #1a1a1a; line-height: 1.6; }
+.zh-text { font-size: 13px; color: #555; line-height: 1.5; }
+.en-text { font-size: 11px; color: #999; font-style: italic; line-height: 1.4; }
+.tag-who { color: #2a6f97; font-weight: bold; }
+.tag-what { color: #2d6a4f; font-weight: bold; }
+.tag-do { color: #a53860; font-weight: bold; }
+.word-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; padding: 6px 0; }
+.word-item { font-size: 12px; line-height: 1.6; }
+.word-item .ko { font-weight: bold; }
+.word-item .zh { color: #555; margin-left: 4px; }
+.word-item .en { color: #999; font-size: 11px; font-style: italic; margin-left: 4px; }
+.scene-block { background: #f8f6f2; padding: 10px 12px; border-radius: 4px; margin: 8px 0; }
+table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+th { background: #c4b998; color: #fff; padding: 6px 10px; font-size: 12px; }
+td { padding: 6px 10px; border-bottom: 1px solid #e8dfce; font-size: 12px; }
+.audio-btn { color: #2a6f97; text-decoration: underline; cursor: pointer; font-size: 12px; display: inline-block; margin: 2px 0 0; }
+.footer-num { position: absolute; bottom: 10mm; right: 16mm; font-size: 9px; color: #c4b998; }
+.cover-kr { display: block; font-family: 'Noto Sans KR', sans-serif; font-size: 22px; color: #7a5e3e; margin-top: 6px; }
+.cover-svg-wrap { margin: 8px 0 15px; }
+.sentence-box { background: #f8f6f2; border-left: 4px solid #c4b998; padding: 10px 14px; margin-bottom: 8px; border-radius: 0 6px 6px 0; }
+.sentence-box .sent-kr { font-size: 14px; font-weight: bold; color: #1a1a1a; line-height: 1.6; }
+.sentence-box .sent-cn { font-size: 13px; color: #555; line-height: 1.5; }
+.sentence-box .sent-en { font-size: 11px; color: #999; font-style: italic; line-height: 1.4; }
+.detail-block { margin: 4px 0; }
+.grammar-note { font-size: 11px; color: #444; line-height: 1.6; }
+.analysis-tree { font-size: 10px; font-family: monospace; color: #555; line-height: 1.5; margin: 4px 0 4px 8px; background: #fafafa; border-left: 2px solid #e8dfce; padding: 4px 8px; }
+.exercise-text { font-size: 11px; color: #444; line-height: 1.6; margin: 4px 0; }
+.answer-ref { font-size: 10px; color: #999; margin-top: 2px; }
+.summary-line { padding: 1px 0; border-bottom: 1px solid #f0e8dd; font-size: 11px; line-height: 1.35; }
+.summary-line .num { display: inline; width: auto; color: #c4b998; font-weight: bold; margin-right: 2px; }
+.summary-line .kr { font-weight: bold; display: inline; margin-left: 0; }
+.summary-line .zh { color: #555; display: block; margin-left: 22px; font-size: 11px; }
+.summary-line .en { color: #999; font-style: italic; font-size: 10px; display: block; margin-left: 22px; }
+.page-num-right { position: absolute; top: 14mm; right: 16mm; font-size: 10px; color: #8b7355; }
+hr { border: none; border-top: 1px dashed #ddd; margin: 6px 0; }
+.answer-item { font-size: 10px; padding: 3px 6px; background: #f8f6f2; border-radius: 3px; border-left: 3px solid #7cb342; margin: 3px 0; line-height: 1.5; }
+.diary-blank-line { font-size: 11px; color: #999; letter-spacing: 1px; border-bottom: 1px solid #ccc; padding: 3px 0; margin: 2px 0; }
+.challenge-box { background: #f8f6f2; padding: 10px 12px; border-radius: 4px; margin: 8px 0; }
+.sf-card { background: #faf7f2; border-radius: 4px; padding: 8px 12px; margin: 5px 0; border: 1px solid #e8dfce; }
+.sf-card-title { font-size: 11px; font-weight: bold; color: #5c4a3a; margin-bottom: 5px; padding-bottom: 3px; border-bottom: 1px solid #e8dfce; }
+.sf-row { font-size: 11px; line-height: 1.7; display: flex; align-items: baseline; }
+.sf-label { min-width: 54px; color: #8b7355; flex-shrink: 0; font-size: 10px; }
+.sf-value { flex: 1; color: #444; }
+.sf-endings { font-size: 10px; color: #555; margin-top: 4px; display: flex; gap: 10px; flex-wrap: wrap; background: #f0ede8; padding: 3px 6px; border-radius: 3px; }
+.sf-link { font-size: 10px; color: #7a6a55; margin-top: 4px; font-style: italic; padding-top: 3px; border-top: 1px dashed #ddd; }
+/* Compact layout */
+.compact-page .sentence-box { padding: 8px 12px; margin-bottom: 6px; }
+.compact-page .sf-card { padding: 6px 10px; margin: 4px 0; }
+.compact-page .sf-card-title { margin-bottom: 4px; padding-bottom: 2px; }
+.compact-page .sf-row { line-height: 1.55; }
+.compact-page .sf-endings { margin-top: 3px; padding: 2px 5px; gap: 7px; }
+.compact-page .sf-link { margin-top: 3px; padding-top: 2px; }
+.compact-page .detail-block { margin: 3px 0; }
+.compact-page .sub-sec-title { margin: 4px 0 1px; }
+.compact-page .word-grid { padding: 4px 0; gap: 1px 13px; }
+.compact-page .grammar-note { line-height: 1.5; }
+.compact-page hr { margin: 4px 0; }
+.compact-page .exercise-text { margin: 3px 0; line-height: 1.52; }
+.compact-page .answer-ref { margin-top: 1px; }
+</style>
+</head>
+<body>
+
+<!-- ===== PAGE 1: COVER ===== -->
+<div class="page cover">
+  <div class="lesson-number">E3-28 · 韩语台词复利笔记</div>
+  <div class="divider"></div>
+  <h1>一眼看穿</h1>
+  <span class="cover-kr">당신을 다 알아버렸어요</span>
+  <div class="cover-svg-wrap">
+    <svg width="220" height="130" viewBox="0 0 220 130" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="bg28" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#f5f0e8"/>
+          <stop offset="100%" stop-color="#e0d4c0"/>
+        </linearGradient>
+        <filter id="soft"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <rect width="220" height="130" fill="url(#bg28)" rx="10"/>
+      <!-- 书桌/咖啡厅场景：分析报告、放大镜 -->
+      <!-- 放大镜 -->
+      <circle cx="90" cy="58" r="28" fill="none" stroke="#c4b998" stroke-width="3"/>
+      <circle cx="90" cy="58" r="24" fill="rgba(250,248,244,0.7)"/>
+      <line x1="109" y1="77" x2="128" y2="96" stroke="#c4b998" stroke-width="4" stroke-linecap="round"/>
+      <!-- 镜内：眼睛轮廓 -->
+      <ellipse cx="90" cy="58" rx="14" ry="7" fill="none" stroke="#7a6a55" stroke-width="1.5"/>
+      <circle cx="90" cy="58" r="4" fill="#5c4a3a"/>
+      <circle cx="91.5" cy="56.5" r="1.2" fill="#fff" opacity="0.7"/>
+      <!-- 左侧文件/报告纸 -->
+      <rect x="22" y="30" width="40" height="54" rx="3" fill="#fffdf8" stroke="#e0d4c0" stroke-width="1"/>
+      <line x1="29" y1="44" x2="55" y2="44" stroke="#c4b998" stroke-width="1"/>
+      <line x1="29" y1="51" x2="55" y2="51" stroke="#c4b998" stroke-width="1"/>
+      <line x1="29" y1="58" x2="50" y2="58" stroke="#c4b998" stroke-width="1"/>
+      <line x1="29" y1="65" x2="55" y2="65" stroke="#c4b998" stroke-width="1"/>
+      <line x1="29" y1="72" x2="48" y2="72" stroke="#c4b998" stroke-width="1"/>
+      <rect x="27" y="34" width="28" height="7" rx="1" fill="#e8dfce" opacity="0.6"/>
+      <!-- 右下：咖啡杯 -->
+      <ellipse cx="168" cy="94" rx="16" ry="5" fill="#e8dfce"/>
+      <path d="M152,75 Q152,94 168,94 Q184,94 184,75 Z" fill="none" stroke="#c4b998" stroke-width="1.5"/>
+      <rect x="153" y="75" width="30" height="20" rx="4" fill="#fffdf8" stroke="#c4b998" stroke-width="1.5"/>
+      <path d="M183,82 Q190,82 190,87 Q190,92 183,92" fill="none" stroke="#c4b998" stroke-width="1.5"/>
+      <!-- 蒸汽 -->
+      <path d="M162,72 Q160,67 162,62" fill="none" stroke="#c4b998" stroke-width="1" opacity="0.6"/>
+      <path d="M168,70 Q166,65 168,60" fill="none" stroke="#c4b998" stroke-width="1" opacity="0.6"/>
+      <path d="M174,72 Q172,67 174,62" fill="none" stroke="#c4b998" stroke-width="1" opacity="0.6"/>
+      <!-- 标注箭头 -->
+      <path d="M62,58 Q74,58 76,58" fill="none" stroke="#a53860" stroke-width="1.2" marker-end="url(#arr28)"/>
+      <defs><marker id="arr28" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#a53860"/></marker></defs>
+    </svg>
+  </div>
+  <div class="divider"></div>
+  <div class="subtitle">剖析对方底细 · 洞悉人心的对话艺术</div>
+  <div class="desc">
+    本课收录5句台词，围绕"一眼看穿对方性格"展开。<br>
+    掌握性格描述、引用语法、推测表达等核心句型。
+  </div>
+  <div class="divider" style="margin-top:25px;width:40px;"></div>
+  <div class="lesson-number" style="margin-top:10px;font-size:11px;">台词精讲 · 逐句应用 · 场景练习</div>
+</div>
+
+<!-- ===== PAGE 2: 台词汇总 ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第28课 · 一眼看穿</span>
+    <span>台词汇总</span>
+  </div>
+  <div class="sec-title">📝 本课台词 · 整段音频</div>
+  <a href="https://nannan2026.cn/korean/audio/L28_full.mp3" class="audio-btn" target="_blank">🔊 听整段录音（点击打开播放）</a>
+  <div style="margin-top:6px">
+    <div class="summary-line"><span class="num">①</span><span class="kr">차무희 씨 당신은 상당히 즉흥적이고 변덕스러운 사람입니다.</span><span class="zh">车茂熙先生，您是一个相当冲动又善变的人。</span><span class="en">Mr. Cha Mohee, you are quite an impulsive and capricious person.</span></div>
+    <div class="summary-line"><span class="num">②</span><span class="kr">방금 아라고 말을 내놓고 어라고 우기다가 오라고 말을 바꾸죠.</span><span class="zh">刚才说"去"，偏要犟着说"去"，现在又改口说"来"。</span><span class="en">Just now you said "go", stubbornly insisted, and now you've changed it to "come".</span></div>
+    <div class="summary-line"><span class="num">③</span><span class="kr">그런 당신을 불안하게 만드는 도라미까지 나선다면 지난번처럼 터질 겁니다. 분명히.</span><span class="zh">如果让您不安的多拉米也掺和进来，就会跟上回一样爆发。毫无疑问。</span><span class="en">If Dora-mi, who makes you anxious, gets involved, it'll blow up just like last time. No doubt.</span></div>
+    <div class="summary-line"><span class="num">④</span><span class="kr">그렇겠죠.</span><span class="zh">是吧。/应该是吧。</span><span class="en">I suppose so.</span></div>
+    <div class="summary-line"><span class="num">⑤</span><span class="kr">그럼 내 사정을 다 알고.</span><span class="zh">那你都知道我的处境了？</span><span class="en">So you know everything about my situation?</span></div>
+  </div>
+
+  <div style="margin-top:16px">
+    <div class="sub-sec-title" style="font-size:12px;margin-bottom:6px;">⭐ 重点句型速览</div>
+    <table>
+      <tr><th>句型</th><th>意思</th><th>本课例句</th></tr>
+      <tr><td>-고</td><td>连接"又…又…"</td><td>즉흥적이고 변덕스러운</td></tr>
+      <tr><td>-다고/라고 하다</td><td>间接引用"说……"</td><td>아라고 말을 내놓고</td></tr>
+      <tr><td>-처럼</td><td>像……一样</td><td>지난번처럼 터질 겁니다</td></tr>
+      <tr><td>-(으)ㄹ 겁니다</td><td>将来推测"会……"</td><td>터질 겁니다</td></tr>
+      <tr><td>-겠죠</td><td>推测+确认"应该…吧"</td><td>그렇겠죠</td></tr>
+      <tr><td>-고 (口语省略)</td><td>话未说完的余韵</td><td>다 알고.</td></tr>
+    </table>
+    <div class="sub-sec-title" style="font-size:12px;margin-bottom:4px;margin-top:10px;">核心词汇</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">즉흥적</span><span class="zh">— 即兴/冲动</span></div>
+      <div class="word-item"><span class="ko">변덕스럽다</span><span class="zh">— 善变</span></div>
+      <div class="word-item"><span class="ko">불안하다</span><span class="zh">— 不安</span></div>
+      <div class="word-item"><span class="ko">나서다</span><span class="zh">— 介入</span></div>
+      <div class="word-item"><span class="ko">터지다</span><span class="zh">— 爆发</span></div>
+      <div class="word-item"><span class="ko">사정</span><span class="zh">— 情况/处境</span></div>
+    </div>
+  </div>
+  <div class="footer-num">台词汇总</div>
+</div>
+
+<!-- ===== PAGE 3: 精讲+应用 ① ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第28课 · 一眼看穿</span>
+    <span class="lesson-tag">台词精讲 1/5</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">① 차무희 씨 당신은 상당히 즉흥적이고 변덕스러운 사람입니다.</div>
+    <div class="sent-cn">车茂熙先生，您是一个相当冲动又善变的人。</div>
+    <div class="sent-en">Mr. Cha Mohee, you are quite an impulsive and capricious person.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">修饰语：상당히 즉흥적이고 변덕스러운（修饰 사람）</div>
+      <div class="sf-row"><span class="sf-label">✍️ 干1</span><span class="sf-value"><span class="tag-do">즉흥적이다（是即兴的）</span> + -고 연결 변덕스럽다</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-고 / -는</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span>④变身 ✓</span></div>
+      <div class="sf-link">🔗 -고 连接两个形容词；변덕스러운 为 ④变身 修饰名词 사람</div>
+    </div>
+    <div class="sf-card">
+      <div class="sf-card-title">主句：당신은 사람입니다</div>
+      <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value"><span class="tag-who">당신은（您）</span></span></div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">사람（人）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">이다（是）</span></span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-ㅂ니다</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L28_S01.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">상당히</span><span class="zh">— 相当</span><span class="en">quite, considerably</span></div>
+      <div class="word-item"><span class="ko">즉흥적</span><span class="zh">— 即兴的/冲动的</span><span class="en">impulsive</span></div>
+      <div class="word-item"><span class="ko">변덕스럽다</span><span class="zh">— 善变</span><span class="en">capricious</span></div>
+      <div class="word-item"><span class="ko">사람</span><span class="zh">— 人</span><span class="en">person</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">변덕스러운 사람 — 善变的人 · 즉흥적인 사람 — 即兴/冲动的人</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-고 — "又……又……"（连接两个形容词）</div>
+    <div class="grammar-note">讲解：形容词/动词词干 + -고，连接两个并列属性，相当于"既……又……"或"而且"。</div>
+    <div class="grammar-note">예) 그 사람은 착하고 똑똑해요.（那个人善良又聪明。）</div>
+    <div class="grammar-note">예) 음식이 맛있고 양도 많아요.（食物又好吃量又多。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">즉흥적[즈킁적] — ㅎ+ㄱ→ㅋ 激音化 · 변덕스러운[변덕쓰러운] — ㄱ+ㅅ→[ㄱ쓰] 紧音化</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:12px;">① 차무희 씨 당신은 상당히 즉흥적이고 변덕스러운 사람입니다.</div>
+    <div class="sent-cn" style="font-size:11px;">车茂熙先生，您是一个相当冲动又善变的人。</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '즉흥적이고 변덕스러운(冲动又善变)' 换成 '성실하고 착한(勤奋又善良)' 重新描述<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：당신은 상당히 성실하고 착한 사람입니다.（您是个相当勤奋又善良的人。）</span></div>
+  <div class="exercise-text" style="margin-top:4px;"><b>✍️ 仿写改写</b><br>用 -고 描述一个你认识的人的两个特点<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考答案：우리 언니는 재미있고 배려심이 많아요.（我姐姐既有趣又体贴。）</span></div>
+  <div class="exercise-text" style="margin-top:4px;"><b>❓ 提问 / Q&A</b><br>Q: 그 사람 어떤 사람이에요?（那个人是什么样的人？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考答案：상당히 즉흥적이고 변덕스러운 사람이에요.（是个相当冲动又善变的人。）</span></div>
+  <div class="footer-num">台词精讲 1/5</div>
+</div>
+
+<!-- ===== PAGE 4: 精讲+应用 ② ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第28课 · 一眼看穿</span>
+    <span class="lesson-tag">台词精讲 2/5</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">② 방금 아라고 말을 내놓고 어라고 우기다가 오라고 말을 바꾸죠.</div>
+    <div class="sent-cn">刚才说"去"，偏要犟着说"去"，现在又改口说"来"。</div>
+    <div class="sent-en">Just now you said "go", stubbornly insisted, and now you've changed it to "come".</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">短句1：방금 아라고 말을 내놓고</div>
+      <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">방금（刚才）</span></div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">아라고（说"去"）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">말을 내놓다（把话说出来）</span></span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-고</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+    </div>
+    <div class="sf-card">
+      <div class="sf-card-title">短句2：어라고 우기다가</div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">어라고（犟着说"去"）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">우기다（固执坚持）</span></span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-다가</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+    </div>
+    <div class="sf-card">
+      <div class="sf-card-title">短句3：오라고 말을 바꾸죠</div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">오라고（说"来"）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">말을 바꾸다（改口）</span></span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-죠</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L28_S02.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">방금</span><span class="zh">— 刚才</span><span class="en">just now</span></div>
+      <div class="word-item"><span class="ko">내놓다</span><span class="zh">— 说出/提出</span><span class="en">put forward</span></div>
+      <div class="word-item"><span class="ko">우기다</span><span class="zh">— 固执/强辩</span><span class="en">insist stubbornly</span></div>
+      <div class="word-item"><span class="ko">바꾸다</span><span class="zh">— 改变/更换</span><span class="en">change</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">말을 내놓다 — 把话说出来 · 말을 바꾸다 — 改口/改变说法</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-라고 하다 — 命令引用"让……"</div>
+    <div class="grammar-note">讲解：动词词干 + -라고 하다，引用命令内容，相当于"说让……"。아라고=가라고（让去），오라고（让来）。</div>
+    <div class="grammar-note">예) 빨리 오라고 했어요.（他说让你快来。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">내놓고[내노코] — ㅎ+ㄱ→ㅋ 激音化 · 바꾸죠[바꾸죠] — 无特殊音变</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:12px;">② 방금 아라고 말을 내놓고 어라고 우기다가 오라고 말을 바꾸죠.</div>
+    <div class="sent-cn" style="font-size:11px;">刚才说"去"，偏要犟着说"去"，现在又改口说"来"。</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '오라고(让来)' 换成 '가라고(让去)' 重新说末句<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考：가라고 말을 바꾸죠.（又改口说"去"。）</span></div>
+  <div class="exercise-text" style="margin-top:4px;"><b>✍️ 仿写改写</b><br>用 -라고 하다 写一句引用别人命令的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考：엄마가 밥 먹으라고 했어요.（妈妈说让吃饭。）</span></div>
+  <div class="exercise-text" style="margin-top:4px;"><b>❓ Q&A</b><br>Q: 왜 즉흥적이라고 생각해요?（为什么认为他冲动？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考：아라고 했다가 오라고 바꿨거든요.（说让去又改口让来了。）</span></div>
+  <div class="footer-num">台词精讲 2/5</div>
+</div>
+
+<!-- ===== PAGE 5: 精讲+应用 ③ ===== -->
+<div class="page compact-page">
+  <div class="header-bar">
+    <span class="header-left">第28课 · 一眼看穿</span>
+    <span class="lesson-tag">台词精讲 3/5</span>
+  </div>
+  <div class="sentence-box">
+    <div class="sent-kr">③ 그런 당신을 불안하게 만드는 도라미까지 나선다면 지난번처럼 터질 겁니다. 분명히.</div>
+    <div class="sent-cn">如果让您不安的多拉米也掺和进来，就会跟上回一样爆发。毫无疑问。</div>
+    <div class="sent-en">If Dora-mi, who makes you anxious, gets involved, it'll blow up just like last time. No doubt.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">定语修饰：그런 당신을 불안하게 만드는（修饰 도라미）</div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">당신을（您）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">불안하게 만들다（使不安）</span></span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-는</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span><s>②接口 —</s></span><span><s>③收尾 —</s></span><span>④变身 ✓</span></div>
+      <div class="sf-link">🔗 -는 定语形，修饰后面名词 도라미</div>
+    </div>
+    <div class="sf-card">
+      <div class="sf-card-title">条件+结果：도라미까지 나선다면 → 지난번처럼 터질 겁니다</div>
+      <div class="sf-row"><span class="sf-label">👤 谁</span><span class="sf-value"><span class="tag-who">도라미까지（连多拉米也）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干1</span><span class="sf-value"><span class="tag-do">나서다（介入）</span> + -ㄴ다면（如果）</span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干2</span><span class="sf-value"><span class="tag-do">터지다（爆发）</span></span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-ㄴ다면 / -(으)ㄹ 겁니다</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L28_S03.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">불안하다</span><span class="zh">— 不安/焦虑</span><span class="en">anxious</span></div>
+      <div class="word-item"><span class="ko">나서다</span><span class="zh">— 介入/出面</span><span class="en">step in</span></div>
+      <div class="word-item"><span class="ko">지난번</span><span class="zh">— 上次</span><span class="en">last time</span></div>
+      <div class="word-item"><span class="ko">터지다</span><span class="zh">— 爆发/炸开</span><span class="en">blow up</span></div>
+      <div class="word-item"><span class="ko">분명히</span><span class="zh">— 明确地/毫无疑问</span><span class="en">clearly, no doubt</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">💬 短语</div>
+    <div class="grammar-note">불안하게 만들다 — 使某人不安 · 지난번처럼 하다 — 像上次那样做</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-처럼 — "像……一样"</div>
+    <div class="grammar-note">讲解：名词 + 처럼，表示"和……一样"或"像……一样"。</div>
+    <div class="grammar-note">예) 지난번처럼 하면 안 돼요.（不能像上次那样做。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-(으)ㄹ 겁니다 — "会……的"（将来推测）</div>
+    <div class="grammar-note">讲解：动词 + -(으)ㄹ 겁니다，表示将来或推测，相当于"会……的"。</div>
+    <div class="grammar-note">예) 곧 끝날 겁니다.（很快就会结束。）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">터질[터질] — 无特殊 · 분명히[분명이] — ㅎ弱化（ㅎ후음弱化连读）</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用</div>
+  <div class="sentence-box" style="margin:4px 0;padding:6px 12px;">
+    <div class="sent-kr" style="font-size:11px;">③ 그런 당신을 불안하게 만드는 도라미까지 나선다면 지난번처럼 터질 겁니다. 분명히.</div>
+    <div class="sent-cn" style="font-size:11px;">如果让您不安的多拉米也掺和进来，就会跟上回一样爆发。</div>
+  </div>
+  <div class="exercise-text"><b>🔄 换词练习</b><br>把 '지난번처럼(像上次)' 换成 '전처럼(像从前)' 重新说<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考：전처럼 터질 겁니다.（会像从前一样爆发。）</span></div>
+  <div class="exercise-text" style="margin-top:4px;"><b>✍️ 仿写改写</b><br>用 -처럼 写一句比较的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考：오늘도 어제처럼 열심히 할 겁니다.（今天也会像昨天一样努力。）</span></div>
+  <div class="exercise-text" style="margin-top:4px;"><b>❓ Q&A</b><br>Q: 도라미가 오면 어떻게 될 것 같아요?（多拉米来了会怎样？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考：지난번처럼 터질 겁니다, 분명히.（肯定跟上次一样爆发。）</span></div>
+  <div class="footer-num">台词精讲 3/5</div>
+</div>
+
+<!-- ===== PAGE 6: 精讲+应用 ④⑤（合并，两句均很短） ===== -->
+<div class="page compact-page" style="padding-top:11mm;padding-bottom:11mm;">
+  <div class="header-bar">
+    <span class="header-left">第28课 · 一眼看穿</span>
+    <span class="lesson-tag">台词精讲 4/5 · 5/5</span>
+  </div>
+
+  <!-- 句④ -->
+  <div class="sentence-box">
+    <div class="sent-kr">④ 그렇겠죠.</div>
+    <div class="sent-cn">是吧。/应该是吧。</div>
+    <div class="sent-en">I suppose so.</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">④ 그렇겠죠.</div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">그렇다（那样/是的）</span> ← 원형</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-겠죠（-겠- 推测 + -죠 确认）</span></div>
+      <div class="sf-endings"><span>①加料 ✓</span><span><s>②接口 —</s></span><span>③收尾 ✓</span><span><s>④变身 —</s></span></div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L28_S04.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：-겠죠 — "应该……吧"（推测+确认）</div>
+    <div class="grammar-note">讲解：-겠-（推测）+ -죠（确认），合用表示"应该……吧"，带有向对方确认的语气。</div>
+    <div class="grammar-note">예) 힘들겠죠?（应该很累吧？）</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🎵 音变现象</div>
+    <div class="grammar-note">그렇겠죠[그러켔죠] — ㅎ+ㄱ→ㅋ 激音化</div>
+  </div>
+
+  <hr style="margin:8px 0;">
+
+  <!-- 句⑤ -->
+  <div class="sentence-box">
+    <div class="sent-kr">⑤ 그럼 내 사정을 다 알고.</div>
+    <div class="sent-cn">那你都知道我的处境了？</div>
+    <div class="sent-en">So you know everything about my situation?</div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">📐 句子框架</div>
+    <div class="sf-card">
+      <div class="sf-card-title">⑤ 그럼 내 사정을 다 알고.</div>
+      <div class="sf-row"><span class="sf-label">🗺️ 背景</span><span class="sf-value">그럼（那么，承接上文）</span></div>
+      <div class="sf-row"><span class="sf-label">📦 什么</span><span class="sf-value"><span class="tag-what">내 사정을（我的情况）</span></span></div>
+      <div class="sf-row"><span class="sf-label">✍️ 干</span><span class="sf-value"><span class="tag-do">알다（知道）</span> ← 원형</span></div>
+      <div class="sf-row"><span class="sf-label">🔧 词尾</span><span class="sf-value">-고（句尾省略）</span></div>
+      <div class="sf-endings"><span><s>①加料 —</s></span><span>②接口 ✓</span><span><s>③收尾 —</s></span><span><s>④变身 —</s></span></div>
+      <div class="sf-link">-고 后省略了内容，口语中表达"那……了？"的余韵感</div>
+    </div>
+  </div>
+  <a href="https://nannan2026.cn/korean/audio/L28_S05.mp3" class="audio-btn" target="_blank">🔊 听这句录音（点击打开播放）</a>
+  <div class="detail-block">
+    <div class="sub-sec-title">📍 单词</div>
+    <div class="word-grid">
+      <div class="word-item"><span class="ko">그럼</span><span class="zh">— 那么</span><span class="en">then</span></div>
+      <div class="word-item"><span class="ko">사정</span><span class="zh">— 情况/处境</span><span class="en">situation</span></div>
+      <div class="word-item"><span class="ko">다</span><span class="zh">— 全/都</span><span class="en">all</span></div>
+      <div class="word-item"><span class="ko">알다</span><span class="zh">— 知道</span><span class="en">to know</span></div>
+    </div>
+  </div>
+  <div class="detail-block">
+    <div class="sub-sec-title">🔧 句型/接口：句尾 -고 省略 — 口语未完句</div>
+    <div class="grammar-note">讲解：口语中句子以 -고 结尾后续省略，表达"那……了？"的余韵，带轻微质疑感。</div>
+    <div class="grammar-note">예) 내 사정을 잘 알잖아요.（你不是清楚我的情况嘛。）</div>
+  </div>
+  <hr>
+  <div class="sub-sec-title" style="font-size:12px;">📎 应用（④⑤）</div>
+  <div class="exercise-text"><b>🔄 换词 (④)</b><br>把 '그렇겠죠' 换成 '힘들겠죠(应该很累吧)' 重说<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考：힘들겠죠.（应该很累吧。）</span></div>
+  <div class="exercise-text" style="margin-top:4px;"><b>✍️ 仿写 (⑤)</b><br>用句尾-고省略写一句追问的话<br>→ <span style="border-bottom:1px solid #999;display:inline-block;min-width:200px;">&nbsp;</span><br><span class="answer-ref">参考：그럼 다 알고.（那就是都知道了……）</span></div>
+  <div class="exercise-text" style="margin-top:4px;"><b>❓ Q&A</b><br>Q: 제가 힘들다는 거 알아요?（你知道我很辛苦吗？）<br>A: <span style="border-bottom:1px solid #999;display:inline-block;min-width:180px;">&nbsp;</span><br><span class="answer-ref">参考：그렇겠죠. 그럼 내 사정을 다 알고.（应该是吧，都知道我的处境了？）</span></div>
+  <div class="footer-num">台词精讲 4/5 · 5/5</div>
+</div>
+
+<!-- ===== PAGE 7: 重点句型 + 重点单词（同页）===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第28课 · 一眼看穿</span>
+    <span>重点句型 · 重点单词</span>
+  </div>
+  <div class="sec-title">⭐ 重点句型</div>
+  <table>
+    <tr><th>句型</th><th>意思</th><th>本课例句</th></tr>
+    <tr><td>-고</td><td>连接"又…又…"</td><td>즉흥적이고 변덕스러운 사람입니다</td></tr>
+    <tr><td>-다고 하다</td><td>间接引用陈述"说……"</td><td>아라고 말을 내놓고</td></tr>
+    <tr><td>-라고 하다</td><td>命令引用"让……"</td><td>오라고 말을 바꾸죠</td></tr>
+    <tr><td>-처럼</td><td>像……一样</td><td>지난번처럼 터질 겁니다</td></tr>
+    <tr><td>-(으)ㄹ 겁니다</td><td>将来推测"会……的"</td><td>터질 겁니다</td></tr>
+    <tr><td>-겠죠</td><td>推测+确认"应该……吧"</td><td>그렇겠죠</td></tr>
+    <tr><td>句尾 -고 省略</td><td>口语余韵"那……了？"</td><td>내 사정을 다 알고.</td></tr>
+  </table>
+  <div class="sec-title" style="margin-top:14px;">📚 重点单词</div>
+  <table>
+    <tr><th>单词</th><th>意思</th><th>联想记忆</th></tr>
+    <tr><td>상당히</td><td>相当/十分</td><td>搭配：상당히 많다（相当多）· 상당히 크다（相当大）</td></tr>
+    <tr><td>변덕스럽다</td><td>善变/反复无常</td><td>↔ 한결같다（始终如一）· 변덕쟁이（善变的人）</td></tr>
+    <tr><td>불안하다</td><td>不安/焦虑</td><td>↔ 안정되다（稳定）· 불안감（불안+감=不安感）</td></tr>
+    <tr><td>나서다</td><td>出面/介入</td><td>나오다（出来）+서다（站）→ 主动站出来</td></tr>
+    <tr><td>터지다</td><td>爆发/炸开</td><td>풍선이 터지다（气球爆了）· 화가 터지다（怒火爆发）</td></tr>
+    <tr><td>분명히</td><td>毫无疑问/明确地</td><td>분명하다（明确）→ 副词 분명히（明确地）</td></tr>
+  </table>
+  <div class="footer-num">重点回顾</div>
+</div>
+
+<!-- ===== PAGE 8: 场景练习包 — 场景迁移 ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第28课 · 一眼看穿</span>
+    <span>🎬 场景练习包</span>
+  </div>
+  <div class="sec-title">🗣️ 场景迁移 · 对话剧场</div>
+
+  <div class="scene-block" style="margin-bottom:8px;">
+    <div style="font-size:11px;color:#8b7355;font-weight:bold;margin-bottom:5px;">场景① · 朋友直言点破对方的矛盾行为</div>
+    <div style="margin:2px 0;">
+      <div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">오늘 오겠다고 했다가 내일로 미루더니 이제 모레라고 바꾸죠?</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">今天说来，推到明天，现在又改成后天了吧？</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">You said you'd come today, then pushed it to tomorrow, and now you're changing it to the day after?</div>
+    </div>
+    <div style="margin:2px 0;">
+      <div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">그렇겠죠... 미안해요.</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">应该是吧……对不起。</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">I suppose so... I'm sorry.</div>
+    </div>
+    <div style="margin:2px 0;">
+      <div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">솔직히 상당히 즉흥적이고 변덕스러운 사람입니다.</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">说实话，你是个相当冲动又善变的人。</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Honestly, you are quite an impulsive and capricious person.</div>
+    </div>
+    <div style="margin:2px 0;">
+      <div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">그럼 내 사정을 다 알고.</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">那你都知道我的处境了？</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">So you know everything about my situation?</div>
+    </div>
+    <div style="margin:2px 0;">
+      <div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">어느 정도는요. 이러다 지난번처럼 터질 겁니다. 분명히.</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">了解一些。这样下去肯定会像上次一样爆发。</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">To some extent. At this rate, it'll blow up just like last time. No doubt.</div>
+    </div>
+  </div>
+
+  <div class="scene-block">
+    <div style="font-size:11px;color:#8b7355;font-weight:bold;margin-bottom:5px;">场景② · 推心置腹：被看穿之后坦诚交流</div>
+    <div style="margin:2px 0;">
+      <div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">그 사람이 당신을 불안하게 만드는 거 알아요.</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">我知道那个人让你感到不安。</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">I know that person makes you anxious.</div>
+    </div>
+    <div style="margin:2px 0;">
+      <div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">그렇겠죠. 그럼 내 사정을 다 알고?</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">应该是吧。那你都知道我的处境了？</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">I suppose so. So you know everything about my situation?</div>
+    </div>
+    <div style="margin:2px 0;">
+      <div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">다는 아니지만, 분명히 많이 힘들겠죠.</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">不是全都知道，但你肯定很辛苦吧。</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Not everything, but it must be really hard for you, no doubt.</div>
+    </div>
+    <div style="margin:2px 0;">
+      <div style="font-size:11px;color:#3a7a4f;font-weight:bold;">🥝 B：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">그 사람 나선다면 지난번처럼 될 것 같아서요.</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">如果那个人介入，感觉会跟上次一样。</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">If that person gets involved, I feel it'll be like last time.</div>
+    </div>
+    <div style="margin:2px 0;">
+      <div style="font-size:11px;color:#c4873a;font-weight:bold;">🍊 A：</div>
+      <div style="font-size:12.5px;font-weight:bold;margin-left:14px;line-height:1.42;">맞아요. 그러니까 미리 말해줘서 고마워요.</div>
+      <div style="font-size:11.5px;color:#555;margin-left:14px;line-height:1.32;">没错。所以谢谢你提前告诉我。</div>
+      <div style="font-size:10.5px;color:#999;font-style:italic;margin-left:14px;line-height:1.25;">Exactly. So thank you for telling me in advance.</div>
+    </div>
+  </div>
+  <div class="footer-num">场景练习包 1/2</div>
+</div>
+
+<!-- ===== PAGE 9: 场景日记 + 口语挑战 ===== -->
+<div class="page">
+  <div class="header-bar">
+    <span class="header-left">第28课 · 一眼看穿</span>
+    <span>📝 场景日记</span>
+  </div>
+  <div class="sec-title">📝 场景日记 · 用今天的句型写下来</div>
+  <div style="font-size:11px;color:#8b7355;margin-bottom:10px;">每句中文提示下面写两行：第一行韩语，第二行英语</div>
+
+  <div style="margin:8px 0;">
+    <div style="font-size:12px;font-weight:bold;">① 那个人是个相当冲动又善变的人。</div>
+    <div class="diary-blank-line">________________（한국어）</div>
+    <div class="diary-blank-line">________________（English）</div>
+  </div>
+  <div style="margin:8px 0;">
+    <div style="font-size:12px;font-weight:bold;">② 他刚才让我去，现在又改口让我来。</div>
+    <div class="diary-blank-line">________________（한국어）</div>
+    <div class="diary-blank-line">________________（English）</div>
+  </div>
+  <div style="margin:8px 0;">
+    <div style="font-size:12px;font-weight:bold;">③ 如果那个人也介入，肯定会像上次一样爆发。</div>
+    <div class="diary-blank-line">________________（한국어）</div>
+    <div class="diary-blank-line">________________（English）</div>
+  </div>
+  <div style="margin:8px 0;">
+    <div style="font-size:12px;font-weight:bold;">④ 被一眼看穿后，他只能承认："应该是吧。"</div>
+    <div class="diary-blank-line">________________（한국어）</div>
+    <div class="diary-blank-line">________________（English）</div>
+  </div>
+  <div style="margin:8px 0;">
+    <div style="font-size:12px;font-weight:bold;">⑤ 那你都知道我的处境了？</div>
+    <div class="diary-blank-line">________________（한국어）</div>
+    <div class="diary-blank-line">________________（English）</div>
+  </div>
+
+  <div style="margin-top:16px;padding:8px 12px;background:#f8f6f2;border-radius:4px;border-left:3px solid #c4b998;">
+    <div style="font-size:10px;color:#8b7355;font-weight:bold;margin-bottom:4px;">参考答案</div>
+    <div class="answer-item">① 그 사람은 상당히 즉흥적이고 변덕스러운 사람이에요. / That person is quite an impulsive and capricious person.</div>
+    <div class="answer-item">② 방금 가라고 했다가 오라고 말을 바꿨어요. / Just now (he) said "go" and then changed it to "come".</div>
+    <div class="answer-item">③ 그 사람까지 나선다면 지난번처럼 터질 겁니다, 분명히. / If that person also gets involved, it'll blow up just like last time, no doubt.</div>
+    <div class="answer-item">④ 꿰뚫려서 그렇겠죠 라고만 했어요. / After being seen through, he could only say "I suppose so."</div>
+    <div class="answer-item">⑤ 그럼 내 사정을 다 알고. / So you know everything about my situation?</div>
+  </div>
+
+  <div class="sec-title" style="margin-top:14px;">🎤 口语挑战</div>
+  <div class="challenge-box">
+    <div style="font-size:12px;color:#555;line-height:1.8;">
+      不看原文，用今天学的句型说一段30秒的话（自由发挥）<br>
+      <span style="font-size:11px;color:#8b7355;">提示：描述一个人 → 指出他的矛盾行为 → 预测后果 → 对方承认</span><br><br>
+      可以用到的句型：<br>
+      · -이고 -ㄴ 사람입니다 — 是个…又…的人<br>
+      · -다고/라고 말을 바꾸죠 — 改口说……<br>
+      · -처럼 터질 겁니다 — 会像……一样爆发<br>
+      · 그렇겠죠 — 应该是吧<br>
+      · 그럼 내 사정을 다 알고 — 那你都知道我的处境了
+    </div>
+  </div>
+  <div class="footer-num">场景练习包 2/2</div>
+</div>
+
+</body>
+</html>
